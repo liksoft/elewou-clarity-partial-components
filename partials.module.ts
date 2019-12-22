@@ -6,8 +6,6 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubnavComponent } from './subnav/subnav.component';
-import { AdminManagementSidebarComponent } from './admin-management-sidebar/admin-management-sidebar.component';
-import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-default-sidebar.component';
 import { ModuleService } from './application-modules/module.service';
 import { ApplicationModulesComponent } from './application-modules/application-modules.component';
 
@@ -18,8 +16,6 @@ import { ApplicationModulesComponent } from './application-modules/application-m
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    AdminManagementSidebarComponent,
-    AdminDefaultSidebarComponent,
     ApplicationModulesComponent,
   ],
   declarations: [
@@ -27,8 +23,6 @@ import { ApplicationModulesComponent } from './application-modules/application-m
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    AdminManagementSidebarComponent,
-    AdminDefaultSidebarComponent,
     ApplicationModulesComponent
   ],
   providers: [ModuleService]

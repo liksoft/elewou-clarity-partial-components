@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collection } from 'src/app/lib/domain/utils/collection';
 import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem, AppRoutes } from '../../routes-definitions';
-import { AppUIStoreManager } from '../../app-ui-store-manager.service';
-import { AbstractAlertableComponent } from '../../component-interfaces';
 import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { User } from 'src/app/lib/domain/auth/models/user';
 import { AuthPathConfig, AuthService } from 'src/app/lib/domain/auth/core';
 import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/lib/domain/translator';
+import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
+import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 
 @Component({
   selector: 'app-app-top-bar',

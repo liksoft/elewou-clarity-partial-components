@@ -25,8 +25,8 @@ import { Role } from 'src/app/lib/domain/auth/models/role';
 import { FormService } from '../../../domain/components/dynamic-inputs/core/form-control/form.service';
 import { environment } from '../../../../../environments/environment';
 import { IDynamicForm } from 'src/app/lib/domain/components/dynamic-inputs/core';
-import { DynamicFormHelpers } from '../../component-reactive-form-helpers';
 import { TranslationService } from 'src/app/lib/domain/translator';
+import { DynamicFormHelpers } from 'src/app/lib/domain/helpers/component-reactive-form-helpers';
 
 class ModulesDataSource implements IDataSourceService<ISource<Module>> {
 
