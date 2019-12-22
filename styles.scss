@@ -1,0 +1,171 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/mixins/typography";
+@import "assets/mixins/colors";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "./assets/css/app-dropzone.css";
+@import "./assets/css/content-overlay.css";
+@import "./assets/css/clr-modal.css";
+.card {
+    box-shadow: none;
+}
+
+.divider {
+    border: 1px solid #ddd;
+    margin: 15px 0px;
+}
+
+.table td,
+.table th {
+    @include align-left;
+}
+
+.table td,
+.datagrid-cell {
+    span {
+        display: inline-flex;
+        &.role-delete {
+            float: right;
+        }
+    }
+}
+
+.page-title {
+    @include align-center;
+    h1 {
+        @include color-blue;
+    }
+}
+
+// .button-container {
+//     margin-top: 3em;
+// }
+.button-container {
+    margin-top: 1em;
+    margin-bottom: 1rem;
+}
+
+.clr-row {
+    .clr-control-container {
+        width: 100%;
+        input,
+        textarea,
+        select {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+
+
+/* Header and content styles definitions */
+
+
+/* header */
+
+.header.header-6,
+header.header-6 {
+    background-color: #08375C;
+}
+
+
+/* Header Search */
+
+.header .search label::before,
+.header .search-box label::before,
+header .search label::before,
+header .search-box label::before {
+    margin-right: 10px;
+}
+
+.header .branding .title,
+header .branding .title {
+    color: #0076b8;
+}
+
+.main-container .content-area {
+    padding: 0;
+    // Updated the size of the container a little bit
+    // max-width: 960px;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.main-container .page-title {
+    margin: 0;
+}
+
+// Makes the overlay have no padding
+.loader-overlay {
+    top: -12px !important
+}
+
+.top-24 {
+    margin-top: 24px !important;
+}
+
+.top-32 {
+    margin-top: 32px !important;
+}
+
+.section-title {
+    background: #eaeaea;
+    padding: 8px;
+}
+
+// div.sortable {
+//     display: flex;
+//     flex-wrap: wrap;
+// }
+div.sortable div.dragging {
+    border: 5px solid rgb(12, 33, 73);
+}
+
+.card .card {
+    border: none;
+}
+
+.nav-group.collapsible {
+    .clr-tree-node-content-container .clr-treenode-content {
+        padding: 0 5px 5px;
+        border-bottom: 1px solid #ececec;
+    }
+    .clr-treenode-children {
+        margin: 0;
+    }
+    button.clr-treenode-caret {
+        background: #efefef;
+    }
+    a.clr-treenode-link {
+        padding-left: 34px;
+    }
+}
+
+
+/* Fix for date component*/
+
+.clr-form-control .clr-form-control {
+    margin-top: 0;
+}
+
+.fix-width {
+    width: 75%;
+}
+
+
+/** Forms **/
+
+.clr-subtext {
+    color: #a2a2a2;
+}
+
+span.ng-value-label {
+    font-size: 11px;
+}
+
+
+/** Put Validation error icon at the left **/
+
+.clr-validate-icon {
+    float: left;
+}
