@@ -6,9 +6,9 @@ import { AbstractAlertableComponent } from '../../component-interfaces';
 import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { User } from 'src/app/lib/domain/auth/models/user';
 import { AuthPathConfig, AuthService } from 'src/app/lib/domain/auth/core';
-import { TranslatorService } from 'src/app/lib/application/services/translator';
 import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { Router } from '@angular/router';
+import { TranslationService } from 'src/app/lib/domain/translator';
 
 @Component({
   selector: 'app-app-top-bar',
@@ -29,7 +29,7 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   constructor(
     public appUIStoreManager: AppUIStoreManager,
     private auth: AuthService,
-    private translator: TranslatorService,
+    private translator: TranslationService,
     private dialog: Dialog,
     private router: Router
   ) {

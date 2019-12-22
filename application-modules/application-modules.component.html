@@ -1,1 +1,10 @@
-<p>application-modules works!</p>
+<clr-dropdown>
+    <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+    <clr-icon shape="applications"></clr-icon>
+  </button>
+    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <ng-container *ngIf="modules && modules.length > 0">
+            <a *ngFor="let item of modules" [href]="item.url" clrDropdownItem>{{ item.name }}</a>
+        </ng-container>
+    </clr-dropdown-menu>
+</clr-dropdown>

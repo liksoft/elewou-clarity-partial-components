@@ -7,6 +7,9 @@ import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubnavComponent } from './subnav/subnav.component';
 import { AdminManagementSidebarComponent } from './admin-management-sidebar/admin-management-sidebar.component';
+import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-default-sidebar.component';
+import { ModuleService } from './application-modules/module.service';
+import { ApplicationModulesComponent } from './application-modules/application-modules.component';
 
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule],
@@ -16,6 +19,8 @@ import { AdminManagementSidebarComponent } from './admin-management-sidebar/admi
     SidebarComponent,
     SubnavComponent,
     AdminManagementSidebarComponent,
+    AdminDefaultSidebarComponent,
+    ApplicationModulesComponent,
   ],
   declarations: [
     AppTopBarComponent,
@@ -23,7 +28,9 @@ import { AdminManagementSidebarComponent } from './admin-management-sidebar/admi
     SidebarComponent,
     SubnavComponent,
     AdminManagementSidebarComponent,
+    AdminDefaultSidebarComponent,
+    ApplicationModulesComponent
   ],
-  providers: []
+  providers: [ModuleService]
 })
 export class PartialsModule { }

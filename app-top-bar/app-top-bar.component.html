@@ -32,16 +32,7 @@
                 <a (click)="actionLogout($event)" clrDropdownItem>Se Déconnecter</a>
             </clr-dropdown-menu>
         </clr-dropdown>
-
-        <clr-dropdown>
-            <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
-        <clr-icon shape="applications"></clr-icon>
-      </button>
-            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                <a href="..." clrDropdownItem>Retraite complémentaire</a>
-                <a href="..." clrDropdownItem>Travailleurs indépendants</a>
-                <a href="..." clrDropdownItem>Comptes cotisants</a>
-            </clr-dropdown-menu>
-        </clr-dropdown>
+        <!-- Add modules loader -->
+        <app-application-modules></app-application-modules>
     </div>
 </clr-header>
