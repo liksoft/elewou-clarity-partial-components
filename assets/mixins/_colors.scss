@@ -11,6 +11,7 @@ $colors: (
   }
 }
 
+<<<<<<< HEAD
 /** Blue Styles */
 @mixin color-blue{
   color: map-get($colors, "blue");
@@ -45,3 +46,9 @@ $colors: (
     @include color-blue();
   }
 }
+=======
+
+@mixin color-blue{
+  color: map-get($colors, "blue");
+}
+>>>>>>> baf7154... Integrated styles and mixings
