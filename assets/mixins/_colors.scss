@@ -11,7 +11,37 @@ $colors: (
   }
 }
 
-
+/** Blue Styles */
 @mixin color-blue{
   color: map-get($colors, "blue");
+}
+
+@mixin background-blue{
+  background-color: map-get($colors, "blue");
+}
+
+@mixin border-blue{
+  border-color: map-get($colors, "blue");
+}
+/** Yellow Styles */
+@mixin color-yellow{
+  color: map-get($colors, "yellow");
+}
+
+@mixin background-yellow{
+  background-color: map-get($colors, "yellow");
+}
+
+@mixin border-yellow{
+  border-color: map-get($colors, "yellow");
+}
+@mixin outline-yellow{
+  color: map-get($colors, "yellow");
+  background: white;
+  border-color: map-get($colors, "yellow");
+
+  &:hover{
+    @include background-yellow();
+    @include color-blue();
+  }
 }

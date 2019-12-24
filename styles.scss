@@ -169,3 +169,22 @@ span.ng-value-label {
 .clr-validate-icon {
     float: left;
 }
+
+.btn-app .btn,
+.btn.btn-app {
+  @include background-yellow;
+  @include border-yellow;
+  @include color-blue;
+  &:hover{
+    @include border-blue;
+  }
+}
+.btn-app-outline .btn,
+.btn.btn-app-outline {
+ @include outline-yellow;
+}
+
+.modal-footer,
+.modal-body{
+  padding: 1rem;
+}
