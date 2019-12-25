@@ -16,12 +16,18 @@ export class ModuleDefaultSidebarComponent implements OnInit {
   constructor() { }
   ngOnInit() {
     this.navbarRouteDefinitions = {
-      navbar_dashboard: 'Immatriculation',
-      navbar_new_record: 'Créer une immatriculation',
-      navbar_list_records: 'Dossier des immatriculations',
-      navbar_structures: 'Structures',
-      navbar_add_structure: 'Ajouter une structure',
-      navbar_list_structures: 'Dossier des structures',
+      navbar_economie_informelle: 'Indépendants & Economie Informelle',
+      navbar_new_record: 'Nouvelle adhésion',
+      navbar_list_records: 'Demandes d\'adhésion',
+      navbar_manage_structures: 'Gestion des Structures',
+      navbar_manage_members: 'Gestion des Adhérents',
+      navbar_retraite_complementaire: 'Retraite Complémentaire',
+      navbar_rc_new_request: 'Nouvelle adhésion',
+      navbar_rc_list_requests: 'Demandes d\'adhésion',
+      navbar_rc_manage_employers: 'Gestion des employeurs',
+      navbar_rc_manage_members: 'Gestion des adhérents',
+      // navbar_add_structure: 'Ajouter une structure',
+      // navbar_list_structures: 'Dossier des structures',
       navbar_workers: 'Travailleurs',
       navbar_list_workers: 'Dossier des Travailleurs',
       navbar_account: 'Mon compte',
@@ -31,7 +37,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
     };
     this.navbarRoutesMap = [
       {
-        key: 'navbar_dashboard',
+        key: 'navbar_economie_informelle',
         route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`,
         children: [
           {
@@ -42,32 +48,48 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             key: 'navbar_list_records',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
           },
-        ]
-      },
-      {
-        key: 'navbar_structures',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
-        children: [
           {
-            key: 'navbar_add_structure',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.addStructureRoute}`
-          },
-          {
-            key: 'navbar_list_structures',
+            key: 'navbar_manage_structures',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
           },
-        ]
-      },
-      {
-        key: 'navbar_workers',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.homeRoute}`,
-        children: [
           {
-            key: 'navbar_list_workers',
+            key: 'navbar_manage_members',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
           },
         ]
       },
+      {
+        key: 'navbar_retraite_complementaire',
+        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
+        children: [
+          {
+            key: 'navbar_rc_new_request',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.addStructureRoute}`
+          },
+          {
+            key: 'navbar_rc_list_requests',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+          },
+          {
+            key: 'navbar_rc_manage_employers',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+          },
+          {
+            key: 'navbar_rc_manage_members',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+          },
+        ]
+      },
+      // {
+      //   key: 'navbar_workers',
+      //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.homeRoute}`,
+      //   children: [
+      //     {
+      //       key: 'navbar_list_workers',
+      //       route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
+      //     },
+      //   ]
+      // },
       {
         key: 'navbar_account',
         route: `/${AppRoutes.userInfoRoute}`,

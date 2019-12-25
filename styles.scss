@@ -31,9 +31,11 @@
 }
 
 .page-title {
-    @include align-center;
+    @include align-left;
+    border-bottom: 1px solid #c7c7c7;
     h1 {
         @include color-blue;
+        font-size: 0.9rem;
     }
 }
 
