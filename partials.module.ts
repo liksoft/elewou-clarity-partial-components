@@ -8,6 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubnavComponent } from './subnav/subnav.component';
 import { ModuleService } from './application-modules/module.service';
 import { ApplicationModulesComponent } from './application-modules/application-modules.component';
+import { ModuleDefaultSidebarComponent } from './module-default-sidebar/module-default-sidebar.component';
 
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule],
@@ -17,13 +18,15 @@ import { ApplicationModulesComponent } from './application-modules/application-m
     SidebarComponent,
     SubnavComponent,
     ApplicationModulesComponent,
+    ModuleDefaultSidebarComponent,
   ],
   declarations: [
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ApplicationModulesComponent
+    ApplicationModulesComponent,
+    ModuleDefaultSidebarComponent,
   ],
   providers: [ModuleService]
 })
