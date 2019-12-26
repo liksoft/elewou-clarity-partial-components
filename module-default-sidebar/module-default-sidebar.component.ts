@@ -90,16 +90,16 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       //     },
       //   ]
       // },
-      {
-        key: 'navbar_account',
-        route: `/${AppRoutes.userInfoRoute}`,
-        children: [
-          {
-            key: 'navbar_personal_information',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.userInfoRoute}`
-          },
-        ]
-      }
+      // {
+      //   key: 'navbar_account',
+      //   route: `/${AppRoutes.userInfoRoute}`,
+      //   children: [
+      //     {
+      //       key: 'navbar_personal_information',
+      //       route: `/${AppRoutes.dashboardRoute}/${AppRoutes.userInfoRoute}`
+      //     },
+      //   ]
+      // }
     ];
   }
 }
