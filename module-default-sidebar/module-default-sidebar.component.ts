@@ -64,19 +64,19 @@ export class ModuleDefaultSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_rc_new_request',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.addStructureRoute}`
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcRoute}`
           },
           {
             key: 'navbar_rc_list_requests',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcListRoute}`
           },
           {
             key: 'navbar_rc_manage_employers',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcEmployersRoute}`
           },
           {
             key: 'navbar_rc_manage_members',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcMembersRoute}`
           },
         ]
       },
