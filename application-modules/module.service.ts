@@ -4,7 +4,7 @@ import {
   ISource,
   ISourceRequestQueryParameters
 } from 'src/app/lib/domain/components/ng-data-table/ng-data-table.component';
-import { Module } from 'src/app/lib/presentation/partials/application-modules/module';
+import { Module } from 'src/app/lib/presentation/partials-old/application-modules/module';
 import {
   HttpGetAllRequestFn,
   loadRessourceFromCacheOrGetFromServer,
@@ -16,7 +16,7 @@ import {
 import { SessionStorage } from 'src/app/lib/domain/storage/core';
 import { isDefined, isArray } from 'src/app/lib/domain/utils/type-utils';
 import { IResponseBody, ResponseBody, ResponseData, HttpRequestService } from 'src/app/lib/domain/http/core';
-import { ModuleBuilder } from 'src/app/lib/presentation/partials/application-modules/module';
+import { ModuleBuilder } from 'src/app/lib/presentation/partials-old/application-modules/module';
 import { Store } from 'src/app/lib/domain/store';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { MODULE_CONTAINER_INITIALIZED, MODULE_CREATED, MODULE_DELETED, MODULE_UPDATED } from './module-reducer';
