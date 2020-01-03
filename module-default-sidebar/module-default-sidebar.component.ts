@@ -17,10 +17,12 @@ export class ModuleDefaultSidebarComponent implements OnInit {
   ngOnInit() {
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',
-      navbar_new_record: 'Nouvelle adhésion',
-      navbar_list_records: 'Demandes d\'adhésion',
-      navbar_manage_structures: 'Gestion des Structures',
-      navbar_manage_members: 'Gestion des Adhérents',
+      navbar_new_record: 'Immatriculation',
+      navbar_list_imm: 'Demandes d\'immatriculation',
+      navbar_list_adhesions: 'Demandes d\'Adhésion',
+      navbar_manage_structures: 'Structures',
+      navbar_manage_members: 'Adhérents',
+      navbar_imm_processes: 'Aide : Processus',
       navbar_retraite_complementaire: 'Retraite Complémentaire',
       navbar_rc_new_request: 'Nouvelle adhésion',
       navbar_rc_list_requests: 'Demandes d\'adhésion',
@@ -45,15 +47,23 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`
           },
           {
-            key: 'navbar_list_records',
+            key: 'navbar_list_imm',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
+          },
+          {
+            key: 'navbar_list_adhesions',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
+          },
+          {
+            key: 'navbar_manage_members',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
           },
           {
             key: 'navbar_manage_structures',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
           },
           {
-            key: 'navbar_manage_members',
+            key: 'navbar_imm_processes',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
           },
         ]
