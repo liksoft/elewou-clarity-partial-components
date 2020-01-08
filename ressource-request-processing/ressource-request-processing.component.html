@@ -1,0 +1,14 @@
+<clr-dropdown #clrDropdown>
+    <button [disabled]="assignationButtonDisabled" type="button" class="btn btn-sm btn-outline-primary" clrDropdownTrigger>
+    <clr-icon shape="assign-user"></clr-icon> Assigner le traitement
+  </button>
+    <clr-dropdown-menu clrPosition="bottom-left" class="clr-dropdown-menu" *clrIfOpen>
+        <cdk-virtual-scroll-viewport class="countries-viewport" itemSize="20">
+            <button *cdkVirtualFor="let item of users" type="button" clrDropdownItem (click)="onUserSelected(item)">
+            <span class="country-name">{{item?.username}}</span>
+          </button>
+        </cdk-virtual-scroll-viewport>
+    </clr-dropdown-menu>
+</clr-dropdown>
+<button class="btn btn-sm btn-app" [disabled]="performingAction" (click)="onValidateRessource()"><clr-icon shape="check-circle"></clr-icon> Valider la demande</button>
+<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction" (click)="onRejectRessource()"><clr-icon shape="times-circle"></clr-icon> Rejeter la demande</button>
