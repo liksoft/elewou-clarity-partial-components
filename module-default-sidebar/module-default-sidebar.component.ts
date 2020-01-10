@@ -70,7 +70,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_retraite_complementaire',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
+        // route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
         children: [
           {
             key: 'navbar_rc_new_request',
