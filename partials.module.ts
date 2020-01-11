@@ -10,6 +10,8 @@ import { ModuleService } from './application-modules/module.service';
 import { ApplicationModulesComponent } from './application-modules/application-modules.component';
 import { ModuleDefaultSidebarComponent } from './module-default-sidebar/module-default-sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
+import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
+// import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule],
@@ -30,6 +32,6 @@ import { RessourceRequestProcessingModule } from './ressource-request-processing
     ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
   ],
-  providers: [ModuleService]
+  providers: [ModuleService, RessourceRequestProcessingService]
 })
 export class PartialsModule { }
