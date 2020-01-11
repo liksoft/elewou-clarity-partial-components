@@ -9,8 +9,7 @@ import { SubnavComponent } from './subnav/subnav.component';
 import { ModuleService } from './application-modules/module.service';
 import { ApplicationModulesComponent } from './application-modules/application-modules.component';
 import { ModuleDefaultSidebarComponent } from './module-default-sidebar/module-default-sidebar.component';
-import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
-
+import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule],
   exports: [
@@ -20,7 +19,7 @@ import { RessourceRequestProcessingModule } from './ressource-request-processing
     SubnavComponent,
     ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
-    RessourceRequestProcessingModule,
+    ContributionsDefaultSidebarComponent,
   ],
   declarations: [
     AppTopBarComponent,
@@ -29,6 +28,7 @@ import { RessourceRequestProcessingModule } from './ressource-request-processing
     SubnavComponent,
     ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
+    ContributionsDefaultSidebarComponent
   ],
   providers: [ModuleService]
 })
