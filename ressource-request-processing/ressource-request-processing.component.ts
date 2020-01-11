@@ -6,9 +6,9 @@ import { AuthService } from 'src/app/lib/domain/auth/core/auth.service';
 import { ApplicationUsersService } from 'src/app/lib/domain/auth/core/services/users.service';
 import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { RessourceRequestProcessingService } from './ressource-request-processing.service';
-import { RessourceAssignment } from 'src/app/lib/application/models/ressource-assignment';
 import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { FormControl, Validators } from '@angular/forms';
+import { RessourceAssignment } from './ressource-assignment';
 
 @Component({
   selector: 'app-ressource-request-processing',

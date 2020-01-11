@@ -5,9 +5,9 @@ import {
   putRessource
 } from 'src/app/lib/domain/contracts/abstract-request-client';
 import { HttpRequestService, IResponseBody } from 'src/app/lib/domain/http/core';
-import { RessourceAssignment } from 'src/app/lib/application/models/ressource-assignment';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { TranslationService } from 'src/app/lib/domain/translator/translator.service';
+import { RessourceAssignment } from './ressource-assignment';
 
 @Injectable()
 export class RessourceRequestProcessingService {
