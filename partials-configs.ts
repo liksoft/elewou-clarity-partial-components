@@ -2,6 +2,9 @@
  * This file defines configuration values that are shared accross modules
  */
 export const partialConfgis = {
+  routes: {
+
+  },
   acl: {
     all: 'all',
     create_departments: 'create-departments',
