@@ -52,7 +52,6 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() public id: number | string;
   @Input() public permission: string;
   @Input() collectionID: string | number;
-  @Input() status = 0;
   public users: User[] = [];
   public authenticatedUser: User;
   @Input() public assignationButtonDisabled = false;

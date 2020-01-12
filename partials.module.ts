@@ -28,6 +28,7 @@ import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-defa
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
+    RessourceRequestProcessingModule
   ],
   declarations: [
     AppTopBarComponent,
