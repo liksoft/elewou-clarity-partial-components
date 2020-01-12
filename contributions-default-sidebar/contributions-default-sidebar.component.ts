@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfgis } from '../partials-configs';
+import { partialConfigs } from '../partials-configs';
 
 @Component({
   selector: 'app-contributions-default-sidebar',
@@ -32,54 +32,37 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiEnregistrementRoute}`,
+        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`,
         children: [
           {
             key: 'navbar_tiei_enregistrement',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiEnregistrementRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`
           },
           {
             key: 'navbar_tiei_cotisation',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiGestionCotisationsRoute}`
-        route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.enregistrementRoute}`,
-        children: [
-          {
-            key: 'navbar_contribution_records',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.enregistrementRoute}`
-          },
-          {
-            key: 'navbar_list_records',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.listRecordsRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiGestionCotisationsRoute}`
           },
           {
             key: 'navbar_manage_individual_accounts',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.structuresRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiIndividualAccountsRoute}`
           },
           {
             key: 'navbar_manage_accounts',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.workersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiContributorsAccountsRoute}`
           },
-          // {
-          //   key: 'navbar_manage_individual_accounts',
-          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiIndividualAccountsRoute}`
-          // },
-          // {
-          //   key: 'navbar_manage_accounts',
-          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiContributorsAccountsRoute}`
-          // },
         ]
       },
       {
         key: 'navbar_rc',
-        route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.structuresRoute}`,
+        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
         children: [
           {
             key: 'navbar_rc_contribution_records',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
           },
           {
             key: 'navbar_rc_list_requests',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
           },
         ]
       },

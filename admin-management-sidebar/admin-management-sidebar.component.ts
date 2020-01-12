@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfgis } from '../partials-configs';
+import { partialConfigs } from '../partials-configs';
 
 @Component({
   selector: 'app-admin-management-sidebar',
@@ -33,15 +33,15 @@ export class AdminManagementSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_users_management_create',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.createUsersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.createUsersRoute}`
           },
           {
             key: 'navbar_users_management_list',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.listUsersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.listUsersRoute}`
           },
           {
             key: 'navbar_roles_permissions',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.rolesManagementRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.rolesManagementRoute}`
           }
         ]
       },
@@ -50,11 +50,11 @@ export class AdminManagementSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_forms_create',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.createFormsRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.createFormsRoute}`
           },
           {
             key: 'navbar_forms_list',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.formsManagementRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.formsManagementRoute}`
           }
         ]
       },
@@ -63,11 +63,11 @@ export class AdminManagementSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_modules_create',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.createModulesRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.createModulesRoute}`
           },
           {
             key: 'navbar_modules_list',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.modulesManagementRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.modulesManagementRoute}`
           }
         ]
       }

@@ -1,7 +1,7 @@
 /**
  * This file defines configuration values that are shared accross modules
  */
-export const partialConfgis = {
+export const partialConfigs = {
   routes: {
     commonRoutes: {
       // Dashboard module route paths
@@ -60,6 +60,16 @@ export const partialConfgis = {
       membershipRcListRoute: 'home/membership_list',
       // Liste Adhérents
       membershipRcMembersRoute: 'home/members_rc',
+    },
+    contributionsModuleRoutes: {
+      // Register contributions route path
+      tieiEnregistrementRoute: 'home/tiei-register-contributions',
+      // Manage Contributions route path
+      tieiGestionCotisationsRoute: 'home/tiei-manage-contributions',
+      // Individual accounts manage path
+      tieiIndividualAccountsRoute: 'home/tiei-comptes-individuels',
+      // Contributors account manage path
+      tieiContributorsAccountsRoute: 'home/tiei-comptes-cotisants',
     }
   },
   assignableCollections: {
