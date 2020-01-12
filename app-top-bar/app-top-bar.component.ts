@@ -26,6 +26,7 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   @Input() public moduleName = 'Module name';
   @Input() public applicationName = 'Application name';
   public connectUser: User;
+  public profileRoute = `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.accountRoute}`;
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
