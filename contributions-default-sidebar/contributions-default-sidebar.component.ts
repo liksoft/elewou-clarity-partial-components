@@ -19,8 +19,8 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
   ngOnInit() {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion TIEI',
-      navbar_contribution_records: 'Enregistrement des cotisations',
-      navbar_list_records: 'Gestion des cotisations',
+      navbar_tiei_enregistrement: 'Enregistrement des cotisations',
+      navbar_tiei_cotisation: 'Gestion des cotisations',
       navbar_manage_individual_accounts: 'Comptes individuels',
       navbar_manage_accounts: 'Comptes cotisants',
       navbar_rc: 'Gestion RC',
@@ -32,24 +32,24 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`,
+        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiEnregistrementRoute}`,
         children: [
           {
-            key: 'navbar_contribution_records',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`
+            key: 'navbar_tiei_enregistrement',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiEnregistrementRoute}`
           },
           {
-            key: 'navbar_list_records',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
+            key: 'navbar_tiei_cotisation',
+            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiGestionCotisationsRoute}`
           },
-          {
-            key: 'navbar_manage_individual_accounts',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
-          },
-          {
-            key: 'navbar_manage_accounts',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
-          },
+          // {
+          //   key: 'navbar_manage_individual_accounts',
+          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiIndividualAccountsRoute}`
+          // },
+          // {
+          //   key: 'navbar_manage_accounts',
+          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.tieiContributorsAccountsRoute}`
+          // },
         ]
       },
       {
