@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesMap, AppRoutes } from '../../routes-definitions';
+import { RoutesMap } from '../../routes-definitions';
+import { partialConfgis } from '../partials-configs';
 
 @Component({
   selector: 'app-admin-management-sidebar',
@@ -29,47 +30,44 @@ export class AdminManagementSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_user_groups_header',
-        // route: `/${AppRoutes.dashboardHomeRoute}`,
         children: [
           {
             key: 'navbar_users_management_create',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.createUsersRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.createUsersRoute}`
           },
           {
             key: 'navbar_users_management_list',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.listUsersRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.listUsersRoute}`
           },
           {
             key: 'navbar_roles_permissions',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.rolesManagementRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.rolesManagementRoute}`
           }
         ]
       },
       {
         key: 'navbar_forms_managenents_header',
-        // route: `/${AppRoutes.dashboardHomeRoute}`,
         children: [
           {
             key: 'navbar_forms_create',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.createFormsRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.createFormsRoute}`
           },
           {
             key: 'navbar_forms_list',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.formsManagementRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.formsManagementRoute}`
           }
         ]
       },
       {
         key: 'navbar_modules_management_header',
-        // route: `/${AppRoutes.dashboardHomeRoute}`,
         children: [
           {
             key: 'navbar_modules_create',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.createModulesRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.createModulesRoute}`
           },
           {
             key: 'navbar_modules_list',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.managementsRoute}/${AppRoutes.modulesManagementRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.adminModuleRoutes.managementsRoute}/${partialConfgis.routes.adminModuleRoutes.modulesManagementRoute}`
           }
         ]
       }

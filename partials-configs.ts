@@ -3,7 +3,64 @@
  */
 export const partialConfgis = {
   routes: {
-
+    commonRoutes: {
+      // Dashboard module route paths
+      dashboardRoute: 'dashboard',
+      // Home component route path
+      dashboardHomeRoute: 'dashboard/home',
+      // Home component relative route path
+      homeRoute: 'home',
+    },
+    adminModuleRoutes: {
+      // Management routes
+      managementsRoute: 'managements',
+      // Account routes
+      accountRoute: 'account',
+      // Roles management routes
+      rolesManagementRoute: 'roles',
+      // Role creation routes
+      createRole: 'roles/create',
+      // Role update route
+      updatedRoleRoute: 'roles/update',
+      // User creation routes
+      createUsersRoute: 'users/create',
+      // Users update route
+      updatedUserRoute: 'users/update',
+      // User creation routes
+      listUsersRoute: 'users/list',
+      // Forms management routes
+      formsManagementRoute: 'forms',
+      // Forms creation routes
+      createFormsRoute: 'forms/create',
+      // Module management routes
+      modulesManagementRoute: 'modules',
+      // Module management routes
+      createModulesRoute: 'modules/create',
+      // Module management routes
+      updateModulesRoute: 'modules/update',
+    },
+    immatriculationModuleRoutes: {
+      // Enregistrement routes
+      enregistrementRoute: 'home/enregistrement',
+      // Dossier enregistrement routes
+      listRecordsRoute: 'home/liste-enregistrements',
+      // Dossier Structures routes
+      structuresRoute: 'home/structures',
+      // Dossier Travailleurs routes
+      workersRoute: 'home/workers',
+      // Ajouter Structures routes
+      addStructureRoute: 'home/structures/add-structure',
+      // Mon compte routes
+      userInfoRoute: 'profile',
+      // Adhésion RC route
+      membershipRcRoute: 'home/membership_rc',
+      // Adhésion Employeurs Route
+      membershipRcEmployersRoute: 'home/employers',
+      // Liste Demandes d'Adhésion Route
+      membershipRcListRoute: 'home/membership_list',
+      // Liste Adhérents
+      membershipRcMembersRoute: 'home/members_rc',
+    }
   },
   assignableCollections: {
     imm_requests: 1,
