@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { AppRoutes } from 'src/app/lib/presentation/routes-definitions';
-import { environment } from 'src/environments/environment';
+import { partialConfgis } from '../partials-configs';
 @Component({
   selector: 'app-module-default-sidebar',
   templateUrl: './module-default-sidebar.component.html',
@@ -13,7 +12,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
   public navbarRouteDefinitions: {
     [index: string]: string;
   };
-  public accessControlList = environment.acl;
+  public accessControlList = partialConfgis.acl;
 
   constructor() { }
   ngOnInit() {
@@ -41,11 +40,11 @@ export class ModuleDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_economie_informelle',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`,
+        route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.enregistrementRoute}`,
         children: [
           {
             key: 'navbar_new_record',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`,
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.enregistrementRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.create_imm_requests
@@ -53,7 +52,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
           {
             key: 'navbar_list_records',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`,
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.listRecordsRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.list_imm_requests
@@ -61,7 +60,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
           {
             key: 'navbar_manage_structures',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.structuresRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.list_structures
@@ -69,7 +68,8 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
           {
             key: 'navbar_manage_members',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`,
+            // tslint:disable-next-line: max-line-length
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.workersRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.list_members
@@ -79,23 +79,22 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_retraite_complementaire',
-        // route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
         children: [
           {
             key: 'navbar_rc_new_request',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcRoute}`
           },
           {
             key: 'navbar_rc_list_requests',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcListRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcListRoute}`
           },
           {
             key: 'navbar_rc_manage_employers',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcEmployersRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
           },
           {
             key: 'navbar_rc_manage_members',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcMembersRoute}`
+            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
           },
         ]
       },

@@ -1,14 +1,51 @@
 <clr-dropdown #clrDropdown>
-    <button [disabled]="assignationButtonDisabled" type="button" class="btn btn-sm btn-outline-primary" clrDropdownTrigger>
+    <button [disabled]="performingAction || assignationButtonDisabled" type="button" class="btn btn-sm btn-outline-primary" clrDropdownTrigger>
     <clr-icon shape="assign-user"></clr-icon> Assigner le traitement
   </button>
     <clr-dropdown-menu clrPosition="bottom-left" class="clr-dropdown-menu" *clrIfOpen>
         <cdk-virtual-scroll-viewport class="users-viewport" itemSize="20">
             <button *cdkVirtualFor="let item of users" type="button" clrDropdownItem (click)="onUserSelected(item)">
-            <span class="p3">{{item?.username}}</span>
-          </button>
+        <span class="p3">{{ item?.username }}</span>
+      </button>
         </cdk-virtual-scroll-viewport>
     </clr-dropdown-menu>
 </clr-dropdown>
-<button class="btn btn-sm btn-app" [disabled]="performingAction" (click)="onValidateRessource()"><clr-icon shape="check-circle"></clr-icon> Valider la demande</button>
-<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction" (click)="onRejectRessource()"><clr-icon shape="times-circle"></clr-icon> Rejeter la demande</button>
+<button class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled" (click)="performRessourceProcessingAction(true)"><clr-icon shape="check-circle"></clr-icon> Valider la demande</button
+>
+<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled" (click)="performRessourceProcessingAction(false)"><clr-icon shape="times-circle"></clr-icon> Rejeter la demande</button
+>
+<clr-modal [(clrModalOpen)]="modalOpened" [clrModalClosable]="true" [clrModalSize]="'md'">
+    <div class="modal-title">
+        <h3>{{ "Observation de traitement" }}</h3>
+        <span class="title-desc">{{ modalDescriptionText }}</span>
+    </div>
+    <div class="modal-body">
+        <!-- Page content goes here -->
+        <div class="clr-form-control-container">
+            <form>
+                <div class="clr-form-control">
+                    <label for="observation" class="clr-control-label">{{ 'Observation' }}<small class="required-text">(*)</small></label>
+                    <div class="clr-control-container">
+                        <div class="clr-input-wrapper">
+                            <input type="text" id="observation" [maxLength]="255" class="clr-input" [formControl]="formControl" placeholder="Ajouter une observation" />
+                        </div>
+                        <clr-control-error class="field-has-error" *ngIf="formControl.hasError('required') && formControl.touched">
+                            <span [translate]="'validation.required'"></span>
+                        </clr-control-error>
+                        <clr-control-error class="field-has-error" *ngIf="formControl.hasError('maxLength') && formControl.touched">
+                            <span [translate]="'validation.maxValue'" [translateParams]="{ value: 255 }"></span>
+                        </clr-control-error>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End of page content -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-outline" (click)="doCancelAction()">Annuler</button
+    >
+    <button type="button" class="btn btn-sm btn-outline" (click)="confirmDataProcessingAction()"
+      >Confirmer</button
+    >
+  </div>
+</clr-modal>
