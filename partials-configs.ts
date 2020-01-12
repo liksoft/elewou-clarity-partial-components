@@ -5,6 +5,11 @@ export const partialConfgis = {
   routes: {
 
   },
+  assignableCollections: {
+    imm_requests: 1,
+    rtiei_contribution_declarations: 2,
+    rtiei_contribution_payments: 3
+  },
   acl: {
     all: 'all',
     create_departments: 'create-departments',
