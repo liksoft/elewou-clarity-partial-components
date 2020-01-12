@@ -1,7 +1,7 @@
 /**
  * This file defines configuration values that are shared accross modules
  */
-export const partialConfgis = {
+export const partialConfigs = {
   routes: {
     commonRoutes: {
       // Dashboard module route paths

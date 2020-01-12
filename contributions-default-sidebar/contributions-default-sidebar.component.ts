@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfgis } from '../partials-configs';
+import { partialConfigs } from '../partials-configs';
 
 @Component({
   selector: 'app-contributions-default-sidebar',
@@ -32,37 +32,37 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.enregistrementRoute}`,
+        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`,
         children: [
           {
             key: 'navbar_contribution_records',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.enregistrementRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`
           },
           {
             key: 'navbar_list_records',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.listRecordsRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.listRecordsRoute}`
           },
           {
             key: 'navbar_manage_individual_accounts',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.structuresRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`
           },
           {
             key: 'navbar_manage_accounts',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.workersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.workersRoute}`
           },
         ]
       },
       {
         key: 'navbar_rc',
-        route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.structuresRoute}`,
+        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
         children: [
           {
             key: 'navbar_rc_contribution_records',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
           },
           {
             key: 'navbar_rc_list_requests',
-            route: `/${partialConfgis.routes.commonRoutes.dashboardRoute}/${partialConfgis.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
           },
         ]
       },
