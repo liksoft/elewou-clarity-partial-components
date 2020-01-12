@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
 import { AppRoutes } from 'src/app/lib/presentation/routes-definitions';
-import { environment } from 'src/environments/environment';
+import { partialConfgis } from '../partials-configs';
 @Component({
   selector: 'app-module-default-sidebar',
   templateUrl: './module-default-sidebar.component.html',
@@ -13,7 +13,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
   public navbarRouteDefinitions: {
     [index: string]: string;
   };
-  public accessControlList = environment.acl;
+  public accessControlList = partialConfgis.acl;
 
   constructor() { }
   ngOnInit() {
