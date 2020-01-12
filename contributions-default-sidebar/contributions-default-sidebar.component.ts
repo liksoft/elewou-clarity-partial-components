@@ -19,8 +19,8 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
   ngOnInit() {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion TIEI',
-      navbar_contribution_records: 'Enregistrement des cotisations',
-      navbar_list_records: 'Gestion des cotisations',
+      navbar_tiei_enregistrement: 'Enregistrement des cotisations',
+      navbar_tiei_cotisation: 'Gestion des cotisations',
       navbar_manage_individual_accounts: 'Comptes individuels',
       navbar_manage_accounts: 'Comptes cotisants',
       navbar_rc: 'Gestion RC',
@@ -32,23 +32,23 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`,
+        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`,
         children: [
           {
-            key: 'navbar_contribution_records',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`
+            key: 'navbar_tiei_enregistrement',
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`
           },
           {
-            key: 'navbar_list_records',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.listRecordsRoute}`
+            key: 'navbar_tiei_cotisation',
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiGestionCotisationsRoute}`
           },
           {
             key: 'navbar_manage_individual_accounts',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiIndividualAccountsRoute}`
           },
           {
             key: 'navbar_manage_accounts',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.workersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiContributorsAccountsRoute}`
           },
         ]
       },
