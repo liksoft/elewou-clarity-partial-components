@@ -14,6 +14,8 @@ import { RessourceRequestProcessingService } from './ressource-request-processin
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
+import { AdminManagementSidebarComponent } from './admin-management-sidebar/admin-management-sidebar.component';
+import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-default-sidebar.component';
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule],
   exports: [
@@ -24,6 +26,8 @@ import { ContributionsDefaultSidebarComponent } from './contributions-default-si
     ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
     ContributionsDefaultSidebarComponent,
+    AdminManagementSidebarComponent,
+    AdminDefaultSidebarComponent,
   ],
   declarations: [
     AppTopBarComponent,
@@ -32,7 +36,9 @@ import { ContributionsDefaultSidebarComponent } from './contributions-default-si
     SubnavComponent,
     ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
-    ContributionsDefaultSidebarComponent
+    ContributionsDefaultSidebarComponent,
+    AdminManagementSidebarComponent,
+    AdminDefaultSidebarComponent
   ],
   providers: [ModuleService, RessourceRequestProcessingService]
 })
