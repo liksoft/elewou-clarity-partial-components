@@ -57,6 +57,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() public assignationButtonDisabled = false;
   @Input() public rejectionButtonDisabled = false;
   @Input() public validationButtonDisabled = false;
+
   modalOpened = false;
   modalDescriptionText: string;
   isValidationAction: boolean;
@@ -72,7 +73,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     private auth: AuthService,
     private dialog: Dialog,
     private service: ApplicationUsersService,
-    private ressourcesService: RessourceRequestProcessingService
+    public componentService: RessourceRequestProcessingService
   ) { super(uiStore); }
 
   ngOnInit() {
@@ -86,7 +87,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
 
   async performRessourceProcessingAction(value: boolean) {
     if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
-      const translations = await this.ressourcesService.loadTranslations(this.id);
+      const translations = await this.componentService.loadTranslations(this.id);
       if (value) {
         this.modalDescriptionText = translations.validationPrompt;
       } else {
@@ -100,7 +101,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   async confirmDataProcessingAction() {
     if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
       this.formControl.markAllAsTouched();
-      const translations = await this.ressourcesService.loadTranslations(this.id);
+      const translations = await this.componentService.loadTranslations(this.id);
       if (this.isValidationAction) {
         this.onValidateRessource(translations);
         return;
@@ -112,7 +113,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   onValidateRessource(translations: any) {
     if (this.formControl.valid) {
       this.appUIStoreManager.initializeUIStoreAction();
-      this.ressourcesService.updateRessource(
+      this.componentService.updateRessource(
         this.url,
         this.id,
         { status: 1, observations: this.formControl.value },
@@ -138,7 +139,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   onRejectRessource(translations: any) {
     if (this.formControl.valid) {
       this.appUIStoreManager.initializeUIStoreAction();
-      this.ressourcesService.updateRessource(
+      this.componentService.updateRessource(
         this.url,
         this.id,
         { status: 2, observations: this.formControl.value },
@@ -167,10 +168,10 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   }
 
   async onUserSelected(user: User) {
-    const translations = await this.ressourcesService.loadTranslations(this.id, user.username);
+    const translations = await this.componentService.loadTranslations(this.id, user.username);
     if (this.dialog.confirm(translations.assignmentPrompt)) {
       this.appUIStoreManager.initializeUIStoreAction();
-      this.ressourcesService.createAssignment(this.ressourcesService.assignationRessoucesPath, {
+      this.componentService.createAssignment(this.componentService.assignationRessoucesPath, {
         ressource: this.collectionID,
         ressource_id: this.id,
         assigned_to: user.id

@@ -8,6 +8,7 @@ import { HttpRequestService, IResponseBody } from 'src/app/lib/domain/http/core'
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { TranslationService } from 'src/app/lib/domain/translator/translator.service';
 import { RessourceAssignment } from './ressource-assignment';
+import { isDefined } from '../../../domain/utils/type-utils';
 
 @Injectable()
 export class RessourceRequestProcessingService {
@@ -86,5 +87,9 @@ export class RessourceRequestProcessingService {
       id,
       values,
     );
+  }
+
+  isDefined(value: any) {
+    return isDefined(value);
   }
 }
