@@ -159,4 +159,10 @@ export const partialConfigs = {
     delete_modules: 'delete-modules'
   }
 };
-
+// Add new constants here for module path
+// Default Dashboard path
+export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
+// Immaatriculation Module Path
+export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
+// Contriution Module Path
+export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
