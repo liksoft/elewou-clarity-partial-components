@@ -77,27 +77,27 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
         ]
       },
-      {
-        key: 'navbar_retraite_complementaire',
-        children: [
-          {
-            key: 'navbar_rc_new_request',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-          },
-          {
-            key: 'navbar_rc_list_requests',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-          },
-          {
-            key: 'navbar_rc_manage_employers',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
-          },
-          {
-            key: 'navbar_rc_manage_members',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
-          },
-        ]
-      },
+      // {
+      //   key: 'navbar_retraite_complementaire',
+      //   children: [
+      //     {
+      //       key: 'navbar_rc_new_request',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_list_requests',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_manage_employers',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_manage_members',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
+      //     },
+      //   ]
+      // },
     ];
   }
 }
