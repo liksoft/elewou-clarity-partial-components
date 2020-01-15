@@ -4,7 +4,7 @@
   </button>
     <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
         <ng-container *ngIf="modules && modules.length > 0">
-            <a *ngFor="let item of modules" [href]="item.url" clrDropdownItem>{{ item.name }}</a>
+            <a *ngFor="let item of modules" [href]="item.url" clrDropdownItem>{{ item.name?.toUpperCase() }}</a>
         </ng-container>
     </clr-dropdown-menu>
 </clr-dropdown>

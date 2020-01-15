@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { AppRoutes } from 'src/app/lib/presentation/routes-definitions';
-
+import { partialConfigs } from '../partials-configs';
 @Component({
   selector: 'app-module-default-sidebar',
   templateUrl: './module-default-sidebar.component.html',
@@ -13,8 +12,11 @@ export class ModuleDefaultSidebarComponent implements OnInit {
   public navbarRouteDefinitions: {
     [index: string]: string;
   };
+  public accessControlList = partialConfigs.acl;
+
   constructor() { }
   ngOnInit() {
+
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',
       navbar_new_record: 'Immatriculation',
@@ -40,15 +42,28 @@ export class ModuleDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_economie_informelle',
-        route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`,
+        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`,
         children: [
           {
             key: 'navbar_new_record',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.enregistrementRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.create_imm_requests
+            ]
           },
           {
+<<<<<<< HEAD
             key: 'navbar_list_imm',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
+=======
+            key: 'navbar_list_records',
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.listRecordsRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.list_imm_requests
+            ]
+>>>>>>> a1a728e3265b52d8dffcf55f5900997a1b62cbfd
           },
           {
             key: 'navbar_list_adhesions',
@@ -60,56 +75,49 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
           {
             key: 'navbar_manage_structures',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.list_structures
+            ]
           },
           {
+<<<<<<< HEAD
             key: 'navbar_imm_processes',
             route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
+=======
+            key: 'navbar_manage_members',
+            // tslint:disable-next-line: max-line-length
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.workersRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.list_members
+            ]
+>>>>>>> a1a728e3265b52d8dffcf55f5900997a1b62cbfd
           },
         ]
       },
       {
         key: 'navbar_retraite_complementaire',
-        // route: `/${AppRoutes.dashboardRoute}/${AppRoutes.structuresRoute}`,
         children: [
           {
             key: 'navbar_rc_new_request',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
           },
           {
             key: 'navbar_rc_list_requests',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcListRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
           },
           {
             key: 'navbar_rc_manage_employers',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcEmployersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
           },
           {
             key: 'navbar_rc_manage_members',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.membershipRcMembersRoute}`
+            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
           },
         ]
       },
-      // {
-      //   key: 'navbar_workers',
-      //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.homeRoute}`,
-      //   children: [
-      //     {
-      //       key: 'navbar_list_workers',
-      //       route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
-      //     },
-      //   ]
-      // },
-      // {
-      //   key: 'navbar_account',
-      //   route: `/${AppRoutes.userInfoRoute}`,
-      //   children: [
-      //     {
-      //       key: 'navbar_personal_information',
-      //       route: `/${AppRoutes.dashboardRoute}/${AppRoutes.userInfoRoute}`
-      //     },
-      //   ]
-      // }
     ];
   }
 }
