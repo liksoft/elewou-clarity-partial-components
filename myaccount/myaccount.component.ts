@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AlertablePageComponent } from '../../component-interfaces';
 import { User } from 'src/app/lib/domain/auth/models/user';
 import { AuthService } from 'src/app/lib/domain/auth/core/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from 'src/app/lib/domain/utils/custom-validators';
-import { AppUIStoreManager } from '../../app-ui-store-manager.service';
-import { ComponentReactiveFormHelpers } from '../../component-reactive-form-helpers';
 import { ApplicationUsersService } from 'src/app/lib/domain/auth/core/services/users.service';
 import { TranslationService } from 'src/app/lib/domain/translator/translator.service';
+import { AlertablePageComponent } from 'src/app/lib/domain/helpers/component-interfaces';
+import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
+import { ComponentReactiveFormHelpers } from 'src/app/lib/domain/helpers/component-reactive-form-helpers';
 
 @Component({
   selector: 'app-myaccount',
