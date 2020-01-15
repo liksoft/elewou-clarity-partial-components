@@ -16,8 +16,6 @@ import { RessourceRequestProcessingService } from './ressource-request-processin
 import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
 import { AdminManagementSidebarComponent } from './admin-management-sidebar/admin-management-sidebar.component';
 import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-default-sidebar.component';
-import { MyaccountComponent } from './myaccount/myaccount.component';
-import { SecurityComponent } from './myaccount/security/security.component';
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule],
   exports: [
@@ -31,8 +29,6 @@ import { SecurityComponent } from './myaccount/security/security.component';
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
     RessourceRequestProcessingModule,
-    MyaccountComponent,
-    SecurityComponent
   ],
   declarations: [
     AppTopBarComponent,
@@ -44,8 +40,6 @@ import { SecurityComponent } from './myaccount/security/security.component';
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
-    MyaccountComponent,
-    SecurityComponent
   ],
   providers: [ModuleService, RessourceRequestProcessingService]
 })
