@@ -19,7 +19,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
 
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',
-      navbar_new_record: 'Immatriculation',
+      navbar_new_record: 'Nouvelle Immatriculation',
       navbar_list_imm: 'Demandes d\'immatriculation',
       navbar_list_adhesions: 'Demandes d\'Adhésion',
       navbar_manage_structures: 'Structures',
@@ -60,14 +60,6 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.list_imm_requests
             ]
           },
-          // {
-          //   key: 'navbar_list_adhesions',
-          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
-          // },
-          // {
-          //   key: 'navbar_manage_members',
-          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
-          // },
           {
             key: 'navbar_manage_structures',
             route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
