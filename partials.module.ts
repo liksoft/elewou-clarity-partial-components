@@ -28,7 +28,7 @@ import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-defa
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
-    RessourceRequestProcessingModule
+    RessourceRequestProcessingModule,
   ],
   declarations: [
     AppTopBarComponent,
@@ -39,7 +39,7 @@ import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-defa
     ModuleDefaultSidebarComponent,
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
-    AdminDefaultSidebarComponent
+    AdminDefaultSidebarComponent,
   ],
   providers: [ModuleService, RessourceRequestProcessingService]
 })
