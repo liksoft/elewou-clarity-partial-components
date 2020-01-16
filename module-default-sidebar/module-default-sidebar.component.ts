@@ -53,26 +53,21 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             ]
           },
           {
-<<<<<<< HEAD
-            key: 'navbar_list_imm',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
-=======
             key: 'navbar_list_records',
             route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.listRecordsRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.list_imm_requests
             ]
->>>>>>> a1a728e3265b52d8dffcf55f5900997a1b62cbfd
           },
-          {
-            key: 'navbar_list_adhesions',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
-          },
-          {
-            key: 'navbar_manage_members',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
-          },
+          // {
+          //   key: 'navbar_list_adhesions',
+          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
+          // },
+          // {
+          //   key: 'navbar_manage_members',
+          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
+          // },
           {
             key: 'navbar_manage_structures',
             route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
@@ -82,10 +77,6 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             ]
           },
           {
-<<<<<<< HEAD
-            key: 'navbar_imm_processes',
-            route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
-=======
             key: 'navbar_manage_members',
             // tslint:disable-next-line: max-line-length
             route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.workersRoute}`,
@@ -93,31 +84,30 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.all,
               this.accessControlList.list_members
             ]
->>>>>>> a1a728e3265b52d8dffcf55f5900997a1b62cbfd
           },
         ]
       },
-      {
-        key: 'navbar_retraite_complementaire',
-        children: [
-          {
-            key: 'navbar_rc_new_request',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-          },
-          {
-            key: 'navbar_rc_list_requests',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-          },
-          {
-            key: 'navbar_rc_manage_employers',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
-          },
-          {
-            key: 'navbar_rc_manage_members',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
-          },
-        ]
-      },
+      // {
+      //   key: 'navbar_retraite_complementaire',
+      //   children: [
+      //     {
+      //       key: 'navbar_rc_new_request',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_list_requests',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_manage_employers',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_manage_members',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
+      //     },
+      //   ]
+      // },
     ];
   }
 }
