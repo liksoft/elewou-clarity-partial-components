@@ -2,13 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { User } from 'src/app/lib/domain/auth/models/user';
-import { AuthService } from 'src/app/lib/domain/auth/core/auth.service';
-import { ApplicationUsersService } from 'src/app/lib/domain/auth/core/services/users.service';
-import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { RessourceRequestProcessingService } from './ressource-request-processing.service';
 import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { FormControl, Validators } from '@angular/forms';
-import { RessourceAssignment } from './ressource-assignment';
 
 @Component({
   selector: 'app-ressource-request-processing',
