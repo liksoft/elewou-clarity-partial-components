@@ -57,7 +57,8 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
 
   constructor(
     uiStore: AppUIStoreManager,
-    public componentService: RessourceRequestProcessingService
+    public componentService: RessourceRequestProcessingService,
+    private dialog: Dialog,
   ) { super(uiStore); }
 
   ngOnInit() {
@@ -67,12 +68,17 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
       const translations = await this.componentService.loadTranslations(this.id);
       if (value) {
-        this.modalDescriptionText = translations.validationPrompt;
+        // this.modalDescriptionText = translations.validationPrompt;
+        if (this.dialog.confirm(translations.validationPrompt)) {
+          this.isValidationAction = value;
+          this.onValidateRessource(translations);
+        }
       } else {
         this.modalDescriptionText = translations.rejectionPrompt;
+        this.modalOpened = true;
+        this.isValidationAction = value;
       }
-      this.isValidationAction = value;
-      this.modalOpened = true;
+      // this.modalOpened = true;
     }
   }
 
@@ -89,29 +95,27 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   }
 
   onValidateRessource(translations: any) {
-    if (this.formControl.valid) {
-      this.appUIStoreManager.initializeUIStoreAction();
-      this.componentService.updateRessource(
-        this.url,
-        this.id,
-        { status: 1, observations: this.formControl.value },
-      ).then((res) => {
-        if (res.statusOK) {
-          this.doCancelAction();
-          this.validationButtonDisabled = true;
-          this.rejectionButtonDisabled = true;
-          this.assignationButtonDisabled = true;
-          this.showSuccessMessage(translations.successfulValidation);
-        } else if (res.errors) {
-          this.showBadRequestMessage(translations.invalidRequestParams);
-        } else {
-          this.showBadRequestMessage(translations.serverRequestFailed);
-        }
-      })
-        .catch((_) => {
-          this.showErrorMessage(translations.serverRequestFailed);
-        });
-    }
+    this.appUIStoreManager.initializeUIStoreAction();
+    this.componentService.updateRessource(
+      this.url,
+      this.id,
+      { status: 1, observations: this.formControl.value },
+    ).then((res) => {
+      if (res.statusOK) {
+        this.doCancelAction();
+        this.validationButtonDisabled = true;
+        this.rejectionButtonDisabled = true;
+        this.assignationButtonDisabled = true;
+        this.showSuccessMessage(translations.successfulValidation);
+      } else if (res.errors) {
+        this.showBadRequestMessage(translations.invalidRequestParams);
+      } else {
+        this.showBadRequestMessage(translations.serverRequestFailed);
+      }
+    })
+      .catch((_) => {
+        this.showErrorMessage(translations.serverRequestFailed);
+      });
   }
 
   onRejectRessource(translations: any) {

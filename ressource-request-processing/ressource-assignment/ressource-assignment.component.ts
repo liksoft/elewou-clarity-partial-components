@@ -53,7 +53,6 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
     this.service.getUsers(
       `${this.service.ressourcesPath}${isDefined(this.permission) ? '?permission=' + this.permission : ''}`.trim()
     ).then((users: User[]) => {
-      console.log(users);
       this.users = users;
     })
       .catch((_) => console.log(_));

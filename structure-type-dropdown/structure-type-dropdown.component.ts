@@ -43,7 +43,9 @@ export class StructureTypeDropdownComponent extends AbstractAlertableComponent i
       this.client,
       this.structureTypesEndpoint,
       StructureType.builder() as ISerializableBuilder<StructureType>
-    ).then(() => {
+    ).then((types) => {
+      types.push((StructureType.builder() as ISerializableBuilder<StructureType>).fromSerialized({id: null, label: 'Tout'}));
+      this.types = types;
 
     }).catch((_) => console.log(_));
   }
