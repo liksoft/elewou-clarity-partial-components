@@ -15,19 +15,6 @@ import { RessourceAssignment } from './ressource-assignment';
   templateUrl: './ressource-request-processing.component.html',
   styles: [
     `
-    .dropdown .dropdown-toggle.btn {
-      margin-right: .5rem;
-    }
-    .clr-dropdown-menu {
-      max-height: 200px;
-      width: 100%;
-    }
-
-    .users-viewport {
-      min-height: 75px;
-      width: auto;
-      overflow-x: hidden;
-    }
     .required-text,
     .field-has-error {
       color: rgb(241, 50, 50);
@@ -70,19 +57,10 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
 
   constructor(
     uiStore: AppUIStoreManager,
-    private auth: AuthService,
-    private dialog: Dialog,
-    private service: ApplicationUsersService,
     public componentService: RessourceRequestProcessingService
   ) { super(uiStore); }
 
   ngOnInit() {
-    this.authenticatedUser = this.auth.user as User;
-    this.service.getUsers(
-      `${this.service.ressourcesPath}${isDefined(this.permission) ? '?permission=' + this.permission : ''}`.trim()
-    ).then((users: User[]) => {
-      this.users = users;
-    });
   }
 
   async performRessourceProcessingAction(value: boolean) {
@@ -165,31 +143,6 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   doCancelAction() {
     this.formControl.reset();
     this.modalOpened = false;
-  }
-
-  async onUserSelected(user: User) {
-    const translations = await this.componentService.loadTranslations(this.id, user.username);
-    if (this.dialog.confirm(translations.assignmentPrompt)) {
-      this.appUIStoreManager.initializeUIStoreAction();
-      this.componentService.createAssignment(this.componentService.assignationRessoucesPath, {
-        ressource: this.collectionID,
-        ressource_id: this.id,
-        assigned_to: user.id
-      })
-        .then((res) => {
-          if (res instanceof RessourceAssignment) {
-            this.showSuccessMessage(translations.successfullAssignment);
-            this.assignationButtonDisabled = true;
-          } else if (res.errors) {
-            this.showBadRequestMessage(translations.invalidRequestParams);
-          } else {
-            this.showBadRequestMessage(translations.serverRequestFailed);
-          }
-        })
-        .catch((_) => {
-          this.showErrorMessage(translations.serverRequestFailed);
-        });
-    }
   }
 
 }
