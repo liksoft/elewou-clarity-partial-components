@@ -13,7 +13,8 @@ import { RessourceAssignmentComponent } from './ressource-assignment/ressource-a
     TranslateModule,
     ClarityModule,
     ScrollingModule,
-    FormsModule, ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     RessourceRequestProcessingComponent,

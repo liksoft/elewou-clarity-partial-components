@@ -70,23 +70,23 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
     // }
   }
 
-  async onAssignment(user: User, id: number | string) {
-    const translations = await this.componentService.loadTranslations(id, user.username);
-    if (this.dialog.confirm(translations.assignmentPrompt)) {
-      this.appUIStoreManager.initializeUIStoreAction();
-      this.componentService.createAssignment(this.componentService.assignationRessoucesPath, {
-        ressource: this.collectionID,
-        ressource_id: id,
-        assigned_to: user.id
-      })
-        .then((res) => {
-          this.onAssignmentResponse(res, translations);
-        })
-        .catch((_) => {
-          this.showErrorMessage(translations.serverRequestFailed);
-        });
-    }
-  }
+  // async onAssignment(user: User, id: number | string) {
+  //   const translations = await this.componentService.loadTranslations(id, user.username);
+  //   if (this.dialog.confirm(translations.assignmentPrompt)) {
+  //     this.appUIStoreManager.initializeUIStoreAction();
+  //     this.componentService.createAssignment(this.componentService.assignationRessoucesPath, {
+  //       ressource: this.collectionID,
+  //       ressource_id: id,
+  //       assigned_to: user.id
+  //     })
+  //       .then((res) => {
+  //         this.onAssignmentResponse(res, translations);
+  //       })
+  //       .catch((_) => {
+  //         this.showErrorMessage(translations.serverRequestFailed);
+  //       });
+  //   }
+  // }
 
   async onBatchAssignment(user: User, selectedItems: number[]) {
     const translations = await this.componentService.loadTranslations(null, user.username, selectedItems.length);
