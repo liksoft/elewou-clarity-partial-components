@@ -19,10 +19,12 @@ export class ModuleDefaultSidebarComponent implements OnInit {
 
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',
-      navbar_new_record: 'Nouvelle adhésion',
-      navbar_list_records: 'Demandes d\'adhésion',
-      navbar_manage_structures: 'Gestion des Structures',
-      navbar_manage_members: 'Gestion des Adhérents',
+      navbar_new_record: 'Immatriculation',
+      navbar_list_imm: 'Demandes d\'immatriculation',
+      navbar_list_adhesions: 'Demandes d\'Adhésion',
+      navbar_manage_structures: 'Structures',
+      navbar_manage_members: 'Adhérents',
+      navbar_imm_processes: 'Aide : Processus',
       navbar_retraite_complementaire: 'Retraite Complémentaire',
       navbar_rc_new_request: 'Nouvelle adhésion',
       navbar_rc_list_requests: 'Demandes d\'adhésion',
@@ -58,6 +60,14 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.list_imm_requests
             ]
           },
+          // {
+          //   key: 'navbar_list_adhesions',
+          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
+          // },
+          // {
+          //   key: 'navbar_manage_members',
+          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
+          // },
           {
             key: 'navbar_manage_structures',
             route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
@@ -77,27 +87,27 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
         ]
       },
-      {
-        key: 'navbar_retraite_complementaire',
-        children: [
-          {
-            key: 'navbar_rc_new_request',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-          },
-          {
-            key: 'navbar_rc_list_requests',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-          },
-          {
-            key: 'navbar_rc_manage_employers',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
-          },
-          {
-            key: 'navbar_rc_manage_members',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
-          },
-        ]
-      },
+      // {
+      //   key: 'navbar_retraite_complementaire',
+      //   children: [
+      //     {
+      //       key: 'navbar_rc_new_request',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_list_requests',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_manage_employers',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_manage_members',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
+      //     },
+      //   ]
+      // },
     ];
   }
 }

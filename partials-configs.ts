@@ -157,7 +157,8 @@ export const partialConfigs = {
     create_modules: 'create-modules',
     update_modules: 'update-modules',
     delete_modules: 'delete-modules'
-  }
+  },
+  latestTaskNumberOfMinutes: 22880
 };
 // Add new constants here for module path
 // Default Dashboard path

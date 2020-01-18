@@ -205,3 +205,8 @@ span.ng-value-label {
     -ms-border-radius: 0;
     -o-border-radius: 0;
 }
+
+.datagrid-row.datagrid-selected {
+    color: #000;
+    background-color: #f0f2f3;
+}
