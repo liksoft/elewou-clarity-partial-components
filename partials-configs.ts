@@ -160,3 +160,23 @@ export const partialConfigs = {
   }
 };
 
+export const adminPermissions = [
+  partialConfigs.acl.create_departments,
+  partialConfigs.acl.update_departments,
+  partialConfigs.acl.delete_departments,
+  partialConfigs.acl.list_departments,
+  partialConfigs.acl.manage_departments,
+  partialConfigs.acl.create_modules,
+  partialConfigs.acl.update_modules,
+  partialConfigs.acl.delete_modules,
+  partialConfigs.acl.list_modules,
+  partialConfigs.acl.create_roles,
+  partialConfigs.acl.update_roles,
+  partialConfigs.acl.delete_roles,
+  partialConfigs.acl.list_roles,
+  partialConfigs.acl.create_organisations,
+  partialConfigs.acl.update_organisations,
+  partialConfigs.acl.delete_organisations,
+  partialConfigs.acl.list_organisations,
+
+];
