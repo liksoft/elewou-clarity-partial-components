@@ -1,19 +1,6 @@
-<clr-dropdown #clrDropdown>
-    <button [disabled]="performingAction || assignationButtonDisabled" type="button" class="btn btn-sm btn-outline-primary" clrDropdownTrigger>
-    <clr-icon shape="assign-user"></clr-icon> Assigner le traitement
-  </button>
-    <clr-dropdown-menu clrPosition="bottom-left" class="clr-dropdown-menu" *clrIfOpen>
-        <cdk-virtual-scroll-viewport class="users-viewport" itemSize="20">
-            <button *cdkVirtualFor="let item of users" type="button" clrDropdownItem (click)="onUserSelected(item)">
-        <span class="p3">{{ item?.username }}</span>
-      </button>
-        </cdk-virtual-scroll-viewport>
-    </clr-dropdown-menu>
-</clr-dropdown>
-<button class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled" (click)="performRessourceProcessingAction(true)"><clr-icon shape="check-circle"></clr-icon> Valider la demande</button
->
-<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled" (click)="performRessourceProcessingAction(false)"><clr-icon shape="times-circle"></clr-icon> Rejeter la demande</button
->
+<app-ressource-assignment [collectionID]="collectionID" [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"></app-ressource-assignment>
+<button class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled" (click)="performRessourceProcessingAction(true)"><clr-icon shape="check-circle"></clr-icon> Valider la demande</button>
+<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled" (click)="performRessourceProcessingAction(false)"><clr-icon shape="times-circle"></clr-icon> Rejeter la demande</button>
 <clr-modal [(clrModalOpen)]="modalOpened" [clrModalClosable]="true" [clrModalSize]="'md'">
     <div class="modal-title">
         <h3>{{ "Observation de traitement" }}</h3>

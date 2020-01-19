@@ -157,6 +157,32 @@ export const partialConfigs = {
     create_modules: 'create-modules',
     update_modules: 'update-modules',
     delete_modules: 'delete-modules'
+  },
+  latestTaskNumberOfMinutes: 22880,
+  immRequestExcelHeaders: {
+    firstname: 'Prenoms',
+    lastname: 'Nom',
+    birthdate: 'Date de naissance',
+    in_member_type_id: 'Code type assure',
+    in_civility_id: 'Code civilite',
+    birthplace: 'Lieu de naissance',
+    marital_status: 'Situation matrimoniale',
+    nationality: 'Nationalite',
+    sex: 'Code sexe',
+    genre: 'Code genre',
+    email: 'Email',
+    phone_number: 'Numero de telephone',
+    type: 'Code type immatriculation',
+    annual_contribution: 'Contribution anuelle',
+    job: 'Profession',
+    activity_sector: 'Code secteur activite',
+    structure_rate: 'Taux structure',
+    member_rate: 'Taux adherant'
+    // // To be modified, in order to point to the real form id
+  },
+  declarationsExcelHeaders: {
+    insurance_id: 'Numero assurance',
+    amount: 'Montant Cotisation'
   }
 };
 
@@ -180,3 +206,10 @@ export const adminPermissions = [
   partialConfigs.acl.list_organisations,
 
 ];
+// Add new constants here for module path
+// Default Dashboard path
+export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
+// Immaatriculation Module Path
+export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
+// Contriution Module Path
+export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;

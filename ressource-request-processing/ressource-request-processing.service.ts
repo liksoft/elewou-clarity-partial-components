@@ -27,7 +27,7 @@ export class RessourceRequestProcessingService {
   /**
    * @description Returns a list of translation that can be use on the Immatriculation component and it children
    */
-  loadTranslations(ressourceId: string|number, username?: string): Promise<any> {
+  loadTranslations(ressourceId?: string|number, username?: string, count?: number): Promise<any> {
     return this.translate.translate([
       'invalidRequestParams',
       'serverRequestFailed',
@@ -37,8 +37,9 @@ export class RessourceRequestProcessingService {
       'successfulValidation',
       'successfulRejection',
       'assignmentPrompt',
-      'successfullAssignment'
-    ], {name: `Demande No ${ressourceId}`, username}).toPromise();
+      'successfullAssignment',
+      'batchAssignmentPrompt'
+    ], {name: `Demande No ${ressourceId}`, username, count}).toPromise();
   }
 
   // /**
@@ -57,7 +58,7 @@ export class RessourceRequestProcessingService {
   //   );
   // }
 
-  public createAssignment(requestURL: string, requestBody: object) {
+  public createAssignment(requestURL: string, requestBody: object|object[]) {
     return postRessource<RessourceAssignment>(
       this.client,
       `${requestURL}`,
