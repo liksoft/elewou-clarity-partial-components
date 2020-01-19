@@ -158,7 +158,32 @@ export const partialConfigs = {
     update_modules: 'update-modules',
     delete_modules: 'delete-modules'
   },
-  latestTaskNumberOfMinutes: 22880
+  latestTaskNumberOfMinutes: 22880,
+  immRequestExcelHeaders: {
+    firstname: 'Prenoms',
+    lastname: 'Nom',
+    birthdate: 'Date de naissance',
+    in_member_type_id: 'Code type assure',
+    in_civility_id: 'Code civilite',
+    birthplace: 'Lieu de naissance',
+    marital_status: 'Situation matrimoniale',
+    nationality: 'Nationalite',
+    sex: 'Code sexe',
+    genre: 'Code genre',
+    email: 'Email',
+    phone_number: 'Numero de telephone',
+    type: 'Code type immatriculation',
+    annual_contribution: 'Contribution anuelle',
+    job: 'Profession',
+    activity_sector: 'Code secteur activite',
+    structure_rate: 'Taux structure',
+    member_rate: 'Taux adherant'
+    // // To be modified, in order to point to the real form id
+  },
+  declarationsExcelHeaders: {
+    insurance_id: 'Numero assurance',
+    amount: 'Montant Cotisation'
+  }
 };
 // Add new constants here for module path
 // Default Dashboard path
