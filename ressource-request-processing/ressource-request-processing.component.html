@@ -1,4 +1,4 @@
-<app-ressource-assignment [collectionID]="collectionID" [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"></app-ressource-assignment>
+<app-ressource-assignment (assignmentCompletedSuccessfully)="assignmentCompletedSuccessfully.emit($event)" [collectionID]="collectionID" [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"></app-ressource-assignment>
 <button class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled" (click)="performRessourceProcessingAction(true)"><clr-icon shape="check-circle"></clr-icon> Valider la demande</button>
 <button class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled" (click)="performRessourceProcessingAction(false)"><clr-icon shape="times-circle"></clr-icon> Rejeter la demande</button>
 <clr-modal [(clrModalOpen)]="modalOpened" [clrModalClosable]="true" [clrModalSize]="'md'">

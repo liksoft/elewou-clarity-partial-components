@@ -213,3 +213,7 @@ export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute
 export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
 // Contriution Module Path
 export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
+// Rtiei contribution cotisation account id
+export const rtieiCotisationAccountType = 1;
+// Rtiei individual account id
+export const rtieiIndividualAccountType = 2;

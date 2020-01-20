@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { User } from 'src/app/lib/domain/auth/models/user';
@@ -40,6 +40,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() public assignationButtonDisabled = false;
   @Input() public rejectionButtonDisabled = false;
   @Input() public validationButtonDisabled = false;
+  @Input() assignmentCompletedSuccessfully = new EventEmitter();
 
   modalOpened = false;
   modalDescriptionText: string;
