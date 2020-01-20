@@ -204,7 +204,17 @@ export const adminPermissions = [
   partialConfigs.acl.update_organisations,
   partialConfigs.acl.delete_organisations,
   partialConfigs.acl.list_organisations,
+];
 
+export const contributionPermissions = [
+  partialConfigs.acl.create_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.delete_rtiei_contribution_declarations,
+  partialConfigs.acl.delete_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.list_rtiei_contribution_declarations,
+  partialConfigs.acl.list_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.list_rtiei_contribution_declarations,
+  partialConfigs.acl.update_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.update_rtiei_contribution_declarations
 ];
 // Add new constants here for module path
 // Default Dashboard path
