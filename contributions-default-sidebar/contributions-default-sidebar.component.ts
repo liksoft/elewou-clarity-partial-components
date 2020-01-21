@@ -52,20 +52,20 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
           },
         ]
       },
-      {
-        key: 'navbar_rc',
-        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
-        children: [
-          {
-            key: 'navbar_rc_contribution_records',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-          },
-          {
-            key: 'navbar_rc_list_requests',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-          },
-        ]
-      },
+      // {
+      //   key: 'navbar_rc',
+      //   route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
+      //   children: [
+      //     {
+      //       key: 'navbar_rc_contribution_records',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //     },
+      //     {
+      //       key: 'navbar_rc_list_requests',
+      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //     },
+      //   ]
+      // },
     ];
   }
 }
