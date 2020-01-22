@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
-import { StructureType } from '../../../application/models/structure-type';
 import { getRessources } from '../../../domain/contracts/abstract-request-client';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { HttpRequestService } from '../../../domain/http/core/http-request.service';
 import { ISerializableBuilder } from '../../../domain/built-value/contracts/serializers';
+import { StructureType } from 'src/app/lib/application/models/structure-type';
 
 @Component({
   selector: 'app-structure-type-dropdown',
