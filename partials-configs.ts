@@ -158,7 +158,7 @@ export const partialConfigs = {
     update_modules: 'update-modules',
     delete_modules: 'delete-modules'
   },
-  latestTaskNumberOfMinutes: 22880,
+  latestTaskNumberOfMinutes: 2280,
   immRequestExcelHeaders: {
     firstname: 'Prenoms',
     lastname: 'Nom',

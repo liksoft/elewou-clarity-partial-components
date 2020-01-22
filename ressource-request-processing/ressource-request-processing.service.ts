@@ -42,22 +42,6 @@ export class RessourceRequestProcessingService {
     ], {name: `Demande No ${ressourceId}`, username, count}).toPromise();
   }
 
-  // /**
-  //  * @description Get a user based on it unique identifier
-  //  * @param endpoint [[string]]
-  //  * @param id [[number|string]]
-  //  */
-  // public getRessource(endpoint: string, id: number | string) {
-  //   return loadRessourceFromCacheOrGetFromServer(
-  //     this.cache,
-  //     this.client,
-  //     endpoint,
-  //     id,
-  //     'ressource_assignations',
-  //     (User.builder() as ISerializableBuilder<User>)
-  //   );
-  // }
-
   public createAssignment(requestURL: string, requestBody: object|object[]) {
     return postRessource<RessourceAssignment>(
       this.client,

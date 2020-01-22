@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs } from '../partials-configs';
+import { partialConfigs, immatriculationPath, defaultPath } from '../partials-configs';
 @Component({
   selector: 'app-module-default-sidebar',
   templateUrl: './module-default-sidebar.component.html',
@@ -64,10 +64,10 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           //   key: 'navbar_list_adhesions',
           //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
           // },
-          // {
-          //   key: 'navbar_manage_members',
-          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.workersRoute}`
-          // },
+          {
+            key: 'navbar_manage_members',
+            route: `/${defaultPath}/${immatriculationPath.workersRoute}`
+          },
           {
             key: 'navbar_manage_structures',
             route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,

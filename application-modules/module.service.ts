@@ -8,10 +8,8 @@ import { Module } from 'src/app/lib/presentation/partials/application-modules/mo
 import {
   HttpGetAllRequestFn,
   loadRessourceFromCacheOrGetFromServer,
-  getRessourcesAndNotify,
   postRessourceAndNotifiStore,
-  deleteRessourceAndNotifyStore,
-  putRessourceAndNotifyStore
+  getRessources
 } from 'src/app/lib/domain/contracts/abstract-request-client';
 import { SessionStorage } from 'src/app/lib/domain/storage/core';
 import { isDefined, isArray } from 'src/app/lib/domain/utils/type-utils';
@@ -19,8 +17,8 @@ import { IResponseBody, ResponseBody, ResponseData, HttpRequestService } from 's
 import { ModuleBuilder } from 'src/app/lib/presentation/partials/application-modules/module';
 import { Store } from 'src/app/lib/domain/store';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { MODULE_CONTAINER_INITIALIZED, MODULE_CREATED, MODULE_DELETED, MODULE_UPDATED } from './module-reducer';
-import { RequestClient } from '../../../domain/contracts/abstract-request-client';
+import { MODULE_CREATED } from './module-reducer';
+import { RequestClient, deleteRessource, putRessource } from '../../../domain/contracts/abstract-request-client';
 import { Role } from 'src/app/lib/domain/auth/models/role';
 import { FormService } from '../../../domain/components/dynamic-inputs/core/form-control/form.service';
 import { environment } from '../../../../../environments/environment';
@@ -146,12 +144,10 @@ export class ModuleService {
   }
 
   public getModules(): Promise<any> {
-    return getRessourcesAndNotify<Module>(
+    return getRessources<Module>(
       this.client,
       this.ressourcesPath,
       Module.builder() as ISerializableBuilder<Module>,
-      this.store,
-      MODULE_CONTAINER_INITIALIZED,
       'modules'
     );
   }
@@ -171,13 +167,10 @@ export class ModuleService {
    * @inheritdoc
    */
   deleteModule(id: any): Promise<IResponseBody> {
-    return deleteRessourceAndNotifyStore<Module>(
+    return deleteRessource<Module>(
       this.client,
       this.ressourcesPath,
-      id,
-      this.store,
-      MODULE_DELETED,
-      'id'
+      id
     );
   }
 
@@ -185,15 +178,11 @@ export class ModuleService {
    * @inheritdoc
    */
   updateModule(requestURL: string, id: any, values: object): Promise<IResponseBody> {
-    return putRessourceAndNotifyStore<Module>(
+    return putRessource<Module>(
       this.client,
       `${isDefined(requestURL) ? requestURL : this.ressourcesPath}`,
       id,
-      values,
-      {},
-      this.store,
-      MODULE_UPDATED,
-      'id'
+      values
     );
   }
 
