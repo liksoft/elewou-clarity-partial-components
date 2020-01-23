@@ -82,6 +82,12 @@ export const partialConfigs = {
       tieiListIndividualContributionsRoute: 'home/tiei-list-individual-contributions',
       // List Structures contributions path
       tieiListStructuresContributionsRoute: 'home/tiei-list-structure-contributions',
+    },
+    liquidationsModuleRoutes: {
+      // Register liquidations route path
+      tieiEnregistrementRoute: 'home/tiei-register-liquidations',
+      // Manage liquidations route path
+      tieiGestionLiquidationsRoute: 'home/tiei-manage-liquidations'
     }
   },
   assignableCollections: {
@@ -225,6 +231,8 @@ export const contributionPermissions = [
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
 // Immaatriculation Module Path
 export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
+
+export const liquidationsPath = partialConfigs.routes.liquidationsModuleRoutes;
 // Contriution Module Path
 export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
 // Rtiei contribution cotisation account id
