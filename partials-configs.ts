@@ -183,6 +183,10 @@ export const partialConfigs = {
   declarationsExcelHeaders: {
     insurance_id: 'Numero assurance',
     amount: 'Montant Cotisation'
+  },
+  backendRoutesPaths: {
+    members: 'ressources/members',
+    contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/'
   }
 };
 
@@ -227,3 +231,5 @@ export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
 export const rtieiCotisationAccountType = 1;
 // Rtiei individual account id
 export const rtieiIndividualAccountType = 2;
+// Route definitions for backend ressources
+export const backendRoutePaths = partialConfigs.backendRoutesPaths;
