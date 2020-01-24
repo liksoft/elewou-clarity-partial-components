@@ -18,13 +18,12 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
 
   ngOnInit() {
     this.navbarRouteDefinitions = {
-      navbar_tiei: 'Gestion Liquidations TIEI',
-      navbar_tiei_enregistrement_liquidation: 'Enregistrer une liquidation',
-      navbar_tiei_list_liquidations: 'Gestion des liquidations',
-      navbar_tiei_manage_decomptes: 'Gestion des Décomptes',
-      navbar_tiei_gestion_reversions: 'Gestion des Reversions',
-      navbar_tiei_ordonnancer_droits: 'Ordonnancement des droits',
-      navbar_tiei_paiement_droits: 'Paiement et clôture des droits',
+      navbar_tiei: 'Gestion Comptabilites et finances TIEI',
+      navbar_tiei_saisie_ecritures: 'Ecritures et journal',
+      navbar_tiei_list_liquidations: 'Déversements',
+      navbar_tiei_manage_decomptes: 'Etats Comptables',
+      navbar_tiei_gestion_reversions: 'Etats Financiers',
+      navbar_tiei_ordonnancer_droits: 'Paramétrages des comptes',
     };
     this.navbarRoutesMap = [
       {
