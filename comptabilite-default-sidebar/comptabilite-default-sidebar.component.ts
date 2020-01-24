@@ -20,10 +20,10 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion Comptabilites et finances TIEI',
       navbar_tiei_saisie_ecritures: 'Ecritures et journal',
-      navbar_tiei_list_liquidations: 'Déversements',
-      navbar_tiei_manage_decomptes: 'Etats Comptables',
-      navbar_tiei_gestion_reversions: 'Etats Financiers',
-      navbar_tiei_ordonnancer_droits: 'Paramétrages des comptes',
+      navbar_tiei_deversement: 'Déversements',
+      navbar_tiei_etats_comptable: 'Etats Comptables',
+      navbar_tiei_etat_financiers: 'Etats Financiers',
+      navbar_tiei_parametrage_comptes: 'Paramétrages des comptes',
     };
     this.navbarRoutesMap = [
       {
