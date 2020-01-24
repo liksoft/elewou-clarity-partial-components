@@ -87,7 +87,15 @@ export const partialConfigs = {
       // Register liquidations route path
       tieiEnregistrementRoute: 'home/tiei-register-liquidations',
       // Manage liquidations route path
-      tieiGestionLiquidationsRoute: 'home/tiei-manage-liquidations'
+      tieiGestionLiquidationsRoute: 'home/tiei-manage-liquidations',
+      // Gestion Decomptes Path
+      tieiGestionDecomptes: 'home/tiei-decomptes-liquidations',
+      // Gestion Reversions Path
+      tieiGestionReversions: 'home/tiei-reversions-liquidations',
+      // Ordonnance des droits
+      tieiOrdonnancementDroits: 'home/tiei-ordonnancer-droits',
+      // Paiement des droits
+      tieiPaiementDroits: 'home/tiei-paiement-droits',
     }
   },
   assignableCollections: {
