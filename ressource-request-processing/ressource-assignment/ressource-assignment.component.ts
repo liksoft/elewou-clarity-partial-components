@@ -8,6 +8,8 @@ import { User } from 'src/app/lib/domain/auth/models/user';
 import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { RessourceAssignment } from '../ressource-assignment';
 import { IResponseBody } from 'src/app/lib/domain/http/contracts/http-response-data';
+import { partialConfigs } from '../../partials-configs';
+import { AuthService } from '../../../../domain/auth/core/auth.service';
 
 @Component({
   selector: 'app-ressource-assignment',
@@ -38,13 +40,15 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
   @Input() public buttonDisabled = false;
   @Input() selectedIds: number[] = [];
   @Output() assignmentCompletedSuccessfully = new EventEmitter<object>();
+  accessControlList = partialConfigs.acl;
 
 
   constructor(
     uiStore: AppUIStoreManager,
     private service: ApplicationUsersService,
     private dialog: Dialog,
-    public componentService: RessourceRequestProcessingService
+    public componentService: RessourceRequestProcessingService,
+    public auth: AuthService
   ) { super(uiStore); }
 
   ngOnInit() {
