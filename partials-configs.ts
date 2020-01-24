@@ -96,6 +96,18 @@ export const partialConfigs = {
       tieiOrdonnancementDroits: 'home/tiei-ordonnancer-droits',
       // Paiement des droits
       tieiPaiementDroits: 'home/tiei-paiement-droits',
+    },
+    comptabiliteModuleRoutes: {
+      // Register Saisie Ecritures
+      tieiSaisieEcrituresRoute: 'home/tiei-saisie-ecritures',
+      // Manage Deversements
+      tieiDeversementsRoute: 'home/tiei-deversements',
+      // Gestion Etats Comptables
+      tieiEtatsComptablesRoute: 'home/tiei-etats-comptables',
+      // Gestion Etats Financiers
+      tieiEtatsFinanciersRoute: 'home/tiei-etats-financiers',
+      // Ordonnance Paramétrages
+      tieiParametrageComptesRoute: 'home/tiei-parametrage-comptes',
     }
   },
   assignableCollections: {
@@ -237,12 +249,15 @@ export const contributionPermissions = [
 // Add new constants here for module path
 // Default Dashboard path
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
-// Immaatriculation Module Path
+// Immatriculation Module Path
 export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
-
+// Liquidation Module Path
 export const liquidationsPath = partialConfigs.routes.liquidationsModuleRoutes;
 // Contriution Module Path
 export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
+// Contriution Module Path
+export const comptabilitePath = partialConfigs.routes.comptabiliteModuleRoutes;
+
 // Rtiei contribution cotisation account id
 export const rtieiCotisationAccountType = 1;
 // Rtiei individual account id
