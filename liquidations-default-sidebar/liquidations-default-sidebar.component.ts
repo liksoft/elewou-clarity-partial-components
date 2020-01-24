@@ -59,15 +59,15 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
       },
       // {
       //   key: 'navbar_rc',
-      //   route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
+      //   route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
       //   children: [
       //     {
       //       key: 'navbar_rc_contribution_records',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
       //     },
       //     {
       //       key: 'navbar_rc_list_requests',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
       //     },
       //   ]
       // },
