@@ -18,6 +18,7 @@ import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-defa
 import { StructureTypeDropdownComponent } from './structure-type-dropdown/structure-type-dropdown.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { LiquidationsDefaultSidebarComponent } from './liquidations-default-sidebar/liquidations-default-sidebar.component';
+import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule, ScrollingModule],
   exports: [
@@ -32,7 +33,8 @@ import { LiquidationsDefaultSidebarComponent } from './liquidations-default-side
     AdminDefaultSidebarComponent,
     RessourceRequestProcessingModule,
     StructureTypeDropdownComponent,
-    LiquidationsDefaultSidebarComponent
+    LiquidationsDefaultSidebarComponent,
+    ComptabiliteDefaultSidebarComponent
   ],
   declarations: [
     AppTopBarComponent,
@@ -45,7 +47,8 @@ import { LiquidationsDefaultSidebarComponent } from './liquidations-default-side
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
     StructureTypeDropdownComponent,
-    LiquidationsDefaultSidebarComponent
+    LiquidationsDefaultSidebarComponent,
+    ComptabiliteDefaultSidebarComponent
   ],
   providers: [ModuleService, RessourceRequestProcessingService]
 })

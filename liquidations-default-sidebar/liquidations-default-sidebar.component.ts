@@ -19,8 +19,12 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
   ngOnInit() {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion Liquidations TIEI',
-      navbar_tiei_enregistrement_liquidation: 'Enrégistrer une liquidation',
+      navbar_tiei_enregistrement_liquidation: 'Enregistrer une liquidation',
       navbar_tiei_list_liquidations: 'Gestion des liquidations',
+      navbar_tiei_manage_decomptes: 'Gestion des Décomptes',
+      navbar_tiei_gestion_reversions: 'Gestion des Reversions',
+      navbar_tiei_ordonnancer_droits: 'Ordonnancement des droits',
+      navbar_tiei_paiement_droits: 'Paiement et clôture des droits',
     };
     this.navbarRoutesMap = [
       {
@@ -35,19 +39,35 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
             key: 'navbar_tiei_list_liquidations',
             route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`
           },
+          {
+            key: 'navbar_tiei_manage_decomptes',
+            route: `/${defaultPath}/${liquidationsPath.tieiGestionDecomptes}`
+          },
+          {
+            key: 'navbar_tiei_gestion_reversions',
+            route: `/${defaultPath}/${liquidationsPath.tieiGestionReversions}`
+          },
+          {
+            key: 'navbar_tiei_ordonnancer_droits',
+            route: `/${defaultPath}/${liquidationsPath.tieiOrdonnancementDroits}`
+          },
+          {
+            key: 'navbar_tiei_paiement_droits',
+            route: `/${defaultPath}/${liquidationsPath.tieiPaiementDroits}`
+          },
         ]
       },
       // {
       //   key: 'navbar_rc',
-      //   route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
+      //   route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
       //   children: [
       //     {
       //       key: 'navbar_rc_contribution_records',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
       //     },
       //     {
       //       key: 'navbar_rc_list_requests',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
       //     },
       //   ]
       // },
