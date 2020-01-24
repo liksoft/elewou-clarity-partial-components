@@ -93,7 +93,8 @@ export const partialConfigs = {
   assignableCollections: {
     imm_requests: 1,
     rtiei_contribution_declarations: 2,
-    rtiei_contribution_payments: 3
+    rtiei_contribution_payments: 3,
+    rtiei_liquidations: 4
   },
   acl: {
     all: 'all',
@@ -192,7 +193,8 @@ export const partialConfigs = {
   },
   backendRoutesPaths: {
     members: 'ressources/members',
-    contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/'
+    contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/',
+    liquidationPath: 'ressources/liquidations',
   }
 };
 

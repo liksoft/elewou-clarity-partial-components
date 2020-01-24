@@ -29,11 +29,11 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_tiei_enregistrement_liquidation',
-            route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`
+            route: `/${defaultPath}/${liquidationsPath.tieiEnregistrementRoute}`
           },
           {
             key: 'navbar_tiei_list_liquidations',
-            route: `/${defaultPath}/${liquidationsPath.tieiEnregistrementRoute}`
+            route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`
           },
         ]
       },
