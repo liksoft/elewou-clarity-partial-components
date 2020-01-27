@@ -215,6 +215,7 @@ export const partialConfigs = {
     members: 'ressources/members',
     contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/',
     liquidationPath: 'ressources/liquidations',
+    immRequestPath: 'ressources/imm_requests'
   }
 };
 
