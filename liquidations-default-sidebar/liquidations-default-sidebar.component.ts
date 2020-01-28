@@ -20,11 +20,10 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion Liquidations TIEI',
       navbar_tiei_enregistrement_liquidation: 'Enregistrer une liquidation',
-      navbar_tiei_list_liquidations: 'Gestion des liquidations et décomptes',
+      navbar_tiei_list_liquidations: 'Gestion des liquidations',
       // navbar_tiei_manage_decomptes: 'Gestion des Décomptes',
-      // navbar_tiei_gestion_reversions: 'Gestion des Reversions',
-      navbar_tiei_ordonnancer_droits: 'Ordonnancement et paiement',
-      // navbar_tiei_paiement_droits: 'Paiement et clôture des droits',
+      navbar_tiei_paiement_droits: 'Paiement des droits',
+      navbar_tiei_bordereaux_virement: 'Gestion des bordereaux',
     };
     this.navbarRoutesMap = [
       {
@@ -43,18 +42,14 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
           //   key: 'navbar_tiei_manage_decomptes',
           //   route: `/${defaultPath}/${liquidationsPath.tieiGestionDecomptes}`
           // },
-          // {
-          //   key: 'navbar_tiei_gestion_reversions',
-          //   route: `/${defaultPath}/${liquidationsPath.tieiGestionReversions}`
-          // },
           {
-            key: 'navbar_tiei_ordonnancer_droits',
-            route: `/${defaultPath}/${liquidationsPath.tieiOrdonnancementDroits}`
+            key: 'navbar_tiei_paiement_droits',
+            route: `/${defaultPath}/${liquidationsPath.tieiPaiementDroitsRoute}`
           },
-          // {
-          //   key: 'navbar_tiei_paiement_droits',
-          //   route: `/${defaultPath}/${liquidationsPath.tieiPaiementDroits}`
-          // },
+          {
+            key: 'navbar_tiei_bordereaux_virement',
+            route: `/${defaultPath}/${liquidationsPath.tieiGestionBordereauxVirementRoute}`
+          },
         ]
       },
       // {

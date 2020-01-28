@@ -89,13 +89,14 @@ export const partialConfigs = {
       // Manage liquidations route path
       tieiGestionLiquidationsRoute: 'home/tiei-manage-liquidations',
       // Gestion Decomptes Path
-      tieiGestionDecomptes: 'home/tiei-decomptes-liquidations',
+      tieiGestionDecomptesRoute: 'home/tiei-decomptes-liquidations',
       // Gestion Reversions Path
       tieiGestionReversions: 'home/tiei-reversions-liquidations',
       // Ordonnance des droits
-      tieiOrdonnancementDroits: 'home/tiei-ordonnancer-droits',
+      tieiOrdonnancementDroitsRoute: 'home/tiei-ordonnancer-droits',
       // Paiement des droits
-      tieiPaiementDroits: 'home/tiei-paiement-droits',
+      tieiPaiementDroitsRoute: 'home/tiei-paiement-droits',
+      tieiGestionBordereauxVirementRoute: 'home/tiei-bordereaux-virement',
     },
     comptabiliteModuleRoutes: {
       // Register Saisie Ecritures
