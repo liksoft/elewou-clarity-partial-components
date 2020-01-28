@@ -186,6 +186,8 @@ export const partialConfigs = {
     delete_modules: 'delete-modules'
   },
   latestTaskNumberOfMinutes: 2280,
+  min_life_annuity: 10500,
+  rtiei_retirement_age: 65,
   immRequestExcelHeaders: {
     firstname: 'Prenoms',
     lastname: 'Nom',
