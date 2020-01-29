@@ -218,7 +218,10 @@ export const partialConfigs = {
     members: 'ressources/members',
     contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/',
     liquidationPath: 'ressources/liquidations',
-    immRequestPath: 'ressources/imm_requests'
+    immRequestPath: 'ressources/imm_requests',
+    rtieiSlipsPath: 'ressources/rtiei_slips',
+    rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
+    rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips'
   }
 };
 
