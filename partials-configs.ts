@@ -220,6 +220,7 @@ export const partialConfigs = {
     liquidationPath: 'ressources/liquidations',
     immRequestPath: 'ressources/imm_requests',
     rtieiSlipsPath: 'ressources/rtiei_slips',
+    liquidationDecomptePath: 'ressources/decompte-liquidations',
     rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
     rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips'
   }
