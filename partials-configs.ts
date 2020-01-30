@@ -188,7 +188,7 @@ export const partialConfigs = {
   },
   latestTaskNumberOfMinutes: 2280,
   min_life_annuity: 10500,
-  rtiei_retirement_age: 65,
+  rtiei_retirement_age: 55,
   immRequestExcelHeaders: {
     firstname: 'Prenoms',
     lastname: 'Nom',
