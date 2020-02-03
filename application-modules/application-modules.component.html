@@ -3,19 +3,17 @@
         <clr-icon shape="applications" class="is-inverse"></clr-icon>
     </button>
     <clr-dropdown-menu class="modules-menu" *clrIfOpen clrPosition="bottom-right">
-        <ng-container *ngIf="modules && modules.length > 0">
+        <ng-container *ngIf="modules && modules?.length > 0">
             <div class="modules-container">
                 <div class="modules-list">
                     <h2 class="dropdown-header" aria-hidden="true">Applications ELEWOU</h2>
                     <div class="clr-row">
                         <div class="clr-col-md-3 elewou-module" *ngFor="let item of modules" >
-                            <div (click)="item.url" clrDropdownItem>
+                            <div clrDropdownItem>
                                 <span class="item-logo">
-                                    <img class="module-icon" src="{{ item.iconPath }}" width="32" height="32"/> 
+                                    <img class="module-icon" src="{{ item?.iconPath }}" width="32" height="32"/>
                                 </span>
-                                <span class="item-name">
-                                    {{ item.name }}
-                                </span>
+                                <span class="item-name">{{ item?.name }}</span>
                             </div>
                         </div>
                     </div>
