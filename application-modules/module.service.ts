@@ -17,7 +17,7 @@ import { IResponseBody, ResponseBody, ResponseData, HttpRequestService } from 's
 import { ModuleBuilder } from 'src/app/lib/presentation/partials/application-modules/module';
 import { Store } from 'src/app/lib/domain/store';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { MODULE_CREATED } from './module-reducer';
+import { MODULE_CREATED, MODULE_CONTAINER_INITIALIZED } from './module-reducer';
 import { RequestClient, deleteRessource, putRessource } from '../../../domain/contracts/abstract-request-client';
 import { Role } from 'src/app/lib/domain/auth/models/role';
 import { FormService } from '../../../domain/components/dynamic-inputs/core/form-control/form.service';
@@ -143,13 +143,24 @@ export class ModuleService {
     );
   }
 
-  public getModules(): Promise<any> {
-    return getRessources<Module>(
-      this.client,
-      this.ressourcesPath,
-      Module.builder() as ISerializableBuilder<Module>,
-      'modules'
-    );
+  public async getModules(): Promise<any> {
+    try {
+      const modules = await getRessources<Module>(
+        this.client,
+        this.ressourcesPath,
+        Module.builder() as ISerializableBuilder<Module>,
+        'modules'
+      );
+      // Dispatch module loaded event and let module component show the loaded modules
+      this.store.dispatch({
+        type: MODULE_CONTAINER_INITIALIZED,
+        payload: {
+          value: modules
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   public createModule(requestURL: string, requestBody: object) {
@@ -192,5 +203,13 @@ export class ModuleService {
    */
   isDefined(value: any) {
     return isDefined(value);
+  }
+
+  /**
+   * @description Returns true if the [[value]] passed in as parameter is an array|iterable
+   * @param value [[any]]
+   */
+  isArray(value: any) {
+    return isArray(value);
   }
 }
