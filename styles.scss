@@ -210,3 +210,43 @@ span.ng-value-label {
     color: #000;
     background-color: #f0f2f3;
 }
+
+.dropdown .dropdown-menu {
+    min-width: 100%!important;
+    max-width: 100%!important;
+    transform: translateX(0) translateY(59px)!important;
+    height: 100%;
+    background: rgba(#FFFFFF, 0.85);
+    
+    .modules-list {
+        width: 800px;
+        margin: 77px auto;
+
+        .module {
+            display: inline-block;
+            text-align:center; 
+            margin-top: 25px;
+            margin-bottom: 25px;
+            
+            .dropdown-item {
+                text-align: center;
+                
+                span {
+                    display: block;
+                    text-align:center
+                    
+                    &.item-name {
+                        font-size: 13px;
+                    }
+                    
+                    img.module-icon {
+                        border-radius: 50%;
+                    }
+                }
+            }
+            
+        }
+        
+    }
+
+}
