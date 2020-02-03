@@ -17,7 +17,7 @@ import { IResponseBody, ResponseBody, ResponseData, HttpRequestService } from 's
 import { ModuleBuilder } from 'src/app/lib/presentation/partials/application-modules/module';
 import { Store } from 'src/app/lib/domain/store';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { MODULE_CREATED, MODULES_STORE, MODULE_CONTAINER_INITIALIZED } from './module-reducer';
+import { MODULE_CREATED, MODULE_CONTAINER_INITIALIZED } from './module-reducer';
 import { RequestClient, deleteRessource, putRessource } from '../../../domain/contracts/abstract-request-client';
 import { Role } from 'src/app/lib/domain/auth/models/role';
 import { FormService } from '../../../domain/components/dynamic-inputs/core/form-control/form.service';
