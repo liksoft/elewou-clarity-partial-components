@@ -38,6 +38,10 @@ export const partialConfigs = {
       createModulesRoute: 'modules/create',
       // Module management routes
       updateModulesRoute: 'modules/update',
+      // Department management route
+      departmentManagementRoute: 'departments',
+      // Module management routes
+      createDepartmentRoute: 'department',
     },
     immatriculationModuleRoutes: {
       // Enregistrement routes
@@ -222,7 +226,8 @@ export const partialConfigs = {
     rtieiSlipsPath: 'ressources/rtiei_slips',
     liquidationDecomptePath: 'ressources/decompte-liquidations',
     rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
-    rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips'
+    rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips',
+    departmentPath: 'departments'
   }
 };
 
@@ -267,6 +272,8 @@ export const liquidationsPath = partialConfigs.routes.liquidationsModuleRoutes;
 export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
 // Contriution Module Path
 export const comptabilitePath = partialConfigs.routes.comptabiliteModuleRoutes;
+// Admin module path
+export const adminPath = partialConfigs.routes.adminModuleRoutes;
 
 // Rtiei contribution cotisation account id
 export const rtieiCotisationAccountType = 1;
@@ -274,3 +281,8 @@ export const rtieiCotisationAccountType = 1;
 export const rtieiIndividualAccountType = 2;
 // Route definitions for backend ressources
 export const backendRoutePaths = partialConfigs.backendRoutesPaths;
+
+
+// Ressources Datasource Injection Tokens
+// Department Data source provider key
+export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
