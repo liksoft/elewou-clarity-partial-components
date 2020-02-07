@@ -20,7 +20,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',
       navbar_new_record: 'Immatriculation',
-      navbar_list_imm: 'Demandes d\'immatriculation',
+      navbar_list_imm: 'Demandes d\'immatriculations',
       navbar_list_adhesions: 'Demandes d\'Adhésion',
       navbar_manage_structures: 'Structures',
       navbar_manage_members: 'Adhérents',
@@ -42,49 +42,45 @@ export class ModuleDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_economie_informelle',
-        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`,
+        route: `/${defaultPath}/${immatriculationPath.enregistrementRoute}`,
         children: [
           {
-            key: 'navbar_new_record',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.enregistrementRoute}`,
+            key: 'navbar_list_imm',
+            route: `/${defaultPath}/${immatriculationPath.listRecordsRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.create_imm_requests
+            ]
+          },
+          // {
+          //   key: 'navbar_list_records',
+          //   route: `/${defaultPath}/${immatriculationPath.listRecordsRoute}`,
+          //   permissions: [
+          //     this.accessControlList.all,
+          //     this.accessControlList.list_imm_requests
+          //   ]
+          // },
+          {
+            key: 'navbar_manage_members',
+            route: `/${defaultPath}/${immatriculationPath.workersRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.create_imm_requests
             ]
           },
           {
-            key: 'navbar_list_records',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.listRecordsRoute}`,
-            permissions: [
-              this.accessControlList.all,
-              this.accessControlList.list_imm_requests
-            ]
-          },
-          // {
-          //   key: 'navbar_list_adhesions',
-          //   route: `/${AppRoutes.dashboardRoute}/${AppRoutes.listRecordsRoute}`
-          // },
-          {
-            key: 'navbar_manage_members',
-            route: `/${defaultPath}/${immatriculationPath.workersRoute}`
-          },
-          {
             key: 'navbar_manage_structures',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
+            route: `/${defaultPath}/${immatriculationPath.structuresRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.list_structures
             ]
           },
-          {
-            key: 'navbar_manage_members',
-            // tslint:disable-next-line: max-line-length
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.workersRoute}`,
-            permissions: [
-              this.accessControlList.all,
-              this.accessControlList.list_members
-            ]
-          },
+          // {
+          //   key: 'navbar_manage_members',
+          //   // tslint:disable-next-line: max-line-length
+          //   route: `/${defaultPath}/${immatriculationPath.workersRoute}`,
+          // },
         ]
       },
       // {
@@ -92,19 +88,19 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       //   children: [
       //     {
       //       key: 'navbar_rc_new_request',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
+      //       route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`
       //     },
       //     {
       //       key: 'navbar_rc_list_requests',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
+      //       route: `/${defaultPath}/${immatriculationPath.membershipRcListRoute}`
       //     },
       //     {
       //       key: 'navbar_rc_manage_employers',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcEmployersRoute}`
+      //       route: `/${defaultPath}/${immatriculationPath.membershipRcEmployersRoute}`
       //     },
       //     {
       //       key: 'navbar_rc_manage_members',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcMembersRoute}`
+      //       route: `/${defaultPath}/${immatriculationPath.membershipRcMembersRoute}`
       //     },
       //   ]
       // },
