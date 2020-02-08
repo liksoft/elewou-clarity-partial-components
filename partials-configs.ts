@@ -286,3 +286,5 @@ export const backendRoutePaths = partialConfigs.backendRoutesPaths;
 // Ressources Datasource Injection Tokens
 // Department Data source provider key
 export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
+// ImmRequest Data source provider key
+export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
