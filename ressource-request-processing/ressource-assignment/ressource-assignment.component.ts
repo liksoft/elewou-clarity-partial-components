@@ -51,13 +51,12 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
     public auth: AuthService
   ) { super(uiStore); }
 
-  ngOnInit() {
-    this.service.getUsers(
-      `${this.service.ressourcesPath}${isDefined(this.permission) ? '?permission=' + this.permission : ''}`.trim()
-    ).then((users: User[]) => {
-      this.users = users;
-    })
-      .catch((_) => console.log(_));
+  async ngOnInit() {
+    try {
+      this.users = await this.service.getUsers(`${this.service.ressourcesPath}${isDefined(this.permission) ? '?permission=' + this.permission : ''}`.trim());
+    } catch (_) {
+      console.log(_);
+    }
   }
 
   async onUserSelected(user: User) {
@@ -70,20 +69,12 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
       this.appUIStoreManager.initializeUIStoreAction();
       this.componentService.createAssignment(
         `${this.componentService.assignationRessoucesPath}/${this.collectionID}`, selectedItems.map((i) => {
-        return {
-          ressource_id: i,
-          assigned_to: user.id
-        };
-      }))
+          return {
+            ressource_id: i,
+            assigned_to: user.id
+          };
+        }))
         .then((res) => {
-          // if (res instanceof RessourceAssignment) {
-          //   this.showSuccessMessage(translations.successfullAssignment);
-          //   this.buttonDisabled = true;
-          // } else if (res.errors) {
-          //   this.showBadRequestMessage(translations.invalidRequestParams);
-          // } else {
-          //   this.showBadRequestMessage(translations.serverRequestFailed);
-          // }
           this.onAssignmentResponse(res, translations);
         })
         .catch((_) => {
