@@ -227,7 +227,14 @@ export const partialConfigs = {
     liquidationDecomptePath: 'ressources/decompte-liquidations',
     rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
     rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips',
-    departmentPath: 'departments'
+    departmentPath: 'departments',
+  },
+  liquidationTypes: {
+    rachatTypeID: 1,
+    capitalTypeID: 4,
+    reversionTypeID: 5,
+    annuityTypeID: 2,
+    invalidityTypeID: 3
   }
 };
 
@@ -288,3 +295,7 @@ export const backendRoutePaths = partialConfigs.backendRoutesPaths;
 export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
 // ImmRequest Data source provider key
 export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
+
+
+// Type of possible liquidations
+export const liquidationTypes = partialConfigs.liquidationTypes;
