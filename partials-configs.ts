@@ -228,6 +228,8 @@ export const partialConfigs = {
     rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
     rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips',
     departmentPath: 'departments',
+    inWorkersPath: 'ressources/members',
+    structuresPath: 'ressources/structures'
   },
   liquidationTypes: {
     rachatTypeID: 1,
@@ -295,6 +297,10 @@ export const backendRoutePaths = partialConfigs.backendRoutesPaths;
 export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
 // ImmRequest Data source provider key
 export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
+// inWorkers Data source provider key
+export const IN_WORKERS_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'InWorkersDataSource';
+// Strutures Data source provider key
+export const STRUCTURES_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'StructuresDataSource';
 
 
 // Type of possible liquidations
