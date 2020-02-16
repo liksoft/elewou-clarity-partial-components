@@ -50,10 +50,10 @@ export class AdminManagementSidebarComponent implements OnInit {
       {
         key: 'navbar_forms_managenents_header',
         children: [
-          {
-            key: 'navbar_forms_create',
-            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.createFormsRoute}`
-          },
+          // {
+          //   key: 'navbar_forms_create',
+          //   route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.createFormsRoute}`
+          // },
           {
             key: 'navbar_forms_list',
             route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.formsManagementRoute}`
@@ -63,10 +63,10 @@ export class AdminManagementSidebarComponent implements OnInit {
       {
         key: 'navbar_modules_management_header',
         children: [
-          {
-            key: 'navbar_modules_create',
-            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.createModulesRoute}`
-          },
+          // {
+          //   key: 'navbar_modules_create',
+          //   route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.createModulesRoute}`
+          // },
           {
             key: 'navbar_modules_list',
             route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.modulesManagementRoute}`
