@@ -11,12 +11,18 @@ import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { partialConfigs } from '../partials-configs';
 
+// declare the variable require to use ad image path
+declare var require: any;
+
 @Component({
   selector: 'app-app-top-bar',
   templateUrl: './app-top-bar.component.html',
   styleUrls: ['./app-top-bar.component.scss']
 })
 export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
+
+  public elewouLogo = require('../assets/images/logo-elewou-main.png');
+  public elewouIcon = require('../assets/images/icon-elewou.png');
 
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
