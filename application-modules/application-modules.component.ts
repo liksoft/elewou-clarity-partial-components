@@ -15,7 +15,7 @@ export class ApplicationModulesComponent implements OnInit {
 
   public modules: Module[];
 
-  constructor(private componentService: ModuleService, private store: Store<Module>) { }
+  constructor(public componentService: ModuleService, private store: Store<Module>) { }
 
   async ngOnInit() {
     this.store.get(MODULES_STORE).values().subscribe((modules: List<Module>) => {

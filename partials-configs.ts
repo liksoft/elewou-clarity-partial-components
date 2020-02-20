@@ -38,6 +38,10 @@ export const partialConfigs = {
       createModulesRoute: 'modules/create',
       // Module management routes
       updateModulesRoute: 'modules/update',
+      // Department management route
+      departmentManagementRoute: 'departments',
+      // Module management routes
+      createDepartmentRoute: 'department',
     },
     immatriculationModuleRoutes: {
       // Enregistrement routes
@@ -82,12 +86,40 @@ export const partialConfigs = {
       tieiListIndividualContributionsRoute: 'home/tiei-list-individual-contributions',
       // List Structures contributions path
       tieiListStructuresContributionsRoute: 'home/tiei-list-structure-contributions',
+    },
+    liquidationsModuleRoutes: {
+      // Register liquidations route path
+      tieiEnregistrementRoute: 'home/tiei-register-liquidations',
+      // Manage liquidations route path
+      tieiGestionLiquidationsRoute: 'home/tiei-manage-liquidations',
+      // Gestion Decomptes Path
+      tieiGestionDecomptesRoute: 'home/tiei-decomptes-liquidations',
+      // Gestion Reversions Path
+      tieiGestionReversions: 'home/tiei-reversions-liquidations',
+      // Ordonnance des droits
+      tieiOrdonnancementDroitsRoute: 'home/tiei-ordonnancer-droits',
+      // Paiement des droits
+      tieiPaiementDroitsRoute: 'home/tiei-paiement-droits',
+      tieiGestionBordereauxVirementRoute: 'home/tiei-bordereaux-virement',
+    },
+    comptabiliteModuleRoutes: {
+      // Register Saisie Ecritures
+      tieiSaisieEcrituresRoute: 'home/tiei-saisie-ecritures',
+      // Manage Deversements
+      tieiDeversementsRoute: 'home/tiei-deversements',
+      // Gestion Etats Comptables
+      tieiEtatsComptablesRoute: 'home/tiei-etats-comptables',
+      // Gestion Etats Financiers
+      tieiEtatsFinanciersRoute: 'home/tiei-etats-financiers',
+      // Ordonnance Paramétrages
+      tieiParametrageComptesRoute: 'home/tiei-parametrage-comptes',
     }
   },
   assignableCollections: {
     imm_requests: 1,
     rtiei_contribution_declarations: 2,
-    rtiei_contribution_payments: 3
+    rtiei_contribution_payments: 3,
+    rtiei_liquidations: 4
   },
   acl: {
     all: 'all',
@@ -157,6 +189,113 @@ export const partialConfigs = {
     create_modules: 'create-modules',
     update_modules: 'update-modules',
     delete_modules: 'delete-modules'
+  },
+  latestTaskNumberOfMinutes: 2280,
+  min_life_annuity: 10500,
+  rtiei_retirement_age: 55,
+  immRequestExcelHeaders: {
+    firstname: 'Prenoms',
+    lastname: 'Nom',
+    birthdate: 'Date de naissance',
+    in_member_type_id: 'Code type assure',
+    in_civility_id: 'Code civilite',
+    birthplace: 'Lieu de naissance',
+    marital_status: 'Situation matrimoniale',
+    nationality: 'Nationalite',
+    sex: 'Code sexe',
+    genre: 'Code genre',
+    email: 'Email',
+    phone_number: 'Numero de telephone',
+    type: 'Code type immatriculation',
+    annual_contribution: 'Contribution anuelle',
+    job: 'Profession',
+    activity_sector: 'Code secteur activite',
+    structure_rate: 'Taux structure',
+    member_rate: 'Taux adherant'
+    // // To be modified, in order to point to the real form id
+  },
+  declarationsExcelHeaders: {
+    insurance_id: 'Numero assurance',
+    amount: 'Montant Cotisation'
+  },
+  backendRoutesPaths: {
+    members: 'ressources/members',
+    contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/',
+    liquidationPath: 'ressources/liquidations',
+    immRequestPath: 'ressources/imm_requests',
+    rtieiSlipsPath: 'ressources/rtiei_slips',
+    liquidationDecomptePath: 'ressources/decompte-liquidations',
+    rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
+    rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips',
+    departmentPath: 'departments',
+  },
+  liquidationTypes: {
+    rachatTypeID: 1,
+    capitalTypeID: 4,
+    reversionTypeID: 5,
+    annuityTypeID: 2,
+    invalidityTypeID: 3
   }
 };
 
+export const adminPermissions = [
+  partialConfigs.acl.create_departments,
+  partialConfigs.acl.update_departments,
+  partialConfigs.acl.delete_departments,
+  partialConfigs.acl.list_departments,
+  partialConfigs.acl.manage_departments,
+  partialConfigs.acl.create_modules,
+  partialConfigs.acl.update_modules,
+  partialConfigs.acl.delete_modules,
+  partialConfigs.acl.list_modules,
+  partialConfigs.acl.create_roles,
+  partialConfigs.acl.update_roles,
+  partialConfigs.acl.delete_roles,
+  partialConfigs.acl.list_roles,
+  partialConfigs.acl.create_organisations,
+  partialConfigs.acl.update_organisations,
+  partialConfigs.acl.delete_organisations,
+  partialConfigs.acl.list_organisations,
+];
+
+export const contributionPermissions = [
+  partialConfigs.acl.create_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.delete_rtiei_contribution_declarations,
+  partialConfigs.acl.delete_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.list_rtiei_contribution_declarations,
+  partialConfigs.acl.list_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.list_rtiei_contribution_declarations,
+  partialConfigs.acl.update_rtiei_contribution_declaration_assignations,
+  partialConfigs.acl.update_rtiei_contribution_declarations
+];
+// Add new constants here for module path
+// Default Dashboard path
+export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
+// Immatriculation Module Path
+export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
+// Liquidation Module Path
+export const liquidationsPath = partialConfigs.routes.liquidationsModuleRoutes;
+// Contriution Module Path
+export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
+// Contriution Module Path
+export const comptabilitePath = partialConfigs.routes.comptabiliteModuleRoutes;
+// Admin module path
+export const adminPath = partialConfigs.routes.adminModuleRoutes;
+
+// Rtiei contribution cotisation account id
+export const rtieiCotisationAccountType = 1;
+// Rtiei individual account id
+export const rtieiIndividualAccountType = 2;
+// Route definitions for backend ressources
+export const backendRoutePaths = partialConfigs.backendRoutesPaths;
+
+
+// Ressources Datasource Injection Tokens
+// Department Data source provider key
+export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
+// ImmRequest Data source provider key
+export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
+
+
+// Type of possible liquidations
+export const liquidationTypes = partialConfigs.liquidationTypes;

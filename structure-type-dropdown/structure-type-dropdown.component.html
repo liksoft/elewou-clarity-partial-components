@@ -1,0 +1,12 @@
+<clr-dropdown #clrDropdown>
+    <button [disabled]="performingAction" type="button" class="btn btn-sm btn-outline-primary" clrDropdownTrigger>
+<clr-icon shape="caret down"></clr-icon> Filtrer par type de structure
+</button>
+    <clr-dropdown-menu clrPosition="bottom-left" class="clr-dropdown-menu" *clrIfOpen>
+        <cdk-virtual-scroll-viewport class="users-viewport" itemSize="20">
+            <button *cdkVirtualFor="let item of types" type="button" clrDropdownItem (click)="structureTypeSelected.emit(item.id)">
+              <span class="p3">{{ item?.label }}</span>
+            </button>
+        </cdk-virtual-scroll-viewport>
+    </clr-dropdown-menu>
+</clr-dropdown>
