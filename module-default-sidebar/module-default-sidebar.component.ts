@@ -35,14 +35,10 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       navbar_rc_list_requests: 'Demandes d\'adhésion',
       navbar_rc_manage_employers: 'Gestion des employeurs',
       navbar_rc_manage_members: 'Gestion des adhérents',
-      // navbar_add_structure: 'Ajouter une structure',
-      // navbar_list_structures: 'Dossier des structures',
       navbar_workers: 'Travailleurs',
       navbar_list_workers: 'Dossier des Travailleurs',
       navbar_account: 'Mon compte',
-      navbar_personal_information: 'Informations personnelles',
-      // navbar_data_personnalisation: '',
-      // navbar_password_security: 'Sécurité & Mot de passe',
+      navbar_personal_information: 'Informations personnelles'
     };
     this.navbarRoutesMap = [
       {
@@ -99,27 +95,27 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           // },
         ]
       },
-      // {
-      //   key: 'navbar_retraite_complementaire',
-      //   children: [
-      //     {
-      //       key: 'navbar_rc_new_request',
-      //       route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`
-      //     },
-      //     {
-      //       key: 'navbar_rc_list_requests',
-      //       route: `/${defaultPath}/${immatriculationPath.membershipRcListRoute}`
-      //     },
-      //     {
-      //       key: 'navbar_rc_manage_employers',
-      //       route: `/${defaultPath}/${immatriculationPath.membershipRcEmployersRoute}`
-      //     },
-      //     {
-      //       key: 'navbar_rc_manage_members',
-      //       route: `/${defaultPath}/${immatriculationPath.membershipRcMembersRoute}`
-      //     },
-      //   ]
-      // },
+      {
+        key: 'navbar_retraite_complementaire',
+        children: [
+          {
+            key: 'navbar_rc_new_request',
+            route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`
+          },
+          {
+            key: 'navbar_rc_list_requests',
+            route: `/${defaultPath}/${immatriculationPath.membershipRcListRoute}`
+          },
+          {
+            key: 'navbar_rc_manage_employers',
+            route: `/${defaultPath}/${immatriculationPath.membershipRcEmployersRoute}`
+          },
+          {
+            key: 'navbar_rc_manage_members',
+            route: `/${defaultPath}/${immatriculationPath.membershipRcMembersRoute}`
+          },
+        ]
+      },
     ];
   }
 }

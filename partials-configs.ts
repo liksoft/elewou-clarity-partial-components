@@ -119,7 +119,10 @@ export const partialConfigs = {
     imm_requests: 1,
     rtiei_contribution_declarations: 2,
     rtiei_contribution_payments: 3,
-    rtiei_liquidations: 4
+    rtiei_liquidations: 4,
+    rc_membership: 5,
+    rc_contribution_declarations: 6,
+    rc_liquidations: 7,
   },
   acl: {
     all: 'all',
@@ -188,7 +191,31 @@ export const partialConfigs = {
     list_modules: 'list-modules',
     create_modules: 'create-modules',
     update_modules: 'update-modules',
-    delete_modules: 'delete-modules'
+    delete_modules: 'delete-modules',
+    list_rc_memberships: 'list-rc-memberships',
+    create_rc_memberships: 'create-rc-memberships',
+    update_rc_memberships: 'update-rc-memberships',
+    delete_rc_memberships: 'delete-rc-memberships',
+    list_rc_membership_assignations: 'list-rc-membership-assignations',
+    create_rc_membership_assignations: 'ccreate-rc-membership-assignations',
+    update_rc_membership_assignations: 'update-rc-membership-assignations',
+    delete_rc_membership_assignations: 'delete-rc-membership-assignations',
+    list_rc_contribution_declaration_assignations: 'list-rc-contribution-declaration-assignations',
+    create_rc_contribution_declaration_assignations: 'create-rc-contribution-declaration-assignations',
+    update_rc_contribution_declaration_assignations: 'update-rc-contribution-declaration-assignations',
+    delete_rc_contribution_declaration_assignations: 'delete-rc-contribution-declaration-assignations',
+    list_rc_contribution_declarations: 'list-rc-contribution-declarations',
+    create_rc_contribution_declarations: 'create-rc-contribution-declarations',
+    update_rc_contribution_declarations: 'update-rc-contribution-declarations',
+    delete_rc_contribution_declarations: 'delete-rc-contribution-declarations',
+    list_rc_liquidation_assignations: 'list-rc-liquidation-assignations',
+    create_rc_liquidation_assignations: 'create-rc-liquidation-assignations',
+    update_rc_liquidation_assignations: 'update-rc-liquidation-assignations',
+    delete_rc_liquidation_assignations: 'delete-rc-liquidation-assignations',
+    list_rc_liquidations: 'list-rc-liquidations',
+    create_rc_liquidations: 'create-rc-liquidations',
+    update_rc_liquidations: 'update-rc-liquidations',
+    delete_rc_liquidations: 'delete-rc-liquidations'
   },
   latestTaskNumberOfMinutes: 2280,
   min_life_annuity: 10500,
@@ -228,6 +255,11 @@ export const partialConfigs = {
     rtieiGenerateLocalSlipsPath: 'ressources/generate_local_rtiei_slips',
     rtieiGenerateFinancialSlipsPath: 'ressources/generate_financial_rtiei_slips',
     departmentPath: 'departments',
+    inWorkersPath: 'ressources/members',
+    structuresPath: 'ressources/structures',
+    getMembershipRequestMemberDetails: 'ressources/rc_membership-member-details',
+    contributionOptions: 'ressources/contribution_options',
+    rcMemberships: 'ressources/rc_memberships'
   },
   liquidationTypes: {
     rachatTypeID: 1,
@@ -295,7 +327,30 @@ export const backendRoutePaths = partialConfigs.backendRoutesPaths;
 export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
 // ImmRequest Data source provider key
 export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
+// inWorkers Data source provider key
+export const IN_WORKERS_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'InWorkersDataSource';
+// Strutures Data source provider key
+export const STRUCTURES_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'StructuresDataSource';
+
+// Rc Module data source
+export const RC_MEMBERSHIP_DATASOURCE_INJECTION_TOKEN = 'RcMembershipDataSource';
 
 
 // Type of possible liquidations
 export const liquidationTypes = partialConfigs.liquidationTypes;
+
+/**
+ * @description This object defines the list of forms that will be loaded by <RC> Modules
+ * components based on their unique identifier in the system
+ */
+export const rcModulesForms = {
+  rcOptionContributionFormID: 41,
+  rcMembershipFormID: 42 // TODO Change the id of the form to load
+};
+
+/**
+ * @description Definitions of unique identifier of forms that will be loaded by <IN> Module components
+ */
+export const inModulesForms = {
+  recipientsFormID: 30
+};
