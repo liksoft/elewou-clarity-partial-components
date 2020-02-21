@@ -1,5 +1,5 @@
 .branding {
-  background: #d8b554;
+  background: #ffffff;
 }
 .title {
   padding: 0 16px;
@@ -12,3 +12,13 @@
 .header .branding, header .branding {
   padding: 0 0 0 1rem;
 }
+
+
+clr-header.header {
+  box-shadow: 2px 2px 12px -4px #999;
+}
+
+.app-logo{
+  width: 20%;
+}
+

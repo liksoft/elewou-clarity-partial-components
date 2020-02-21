@@ -1,15 +1,16 @@
 <clr-header class="header header-5">
     <div class="branding">
         <a class="nav-link" [routerLink]="dashboardRoute" rel="noopener" routerLinkActive="active">
-            <clr-icon shape="coin-bag" role="none"> </clr-icon>
-            <span class="title">{{ applicationName }}</span></a>
+            <!-- <clr-icon shape="coin-bag" role="none"> </clr-icon> -->
+
+            <span class="title app-logo"><img [src]="elewouLogo" alt="ELEWOU" width="100" height="auto"/></span>
+        </a>
         <span class="module_name title"> {{ moduleName }}</span>
     </div>
     <div class="header-nav">
         <ng-container *ngFor="let item of routesMap">
-            <a [routerLink]="getRouteLinkFromMap(item.key)?.routePath" routerLinkActive="active" class="nav-link nav-text">{{ getRouteLinkFromMap(item.key)?.routeDescription }}</a
-      >
-    </ng-container>
+         <a [routerLink]="getRouteLinkFromMap(item.key)?.routePath" routerLinkActive="active" class="nav-link nav-text">{{ getRouteLinkFromMap(item.key)?.routeDescription }}</a>
+        </ng-container>
     <!-- <a [routerLink]="'users'" routerLinkActive="active" class="nav-link nav-text">Utilisateur</a> -->
     </div>
     <!-- <form class="search">
@@ -24,7 +25,8 @@
     <div class="header-actions">
         <clr-dropdown>
             <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
-        <clr-icon shape="user"></clr-icon> {{ connectUser.username }}
+        <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" />
+        {{ connectUser.username }}
         <clr-icon shape="caret down"></clr-icon>
       </button>
             <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
