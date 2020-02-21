@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs } from '../partials-configs';
+import { partialConfigs, defaultPath, contributionPath } from '../partials-configs';
 
 @Component({
   selector: 'app-contributions-default-sidebar',
@@ -24,48 +24,47 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
       navbar_manage_individual_accounts: 'Comptes individuels',
       navbar_manage_accounts: 'Comptes cotisants',
       navbar_rc: 'Gestion RC',
-      navbar_rc_contribution_records: 'Enregistrement des cotisations',
-      navbar_rc_list_requests: 'Gestion des cotisations',
+      navbar_rc_enregistrement: 'Enregistrement des cotisations',
+      navbar_rc_contribution_declarations: 'Gestion des cotisations',
       navbar_rc__individual_accounts: 'Comptes individuels',
       navbar_rc_manage_accounts: 'Comptes cotisants',
     };
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`,
+        route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`,
         children: [
           {
             key: 'navbar_tiei_enregistrement',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`
+            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`
           },
           {
             key: 'navbar_tiei_cotisation',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiGestionCotisationsRoute}`
+            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiGestionCotisationsRoute}`
           },
           {
             key: 'navbar_manage_individual_accounts',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiIndividualAccountsRoute}`
+            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiIndividualAccountsRoute}`
           },
           {
             key: 'navbar_manage_accounts',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.contributionsModuleRoutes.tieiContributorsAccountsRoute}`
+            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiContributorsAccountsRoute}`
           },
         ]
       },
-      // {
-      //   key: 'navbar_rc',
-      //   route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
-      //   children: [
-      //     {
-      //       key: 'navbar_rc_contribution_records',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-      //     },
-      //     {
-      //       key: 'navbar_rc_list_requests',
-      //       route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-      //     },
-      //   ]
-      // },
+      {
+        key: 'navbar_rc',
+        children: [
+          {
+            key: 'navbar_rc_enregistrement',
+            route: `/${defaultPath}/${contributionPath.rcEnregistrementRoute}`
+          },
+          {
+            key: 'navbar_rc_contribution_declarations',
+            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}`
+          },
+        ]
+      },
     ];
   }
 }
