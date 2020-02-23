@@ -6,7 +6,8 @@ export const rcModulesForms = {
   rcOptionContributionFormID: 41,
   rcMembershipFormID: 42, // TODO Change the id of the form to load
   rcContributionDeclaration: 43,
-  rcContributionDeclarationDetails: 44
+  rcContributionDeclarationDetails: 44,
+  rcContributionDeclarationPayment: 45
 };
 
 /**
