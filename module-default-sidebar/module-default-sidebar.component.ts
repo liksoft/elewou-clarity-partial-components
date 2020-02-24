@@ -84,16 +84,24 @@ export class ModuleDefaultSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_rc_new_request',
-            route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`
+            route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.list_rc_memberships
+            ]
           },
           {
             key: 'navbar_rc_list_requests',
-            route: `/${defaultPath}/${immatriculationPath.membershipRcListRoute}`
+            route: `/${defaultPath}/${immatriculationPath.membershipRcListRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.list_rc_memberships
+            ]
           },
-          {
-            key: 'navbar_rc_manage_employers',
-            route: `/${defaultPath}/${immatriculationPath.membershipRcEmployersRoute}`
-          },
+          // {
+          //   key: 'navbar_rc_manage_employers',
+          //   route: `/${defaultPath}/${immatriculationPath.membershipRcEmployersRoute}`
+          // },
           {
             key: 'navbar_rc_manage_members',
             route: `/${defaultPath}/${immatriculationPath.membershipRcMembersRoute}`
