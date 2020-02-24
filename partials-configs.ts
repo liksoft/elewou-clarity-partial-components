@@ -114,10 +114,13 @@ export const rtieiCotisationAccountType = 1;
 // Rtiei individual account id
 export const rtieiIndividualAccountType = 2;
 
-
 // Ressources Datasource Injection Tokens
+// Admin Module
+export const USERS_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'UsersDatasource';
 // Department Data source provider key
 export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
+
+// Rtiei Modules
 // ImmRequest Data source provider key
 export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
 // inWorkers Data source provider key
