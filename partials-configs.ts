@@ -82,6 +82,17 @@ export const contributionPermissions = [
   partialConfigs.acl.update_rtiei_contribution_declaration_assignations,
   partialConfigs.acl.update_rtiei_contribution_declarations
 ];
+
+export const rcMembershipPermissions = [
+    partialConfigs.acl.list_rc_memberships,
+    partialConfigs.acl.create_rc_memberships,
+    partialConfigs.acl.update_rc_memberships,
+    partialConfigs.acl.delete_rc_memberships,
+    partialConfigs.acl.list_rc_membership_assignations,
+    partialConfigs.acl.create_rc_membership_assignations,
+    partialConfigs.acl.update_rc_membership_assignations,
+    partialConfigs.acl.delete_rc_membership_assignations,
+];
 // Add new constants here for module path
 // Default Dashboard path
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
