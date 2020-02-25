@@ -24,7 +24,7 @@ export const rcDncHeaders = {
   id: 'No',
   social_security_number: 'Numero assurance',
   membership_date: 'Date adhesion',
-  structure_rate: 'Part employeur',
-  member_rate: 'Part assure',
+  structure_contribution: 'Part employeur',
+  member_contribution: 'Part assure',
   ponctual_contribution: 'Cotisation Ponctuelles'
 };

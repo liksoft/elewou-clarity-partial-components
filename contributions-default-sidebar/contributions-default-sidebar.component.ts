@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs, defaultPath, contributionPath } from '../partials-configs';
+import { partialConfigs, defaultPath, contributionPath, RC_STRUCTURES, RC_MEMBERS } from '../partials-configs';
 
 @Component({
   selector: 'app-contributions-default-sidebar',
@@ -25,7 +25,8 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
       navbar_manage_accounts: 'Comptes cotisants',
       navbar_rc: 'Gestion RC',
       navbar_rc_enregistrement: 'Enregistrement des cotisations',
-      navbar_rc_contribution_declarations: 'Gestion des cotisations',
+      navbar_rc_contribution_declarations: 'Gestion des cotisations (Assurés)',
+      navbar_rc_structure_contribution_declarations: 'Gestion des cotisations (Employeurs / Faitières)',
       navbar_rc__individual_accounts: 'Comptes individuels',
       navbar_rc_manage_accounts: 'Comptes cotisants',
     };
@@ -61,7 +62,11 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
           },
           {
             key: 'navbar_rc_contribution_declarations',
-            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}`
+            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_MEMBERS}`
+          },
+          {
+            key: 'navbar_rc_structure_contribution_declarations',
+            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_STRUCTURES}`
           },
         ]
       },

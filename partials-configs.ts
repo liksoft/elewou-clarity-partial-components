@@ -129,3 +129,8 @@ export const RC_CONTRIBUTION_DECLRATION_PAGINATOR_DATASOURCE_INJECTION_TOKEN = '
 export const liquidationTypes = partialConfigs.liquidationTypes;
 // Component form ids constants
 export {rcModulesForms, inModulesForms} from './modules-forms';
+
+// Complementary retireement entity definition for structures
+export const RC_STRUCTURES = 'rc_structures';
+// Complementary retireement entity definition for members
+export const RC_MEMBERS = 'rc_members';
