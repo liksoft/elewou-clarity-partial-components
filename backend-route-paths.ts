@@ -17,4 +17,8 @@ export const backendRoutes = {
   rcStructuresPath: 'ressources/rc_structures',
   rcMembersPath: 'ressources/rc_members',
   rcContributionDeclrationPath: 'ressources/rc_contribution_declarations',
+  individualStatementPath: 'ressources/member_rtiei_contribution_account_statements',
+  contributionStatementPath: 'ressources/rtiei_contribution_account_statements',
+  rcIndividualStatementPath: 'ressources/member_rc_contribution_account_statements',
+  rcContributionStatementPath: 'ressources/rc_contribution_account_statements'
 };
