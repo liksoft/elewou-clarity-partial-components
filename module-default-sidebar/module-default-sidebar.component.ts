@@ -19,8 +19,8 @@ export class ModuleDefaultSidebarComponent implements OnInit {
 
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',
-      navbar_new_record: 'Immatriculation',
-      navbar_list_imm: 'Demandes d\'immatriculations',
+      navbar_new_record: 'Nouvelle adhésion',
+      navbar_list_imm: 'Demandes d\'Adhésion',
       navbar_list_adhesions: 'Demandes d\'Adhésion',
       navbar_manage_structures: 'Structures',
       navbar_manage_members: 'Adhérents',
@@ -41,6 +41,14 @@ export class ModuleDefaultSidebarComponent implements OnInit {
         route: `/${defaultPath}/${immatriculationPath.enregistrementRoute}`,
         children: [
           {
+            key: 'navbar_new_record',
+            route: `/${defaultPath}/${immatriculationPath.enregistrementRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.create_imm_requests
+            ]
+          },
+          {
             key: 'navbar_list_imm',
             route: `/${defaultPath}/${immatriculationPath.listRecordsRoute}`,
             permissions: [
@@ -48,14 +56,6 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.create_imm_requests
             ]
           },
-          // {
-          //   key: 'navbar_list_records',
-          //   route: `/${defaultPath}/${immatriculationPath.listRecordsRoute}`,
-          //   permissions: [
-          //     this.accessControlList.all,
-          //     this.accessControlList.list_imm_requests
-          //   ]
-          // },
           {
             key: 'navbar_manage_members',
             route: `/${defaultPath}/${immatriculationPath.workersRoute}`,
