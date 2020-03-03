@@ -109,10 +109,10 @@ export const adminPath = partialConfigs.routes.adminModuleRoutes;
 // Route definitions for backend ressources
 export const backendRoutePaths = partialConfigs.backendRoutesPaths;
 
-// Rtiei contribution cotisation account id
-export const rtieiCotisationAccountType = 1;
-// Rtiei individual account id
-export const rtieiIndividualAccountType = 2;
+// contribution cotisation account id
+export const contributionAccountType = 1;
+// individual account id
+export const individualAccountType = 2;
 
 // Ressources Datasource Injection Tokens
 // Admin Module

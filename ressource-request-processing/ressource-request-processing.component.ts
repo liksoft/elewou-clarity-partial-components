@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { User } from 'src/app/lib/domain/auth/models/user';
@@ -40,7 +40,9 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() public assignationButtonDisabled = false;
   @Input() public rejectionButtonDisabled = false;
   @Input() public validationButtonDisabled = false;
-  @Input() assignmentCompletedSuccessfully = new EventEmitter();
+
+  @Output() assignmentCompletedSuccessfully = new EventEmitter();
+  @Output() ressourceHandlerCompleted = new EventEmitter<number>();
 
   modalOpened = false;
   modalDescriptionText: string;
@@ -104,6 +106,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
         this.rejectionButtonDisabled = true;
         this.assignationButtonDisabled = true;
         this.showSuccessMessage(translations.successfulValidation);
+        this.ressourceHandlerCompleted.emit(1);
       } else if (res.errors) {
         this.showBadRequestMessage(translations.invalidRequestParams);
       } else {
@@ -129,6 +132,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
           this.rejectionButtonDisabled = true;
           this.assignationButtonDisabled = true;
           this.showSuccessMessage(translations.successfulRejection);
+          this.ressourceHandlerCompleted.emit(2);
         } else if (res.errors) {
           this.showBadRequestMessage(translations.invalidRequestParams);
         } else {

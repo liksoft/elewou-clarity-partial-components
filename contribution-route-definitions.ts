@@ -24,4 +24,8 @@ export const contributionRouteDefinitions = {
   rcEnregistrementRoute: 'home/rc-register-contributions',
   // Manage Contributions route path
   rcGestionCotisationsRoute: 'home/rc-manage-contributions',
+  // Rc Individual accounts manage path
+  rcIndividualAccountsRoute: 'home/rc-comptes-individuels',
+  // Rc Contributors account manage path
+  rcContributorsAccountsRoute: 'home/rc-comptes-cotisants',
 };

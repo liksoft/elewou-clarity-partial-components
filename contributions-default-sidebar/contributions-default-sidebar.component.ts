@@ -27,29 +27,29 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
       navbar_rc_enregistrement: 'Enregistrement des cotisations',
       navbar_rc_contribution_declarations: 'Gestion des cotisations (Assurés)',
       navbar_rc_structure_contribution_declarations: 'Gestion des cotisations (Employeurs / Faitières)',
-      navbar_rc__individual_accounts: 'Comptes individuels',
+      navbar_rc_individual_accounts: 'Comptes individuels',
       navbar_rc_manage_accounts: 'Comptes cotisants',
     };
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`,
+        route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`,
         children: [
           {
             key: 'navbar_tiei_enregistrement',
-            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiEnregistrementRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`
           },
           {
             key: 'navbar_tiei_cotisation',
-            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiGestionCotisationsRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiGestionCotisationsRoute}`
           },
           {
             key: 'navbar_manage_individual_accounts',
-            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiIndividualAccountsRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiIndividualAccountsRoute}`
           },
           {
             key: 'navbar_manage_accounts',
-            route: `/${defaultPath}/${partialConfigs.routes.contributionsModuleRoutes.tieiContributorsAccountsRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiContributorsAccountsRoute}`
           },
         ]
       },
@@ -68,6 +68,14 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
             key: 'navbar_rc_structure_contribution_declarations',
             route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_STRUCTURES}`
           },
+          {
+            key: 'navbar_rc_individual_accounts',
+            route: `/${defaultPath}/${contributionPath.rcIndividualAccountsRoute}`
+          },
+          {
+            key: 'navbar_rc_manage_accounts',
+            route: `/${defaultPath}/${contributionPath.rcContributorsAccountsRoute}`
+          }
         ]
       },
     ];

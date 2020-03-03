@@ -9,7 +9,7 @@ export const rcModulesForms = {
   rcContributionDeclarationDetails: 44,
   rcContributionDeclarationPayment: 45,
   rcIndividualStatementForm: 47,
-  rcContributionStatementForm: 47
+  rcContributionStatementForm: 48
 };
 
 /**
