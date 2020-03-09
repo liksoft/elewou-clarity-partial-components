@@ -21,9 +21,12 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
       navbar_tiei: 'Gestion Liquidations TIEI',
       navbar_tiei_enregistrement_liquidation: 'Enregistrer une liquidation',
       navbar_tiei_list_liquidations: 'Gestion des liquidations',
-      // navbar_tiei_manage_decomptes: 'Gestion des Décomptes',
       navbar_tiei_paiement_droits: 'Paiement des droits',
       navbar_tiei_bordereaux_virement: 'Gestion des bordereaux',
+      // Rc route maps
+      navbar_rc: 'Gestion des Liquidation RC',
+      navbar_rc_enregistrement_liquidation: 'Enregistrer une liquidation',
+      navbar_rc_list_liquidations: 'Gestion des liquidations',
     };
     this.navbarRoutesMap = [
       {
@@ -38,10 +41,6 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
             key: 'navbar_tiei_list_liquidations',
             route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`
           },
-          // {
-          //   key: 'navbar_tiei_manage_decomptes',
-          //   route: `/${defaultPath}/${liquidationsPath.tieiGestionDecomptes}`
-          // },
           {
             key: 'navbar_tiei_paiement_droits',
             route: `/${defaultPath}/${liquidationsPath.tieiPaiementDroitsRoute}`
@@ -52,20 +51,19 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
           },
         ]
       },
-      // {
-      //   key: 'navbar_rc',
-      //   route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
-      //   children: [
-      //     {
-      //       key: 'navbar_rc_contribution_records',
-      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-      //     },
-      //     {
-      //       key: 'navbar_rc_list_requests',
-      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-      //     },
-      //   ]
-      // },
+      {
+        key: 'navbar_rc',
+        children: [
+          {
+            key: 'navbar_rc_enregistrement_liquidation',
+            route: `/${defaultPath}/${liquidationsPath.rcEnregistrementRoute}`
+          },
+          {
+            key: 'navbar_rc_list_liquidations',
+            route: `/${defaultPath}/${liquidationsPath.rcGestionLiquidationsRoute}`
+          },
+        ]
+      },
     ];
   }
 }

@@ -23,4 +23,6 @@ export const backendRoutes = {
   rcContributionStatementPath: 'ressources/rc_contribution_account_statements',
   rtieiContributionPaymentsPath: 'ressources/rtiei_contribution_payments',
   rcContributionPaymentsPath: 'ressources/rc_contribution_declration_payments',
+  rcLiquidationPath: 'ressources/rc_liquidations',
+  rcLiquidationDecomptePath: 'ressources/rc_decompte-liquidations',
 };

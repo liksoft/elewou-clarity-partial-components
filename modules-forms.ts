@@ -4,12 +4,14 @@
  */
 export const rcModulesForms = {
   rcOptionContributionFormID: 41,
-  rcMembershipFormID: 42, // TODO Change the id of the form to load
+  rcMembershipFormID: 42,
   rcContributionDeclaration: 43,
   rcContributionDeclarationDetails: 44,
   rcContributionDeclarationPayment: 45,
   rcIndividualStatementForm: 47,
-  rcContributionStatementForm: 48
+  rcContributionStatementForm: 48,
+  liquidationForm: 50,
+  liquidationAdvantagesDetailsFormID: 52
 };
 
 /**
@@ -34,4 +36,8 @@ export const inModulesForms = {
   paymentInformations: 32,
   individualAccountReceiptForm: 33,
   contributionAccountReceiptForm: 34,
+  liquidationForm: 37,
+  liquidationFinancialOrganisationFormID: 40,
+  slipGeneratorFormID: 38,
+  liquidationAdvantagesDetailsFormID: 51
 };

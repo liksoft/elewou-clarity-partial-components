@@ -89,5 +89,15 @@ export const appAccessControlList = {
   list_rc_liquidations: 'list-rc-liquidations',
   create_rc_liquidations: 'create-rc-liquidations',
   update_rc_liquidations: 'update-rc-liquidations',
-  delete_rc_liquidations: 'delete-rc-liquidations'
+  delete_rc_liquidations: 'delete-rc-liquidations',
+
+  // RTIEI liquidations
+  list_rtiei_liquidation_assignations: 'list-rtiei-liquidation-assignations',
+  create_rtiei_liquidation_assignations: 'create-rtiei-liquidation-assignations',
+  update_rtiei_liquidation_assignations: 'update-rtiei-liquidation-assignations',
+  delete_rtiei_liquidation_assignations: 'delete-rtiei-liquidation-assignations',
+  list_rtiei_liquidations: 'list-rtiei-liquidations',
+  create_rtiei_liquidations: 'create-rtiei-liquidations',
+  update_rtiei_liquidations: 'update-rtiei-liquidations',
+  delete_rtiei_liquidations: 'delete-rtiei-liquidations'
 };

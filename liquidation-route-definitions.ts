@@ -11,5 +11,12 @@ export const liquidationRouteDefinitions = {
   tieiOrdonnancementDroitsRoute: 'home/tiei-ordonnancer-droits',
   // Paiement des droits
   tieiPaiementDroitsRoute: 'home/tiei-paiement-droits',
+  // Gestion des bordereaux
   tieiGestionBordereauxVirementRoute: 'home/tiei-bordereaux-virement',
+
+  // Rc Module
+    // Register liquidations route path
+    rcEnregistrementRoute: 'home/rc-register-liquidations',
+    // Manage liquidations route path
+    rcGestionLiquidationsRoute: 'home/rc-manage-liquidations',
 };
