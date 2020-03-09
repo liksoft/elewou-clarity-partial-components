@@ -132,6 +132,8 @@ export const RTIEI_CONTRIBUTION_DECLRATION_PAGINATOR_DATASOURCE_INJECTION_TOKEN 
 
 // Rc Module data source
 export const RC_MEMBERSHIP_DATASOURCE_INJECTION_TOKEN = 'RcMembershipDataSource';
+// Rc Member data source injection token
+export const RC_MEMBERS_DATASOURCE_INJECTION_TOKEN = 'RcMembersDataSource';
 // Rc Contribution declaration data source injection token
 export const RC_CONTRIBUTION_DECLRATION_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'RcContributionDeclarationDataSource';
 
