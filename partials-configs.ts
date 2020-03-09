@@ -93,6 +93,20 @@ export const rcMembershipPermissions = [
     partialConfigs.acl.update_rc_membership_assignations,
     partialConfigs.acl.delete_rc_membership_assignations,
 ];
+
+// imm_request memberships
+
+export const inImmRequestPermissions = [
+  partialConfigs.acl.list_imm_requests,
+  partialConfigs.acl.create_imm_requests,
+  partialConfigs.acl.update_imm_requests,
+  partialConfigs.acl.delete_imm_requests,
+  partialConfigs.acl.list_imm_request_assignations,
+  partialConfigs.acl.create_imm_request_assignation,
+  partialConfigs.acl.update_imm_request_assignation,
+  partialConfigs.acl.delete_imm_request_assignation,
+];
+
 // Add new constants here for module path
 // Default Dashboard path
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;

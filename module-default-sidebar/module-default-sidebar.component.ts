@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs, immatriculationPath, defaultPath } from '../partials-configs';
+import { partialConfigs, immatriculationPath, defaultPath, inImmRequestPermissions, rcMembershipPermissions } from '../partials-configs';
 @Component({
   selector: 'app-module-default-sidebar',
   templateUrl: './module-default-sidebar.component.html',
@@ -39,6 +39,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_economie_informelle',
         route: `/${defaultPath}/${immatriculationPath.enregistrementRoute}`,
+        permissions: inImmRequestPermissions,
         children: [
           {
             key: 'navbar_new_record',
@@ -72,22 +73,18 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.list_structures
             ]
           },
-          // {
-          //   key: 'navbar_manage_members',
-          //   // tslint:disable-next-line: max-line-length
-          //   route: `/${defaultPath}/${immatriculationPath.workersRoute}`,
-          // },
         ]
       },
       {
         key: 'navbar_retraite_complementaire',
+        permissions: rcMembershipPermissions,
         children: [
           {
             key: 'navbar_rc_new_request',
             route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`,
             permissions: [
               this.accessControlList.all,
-              this.accessControlList.list_rc_memberships
+              this.accessControlList.create_rc_memberships
             ]
           },
           {
@@ -98,13 +95,13 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.list_rc_memberships
             ]
           },
-          // {
-          //   key: 'navbar_rc_manage_employers',
-          //   route: `/${defaultPath}/${immatriculationPath.membershipRcEmployersRoute}`
-          // },
           {
             key: 'navbar_rc_manage_members',
-            route: `/${defaultPath}/${immatriculationPath.membershipRcMembersRoute}`
+            route: `/${defaultPath}/${immatriculationPath.membershipRcMembersRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.list_rc_memberships
+            ]
           },
         ]
       },
