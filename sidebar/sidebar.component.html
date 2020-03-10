@@ -1,14 +1,17 @@
 <section class="sidenav-content">
-    <section class="nav-group collapsible">
-        <ng-container *ngIf="routesMap">
-            <clr-tree-node *ngFor="let item of routesMap" [clrExpanded]="isDefined(item.children)">
-                <strong>{{ getRouteLinkFromMap(item.key)?.routeDescription }}</strong>
-                <clr-tree-node *ngFor="let child of getRouteLinkFromMap(item.key).children">
-                    <ng-container *ngIf="auth?.user?.canAny(child.routePermission)">
-                        <a [routerLink]="child.routePath" [routerLinkActive]="'active'" class="clr-treenode-link">{{ child.routeDescription }}</a>
-                    </ng-container>
-                </clr-tree-node>
-            </clr-tree-node>
-        </ng-container>
-    </section>
+  <section class="nav-group collapsible">
+    <ng-container *ngIf="routesMap">
+      <ng-container *ngFor="let item of routesMap">
+        <clr-tree-node *ngIf="auth?.user?.canAny(item.permissions)" [clrExpanded]="isDefined(item.children)">
+          <strong>{{ getRouteLinkFromMap(item.key)?.routeDescription }}</strong>
+          <clr-tree-node *ngFor="let child of getRouteLinkFromMap(item.key).children">
+            <ng-container *ngIf="auth?.user?.canAny(child.routePermission)">
+              <a [routerLink]="child.routePath" [routerLinkActive]="'active'"
+                class="clr-treenode-link">{{ child.routeDescription }}</a>
+            </ng-container>
+          </clr-tree-node>
+        </clr-tree-node>
+      </ng-container>
+    </ng-container>
+  </section>
 </section>
