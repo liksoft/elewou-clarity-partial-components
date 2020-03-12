@@ -72,6 +72,9 @@ export const adminPermissions = [
   partialConfigs.acl.list_organisations,
 ];
 
+/**
+ * @description Constant array grouping list of permissions required for tiei modules
+ */
 export const contributionPermissions = [
   partialConfigs.acl.create_rtiei_contribution_declaration_assignations,
   partialConfigs.acl.delete_rtiei_contribution_declarations,
@@ -83,6 +86,9 @@ export const contributionPermissions = [
   partialConfigs.acl.update_rtiei_contribution_declarations
 ];
 
+/**
+ * @description Constant array grouping list of permissions required for rc modules
+ */
 export const rcContributionPermissions = [
   partialConfigs.acl.create_rc_contribution_declaration_assignations,
   partialConfigs.acl.delete_rc_contribution_declarations,

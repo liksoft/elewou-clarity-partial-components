@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs, defaultPath, contributionPath, RC_STRUCTURES, RC_MEMBERS } from '../partials-configs';
+import { partialConfigs, defaultPath, contributionPath, RC_STRUCTURES, RC_MEMBERS, contributionPermissions, rcContributionPermissions } from '../partials-configs';
 
 @Component({
   selector: 'app-contributions-default-sidebar',
@@ -33,48 +33,95 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`,
+        // route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`,
+        permissions: contributionPermissions,
         children: [
           {
             key: 'navbar_tiei_enregistrement',
-            route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rtiei_contribution_declaration_assignations,
+              partialConfigs.acl.create_rtiei_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_tiei_cotisation',
-            route: `/${defaultPath}/${contributionPath.tieiGestionCotisationsRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiGestionCotisationsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rtiei_contribution_declaration_assignations,
+              partialConfigs.acl.list_rtiei_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_manage_individual_accounts',
-            route: `/${defaultPath}/${contributionPath.tieiIndividualAccountsRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiIndividualAccountsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rtiei_contribution_declaration_assignations,
+              partialConfigs.acl.list_rtiei_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_manage_accounts',
-            route: `/${defaultPath}/${contributionPath.tieiContributorsAccountsRoute}`
+            route: `/${defaultPath}/${contributionPath.tieiContributorsAccountsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rtiei_contribution_declaration_assignations,
+              partialConfigs.acl.list_rtiei_contribution_declarations,
+            ]
           },
         ]
       },
       {
         key: 'navbar_rc',
+        permissions: rcContributionPermissions,
         children: [
           {
             key: 'navbar_rc_enregistrement',
-            route: `/${defaultPath}/${contributionPath.rcEnregistrementRoute}`
+            route: `/${defaultPath}/${contributionPath.rcEnregistrementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rc_contribution_declaration_assignations,
+              partialConfigs.acl.create_rc_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_rc_contribution_declarations',
-            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_MEMBERS}`
+            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_MEMBERS}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rc_contribution_declaration_assignations,
+              partialConfigs.acl.list_rc_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_rc_structure_contribution_declarations',
-            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_STRUCTURES}`
+            route: `/${defaultPath}/${contributionPath.rcGestionCotisationsRoute}/${RC_STRUCTURES}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rc_contribution_declaration_assignations,
+              partialConfigs.acl.list_rc_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_rc_individual_accounts',
-            route: `/${defaultPath}/${contributionPath.rcIndividualAccountsRoute}`
+            route: `/${defaultPath}/${contributionPath.rcIndividualAccountsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rc_contribution_declaration_assignations,
+              partialConfigs.acl.list_rc_contribution_declarations,
+            ]
           },
           {
             key: 'navbar_rc_manage_accounts',
-            route: `/${defaultPath}/${contributionPath.rcContributorsAccountsRoute}`
+            route: `/${defaultPath}/${contributionPath.rcContributorsAccountsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rc_contribution_declaration_assignations,
+              partialConfigs.acl.list_rc_contribution_declarations,
+            ]
           }
         ]
       },
