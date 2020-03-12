@@ -83,6 +83,17 @@ export const contributionPermissions = [
   partialConfigs.acl.update_rtiei_contribution_declarations
 ];
 
+export const rcContributionPermissions = [
+  partialConfigs.acl.create_rc_contribution_declaration_assignations,
+  partialConfigs.acl.delete_rc_contribution_declarations,
+  partialConfigs.acl.delete_rc_contribution_declaration_assignations,
+  partialConfigs.acl.list_rc_contribution_declarations,
+  partialConfigs.acl.list_rc_contribution_declaration_assignations,
+  partialConfigs.acl.list_rc_contribution_declarations,
+  partialConfigs.acl.update_rc_contribution_declaration_assignations,
+  partialConfigs.acl.update_rc_contribution_declarations
+];
+
 export const rcMembershipPermissions = [
     partialConfigs.acl.list_rc_memberships,
     partialConfigs.acl.create_rc_memberships,
