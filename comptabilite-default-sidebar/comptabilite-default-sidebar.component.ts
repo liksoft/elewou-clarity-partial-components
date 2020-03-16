@@ -18,7 +18,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
 
   ngOnInit() {
     this.navbarRouteDefinitions = {
-      navbar_tiei: 'Gestion Comptabilites et finances TIEI',
+      navbar_tiei: 'Comptabilité',
       navbar_tiei_saisie_ecritures: 'Ecritures et journal',
       navbar_tiei_deversement: 'Déversements',
       navbar_tiei_etats_comptable: 'Etats Comptables',
