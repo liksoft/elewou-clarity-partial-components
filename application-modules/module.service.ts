@@ -7,7 +7,6 @@ import {
 import { Module } from 'src/app/lib/presentation/partials/application-modules/module';
 import {
   HttpGetAllRequestFn,
-  loadRessourceFromCacheOrGetFromServer,
   postRessourceAndNotifiStore,
   getRessources
 } from 'src/app/lib/domain/contracts/abstract-request-client';
@@ -18,7 +17,7 @@ import { ModuleBuilder } from 'src/app/lib/presentation/partials/application-mod
 import { Store } from 'src/app/lib/domain/store';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { MODULE_CREATED, MODULE_CONTAINER_INITIALIZED } from './module-reducer';
-import { RequestClient, deleteRessource, putRessource } from '../../../domain/contracts/abstract-request-client';
+import { RequestClient, deleteRessource, putRessource, getRessource } from '../../../domain/contracts/abstract-request-client';
 import { Role } from 'src/app/lib/domain/auth/models/role';
 import { FormService } from '../../../domain/components/dynamic-inputs/core/form-control/form.service';
 import { environment } from '../../../../../environments/environment';
@@ -144,12 +143,9 @@ export class ModuleService {
    * @param id [[number|string]]
    */
   public getSelectedModule(id: number | string) {
-    return loadRessourceFromCacheOrGetFromServer(
-      this.cache,
+    return getRessource<Module>(
       this.client,
-      this.ressourcesPath,
-      id,
-      (this.dataSource as ModulesDataSource).systemModulesStorageKey,
+      `${this.ressourcesPath}/${id}`,
       (Module.builder() as ISerializableBuilder<Module>)
     );
   }
