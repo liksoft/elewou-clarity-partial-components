@@ -19,4 +19,8 @@ export const liquidationRouteDefinitions = {
     rcEnregistrementRoute: 'home/rc-register-liquidations',
     // Manage liquidations route path
     rcGestionLiquidationsRoute: 'home/rc-manage-liquidations',
+    // Paiement des droits
+    rcPaiementDroitsRoute: 'home/rc-paiement-droits',
+    // Gestion des bordereaux
+    rcGestionBordereauxVirementRoute: 'home/rc-bordereaux-virement',
 };

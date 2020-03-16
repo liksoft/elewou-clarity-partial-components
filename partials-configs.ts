@@ -3,7 +3,7 @@ import { immRequestExcelSheetHeaders, rcDncHeaders } from './excel-sheets-header
 import { appAccessControlList } from './access-control-list';
 import { routeDefinitions } from './admin-route-definitions';
 import { immatriculationRouteDefinitions } from './immatriculation-route-definitions';
-import {contributionRouteDefinitions} from './contribution-route-definitions';
+import { contributionRouteDefinitions } from './contribution-route-definitions';
 import { liquidationRouteDefinitions } from './liquidation-route-definitions';
 import { accountingRouteDefinitions } from './accounting-route-definitions';
 
@@ -101,14 +101,14 @@ export const rcContributionPermissions = [
 ];
 
 export const rcMembershipPermissions = [
-    partialConfigs.acl.list_rc_memberships,
-    partialConfigs.acl.create_rc_memberships,
-    partialConfigs.acl.update_rc_memberships,
-    partialConfigs.acl.delete_rc_memberships,
-    partialConfigs.acl.list_rc_membership_assignations,
-    partialConfigs.acl.create_rc_membership_assignations,
-    partialConfigs.acl.update_rc_membership_assignations,
-    partialConfigs.acl.delete_rc_membership_assignations,
+  partialConfigs.acl.list_rc_memberships,
+  partialConfigs.acl.create_rc_memberships,
+  partialConfigs.acl.update_rc_memberships,
+  partialConfigs.acl.delete_rc_memberships,
+  partialConfigs.acl.list_rc_membership_assignations,
+  partialConfigs.acl.create_rc_membership_assignations,
+  partialConfigs.acl.update_rc_membership_assignations,
+  partialConfigs.acl.delete_rc_membership_assignations,
 ];
 
 // imm_request memberships
@@ -122,6 +122,33 @@ export const inImmRequestPermissions = [
   partialConfigs.acl.create_imm_request_assignation,
   partialConfigs.acl.update_imm_request_assignation,
   partialConfigs.acl.delete_imm_request_assignation,
+];
+
+
+// Permissions for handling rtiei liquidations
+
+export const rcLiquidationPermissions = [
+  partialConfigs.acl.list_rtiei_liquidations,
+  partialConfigs.acl.create_rtiei_liquidations,
+  partialConfigs.acl.update_rtiei_liquidations,
+  partialConfigs.acl.delete_rtiei_liquidations,
+  partialConfigs.acl.list_rtiei_liquidation_assignations,
+  partialConfigs.acl.create_rtiei_liquidation_assignations,
+  partialConfigs.acl.update_rtiei_liquidation_assignations,
+  partialConfigs.acl.delete_rtiei_liquidation_assignations,
+];
+
+
+// Permissions for handling rc liquidations
+export const inLiquidationPermissions = [
+  partialConfigs.acl.list_rc_liquidations,
+  partialConfigs.acl.create_rc_liquidations,
+  partialConfigs.acl.update_rc_liquidations,
+  partialConfigs.acl.delete_rc_liquidations,
+  partialConfigs.acl.list_rc_liquidation_assignations,
+  partialConfigs.acl.create_rc_liquidation_assignations,
+  partialConfigs.acl.update_rc_liquidation_assignations,
+  partialConfigs.acl.delete_rc_liquidation_assignations,
 ];
 
 // Add new constants here for module path
@@ -172,7 +199,7 @@ export const RC_CONTRIBUTION_DECLRATION_PAGINATOR_DATASOURCE_INJECTION_TOKEN = '
 // Type of possible liquidations
 export const liquidationTypes = partialConfigs.liquidationTypes;
 // Component form ids constants
-export {rcModulesForms, inModulesForms} from './modules-forms';
+export { rcModulesForms, inModulesForms } from './modules-forms';
 
 // Complementary retireement entity definition for structures
 export const RC_STRUCTURES = 'rc_structures';

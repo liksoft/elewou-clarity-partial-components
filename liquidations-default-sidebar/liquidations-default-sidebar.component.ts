@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { defaultPath, liquidationsPath } from '../partials-configs';
+import { defaultPath, liquidationsPath, inLiquidationPermissions, partialConfigs } from '../partials-configs';
 
 @Component({
   selector: 'app-liquidations-default-sidebar',
@@ -31,36 +31,65 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        // route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`,
+        permissions: inLiquidationPermissions,
         children: [
           {
             key: 'navbar_tiei_enregistrement_liquidation',
-            route: `/${defaultPath}/${liquidationsPath.tieiEnregistrementRoute}`
+            route: `/${defaultPath}/${liquidationsPath.tieiEnregistrementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rtiei_liquidations,
+              partialConfigs.acl.update_rtiei_liquidations,
+            ]
           },
           {
             key: 'navbar_tiei_list_liquidations',
-            route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`
+            route: `/${defaultPath}/${liquidationsPath.tieiGestionLiquidationsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rtiei_liquidations,
+            ]
           },
           {
             key: 'navbar_tiei_paiement_droits',
-            route: `/${defaultPath}/${liquidationsPath.tieiPaiementDroitsRoute}`
+            route: `/${defaultPath}/${liquidationsPath.tieiPaiementDroitsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rtiei_liquidations,
+              partialConfigs.acl.list_rtiei_liquidations,
+            ]
           },
           {
             key: 'navbar_tiei_bordereaux_virement',
-            route: `/${defaultPath}/${liquidationsPath.tieiGestionBordereauxVirementRoute}`
+            route: `/${defaultPath}/${liquidationsPath.tieiGestionBordereauxVirementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rtiei_liquidations,
+              partialConfigs.acl.list_rtiei_liquidations,
+            ]
           },
         ]
       },
       {
         key: 'navbar_rc',
+        permissions: inLiquidationPermissions,
         children: [
           {
             key: 'navbar_rc_enregistrement_liquidation',
-            route: `/${defaultPath}/${liquidationsPath.rcEnregistrementRoute}`
+            route: `/${defaultPath}/${liquidationsPath.rcEnregistrementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rc_liquidations,
+              partialConfigs.acl.update_rc_liquidations,
+            ]
           },
           {
             key: 'navbar_rc_list_liquidations',
-            route: `/${defaultPath}/${liquidationsPath.rcGestionLiquidationsRoute}`
+            route: `/${defaultPath}/${liquidationsPath.rcGestionLiquidationsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.list_rc_liquidations,
+            ]
           },
         ]
       },
