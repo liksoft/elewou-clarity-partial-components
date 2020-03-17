@@ -1,28 +1,30 @@
 <clr-dropdown>
-    <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
-        <clr-icon shape="applications" class="is-inverse"></clr-icon>
-    </button>
-    <clr-dropdown-menu class="modules-menu" *clrIfOpen clrPosition="bottom-right">
-      <div class="overlay">
-        <ng-container *ngIf="modules && componentService.isArray(modules)">
-            <div class="modules-container">
-                <div class="modules-list">
-                    <h2 class="dropdown-header" aria-hidden="true">Applications ELEWOU</h2>
-                    <div class="clr-row">
-                        <div class="clr-col-md-3 elewou-module" *ngFor="let item of modules" >
-                            <div clrDropdownItem>
-                                <span class="item-logo">
-                                    <img class="module-icon" src="{{ item.iconPath }}" width="32" height="32"/>
-                                </span>
-                                <span class="item-name">
-                                    {{ item.name }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+  <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+    <clr-icon shape="applications" class="is-inverse"></clr-icon>
+  </button>
+  <clr-dropdown-menu class="modules-menu" *clrIfOpen clrPosition="bottom-right">
+    <div class="overlay">
+      <ng-container *ngIf="modules && componentService.isArray(modules)">
+        <div class="modules-container">
+          <div class="modules-list">
+            <h2 class="dropdown-header" aria-hidden="true">Applications ELEWOU</h2>
+            <div class="clr-row">
+              <div class="clr-col-md-3 elewou-module" *ngFor="let item of modules">
+                <div clrDropdownItem>
+                  <a [href]="item?.url" target="_blank">
+                    <span class="item-logo">
+                      <img class="module-icon" src="{{ item.iconPath }}" width="32" height="32" />
+                    </span>
+                    <span class="item-name">
+                      {{ item.name }}
+                    </span>
+                  </a>
                 </div>
+              </div>
             </div>
-          </ng-container>
+          </div>
         </div>
-    </clr-dropdown-menu>
+      </ng-container>
+    </div>
+  </clr-dropdown-menu>
 </clr-dropdown>

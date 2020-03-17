@@ -90,8 +90,6 @@ export const appAccessControlList = {
   create_rc_liquidations: 'create-rc-liquidations',
   update_rc_liquidations: 'update-rc-liquidations',
   delete_rc_liquidations: 'delete-rc-liquidations',
-
-  // RTIEI liquidations
   list_rtiei_liquidation_assignations: 'list-rtiei-liquidation-assignations',
   create_rtiei_liquidation_assignations: 'create-rtiei-liquidation-assignations',
   update_rtiei_liquidation_assignations: 'update-rtiei-liquidation-assignations',
@@ -99,5 +97,13 @@ export const appAccessControlList = {
   list_rtiei_liquidations: 'list-rtiei-liquidations',
   create_rtiei_liquidations: 'create-rtiei-liquidations',
   update_rtiei_liquidations: 'update-rtiei-liquidations',
-  delete_rtiei_liquidations: 'delete-rtiei-liquidations'
+  delete_rtiei_liquidations: 'delete-rtiei-liquidations',
+  list_comptes: 'list-comptes',
+  create_comptes: 'create-comptes',
+  update_comptes: 'update-comptes',
+  delete_comptes: 'delete-comptes',
+  list_accountancy_operations: 'list-accountancy-operations',
+  create_accountancy_operations: 'create-accountancy-operations',
+  update_accountancy_operations: 'update-accountancy-operations',
+  delete_accountancy_operations: 'delete-accountancy-operations'
 };

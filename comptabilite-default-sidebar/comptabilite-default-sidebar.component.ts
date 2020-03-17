@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { defaultPath, comptabilitePath } from '../partials-configs';
+import { defaultPath, comptabilitePath, cptaPermissions, partialConfigs } from '../partials-configs';
 
 @Component({
   selector: 'app-comptabilite-default-sidebar',
@@ -28,44 +28,60 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_tiei',
-        // route: `/${defaultPath}/${comptabilitePath.tieiGestionLiquidationsRoute}`,
+        permissions: cptaPermissions,
         children: [
           {
             key: 'navbar_tiei_saisie_ecritures',
-            route: `/${defaultPath}/${comptabilitePath.tieiSaisieEcrituresRoute}`
+            route: `/${defaultPath}/${comptabilitePath.tieiSaisieEcrituresRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ]
           },
           {
             key: 'navbar_tiei_deversement',
-            route: `/${defaultPath}/${comptabilitePath.tieiDeversementsRoute}`
+            route: `/${defaultPath}/${comptabilitePath.tieiDeversementsRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ]
           },
           {
             key: 'navbar_tiei_etats_comptable',
-            route: `/${defaultPath}/${comptabilitePath.tieiEtatsComptablesRoute}`
+            route: `/${defaultPath}/${comptabilitePath.tieiEtatsComptablesRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ]
           },
           {
             key: 'navbar_tiei_etat_financiers',
-            route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersRoute}`
+            route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ]
           },
           {
             key: 'navbar_tiei_parametrage_comptes',
-            route: `/${defaultPath}/${comptabilitePath.tieiParametrageComptesRoute}`
+            route: `/${defaultPath}/${comptabilitePath.tieiParametrageComptesRoute}`,
+            permissions: [
+              partialConfigs.acl.list_comptes,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_comptes,
+              partialConfigs.acl.update_comptes,
+            ]
           },
         ]
       },
-      // {
-      //   key: 'navbar_rc',
-      //   route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.structuresRoute}`,
-      //   children: [
-      //     {
-      //       key: 'navbar_rc_contribution_records',
-      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcRoute}`
-      //     },
-      //     {
-      //       key: 'navbar_rc_list_requests',
-      //       route: `/${defaultPath}/${partialConfigs.routes.immatriculationModuleRoutes.membershipRcListRoute}`
-      //     },
-      //   ]
-      // },
     ];
   }
 }

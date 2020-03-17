@@ -151,6 +151,18 @@ export const inLiquidationPermissions = [
   partialConfigs.acl.delete_rc_liquidation_assignations,
 ];
 
+// Permissions for handling cpta modules operations
+export const cptaPermissions = [
+  partialConfigs.acl.list_comptes,
+  partialConfigs.acl.create_comptes,
+  partialConfigs.acl.update_comptes,
+  partialConfigs.acl.delete_comptes,
+  partialConfigs.acl.list_accountancy_operations,
+  partialConfigs.acl.create_accountancy_operations,
+  partialConfigs.acl.update_accountancy_operations,
+  partialConfigs.acl.delete_accountancy_operations,
+];
+
 // Add new constants here for module path
 // Default Dashboard path
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
