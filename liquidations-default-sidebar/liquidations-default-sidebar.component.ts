@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { defaultPath, liquidationsPath, inLiquidationPermissions, partialConfigs } from '../partials-configs';
+import { defaultPath, liquidationsPath, inLiquidationPermissions, partialConfigs, rcLiquidationPermissions } from '../partials-configs';
 
 @Component({
   selector: 'app-liquidations-default-sidebar',
@@ -72,7 +72,7 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_rc',
-        permissions: inLiquidationPermissions,
+        permissions: rcLiquidationPermissions,
         children: [
           {
             key: 'navbar_rc_enregistrement_liquidation',

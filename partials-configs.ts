@@ -127,7 +127,7 @@ export const inImmRequestPermissions = [
 
 // Permissions for handling rtiei liquidations
 
-export const rcLiquidationPermissions = [
+export const inLiquidationPermissions = [
   partialConfigs.acl.list_rtiei_liquidations,
   partialConfigs.acl.create_rtiei_liquidations,
   partialConfigs.acl.update_rtiei_liquidations,
@@ -140,7 +140,7 @@ export const rcLiquidationPermissions = [
 
 
 // Permissions for handling rc liquidations
-export const inLiquidationPermissions = [
+export const rcLiquidationPermissions = [
   partialConfigs.acl.list_rc_liquidations,
   partialConfigs.acl.create_rc_liquidations,
   partialConfigs.acl.update_rc_liquidations,
@@ -217,3 +217,6 @@ export { rcModulesForms, inModulesForms } from './modules-forms';
 export const RC_STRUCTURES = 'rc_structures';
 // Complementary retireement entity definition for members
 export const RC_MEMBERS = 'rc_members';
+
+// Fixed value of the currency used in the application
+export const APPLICATION_CURRENCY = 'XOF';
