@@ -6,6 +6,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { RessourceRequestProcessingComponent } from './ressource-request-processing.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RessourceAssignmentComponent } from './ressource-assignment/ressource-assignment.component';
+import { SharedModule } from '../../shared.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { RessourceAssignmentComponent } from './ressource-assignment/ressource-a
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ],
   declarations: [
     RessourceRequestProcessingComponent,
