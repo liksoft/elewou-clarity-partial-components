@@ -337,7 +337,7 @@ button#tabRetraiteCapitalisation.active {
 
 // 17/03/2020
 
-.card-header {
+.card-header,.form h2 {
   font-size: 14px;
   font-weight: 600;
 }
@@ -353,7 +353,7 @@ a.clr-treenode-link{
   padding: 5px;
 }
 
-.form-container h3, .card-block h3 {
+.form-container h3, .card-block h3, .modal-title-text {
   font-size: 15px;
   font-weight: 600;
   color: map-get($colors, 'blue' );
@@ -372,4 +372,19 @@ a.clr-treenode-link{
   span.attached-file-download {
     float: right;
   }
+}
+
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  font-size: 11px;
+  padding: 1px 11px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.intl-tel-input .clr-input{
+  width: 50% !important;
+}
+
+button.btn.btn-link.clr-wizard-stepnav-link {
+  font-size: 11px;
 }
