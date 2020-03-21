@@ -105,5 +105,13 @@ export const appAccessControlList = {
   list_accountancy_operations: 'list-accountancy-operations',
   create_accountancy_operations: 'create-accountancy-operations',
   update_accountancy_operations: 'update-accountancy-operations',
-  delete_accountancy_operations: 'delete-accountancy-operations'
+  delete_accountancy_operations: 'delete-accountancy-operations',
+  list_in_members: 'list-in-members',
+  create_in_members: 'create-in-members',
+  update_in_members: 'update-in-members',
+  delete_in_members: 'delete-in-members',
+  list_rc_members: 'list-rc-members',
+  create_rc_members: 'create-rc-members',
+  update_rc_members: 'update-rc-members',
+  delete_rc_members: 'delete-rc-members'
 };
