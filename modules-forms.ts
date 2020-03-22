@@ -41,3 +41,7 @@ export const inModulesForms = {
   slipGeneratorFormID: 38,
   liquidationAdvantagesDetailsFormID: 51
 };
+
+export const modulesCommonForms = {
+  contribution_declaration_validation: 54
+};
