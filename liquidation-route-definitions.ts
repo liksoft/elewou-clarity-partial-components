@@ -13,14 +13,18 @@ export const liquidationRouteDefinitions = {
   tieiPaiementDroitsRoute: 'home/tiei-paiement-droits',
   // Gestion des bordereaux
   tieiGestionBordereauxVirementRoute: 'home/tiei-bordereaux-virement',
+  // Gestion des assurés ayant faites une liquidation
+  tieiRetireeListRoute: 'home/tiei-retired-workers',
+  // Gestion des assurés ayant faites une liquidation
+  tieiRetireeLiquidationRoute: 'home/tiei-retired-workers-liquidation',
 
   // Rc Module
-    // Register liquidations route path
-    rcEnregistrementRoute: 'home/rc-register-liquidations',
-    // Manage liquidations route path
-    rcGestionLiquidationsRoute: 'home/rc-manage-liquidations',
-    // Paiement des droits
-    rcPaiementDroitsRoute: 'home/rc-paiement-droits',
-    // Gestion des bordereaux
-    rcGestionBordereauxVirementRoute: 'home/rc-bordereaux-virement',
+  // Register liquidations route path
+  rcEnregistrementRoute: 'home/rc-register-liquidations',
+  // Manage liquidations route path
+  rcGestionLiquidationsRoute: 'home/rc-manage-liquidations',
+  // Paiement des droits
+  rcPaiementDroitsRoute: 'home/rc-paiement-droits',
+  // Gestion des bordereaux
+  rcGestionBordereauxVirementRoute: 'home/rc-bordereaux-virement',
 };

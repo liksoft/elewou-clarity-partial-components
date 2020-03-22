@@ -23,6 +23,7 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
       navbar_tiei_list_liquidations: 'Gestion des liquidations',
       navbar_tiei_paiement_droits: 'Paiement des droits',
       navbar_tiei_bordereaux_virement: 'Gestion des bordereaux',
+      navbar_tiei_retirees: 'Gestion des pensionnés',
       // Rc route maps
       navbar_rc: 'Gestion des Liquidation RC',
       navbar_rc_enregistrement_liquidation: 'Enregistrer une liquidation',
@@ -62,6 +63,15 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
           {
             key: 'navbar_tiei_bordereaux_virement',
             route: `/${defaultPath}/${liquidationsPath.tieiGestionBordereauxVirementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rtiei_liquidations,
+              partialConfigs.acl.list_rtiei_liquidations,
+            ]
+          },
+          {
+            key: 'navbar_tiei_retirees',
+            route: `/${defaultPath}/${liquidationsPath.tieiRetireeListRoute}`,
             permissions: [
               partialConfigs.acl.all,
               partialConfigs.acl.create_rtiei_liquidations,

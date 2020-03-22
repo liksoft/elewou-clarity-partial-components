@@ -38,7 +38,7 @@ export const partialConfigs = {
   },
   latestTaskNumberOfMinutes: 2280,
   min_life_annuity: 10500,
-  rtiei_retirement_age: 60,
+  rtiei_retirement_age: 55,
   declarationsExcelHeaders: {
     insurance_id: 'Numero assurance',
     amount: 'Montant Cotisation'
@@ -183,6 +183,8 @@ export const backendRoutePaths = partialConfigs.backendRoutesPaths;
 export const contributionAccountType = 1;
 // individual account id
 export const individualAccountType = 2;
+// retirement account id
+export const retirementAccountType = 3;
 
 // Ressources Datasource Injection Tokens
 // Admin Module
