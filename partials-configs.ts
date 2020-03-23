@@ -222,3 +222,9 @@ export const RC_MEMBERS = 'rc_members';
 
 // Fixed value of the currency used in the application
 export const APPLICATION_CURRENCY = 'XOF';
+
+// Immatriculation configuration values
+// Member types constantes
+export const independantWorker = 2;
+export const worshipMinister = 3;
+export const informalWorkers = 1;
