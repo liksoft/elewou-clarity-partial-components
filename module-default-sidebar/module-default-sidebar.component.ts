@@ -27,6 +27,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       navbar_imm_processes: 'Aide : Processus',
       navbar_retraite_complementaire: 'Retraite Complémentaire',
       navbar_rc_new_request: 'Nouvelle adhésion',
+      navbar_rc_new_requests: 'Adhésion en lot',
       navbar_rc_list_requests: 'Demandes d\'adhésion',
       navbar_rc_manage_employers: 'Gestion des employeurs',
       navbar_rc_manage_members: 'Gestion des adhérents',
@@ -78,10 +79,18 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_retraite_complementaire',
         permissions: rcMembershipPermissions,
-        children: [
+        children: [ //
           {
             key: 'navbar_rc_new_request',
-            route: `/${defaultPath}/${immatriculationPath.membershipRcRoute}`,
+            route: `/${defaultPath}/${immatriculationPath.createMembershipRcRoute}`,
+            permissions: [
+              this.accessControlList.all,
+              this.accessControlList.create_rc_memberships
+            ]
+          },
+          {
+            key: 'navbar_rc_new_requests',
+            route: `/${defaultPath}/${immatriculationPath.createManyMembershipsRoute}`,
             permissions: [
               this.accessControlList.all,
               this.accessControlList.create_rc_memberships

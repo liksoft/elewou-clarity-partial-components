@@ -125,7 +125,8 @@ div.sortable div.dragging {
 .nav-group.collapsible {
     .clr-tree-node-content-container .clr-treenode-content {
         padding: 0 5px 5px;
-        border-bottom: 1px solid #ececec;
+        // border-bottom: 1px solid #ececec;
+        border-bottom: 1px solid rgba(236, 236, 236, .7);
     }
     .clr-treenode-children {
         margin: 0;
@@ -323,7 +324,7 @@ span.ng-value-label {
 .retraite-comp-content {
   border-top: 3px solid #fee67d;
   padding: 15px;
-  background: #f3f3f3;
+  // background: #f3f3f3;
 }
 
 

@@ -11,8 +11,11 @@ export const immatriculationRouteDefinitions = {
   addStructureRoute: 'home/structures/add-structure',
   // Mon compte routes
   userInfoRoute: 'profile',
+
   // Adhésion RC route
-  membershipRcRoute: 'home/membership_rc',
+  createMembershipRcRoute: 'home/membership_rc',
+  // Adhésion en mass
+  createManyMembershipsRoute: 'home/membership_rcs',
   // Adhésion Employeurs Route
   membershipRcEmployersRoute: 'home/employers',
   // Liste Demandes d'Adhésion Route

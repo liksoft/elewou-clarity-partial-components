@@ -11,7 +11,8 @@ export const rcModulesForms = {
   rcIndividualStatementForm: 47,
   rcContributionStatementForm: 48,
   liquidationForm: 50,
-  liquidationAdvantagesDetailsFormID: 52
+  liquidationAdvantagesDetailsFormID: 52,
+  membershipListFormID: 55,
 };
 
 /**
@@ -43,5 +44,6 @@ export const inModulesForms = {
 };
 
 export const modulesCommonForms = {
-  contribution_declaration_validation: 54
+  contribution_declaration_validation: 54,
+  membershipValidationFormID: 56
 };

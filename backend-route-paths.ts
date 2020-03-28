@@ -25,5 +25,9 @@ export const backendRoutes = {
   rcContributionPaymentsPath: 'ressources/rc_contribution_declration_payments',
   rcLiquidationPath: 'ressources/rc_liquidations',
   rcLiquidationDecomptePath: 'ressources/rc_decompte-liquidations',
-  contributionAccountTransactionsPaths: 'ressources/account_tansactions'
+  contributionAccountTransactionsPaths: 'ressources/account_tansactions',
+  rnMembersPath: 'ressources/rn_members',
+  rnStructuresPath: 'ressources/rn_structures',
+  rcMembershipMembersPath: 'ressources/rc_membership_members',
+  rcMembershipFilePath: 'ressources/rc_membership/files',
 };
