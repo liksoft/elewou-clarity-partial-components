@@ -22,7 +22,7 @@ export const backendRoutes = {
   rcIndividualStatementPath: 'ressources/member_rc_contribution_account_statements',
   rcContributionStatementPath: 'ressources/rc_contribution_account_statements',
   rtieiContributionPaymentsPath: 'ressources/rtiei_contribution_payments',
-  rcContributionPaymentsPath: 'ressources/rc_contribution_declration_payments',
+  rcContributionPaymentsPath: 'ressources/rc_contribution_declaration_payments',
   rcLiquidationPath: 'ressources/rc_liquidations',
   rcLiquidationDecomptePath: 'ressources/rc_decompte-liquidations',
   contributionAccountTransactionsPaths: 'ressources/account_tansactions',
