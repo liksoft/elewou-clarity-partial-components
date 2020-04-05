@@ -1,0 +1,51 @@
+// Header styles
+
+.header{
+    height: 2.2rem;
+    .branding{
+        & >.nav-link,
+        & > a{
+            height: 2rem;
+        } 
+    }
+    .header-nav {
+        height: 2rem;
+        .nav-link{
+            padding: 0.6rem 1rem;
+            color: #292929;
+            
+            &::before,
+            &::after{
+                height: 1.6rem;
+                background: #404040;
+            }
+        }
+    }
+    .header-actions{
+
+        & >.dropdown{
+
+            .dropdown-menu {
+                border: none;
+            }
+
+            & >.dropdown-toggle{
+                line-height: 2rem;
+                height: 2rem;
+                color: #292929;
+            }
+        }
+
+        &.nav-icon{
+            height: 2rem;
+            width: 2rem;
+        }
+
+
+    }
+
+    &.header-clients{
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #f1f1f1;
+    }
+}
