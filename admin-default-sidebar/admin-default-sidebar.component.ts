@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs } from '../partials-configs';
+import { defaultPath, adminPath } from '../partials-configs';
 
 @Component({
   selector: 'app-admin-default-sidebar',
@@ -14,38 +14,130 @@ export class AdminDefaultSidebarComponent implements OnInit {
 
   constructor() { }
 
+  // ngOnInit() {
+  //   this.navbarRouteDefinitions = {
+  //     navbar_dashboard: 'Tableau de bord',
+  //     navbar_manage_users: 'Utilisateurs',
+  //     navbar_roles_permissions: 'Rôles & Permissions',
+  //     navbar_forms: 'Formulaires',
+  //     navbar_activities: 'Suivi & Activité',
+  //     navbar_account: 'Mon compte',
+  //     navbar_personal_information: 'Informations personnelles',
+  //     // navbar_data_personnalisation: '',
+  //     navbar_password_security: 'Sécurité & Mot de passe',
+  //   };
+  //   this.navbarRoutesMap = [
+  //     {
+  //       key: 'navbar_dashboard',
+  //       children: [
+  //         {
+  //           key: 'navbar_manage_users',
+  //           route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.listUsersRoute}`
+  //         },
+  //         {
+  //           key: 'navbar_roles_permissions',
+  //           route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.rolesManagementRoute}`
+  //         },
+  //         {
+  //           key: 'navbar_forms',
+  //           route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.formsManagementRoute}`
+  //         },
+  //         {
+  //           key: 'navbar_activities',
+  //           route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.modulesManagementRoute}`
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       key: 'navbar_account',
+  //       children: [
+  //         {
+  //           key: 'navbar_personal_information',
+  //           route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.accountRoute}`
+  //         },
+  //       ]
+  //     }
+  //   ];
+  // }
+
   ngOnInit() {
     this.navbarRouteDefinitions = {
-      navbar_dashboard: 'Tableau de bord',
-      navbar_manage_users: 'Utilisateurs',
-      navbar_roles_permissions: 'Rôles & Permissions',
-      navbar_forms: 'Formulaires',
-      navbar_activities: 'Suivi & Activité',
+      navbar_user_groups_header: 'Utilisateurs & groupes',
+      navbar_forms_managenents_header: 'Gestion des formulaires',
+      navbar_modules_management_header: 'Gestion des modules',
+      navbar_users_management_create: 'Ajouter un utilisateur',
+      navbar_users_management_list: 'Liste des utilisateurs',
+      navbar_roles_permissions: 'Roles & Permissions',
+      navbar_forms_create: 'Créer un formulaire',
+      navbar_forms_list: 'Liste des formulaires',
+      navbar_modules_list: 'Liste des modules',
+      navbar_modules_create: 'Ajouter un nouveau module', //
+      navbar_department_management_header: 'Gestion des départements',
+      navbar_department_list: 'Liste des départements',
       navbar_account: 'Mon compte',
       navbar_personal_information: 'Informations personnelles',
-      // navbar_data_personnalisation: '',
-      navbar_password_security: 'Sécurité & Mot de passe',
+      navbar_cofigs: 'Configurations',
+      navbar_global_config: 'Configurations globales',
+      navbar_rtiei_configs: 'Retraite par capitalisation',
+      navbar_rc_configs: 'Retraite complémentaire'
     };
     this.navbarRoutesMap = [
       {
-        key: 'navbar_dashboard',
+        key: 'navbar_user_groups_header',
         children: [
           {
-            key: 'navbar_manage_users',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.listUsersRoute}`
+            key: 'navbar_users_management_list',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.listUsersRoute}`
           },
           {
             key: 'navbar_roles_permissions',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.rolesManagementRoute}`
-          },
-          {
-            key: 'navbar_forms',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.formsManagementRoute}`
-          },
-          {
-            key: 'navbar_activities',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.managementsRoute}/${partialConfigs.routes.adminModuleRoutes.modulesManagementRoute}`
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.rolesManagementRoute}`
           }
+        ]
+      },
+      {
+        key: 'navbar_forms_managenents_header',
+        children: [
+          {
+            key: 'navbar_forms_list',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.formsManagementRoute}`
+          }
+        ]
+      },
+      {
+        key: 'navbar_modules_management_header',
+        children: [
+          {
+            key: 'navbar_modules_list',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.modulesManagementRoute}`
+          }
+        ]
+      },
+      {
+        key: 'navbar_department_management_header',
+        children: [
+          {
+            key: 'navbar_department_list',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.departmentManagementRoute}`
+          }
+        ]
+      },
+      // Configurations
+      {
+        key: 'navbar_cofigs',
+        children: [
+          {
+            key: 'navbar_global_config',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.globalConfigurationsRoute}`
+          },
+          {
+            key: 'navbar_rtiei_configs',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.rcapConfigurationsRoute}`
+          },
+          {
+            key: 'navbar_rc_configs',
+            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.rCompConfigurationsRoute}`
+          },
         ]
       },
       {
@@ -53,7 +145,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_personal_information',
-            route: `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.accountRoute}`
+            route: `/${defaultPath}/${adminPath.accountRoute}`
           },
         ]
       }
