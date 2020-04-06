@@ -26,5 +26,5 @@ export const rcDncHeaders = {
   membership_date: 'Date adhesion',
   structure_contribution: 'Part employeur',
   member_contribution: 'Part assure',
-  ponctual_contribution: 'Cotisation Ponctuelles'
+  // ponctual_contribution: 'Cotisation Ponctuelles'
 };
