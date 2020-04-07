@@ -128,15 +128,15 @@ export class AdminDefaultSidebarComponent implements OnInit {
         children: [
           {
             key: 'navbar_global_config',
-            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.globalConfigurationsRoute}`
+            route: `/${defaultPath}/${adminPath.globalConfigurationsRoute}`
           },
           {
             key: 'navbar_rtiei_configs',
-            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.rcapConfigurationsRoute}`
+            route: `/${defaultPath}/${adminPath.rcapConfigurationsRoute}`
           },
           {
             key: 'navbar_rc_configs',
-            route: `/${defaultPath}/${adminPath.managementsRoute}/${adminPath.rCompConfigurationsRoute}`
+            route: `/${defaultPath}/${adminPath.rCompConfigurationsRoute}`
           },
         ]
       },

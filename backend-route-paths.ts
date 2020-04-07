@@ -30,4 +30,7 @@ export const backendRoutes = {
   rnStructuresPath: 'ressources/rn_structures',
   rcMembershipMembersPath: 'ressources/rc_membership_members',
   rcMembershipFilePath: 'ressources/rc_membership/files',
+  globalConfigurationsPath: 'ressources/application_configurations',
+  regimesPath: 'ressources/regimes',
+  branchesPath: 'ressources/branches',
 };

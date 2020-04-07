@@ -9,7 +9,7 @@ import { User } from 'src/app/lib/domain/auth/models/user';
 import { TranslationService } from 'src/app/lib/domain/translator';
 import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { Router } from '@angular/router';
-import { isDefined } from '@angular/compiler/src/util';
+import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 
 declare var require: any;
 
@@ -20,7 +20,7 @@ declare var require: any;
 })
 
 export class ClientTopBarComponent extends AbstractAlertableComponent implements OnInit {
- 
+
   public elewouLogo = require('../../assets/images/logo-elewou-main.png');
   public elewouIcon = require('../../assets/images/icon-elewou.png');
 
@@ -39,7 +39,8 @@ export class ClientTopBarComponent extends AbstractAlertableComponent implements
     private auth: AuthService,
     private translator: TranslationService,
     private dialog: Dialog,
-    private router: Router
+    private router: Router,
+    public readonly typeHelper: TypeUtilHelper
   ) {
     super(appUIStoreManager);
     this.navigationRoutes = new Collection();
@@ -53,14 +54,6 @@ export class ClientTopBarComponent extends AbstractAlertableComponent implements
       (item: IRouteLinkCollectionItem) =>
         this.navigationRoutes.add(item.key, item.value)
     );
-  }
-
-  /**
-   * @description Checks if a given value is null or undefined
-   * @param value [[value]]
-   */
-  public isDefined(value: any) {
-    return isDefined(value);
   }
 
   /**
