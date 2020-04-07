@@ -11,6 +11,7 @@ import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { Router } from '@angular/router';
 import { isDefined } from '@angular/compiler/src/util';
 
+declare var require: any;
 
 @Component({
   selector: 'app-client-top-bar',
