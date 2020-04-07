@@ -11,8 +11,6 @@ import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { Router } from '@angular/router';
 import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 
-declare var require: any;
-
 @Component({
   selector: 'app-client-top-bar',
   templateUrl: './client-top-bar.component.html',
