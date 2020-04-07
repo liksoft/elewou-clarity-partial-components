@@ -33,4 +33,5 @@ export const backendRoutes = {
   globalConfigurationsPath: 'ressources/application_configurations',
   regimesPath: 'ressources/regimes',
   branchesPath: 'ressources/branches',
+  subBranchesPath: 'ressources/sub_branches',
 };

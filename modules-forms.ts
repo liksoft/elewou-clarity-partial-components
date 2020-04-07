@@ -51,5 +51,6 @@ export const modulesCommonForms = {
 export const adminModuleForms = {
   globalConfigurationForm: 57,
   regimeConfigurationForm: 58,
-  branchesConfigurationForm: 59
+  branchesConfigurationForm: 59,
+  subBranchesConfigurationForm: 64
 };
