@@ -47,3 +47,9 @@ export const modulesCommonForms = {
   contribution_declaration_validation: 54,
   membershipValidationFormID: 56
 };
+
+export const adminModuleForms = {
+  globalConfigurationForm: 57,
+  regimeConfigurationForm: 58,
+  branchesConfigurationForm: 59
+};
