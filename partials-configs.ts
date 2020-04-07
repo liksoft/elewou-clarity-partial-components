@@ -6,6 +6,8 @@ import { immatriculationRouteDefinitions } from './immatriculation-route-definit
 import { contributionRouteDefinitions } from './contribution-route-definitions';
 import { liquidationRouteDefinitions } from './liquidation-route-definitions';
 import { accountingRouteDefinitions } from './accounting-route-definitions';
+import { clientRoutes } from './online/client-route-paths';
+import { clientRouteDefinitions } from './online/client-route-definitions';
 
 /**
  * This file defines configuration values that are shared accross modules
@@ -21,10 +23,12 @@ export const partialConfigs = {
     immatriculationModuleRoutes: immatriculationRouteDefinitions,
     contributionsModuleRoutes: contributionRouteDefinitions,
     liquidationsModuleRoutes: liquidationRouteDefinitions,
-    comptabiliteModuleRoutes: accountingRouteDefinitions
+    comptabiliteModuleRoutes: accountingRouteDefinitions,
+    clientModuleRoutes: clientRouteDefinitions
   },
   acl: appAccessControlList,
   backendRoutesPaths: backendRoutes,
+  clientRoutePaths: clientRoutes,
   immRequestExcelHeaders: immRequestExcelSheetHeaders,
   rcDncExcelHeaders: rcDncHeaders,
   assignableCollections: {
@@ -178,6 +182,8 @@ export const comptabilitePath = partialConfigs.routes.comptabiliteModuleRoutes;
 export const adminPath = partialConfigs.routes.adminModuleRoutes;
 // Route definitions for backend ressources
 export const backendRoutePaths = partialConfigs.backendRoutesPaths;
+// Route definitions for clients ressources
+export const clientRoutePaths = partialConfigs.clientRoutePaths;
 
 // contribution cotisation account id
 export const contributionAccountType = 1;

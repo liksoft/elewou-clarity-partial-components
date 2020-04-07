@@ -11,7 +11,6 @@ import { ApplicationModulesComponent } from './application-modules/application-m
 import { ModuleDefaultSidebarComponent } from './module-default-sidebar/module-default-sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
-
 import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
 import { AdminManagementSidebarComponent } from './admin-management-sidebar/admin-management-sidebar.component';
 import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-default-sidebar.component';
@@ -19,6 +18,8 @@ import { StructureTypeDropdownComponent } from './structure-type-dropdown/struct
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { LiquidationsDefaultSidebarComponent } from './liquidations-default-sidebar/liquidations-default-sidebar.component';
 import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
+import { ClientTopBarComponent } from './online/client-top-bar/client-top-bar.component';
+import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.component';
 @NgModule({
   imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule, ScrollingModule],
   exports: [
@@ -34,7 +35,9 @@ import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-side
     RessourceRequestProcessingModule,
     StructureTypeDropdownComponent,
     LiquidationsDefaultSidebarComponent,
-    ComptabiliteDefaultSidebarComponent
+    ComptabiliteDefaultSidebarComponent,
+    ClientTopBarComponent,
+    ClientSidebarComponent
   ],
   declarations: [
     AppTopBarComponent,
@@ -48,7 +51,9 @@ import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-side
     AdminDefaultSidebarComponent,
     StructureTypeDropdownComponent,
     LiquidationsDefaultSidebarComponent,
-    ComptabiliteDefaultSidebarComponent
+    ComptabiliteDefaultSidebarComponent,
+    ClientTopBarComponent,
+    ClientSidebarComponent
   ],
   providers: [ModuleService, RessourceRequestProcessingService]
 })
