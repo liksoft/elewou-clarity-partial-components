@@ -53,6 +53,11 @@ export const partialConfigs = {
     reversionTypeID: 5,
     annuityTypeID: 2,
     invalidityTypeID: 3
+  },
+  regimes: {
+    rCompID: 3,
+    rCapID: 2,
+    rRevID: 1
   }
 };
 
