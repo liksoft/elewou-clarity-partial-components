@@ -52,5 +52,6 @@ export const adminModuleForms = {
   globalConfigurationForm: 57,
   regimeConfigurationForm: 58,
   branchesConfigurationForm: 59,
-  subBranchesConfigurationForm: 64
+  subBranchesConfigurationForm: 64,
+  notificationTplConfigurationForm: 67
 };
