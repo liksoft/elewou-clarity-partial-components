@@ -29,7 +29,7 @@ $colors: (
 }
 
 @mixin background-yellow{
-  background-color: map-get($colors, "yellow");
+  background-color: lighten(map-get($colors, "yellow"),25%);
 }
 
 @mixin border-yellow{

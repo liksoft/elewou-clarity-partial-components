@@ -120,10 +120,16 @@ div.sortable div.dragging {
 }
 
 .nav-group.collapsible {
-  .clr-tree-node-content-container .clr-treenode-content {
-    padding: 0 5px 5px;
-    // border-bottom: 1px solid #ececec;
-    border-bottom: 1px solid rgba(236, 236, 236, 0.7);
+  .clr-tree-node{
+    border-bottom: 1px solid #f9f9f9;
+    .clr-tree-node-content-container {
+      button.clr-treenode-caret {
+        background: #ffffff;
+      }
+      .clr-treenode-content {
+        padding: 0px 1px 0px 0px;
+      }
+    }
   }
   .clr-treenode-children {
     margin: 0;
@@ -169,6 +175,11 @@ span.ng-value-label {
   @include color-blue;
   &:hover {
     @include border-blue;
+    @include background-blue;
+    color: white;
+    a{
+      color: white;
+    }
   }
 }
 
@@ -285,13 +296,13 @@ span.ng-value-label {
 }
 
 .nav .nav-link.active {
-  font-size: 19px;
+  font-size: 14px;
   font-weight: 700;
   color: #004c8a;
 }
 
 .nav .nav-link {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .nav li.nav-item .nav-link {
@@ -301,7 +312,7 @@ span.ng-value-label {
 }
 
 .nav li.nav-item .nav-link.active {
-  background: #fee67d;
+  @include background-yellow;
 }
 
 .nav .nav-item {
@@ -391,4 +402,32 @@ button.btn.btn-link.clr-wizard-stepnav-link {
 
 .clr-input {
   border-bottom: 1px solid #d9d9d9 !important;
+}
+
+nav.sidenav {
+  background: white;
+  z-index: 0;
+}
+
+app-app-top-bar {
+  z-index: 99;
+}
+
+.datagrid-table .datagrid-cell {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.tab-content{
+  .card{
+    margin-top: 0;
+  }
+}
+
+.card-header {
+  background: #f7f7f7;
+}
+
+.datagrid-header .datagrid-column {
+  @include background-yellow();
 }
