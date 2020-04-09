@@ -431,3 +431,20 @@ app-app-top-bar {
 .datagrid-header .datagrid-column {
   @include background-yellow();
 }
+
+.welcome-admin {
+  padding: 15px 21px;
+  background: url(../../../../assets/images/ai-bg.png) no-repeat fixed 120% 10%;
+  background-size: 50%;
+}
+
+h1.welcome-text {
+  font-weight: 700;
+}
+
+.caution-message {
+  border: 2px solid #fff0bb;
+  background: #fffae7;
+  padding: 0 13px 15px 25px;
+  margin-top: 1rem;
+}
