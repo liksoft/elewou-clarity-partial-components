@@ -19,8 +19,8 @@ import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 
 export class ClientTopBarComponent extends AbstractAlertableComponent implements OnInit {
 
-  public elewouLogo = require('../../assets/images/logo-elewou-main.png');
-  public elewouIcon = require('../../assets/images/icon-elewou.png');
+  public elewouLogo; // require('../../assets/images/logo-elewou-main.png');
+  public elewouIcon; // require('../../assets/images/icon-elewou.png');
 
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
