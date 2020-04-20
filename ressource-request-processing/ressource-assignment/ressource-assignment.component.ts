@@ -35,6 +35,8 @@ import { AuthService } from '../../../../domain/auth/core/auth.service';
 export class RessourceAssignmentComponent extends AbstractAlertableComponent implements OnInit {
 
   @Input() collectionID: number | string;
+  // tslint:disable-next-line: no-inferrable-types
+  @Input() triggerButtonClass: string = 'btn btn-primary';
   public users: User[];
   @Input() public permission: string;
   @Input() public buttonDisabled = false;

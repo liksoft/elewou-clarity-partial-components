@@ -1,6 +1,8 @@
-<app-ressource-assignment (assignmentCompletedSuccessfully)="assignmentCompletedSuccessfully.emit($event)"
-  [collectionID]="collectionID" [permission]="permission" [buttonDisabled]="assignationButtonDisabled"
-  [selectedIds]="[id]"></app-ressource-assignment>
+<drewlabs-ressource-assignment *ngIf="showAssignmentButton"
+  (assignmentCompletedSuccessfully)="assignmentCompletedSuccessfully.emit($event)" [collectionID]="collectionID"
+  [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"
+  [triggerButtonClass]="triggerButtonClass">
+</drewlabs-ressource-assignment>
 <button class="btn btn-app" [disabled]="performingAction || validationButtonDisabled"
   (click)="performRessourceProcessingAction(true)">
   <clr-icon shape="check-circle"></clr-icon> Valider la demande
@@ -62,7 +64,8 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-sm btn-outline" (click)="doValidationCancelAction()">Annuler</button>
-    <button type="button"  [disabled]="performingAction || !(validationFormGroup?.valid)" class="btn btn-sm btn-outline" (click)="validateProcess()">Confirmer</button>
+    <button type="button" [disabled]="performingAction || !(validationFormGroup?.valid)" class="btn btn-sm btn-outline"
+      (click)="validateProcess()">Confirmer</button>
   </div>
 </clr-modal>
 <!--/ End of validation modal contents -->

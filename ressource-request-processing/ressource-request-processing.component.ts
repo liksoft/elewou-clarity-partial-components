@@ -43,6 +43,10 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() assignationButtonDisabled = false;
   @Input() rejectionButtonDisabled = false;
   @Input() validationButtonDisabled = false;
+  // tslint:disable-next-line: no-inferrable-types
+  @Input() triggerButtonClass: string = 'btn btn-primary';
+  // tslint:disable-next-line: no-inferrable-types
+  @Input() showAssignmentButton: boolean = true;
 
   @Input() validationForm: IDynamicForm;
   @Output() validationFormSumitted = new EventEmitter<{translations: any, body: object}>();

@@ -7,6 +7,7 @@ import { RessourceRequestProcessingComponent } from './ressource-request-process
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RessourceAssignmentComponent } from './ressource-assignment/ressource-assignment.component';
 import { SharedModule } from '../../shared.module';
+import { RessourceAssignmentModule } from '../../../domain/components/ressource-assignment';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { SharedModule } from '../../shared.module';
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    RessourceAssignmentModule
   ],
   declarations: [
     RessourceRequestProcessingComponent,
