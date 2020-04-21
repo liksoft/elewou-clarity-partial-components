@@ -448,3 +448,12 @@ h1.welcome-text {
   padding: 0 13px 15px 25px;
   margin-top: 1rem;
 }
+
+/* Sidebar navigation styling */
+clr-tree-node-content-container{
+  margin: .1rem 0 !important;
+}
+
+.nav-group.collapsible .clr-tree-node .clr-tree-node-content-container .clr-treenode-content {
+  margin: .1rem 0 !important;
+}
