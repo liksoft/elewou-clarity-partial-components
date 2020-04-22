@@ -277,7 +277,7 @@ span.ng-value-label {
 }
 
 .content-area .app-page-header {
-  padding: 0;
+  padding: 1rem 1rem 0 1rem;
   margin-bottom: 2rem;
 }
 
@@ -482,4 +482,8 @@ table.table.table-sm {
 .summary-card thead th {
   background: #fbf5df;
   border-bottom: 2px solid #ead26f;
+}
+
+.main-container .content-container .content-area{
+  padding: 0;
 }
