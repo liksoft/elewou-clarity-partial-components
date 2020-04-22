@@ -464,3 +464,22 @@ clr-tree-node-content-container{
   color: #004c8a;
   font-weight: 700;
 }
+
+h3.section-title {
+  margin: 1rem 0;
+  font-weight: 600;
+  color: #004c8a;
+}
+
+table.table.table-sm {
+  margin: 0;
+}
+
+.summary-card .card-block {
+  padding: 0;
+}
+
+.summary-card thead th {
+  background: #fbf5df;
+  border-bottom: 2px solid #ead26f;
+}
