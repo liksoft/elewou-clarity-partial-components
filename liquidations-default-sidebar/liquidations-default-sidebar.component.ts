@@ -18,16 +18,18 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
 
   ngOnInit() {
     this.navbarRouteDefinitions = {
-      navbar_tiei: 'Gestion Liquidations TIEI',
+      navbar_tiei: 'Gestion Liquidations (RCAP)',
       navbar_tiei_enregistrement_liquidation: 'Enregistrer une liquidation',
       navbar_tiei_list_liquidations: 'Gestion des liquidations',
       navbar_tiei_paiement_droits: 'Paiement des droits',
       navbar_tiei_bordereaux_virement: 'Gestion des bordereaux',
       navbar_tiei_retirees: 'Gestion des pensionnés',
       // Rc route maps
-      navbar_rc: 'Gestion des Liquidation RC',
+      navbar_rc: 'Gestion des Liquidation (RCOMP)',
       navbar_rc_enregistrement_liquidation: 'Enregistrer une liquidation',
       navbar_rc_list_liquidations: 'Gestion des liquidations',
+      navbar_rc_bordereaux_virement: 'Gestion des bordereaux',
+      navbar_rc_paiement_droits: 'Paiement des droits',
     };
     this.navbarRoutesMap = [
       {
@@ -101,6 +103,34 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
               partialConfigs.acl.list_rc_liquidations,
             ]
           },
+          {
+            key: 'navbar_rc_paiement_droits',
+            route: `/${defaultPath}/${liquidationsPath.rcPaiementDroitsRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rc_liquidations,
+              partialConfigs.acl.list_rc_liquidations,
+            ]
+          },
+          {
+            key: 'navbar_rc_bordereaux_virement',
+            route: `/${defaultPath}/${liquidationsPath.rcGestionBordereauxVirementRoute}`,
+            permissions: [
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_rc_liquidations,
+              partialConfigs.acl.list_rc_liquidations,
+            ]
+          },
+          // Rc Retirees
+          // {
+          //   key: 'navbar_tiei_retirees',
+          //   route: `/${defaultPath}/${liquidationsPath.tieiRetireeListRoute}`,
+          //   permissions: [
+          //     partialConfigs.acl.all,
+          //     partialConfigs.acl.create_rtiei_liquidations,
+          //     partialConfigs.acl.list_rtiei_liquidations,
+          //   ]
+          // },
         ]
       },
     ];
