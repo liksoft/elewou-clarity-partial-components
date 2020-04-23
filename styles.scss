@@ -277,7 +277,7 @@ span.ng-value-label {
 }
 
 .content-area .app-page-header {
-  padding: 0;
+  padding: 1rem 1rem 0 1rem;
   margin-bottom: 2rem;
 }
 
@@ -447,4 +447,43 @@ h1.welcome-text {
   background: #fffae7;
   padding: 0 13px 15px 25px;
   margin-top: 1rem;
+}
+
+/* Sidebar navigation styling */
+clr-tree-node-content-container{
+  margin: .1rem 0 !important;
+}
+
+.nav-group.collapsible .clr-tree-node .clr-tree-node-content-container .clr-treenode-content {
+  margin: .1rem 0 !important;
+}
+
+.card-header h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #004c8a;
+  font-weight: 700;
+}
+
+h3.section-title {
+  margin: 1rem 0;
+  font-weight: 600;
+  color: #004c8a;
+}
+
+table.table.table-sm {
+  margin: 0;
+}
+
+.summary-card .card-block {
+  padding: 0;
+}
+
+.summary-card thead th {
+  background: #fbf5df;
+  border-bottom: 2px solid #ead26f;
+}
+
+.main-container .content-container .content-area{
+  padding: 0;
 }
