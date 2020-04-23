@@ -1,6 +1,7 @@
 export const accountingRouteDefinitions = {
   // Register Saisie Ecritures
   tieiSaisieEcrituresRoute: 'home/tiei-saisie-ecritures',
+  tieiAjoutEcrituresRoute: 'home/add-ecriture',
   // Register Saisie Ecritures details
   tieiSaisieEcrituresDetailsRoute: 'home/tiei-saisie-ecritures/details',
   // Manage Deversements
