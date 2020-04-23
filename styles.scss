@@ -513,3 +513,14 @@ clr-accordion-title.clr-accordion-title {
 .modal-footer.clr-wizard-footer {
     background: #eaeaea;
 }
+
+
+.clr-form-control .ng-select .ng-select-container{
+  min-height: 26px;
+  height: 26px;
+}
+
+clr-date-container .clr-input-group {
+  width: 100%;
+  border-bottom: none;
+}
