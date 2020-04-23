@@ -487,3 +487,40 @@ table.table.table-sm {
 .main-container .content-container .content-area{
   padding: 0;
 }
+
+button.icon-variant {
+  background: #fff;
+  border: 1px solid #ff2802;
+  border-radius: 7px;
+  color: red;
+  float: right;
+  padding: 0px 5px;
+  clr-icon{
+    height: 12px;
+    width: 12px;
+  }
+}
+
+clr-accordion-title.clr-accordion-title {
+  width: 100%;
+}
+
+.clr-row.edit-forms {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modal-footer.clr-wizard-footer {
+    background: #eaeaea;
+}
+
+
+.clr-form-control .ng-select .ng-select-container{
+  min-height: 26px;
+  height: 26px;
+}
+
+clr-date-container .clr-input-group {
+  width: 100%;
+  border-bottom: none;
+}
