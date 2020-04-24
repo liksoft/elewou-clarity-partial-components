@@ -20,11 +20,11 @@ export const liquidationRouteDefinitions = {
 
   // Rc Module
   // Register liquidations route path
-  rcEnregistrementRoute: 'home/rc-register-liquidations',
+  rcEnregistrementRoute: 'home/rcomp-register-liquidations',
   // Manage liquidations route path
-  rcGestionLiquidationsRoute: 'home/rc-manage-liquidations',
+  rcGestionLiquidationsRoute: 'home/rcomp-manage-liquidations',
   // Paiement des droits
-  rcPaiementDroitsRoute: 'home/rc-paiement-droits',
+  rcPaiementDroitsRoute: 'home/rcomp-paiement-droits',
   // Gestion des bordereaux
-  rcGestionBordereauxVirementRoute: 'home/rc-bordereaux-virement',
+  rcGestionBordereauxVirementRoute: 'home/rcomp-bordereaux-virement'
 };
