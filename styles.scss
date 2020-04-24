@@ -495,6 +495,9 @@ button.icon-variant {
   color: red;
   float: right;
   padding: 0px 5px;
+  &:hover {
+    background: #feeba1;
+  }
   clr-icon{
     height: 12px;
     width: 12px;
@@ -523,4 +526,9 @@ clr-accordion-title.clr-accordion-title {
 clr-date-container .clr-input-group {
   width: 100%;
   border-bottom: none;
+}
+
+.rc-options .table td, .rc-options .table th {
+  font-size: 8px;
+  padding: 2px 5px;
 }
