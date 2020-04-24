@@ -532,3 +532,15 @@ clr-date-container .clr-input-group {
   font-size: 8px;
   padding: 2px 5px;
 }
+
+
+.spinner.spinner-inline {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  left: 60%;
+  right: 40%;
+  top: 50%;
+  bottom: 50%;
+  z-index: 99;
+}
