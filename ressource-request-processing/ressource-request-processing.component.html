@@ -5,11 +5,11 @@
 </drewlabs-ressource-assignment>
 <button class="btn btn-app" [disabled]="performingAction || validationButtonDisabled"
   (click)="performRessourceProcessingAction(true)">
-  <clr-icon shape="check-circle" class="is-solid"></clr-icon> Valider la cotisation
+  <clr-icon shape="check-circle" class="is-solid"></clr-icon> Valider
 </button>
 <button class="btn btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled"
   (click)="performRessourceProcessingAction(false)">
-  <clr-icon shape="times-circle"></clr-icon> Annuler/Rejeter la cotisation
+  <clr-icon shape="times-circle"></clr-icon> Annuler/Rejeter
 </button>
 <clr-modal [(clrModalOpen)]="modalOpened" [clrModalClosable]="true" [clrModalSize]="'md'">
   <div class="modal-title">
