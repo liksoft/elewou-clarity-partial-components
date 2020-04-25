@@ -276,11 +276,6 @@ span.ng-value-label {
   }
 }
 
-.content-area .app-page-header {
-  padding: 1rem 1rem 0 1rem;
-  margin-bottom: 2rem;
-}
-
 .user-photo {
   text-align: right;
   padding: 15px;
@@ -306,7 +301,7 @@ span.ng-value-label {
 }
 
 .nav li.nav-item .nav-link {
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   padding: 0px 8px;
   border-bottom: none;
 }
@@ -335,14 +330,14 @@ span.ng-value-label {
   box-shadow: none;
 }
 
-button#tabRetraiteCapitalisation.active {
-  background: #10448c;
-  color: #fafafa;
-}
+// button#tabRetraiteCapitalisation.active {
+//   background: #10448c;
+//   color: #fafafa;
+// }
 
-.clr-accordion-panel-open .clr-accordion-header {
-  background: #fafafa !important;
-}
+// .clr-accordion-panel-open .clr-accordion-header {
+//   background: #fafafa !important;
+// }
 
 // 17/03/2020
 
@@ -547,4 +542,27 @@ clr-date-container .clr-input-group {
 
 .content-area .card:first-of-type {
   margin: 0;
+}
+
+.app-intro {
+  font-weight: 300;
+}
+.card-header h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.app-page-header .card {
+  background: rgba(white, 0.85);
+  border: none;
+  padding: 1rem 20rem 1rem 1rem;
+}
+
+.app-page-header .card-header {
+  background:transparent;
+}
+
+.app-page-header {
+  background: #ffffff url(assets/images/app-header.jpg);
+  background-attachment: fixed;
 }
