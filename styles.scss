@@ -570,3 +570,19 @@ clr-date-container .clr-input-group {
 .welcome-card h3 {
   margin-bottom: 1rem;
 }
+
+.clr-textarea {
+  max-width: calc(100% - .25rem);
+  height: auto;
+  resize: vertical;
+  background: #fff;
+  border: 0px solid #d9d9d9;
+  color: #000;
+  border-bottom: 1px solid #d9d9d9;
+  border-radius: 0;
+  font-size: .541667rem;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
