@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/lib/domain/auth/core';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styles: []
 })
 export class SidebarComponent extends AbstractAlertableComponent implements OnInit {
   public navigationRoutes: Collection<RouteLink>;

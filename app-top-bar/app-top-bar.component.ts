@@ -17,12 +17,34 @@ declare var require: any;
 @Component({
   selector: 'app-app-top-bar',
   templateUrl: './app-top-bar.component.html',
-  styleUrls: ['./app-top-bar.component.scss']
+  styles: [
+    `.branding {
+      background: #ffffff;
+      }
+      .title {
+        padding: 0 16px;
+        &.module_name{
+          background: #033258;
+          color: #ffbc48;
+          box-shadow: 4px 0px 6px -3px #000000bd;
+        }
+      }
+      .header .branding, header .branding {
+        padding: 0 0 0 1rem;
+      }
+      clr-header.header {
+        box-shadow: 2px 2px 12px -4px #999;
+      }
+      .app-logo{
+        width: 20%;
+      }
+    `
+  ]
 })
 export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
 
-  public elewouLogo = require('../assets/images/logo-elewou-main.png');
-  public elewouIcon = require('../assets/images/icon-elewou.png');
+  public elewouLogo = '/assets/images/logo-elewou-main.png';
+  public elewouIcon = '/assets/images/icon-elewou.png';
 
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];

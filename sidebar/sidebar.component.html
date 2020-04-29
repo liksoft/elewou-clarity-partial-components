@@ -1,6 +1,6 @@
 <section class="sidenav-content">
   <section class="nav-group collapsible">
-    <ng-container *ngIf="routesMap">
+    <clr-tree *ngIf="routesMap">
       <ng-container *ngFor="let item of routesMap">
         <clr-tree-node *ngIf="auth?.user?.canAny(item.permissions)" [clrExpanded]="isDefined(item?.children)">
           <strong>{{ getRouteLinkFromMap(item.key)?.routeDescription }}</strong>
@@ -12,6 +12,6 @@
           </clr-tree-node>
         </clr-tree-node>
       </ng-container>
-    </ng-container>
+    </clr-tree>
   </section>
 </section>
