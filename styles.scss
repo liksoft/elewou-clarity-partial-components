@@ -483,7 +483,7 @@ table.table.table-sm {
   padding: 0;
 }
 
-button.icon-variant {
+button.icon-variant, .remove-btn {
   background: #fff;
   border: 1px solid #ff2802;
   border-radius: 7px;
@@ -585,4 +585,72 @@ clr-date-container .clr-input-group {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
+}
+
+
+/* Creating Card Merge Style for styling multiple sections forms */
+.clr-form .card-merge:nth-of-type(n+1) {
+  margin-top: 0;
+  border-top: 0;
+}
+
+.clr-form .card-merge:first-of-type {
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+/* Accounting styles */
+/* Added new table style */
+.ecriture-table-head, .ecriture-table-tr{
+  border-bottom: 1px solid #ddd;
+  padding: 0;
+}
+
+.ecriture-table .ecriture-table-td, .ecriture-table-th{
+  margin: 0;
+  padding: 5px;
+
+  .clr-select-wrapper {
+    width: 100%;
+  }
+}
+
+.ecriture-table-head .clr-col:not(:first-child), .ecriture-table-td:not(:first-child){
+  border-left: 1px solid #ddd;
+}
+
+.card-block.ecriture-table {
+  background:#ececec;
+  padding-bottom: 0;
+}
+
+.clr-row .ecriture-table-td .clr-control-container input.clr-input, .clr-row .ecriture-table-td .clr-control-container select.clr-select {
+  background: #FFF;
+  border-bottom: 0px!important;
+}
+
+
+/* Added Focus Style */
+.clr-control-container input.clr-input:focus, .clr-control-container select.clr-select:focus {
+  border: 1px solid #ffea8e;
+  background: #fffcca!important;
+}
+
+.clr-row.ecriture-table-totals {
+  padding: 0px;
+  border-top: 4px solid #fff;
+}
+
+.total-zone {
+    border-right: 4px solid #fff;
+}
+
+.title-zone {
+  padding: 15px;
+  font-weight: 700;
+}
+
+.add-new-row {
+  padding: 11px 0px;
+  background: #ececec;
 }
