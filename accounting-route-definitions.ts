@@ -5,6 +5,8 @@ export const accountingRouteDefinitions = {
   tieiSaisieEcrituresReleveRoute: 'home/releve-ecriture',
   // Register Saisie Ecritures details
   tieiSaisieEcrituresDetailsRoute: 'home/tiei-saisie-ecritures/details',
+  // Balance
+  tieiBalanceRoute: 'home/tiei-balance/liste',
   // Manage Deversements
   tieiDeversementsRoute: 'home/tiei-deversements',
   // Gestion Etats Comptables

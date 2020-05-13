@@ -23,6 +23,8 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       navbar_tiei_saisie_journaux: 'Journaux',
       navbar_tiei_saisie_ecritures_liste: 'Journal (Liste)',
       navbar_tiei_saisie_ecritures_releve: 'Journal (Relevé)',
+      navbar_tiei_balance: 'Balance',
+      navbar_tiei_balance_liste: 'Balance (liste)',
       navbar_tiei_deversement: 'Déversements',
       navbar_tiei_etats_comptable: 'Etats Comptables',
       navbar_tiei_etat_financiers: 'Etats Financiers',
@@ -63,6 +65,22 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
           {
             key: 'navbar_tiei_saisie_ecritures_releve',
             route: `/${defaultPath}/${comptabilitePath.tieiSaisieEcrituresReleveRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ]
+          }
+        ]
+      },
+      {
+        key: 'navbar_tiei_balance',
+        permissions: cptaPermissions,
+        children: [
+          {
+            key: 'navbar_tiei_balance_liste',
+            route: `/${defaultPath}/${comptabilitePath.tieiBalanceRoute}`,
             permissions: [
               partialConfigs.acl.list_accountancy_operations,
               partialConfigs.acl.all,
