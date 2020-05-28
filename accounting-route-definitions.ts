@@ -9,6 +9,8 @@ export const accountingRouteDefinitions = {
   tieiBalanceRoute: 'home/tiei-balance/liste',
   // Manage Deversements
   tieiDeversementsRoute: 'home/tiei-deversements',
+  // transfert comptable
+  tieiAccountingTransfertRoute: 'home/tiei-accounting-transfert',
   // Gestion Etats Comptables
   tieiEtatsComptablesRoute: 'home/tiei-etats-comptables',
   // Gestion Etats Financiers
