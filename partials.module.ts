@@ -6,8 +6,6 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubnavComponent } from './subnav/subnav.component';
-import { ModuleService } from './application-modules/module.service';
-import { ApplicationModulesComponent } from './application-modules/application-modules.component';
 import { ModuleDefaultSidebarComponent } from './module-default-sidebar/module-default-sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
@@ -20,14 +18,20 @@ import { LiquidationsDefaultSidebarComponent } from './liquidations-default-side
 import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
 import { ClientTopBarComponent } from './online/client-top-bar/client-top-bar.component';
 import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.component';
+import { AppModuleModule } from './app-modules/app-modules.module';
 @NgModule({
-  imports: [RouterModule, CommonModule, SharedModule, RessourceRequestProcessingModule, ScrollingModule],
+  imports: [
+    RouterModule,
+    CommonModule,
+    SharedModule,
+    RessourceRequestProcessingModule,
+    ScrollingModule,
+    AppModuleModule],
   exports: [
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
@@ -37,14 +41,14 @@ import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.c
     LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
-    ClientSidebarComponent
+    ClientSidebarComponent,
+    AppModuleModule
   ],
   declarations: [
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ApplicationModulesComponent,
     ModuleDefaultSidebarComponent,
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
@@ -55,6 +59,6 @@ import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.c
     ClientTopBarComponent,
     ClientSidebarComponent
   ],
-  providers: [ModuleService, RessourceRequestProcessingService]
+  providers: [RessourceRequestProcessingService]
 })
 export class PartialsModule { }

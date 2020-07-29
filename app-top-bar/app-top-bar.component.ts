@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/lib/domain/translator';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { partialConfigs } from '../partials-configs';
+import { partialConfigs, backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
 
 // declare the variable require to use ad image path
 declare var require: any;
@@ -48,13 +48,16 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
-  public dashboardRoute: string;
+  public connectUser: User;
+  public dashboardRoute = `/${defaultPath}`;
+  public profileRoute = `/${defaultPath}/${adminPath.accountRoute}`;
+
   @Input() public routesMap: RoutesMap[];
   @Input() routeDescriptions: { [index: string]: string };
-  @Input() public moduleName = 'Module name';
-  @Input() public applicationName = 'Application name';
-  public connectUser: User;
-  public profileRoute = `/${partialConfigs.routes.commonRoutes.dashboardRoute}/${partialConfigs.routes.adminModuleRoutes.accountRoute}`;
+  @Input() public moduleName: string;
+  @Input() public applicationName: string;
+
+  public modulesBackendRoute = backendRoutePaths.modules;
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
@@ -65,7 +68,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   ) {
     super(appUIStoreManager);
     this.navigationRoutes = new Collection();
-    this.dashboardRoute = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
   }
 
   ngOnInit() {

@@ -1,4 +1,8 @@
 export const backendRoutes = {
+  // Global modules routing defintions
+  modules: 'ressources/modules',
+
+  // Busness logic routing definitions
   members: 'ressources/members',
   contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/',
   liquidationPath: 'ressources/liquidations',
