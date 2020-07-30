@@ -1,15 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collection } from 'src/app/lib/domain/utils/collection';
 import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from '../../routes-definitions';
-import { isDefined } from 'src/app/lib/domain/utils/type-utils';
-import { User } from 'src/app/lib/domain/auth/models/user';
 import { AuthPathConfig, AuthService } from 'src/app/lib/domain/auth/core';
-import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/lib/domain/translator';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { partialConfigs, backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
+import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
+import { Collection } from 'src/app/lib/domain/collections';
+import { Dialog, isDefined } from 'src/app/lib/domain/utils';
+import { User } from '../../../domain/auth/contracts/v2';
 
 // declare the variable require to use ad image path
 declare var require: any;
@@ -72,6 +71,7 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   ngOnInit() {
     this.routesIndexes = this.routesMap.map((route) => route.key);
+    // tslint:disable-next-line: deprecation
     this.connectUser = this.auth.user as User;
     builLinkFromRoutesMap(this.routesMap, this.routeDescriptions).forEach(
       (item: IRouteLinkCollectionItem) =>
@@ -107,15 +107,7 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
     const translation = await this.translator.translate('promptLogout').toPromise();
     if (this.dialog.confirm(translation)) {
       this.appUIStoreManager.initializeUIStoreAction();
-      this.auth
-        .logout()
-        .then(_ => {
-          this.redirectToLogin();
-        })
-        .catch(_ => {
-          this.redirectToLogin();
-        });
+      await this.auth.logout().toPromise();
     }
   }
-
 }

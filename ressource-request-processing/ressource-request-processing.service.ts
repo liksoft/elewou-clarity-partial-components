@@ -8,7 +8,7 @@ import { HttpRequestService, IResponseBody } from 'src/app/lib/domain/http/core'
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { TranslationService } from 'src/app/lib/domain/translator/translator.service';
 import { RessourceAssignment } from './ressource-assignment';
-import { isDefined } from '../../../domain/utils/type-utils';
+import { isDefined } from 'src/app/lib/domain/utils';
 
 @Injectable()
 export class RessourceRequestProcessingService {
@@ -54,6 +54,7 @@ export class RessourceRequestProcessingService {
   /**
    * @inheritdoc
    */
+  // tslint:disable-next-line: deprecation
   deleteRessource(requestURL: string, id: any): Promise<IResponseBody> {
     return deleteRessource<RessourceAssignment>(
       this.client,
@@ -65,6 +66,7 @@ export class RessourceRequestProcessingService {
   /**
    * @inheritdoc
    */
+  // tslint:disable-next-line: deprecation
   updateRessource(requestURL: string, id: any, values: object): Promise<IResponseBody> {
     return putRessource<RessourceAssignment>(
       this.client,

@@ -1,15 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { Dialog } from 'src/app/lib/domain/utils/window-ref';
 import { RessourceRequestProcessingService } from '../ressource-request-processing.service';
-import { ApplicationUsersService } from 'src/app/lib/domain/auth/core/services/users.service';
 import { User } from 'src/app/lib/domain/auth/models/user';
-import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { RessourceAssignment } from '../ressource-assignment';
 import { IResponseBody } from 'src/app/lib/domain/http/contracts/http-response-data';
 import { partialConfigs } from '../../partials-configs';
 import { AuthService } from '../../../../domain/auth/core/auth.service';
+import { Dialog } from 'src/app/lib/domain/utils';
 
 @Component({
   selector: 'app-ressource-assignment',
@@ -47,7 +45,6 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
 
   constructor(
     uiStore: AppUIStoreManager,
-    private service: ApplicationUsersService,
     private dialog: Dialog,
     public componentService: RessourceRequestProcessingService,
     public auth: AuthService
@@ -55,7 +52,10 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
 
   async ngOnInit() {
     try {
-      this.users = await this.service.getUsers(`${this.service.ressourcesPath}${isDefined(this.permission) ? '?permission=' + this.permission : ''}`.trim());
+      // TODO : Create users action that returns a list of users
+      // this.users = await
+      // this.service.getUsers(`${this.service.ressourcesPath}${isDefined(this.permission)
+      // ? '?permission=' + this.permission : ''}`.trim());
     } catch (_) {
       console.log(_);
     }
@@ -85,6 +85,7 @@ export class RessourceAssignmentComponent extends AbstractAlertableComponent imp
     }
   }
 
+  // tslint:disable-next-line: deprecation
   onAssignmentResponse(res: RessourceAssignment | IResponseBody, trans: any) {
     if ((res instanceof RessourceAssignment) || (res.statusOK)) {
       // Notify the parent of successful completion of the assignment request

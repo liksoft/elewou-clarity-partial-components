@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutesMap } from '../../routes-definitions';
-import { partialConfigs, defaultPath, adminPath } from '../partials-configs';
+import { defaultPath, adminPath } from '../partials-configs';
 
 @Component({
   selector: 'app-admin-management-sidebar',

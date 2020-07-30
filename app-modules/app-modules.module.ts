@@ -5,13 +5,11 @@ import { AbstractEntityProvider, DefaultEntityHandler } from 'src/app/lib/domain
 import { Module } from './core/module';
 import { SessionStorage } from 'src/app/lib/domain/storage/core';
 import { GenericPaginatorDatasource } from 'src/app/lib/domain/helpers/paginator';
-// import { FormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 import { CommonModule } from '@angular/common';
 import { AppModulesComponent } from './app-modules.component';
 import { DeclarativeEntityProvider } from 'src/app/lib/domain/entity/declarative-entity-provider';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { backendRoutePaths } from '../partials-configs';
 
 @NgModule({
   exports: [

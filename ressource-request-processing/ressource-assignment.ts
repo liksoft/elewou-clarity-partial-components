@@ -54,8 +54,6 @@ export class RessourceAssignment implements IDynamicFormBindableModel {
   assignedBy: number = undefined;
   @JsonProperty('assigned_to')
   assignedTo: number = undefined;
-  // @JsonProperty('ressource_model')
-  // model: number = undefined;
 
   /**
    * @param data Instance initializer of object type

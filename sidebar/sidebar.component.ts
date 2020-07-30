@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Collection } from 'src/app/lib/domain/utils/collection';
 import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from '../../routes-definitions';
-import { isDefined } from 'src/app/lib/domain/utils/type-utils';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { AuthService } from 'src/app/lib/domain/auth/core';
+import { Collection } from 'src/app/lib/domain/collections';
+import { TypeUtilHelper } from '../../../domain/helpers/type-utils-helper';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,7 +19,8 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
-    public auth: AuthService
+    public auth: AuthService,
+    public readonly typeHelper: TypeUtilHelper
   ) {
     super(appUIStoreManager);
     this.navigationRoutes = new Collection();
@@ -31,14 +32,6 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
       (item: IRouteLinkCollectionItem) =>
         this.navigationRoutes.add(item.key, item.value)
     );
-  }
-
-  /**
-   * @description Checks if a given value is null or undefined
-   * @param value [[value]]
-   */
-  public isDefined(value: any) {
-    return isDefined(value);
   }
 
   /**
