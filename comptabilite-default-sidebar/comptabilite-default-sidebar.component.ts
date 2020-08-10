@@ -20,14 +20,22 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
     this.navbarRouteDefinitions = {
       navbar_tiei_saisie_ecritures: 'Ecritures',
       navbar_tiei_saisie_manuel: 'Passer une écriture',
+
       navbar_tiei_saisie_journaux: 'Journaux',
       navbar_tiei_saisie_ecritures_liste: 'Journal (Liste)',
       navbar_tiei_saisie_ecritures_releve: 'Journal (Relevé)',
-      navbar_tiei_balance: 'Balance',
-      navbar_tiei_balance_liste: 'Balance (liste)',
+
       navbar_tiei_accounting_transfert: 'Transfert Comptable',
+
       navbar_tiei_etats_comptable: 'Etats Comptables',
+      // navbar_tiei_balance: 'Balance',
+      navbar_tiei_balance_liste: 'Balance (liste)',
+      navbar_tiei_grand_livre: 'Grand Livre',
+
       navbar_tiei_etat_financiers: 'Etats Financiers',
+      navbar_tiei_etat_financiers_bilan: 'Bilan',
+      navbar_tiei_etat_financiers_resultat: 'Résultat',
+
       navbar_tiei_parametrage_comptes: 'Paramétrages des comptes',
       navbar_tiei_parametrage_comptes_list: 'Liste des comptes',
     };
@@ -74,22 +82,22 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
           }
         ]
       },
-      {
-        key: 'navbar_tiei_balance',
-        permissions: cptaPermissions,
-        children: [
-          {
-            key: 'navbar_tiei_balance_liste',
-            route: `/${defaultPath}/${comptabilitePath.tieiBalanceRoute}`,
-            permissions: [
-              partialConfigs.acl.list_accountancy_operations,
-              partialConfigs.acl.all,
-              partialConfigs.acl.create_accountancy_operations,
-              partialConfigs.acl.update_accountancy_operations,
-            ]
-          }
-        ]
-      },
+      // {
+      //   key: 'navbar_tiei_balance',
+      //   permissions: cptaPermissions,
+      //   children: [
+      //     {
+      //       key: 'navbar_tiei_balance_liste',
+      //       route: `/${defaultPath}/${comptabilitePath.tieiBalanceRoute}`,
+      //       permissions: [
+      //         partialConfigs.acl.list_accountancy_operations,
+      //         partialConfigs.acl.all,
+      //         partialConfigs.acl.create_accountancy_operations,
+      //         partialConfigs.acl.update_accountancy_operations,
+      //       ]
+      //     }
+      //   ]
+      // },
       {
         key: 'navbar_tiei_accounting_transfert',
         permissions: cptaPermissions,
@@ -110,16 +118,36 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
         key: 'navbar_tiei_etats_comptable',
         permissions: cptaPermissions,
         children: [
+          // {
+          //   key: 'navbar_tiei_etats_comptable',
+          //   route: `/${defaultPath}/${comptabilitePath.tieiEtatsComptablesRoute}`,
+          //   permissions: [
+          //     partialConfigs.acl.list_accountancy_operations,
+          //     partialConfigs.acl.all,
+          //     partialConfigs.acl.create_accountancy_operations,
+          //     partialConfigs.acl.update_accountancy_operations,
+          //   ],
+          // },
           {
-            key: 'navbar_tiei_etats_comptable',
-            route: `/${defaultPath}/${comptabilitePath.tieiEtatsComptablesRoute}`,
+            key: 'navbar_tiei_balance_liste',
+            route: `/${defaultPath}/${comptabilitePath.tieiBalanceRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ]
+          },
+          {
+            key: 'navbar_tiei_grand_livre',
+            route: `/${defaultPath}/${comptabilitePath.tieiGrandlivreRoute}`,
             permissions: [
               partialConfigs.acl.list_accountancy_operations,
               partialConfigs.acl.all,
               partialConfigs.acl.create_accountancy_operations,
               partialConfigs.acl.update_accountancy_operations,
             ],
-          }
+          },
 
         ]
       },
@@ -136,7 +164,28 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
               partialConfigs.acl.create_accountancy_operations,
               partialConfigs.acl.update_accountancy_operations,
             ],
-          }
+          },
+          {
+            key: 'navbar_tiei_etat_financiers_bilan',
+            route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersBilanRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ],
+          },
+          {
+            key: 'navbar_tiei_etat_financiers_resultat',
+            route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersResultatRoute}`,
+            permissions: [
+              partialConfigs.acl.list_accountancy_operations,
+              partialConfigs.acl.all,
+              partialConfigs.acl.create_accountancy_operations,
+              partialConfigs.acl.update_accountancy_operations,
+            ],
+          },
+
         ]
       },
       {
