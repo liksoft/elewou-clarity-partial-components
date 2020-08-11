@@ -7,14 +7,12 @@ import {
 import { Module } from 'src/app/lib/presentation/partials/application-modules/module';
 import {
   HttpGetAllRequestFn,
-  postRessourceAndNotifiStore,
   getRessources
 } from 'src/app/lib/domain/contracts/abstract-request-client';
 import { SessionStorage } from 'src/app/lib/domain/storage/core';
 import { isDefined, isArray } from 'src/app/lib/domain/utils/type-utils';
 import { IResponseBody, ResponseBody, ResponseData, HttpRequestService } from 'src/app/lib/domain/http/core';
 import { ModuleBuilder } from 'src/app/lib/presentation/partials/application-modules/module';
-import { Store } from 'src/app/lib/domain/store';
 import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { MODULE_CREATED, MODULE_CONTAINER_INITIALIZED } from './module-reducer';
 import { RequestClient, deleteRessource, putRessource, getRessource } from '../../../domain/contracts/abstract-request-client';
@@ -95,7 +93,6 @@ export class ModuleService {
   constructor(
     private client: HttpRequestService,
     private cache: SessionStorage,
-    private store: Store<Module>,
     private translate: TranslationService,
     private formService: FormService
   ) {
@@ -159,26 +156,13 @@ export class ModuleService {
         'modules'
       );
       // Dispatch module loaded event and let module component show the loaded modules
-      this.store.dispatch({
-        type: MODULE_CONTAINER_INITIALIZED,
-        payload: {
-          value: modules
-        }
-      });
     } catch (error) {
       console.log(error);
     }
   }
 
   public createModule(requestURL: string, requestBody: object) {
-    return postRessourceAndNotifiStore<Module>(
-      this.client,
-      `${isDefined(requestURL) ? requestURL : this.ressourcesPath}`,
-      requestBody,
-      Module.builder() as ISerializableBuilder<Module>,
-      this.store,
-      MODULE_CREATED
-    );
+    return new Promise<any>((resolve, reject) => resolve());
   }
 
   /**
