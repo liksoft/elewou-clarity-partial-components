@@ -29,7 +29,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
 
       navbar_tiei_etats_comptable: 'Etats Comptables',
       // navbar_tiei_balance: 'Balance',
-      navbar_tiei_balance_liste: 'Balance (liste)',
+      navbar_tiei_balance_liste: 'Balance ',
       navbar_tiei_grand_livre: 'Grand Livre',
 
       navbar_tiei_etat_financiers: 'Etats Financiers',
