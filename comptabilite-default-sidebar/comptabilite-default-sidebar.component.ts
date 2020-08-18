@@ -32,9 +32,10 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       navbar_tiei_balance_liste: 'Balance ',
       navbar_tiei_grand_livre: 'Grand Livre',
 
-      navbar_tiei_etat_financiers: 'Etats Financiers',
-      navbar_tiei_etat_financiers_bilan: 'Bilan',
-      navbar_tiei_etat_financiers_resultat: 'Résultat',
+      navbar_tiei_etat_financiers: 'Etats financier ',
+      navbar_tiei_etat_financiers1: 'Générer les états ',
+      // navbar_tiei_etat_financiers_bilan: 'Bilan',
+      // navbar_tiei_etat_financiers_resultat: 'Résultat',
 
       navbar_tiei_parametrage_comptes: 'Paramétrages des comptes',
       navbar_tiei_parametrage_comptes_list: 'Liste des comptes',
@@ -156,7 +157,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
         permissions: cptaPermissions,
         children: [
           {
-            key: 'navbar_tiei_etat_financiers',
+            key: 'navbar_tiei_etat_financiers1',
             route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersRoute}`,
             permissions: [
               partialConfigs.acl.list_accountancy_operations,
@@ -165,26 +166,26 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
               partialConfigs.acl.update_accountancy_operations,
             ],
           },
-          {
-            key: 'navbar_tiei_etat_financiers_bilan',
-            route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersBilanRoute}`,
-            permissions: [
-              partialConfigs.acl.list_accountancy_operations,
-              partialConfigs.acl.all,
-              partialConfigs.acl.create_accountancy_operations,
-              partialConfigs.acl.update_accountancy_operations,
-            ],
-          },
-          {
-            key: 'navbar_tiei_etat_financiers_resultat',
-            route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersResultatRoute}`,
-            permissions: [
-              partialConfigs.acl.list_accountancy_operations,
-              partialConfigs.acl.all,
-              partialConfigs.acl.create_accountancy_operations,
-              partialConfigs.acl.update_accountancy_operations,
-            ],
-          },
+          // {
+          //   key: 'navbar_tiei_etat_financiers_bilan',
+          //   route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersBilanRoute}`,
+          //   permissions: [
+          //     partialConfigs.acl.list_accountancy_operations,
+          //     partialConfigs.acl.all,
+          //     partialConfigs.acl.create_accountancy_operations,
+          //     partialConfigs.acl.update_accountancy_operations,
+          //   ],
+          // },
+          // {
+          //   key: 'navbar_tiei_etat_financiers_resultat',
+          //   route: `/${defaultPath}/${comptabilitePath.tieiEtatsFinanciersResultatRoute}`,
+          //   permissions: [
+          //     partialConfigs.acl.list_accountancy_operations,
+          //     partialConfigs.acl.all,
+          //     partialConfigs.acl.create_accountancy_operations,
+          //     partialConfigs.acl.update_accountancy_operations,
+          //   ],
+          // },
 
         ]
       },
