@@ -37,8 +37,8 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       // navbar_tiei_etat_financiers_bilan: 'Bilan',
       // navbar_tiei_etat_financiers_resultat: 'Résultat',
 
-      navbar_tiei_parametrage_comptes: 'Paramétrages des comptes',
-      navbar_tiei_parametrage_comptes_list: 'Liste des comptes',
+      navbar_tiei_parametrage_comptes: 'Paramétrage',
+      navbar_tiei_parametrage_comptes_list: 'Configuration',
     };
     this.navbarRoutesMap = [
       {
