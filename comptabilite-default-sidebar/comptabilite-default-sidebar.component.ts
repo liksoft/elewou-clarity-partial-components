@@ -19,7 +19,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
   ngOnInit() {
     this.navbarRouteDefinitions = {
       navbar_tiei_saisie_ecritures: 'Ecritures',
-      navbar_tiei_saisie_manuel: 'Passer une écriture',
+      navbar_tiei_saisie_manuel: 'Nouvelle écriture',
 
       navbar_tiei_saisie_journaux: 'Journaux',
       navbar_tiei_saisie_ecritures_liste: 'Journal (Liste)',
