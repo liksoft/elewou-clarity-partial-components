@@ -6,7 +6,7 @@
           <strong>{{ getRouteLinkFromMap(item.key)?.routeDescription }}</strong>
           <clr-tree-node *ngFor="let child of getRouteLinkFromMap(item?.key)?.children">
             <ng-container *ngIf="auth?.user?.canAny(child?.routePermission)">
-              <a [routerLink]="child?.routePath" [routerLinkActive]="'active'"
+              <clr-icon shape="circle-arrow" class="is-solid" dir="right"></clr-icon><a [routerLink]="child?.routePath" [routerLinkActive]="'active'"
                 class="clr-treenode-link">{{ child.routeDescription }}</a>
             </ng-container>
           </clr-tree-node>
