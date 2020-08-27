@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Module } from './core/module';
-import { DeclarativeEntityProvider } from 'src/app/lib/domain/entity/declarative-entity-provider';
-import { catchError } from 'rxjs/operators';
-import { EMPTY } from 'rxjs';
+import { Component, Input, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
 import { backendRoutePaths } from '../partials-configs';
+import { ModulesProvider } from './core/v2/providers/module';
+import { DrewlabsRessourceServerClient } from '../../../domain/http/core/ressource-server-client';
+import { getModulesAction } from './core/v2/actions/module';
+import { emptyObservable } from '../../../domain/rxjs/helpers/index';
 
 @Component({
   selector: 'app-app-modules',
@@ -11,27 +12,27 @@ import { backendRoutePaths } from '../partials-configs';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppModulesComponent implements OnInit {
+export class AppModulesComponent implements AfterViewInit {
 
   // tslint:disable-next-line: variable-name
   @Input() ressourcePath: string;
   @Input() ressourceJsonKey: string;
-  modules$ = this.provider.allEntity$
+
+  modules$ = this.provider.state$
     .pipe(
+      map(state => state.items),
       catchError(err => {
-        console.log(err);
-        return EMPTY;
+        return emptyObservable();
       })
     );
 
   constructor(
-    @Inject('ModuleDeclarativeProvider') private provider: DeclarativeEntityProvider<Module>,
+    private provider: ModulesProvider,
+    private client: DrewlabsRessourceServerClient
   ) { }
 
-  async ngOnInit() {
-    // tslint:disable-next-line: max-line-length
-    this.provider.getAll(
-      { path: this.ressourcePath || backendRoutePaths.modules, dataKey: this.ressourceJsonKey });
+  async ngAfterViewInit() {
+    getModulesAction(this.provider.store$)(this.client, this.ressourcePath || backendRoutePaths.modules);
   }
 
 }

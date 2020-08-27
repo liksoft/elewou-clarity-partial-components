@@ -5,9 +5,8 @@ import { ClarityModule } from '@clr/angular';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { RessourceRequestProcessingComponent } from './ressource-request-processing.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RessourceAssignmentComponent } from './ressource-assignment/ressource-assignment.component';
 import { SharedModule } from '../../shared.module';
-import { RessourceAssignmentModule } from '../../../domain/components/ressource-assignment';
+import { DrewlabsRessourceAssignmentComponent } from './ressource-assignment/ressource-assignment.component';
 
 @NgModule({
   imports: [
@@ -18,15 +17,14 @@ import { RessourceAssignmentModule } from '../../../domain/components/ressource-
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    RessourceAssignmentModule
   ],
   declarations: [
     RessourceRequestProcessingComponent,
-    RessourceAssignmentComponent
+    DrewlabsRessourceAssignmentComponent
   ],
   exports: [
     RessourceRequestProcessingComponent,
-    RessourceAssignmentComponent
+    DrewlabsRessourceAssignmentComponent
   ]
 })
 export class RessourceRequestProcessingModule {

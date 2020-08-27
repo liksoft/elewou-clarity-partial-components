@@ -2,6 +2,7 @@ export const backendRoutes = {
   // Global modules routing defintions
   modules: 'ressources/modules',
 
+
   // Busness logic routing definitions
   members: 'ressources/members',
   contributionNotificationEndpoint: 'ressources/rtiei_contribution_declaration_notification/',
@@ -39,5 +40,10 @@ export const backendRoutes = {
   branchesPath: 'ressources/branches',
   subBranchesPath: 'ressources/sub_branches',
   notificationTplsPath: 'ressources/notification_templates',
-  notificationsPath: 'ressources/notifications'
+  notificationsPath: 'ressources/notifications',
+
+  // Administration paths
+  roles: 'roles',
+  permissions: 'permissions',
+  users: 'users'
 };

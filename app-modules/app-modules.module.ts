@@ -21,34 +21,33 @@ import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/s
   imports: [
     CommonModule,
     ClarityModule,
-    // FormsModule
   ],
   providers: [
-    {
-      provide: 'modulesDataSource',
-      useFactory: (client: HttpRequestService, cache: SessionStorage) => {
-        return new GenericPaginatorDatasource<Module>(client, cache);
-      },
-      deps: [HttpRequestService, SessionStorage],
-      multi: false
-    },
-    {
-      provide: 'moduleProvider',
-      useFactory: (client: HttpRequestService, typeHelper: TypeUtilHelper) => {
-        return new AbstractEntityProvider<Module>(typeHelper, new DefaultEntityHandler()).setProvider(client);
-      },
-      deps: [HttpRequestService, TypeUtilHelper],
-      multi: false
-    },
-    {
-      provide: 'ModuleDeclarativeProvider',
-      useFactory: (client: HttpRequestService, typeHelper: TypeUtilHelper) => (new DeclarativeEntityProvider(
-        Module.builder() as ISerializableBuilder<Module>,
-        client
-      )),
-      deps: [HttpRequestService, TypeUtilHelper],
-      // multi: false
-    }
+    // {
+    //   provide: 'modulesDataSource',
+    //   useFactory: (client: HttpRequestService, cache: SessionStorage) => {
+    //     return new GenericPaginatorDatasource<Module>(client, cache);
+    //   },
+    //   deps: [HttpRequestService, SessionStorage],
+    //   multi: false
+    // },
+    // {
+    //   provide: 'moduleProvider',
+    //   useFactory: (client: HttpRequestService, typeHelper: TypeUtilHelper) => {
+    //     return new AbstractEntityProvider<Module>(typeHelper, new DefaultEntityHandler()).setProvider(client);
+    //   },
+    //   deps: [HttpRequestService, TypeUtilHelper],
+    //   multi: false
+    // },
+    // {
+    //   provide: 'ModuleDeclarativeProvider',
+    //   useFactory: (client: HttpRequestService, typeHelper: TypeUtilHelper) => (new DeclarativeEntityProvider(
+    //     Module.builder() as ISerializableBuilder<Module>,
+    //     client
+    //   )),
+    //   deps: [HttpRequestService, TypeUtilHelper],
+    //   // multi: false
+    // }
   ]
 })
 export class AppModuleModule { }

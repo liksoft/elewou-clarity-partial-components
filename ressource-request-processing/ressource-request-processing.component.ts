@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { User } from 'src/app/lib/domain/auth/models/user';
+import { User } from 'src/app/lib/domain/auth/contracts/v2';
 import { RessourceRequestProcessingService } from './ressource-request-processing.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dynamic-inputs/core';
@@ -32,7 +32,7 @@ import { Dialog } from 'src/app/lib/domain/utils';
     `
   ]
 })
-export class RessourceRequestProcessingComponent extends AbstractAlertableComponent implements OnInit {
+export class RessourceRequestProcessingComponent extends AbstractAlertableComponent {
 
   @Input() url: string;
   @Input() id: number | string;
@@ -75,16 +75,14 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     private controlParser: DynamicControlParser
   ) { super(uiStore); }
 
-  ngOnInit() {}
-
-  buildValidationFormGroup(form: IDynamicForm, title?: string, description?: string) {
+  buildValidationFormGroup = (form: IDynamicForm, title?: string, description?: string) => {
     this.validationForm = form;
     this.validationForm.title = this.typeHelper.isDefined(title) ? title : form.title;
     this.validationForm.description = this.typeHelper.isDefined(description) ? description : form.description;
     this.validationFormGroup = this.controlParser.buildFormGroupFromInputConfig(form.controlConfigs as IHTMLFormControl[]) as FormGroup;
   }
 
-  async performRessourceProcessingAction(value: boolean) {
+  performRessourceProcessingAction = async (value: boolean) => {
     if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
       const translations = await this.componentService.loadTranslations(this.id);
       if (value) {
@@ -103,7 +101,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     }
   }
 
-  async confirmDataProcessingAction() {
+  confirmDataProcessingAction = async () => {
     if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
       this.formControl.markAllAsTouched();
       const translations = await this.componentService.loadTranslations(this.id);
@@ -115,12 +113,12 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     }
   }
 
-  async validateProcess() {
+  validateProcess = async () => {
     const translations = await this.componentService.loadTranslations(this.id);
     this.validationFormSumitted.emit({translations, body: this.validationFormGroup.getRawValue()});
   }
 
-  onValidate(translations: any, requestObjet?: object | any) {
+  onValidate = (translations: any, requestObjet?: object | any) => {
     const obj = this.typeHelper.isDefined(requestObjet) ? Object.assign(requestObjet, { status: 1 }) :
       { status: 1, observations: this.formControl.value };
     this.appUIStoreManager.initializeUIStoreAction();
@@ -143,7 +141,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
       });
   }
 
-  onReject(translations: any) {
+  onReject = (translations: any) => {
     if (this.formControl.valid) {
       this.appUIStoreManager.initializeUIStoreAction();
       this.componentService.updateRessource(
@@ -170,12 +168,12 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     }
   }
 
-  doValidationCancelAction() {
+  doValidationCancelAction = () => {
     this.validationFormGroup.reset();
     this.validationFormModalOpen = false;
   }
 
-  doCancelAction() {
+  doCancelAction = () => {
     this.formControl.reset();
     this.modalOpened = false;
   }

@@ -19,6 +19,7 @@ import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-side
 import { ClientTopBarComponent } from './online/client-top-bar/client-top-bar.component';
 import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.component';
 import { AppModuleModule } from './app-modules/app-modules.module';
+import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.component';
 @NgModule({
   imports: [
     RouterModule,
@@ -42,7 +43,8 @@ import { AppModuleModule } from './app-modules/app-modules.module';
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
     ClientSidebarComponent,
-    AppModuleModule
+    AppModuleModule,
+    DatgridHeaderComponent
   ],
   declarations: [
     AppTopBarComponent,
@@ -57,7 +59,8 @@ import { AppModuleModule } from './app-modules/app-modules.module';
     LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
-    ClientSidebarComponent
+    ClientSidebarComponent,
+    DatgridHeaderComponent
   ],
   providers: [RessourceRequestProcessingService]
 })

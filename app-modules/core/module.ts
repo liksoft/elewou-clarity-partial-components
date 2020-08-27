@@ -1,8 +1,8 @@
-import { IDynamicFormBindableModel } from 'src/app/lib/domain/components/dynamic-inputs/core/contracts/form-control';
 import { ISerializer, ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { ObjectSerializer, JsonProperty } from 'src/app/lib/domain/built-value/core/serializers';
 import { TypeBuilder, buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/domain/built-value/contracts/type';
 import { Role } from 'src/app/lib/domain/auth/models/role';
+import { FormViewModel } from 'src/app/lib/domain/components/dynamic-inputs/core/contracts/dynamic-form';
 
 export class ModuleBuilder implements ISerializableBuilder<Module>, TypeBuilder<Module> {
   serializer: ISerializer;
@@ -45,7 +45,7 @@ export class ModuleBuilder implements ISerializableBuilder<Module>, TypeBuilder<
 }
 
 
-export class Module implements IDynamicFormBindableModel {
+export class Module implements FormViewModel {
   @JsonProperty('id')
   id: string = undefined;
   @JsonProperty('name')
@@ -77,11 +77,11 @@ export class Module implements IDynamicFormBindableModel {
    */
   formViewModelBindings(): { [index: string]: any } {
     return {
-      modules_name: 'name',
-      modules_description: 'description',
-      modules_url: 'url',
-      modules_is_active: 'isActive',
-      modules_icon_path: 'iconPath',
+      name: 'name',
+      description: 'description',
+      url: 'url',
+      is_active: 'isActive',
+      icon_path: 'iconPath',
       roles: 'roles'
     };
   }

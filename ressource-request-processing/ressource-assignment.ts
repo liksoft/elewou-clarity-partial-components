@@ -1,7 +1,6 @@
 import { ISerializableBuilder, ISerializer } from 'src/app/lib/domain/built-value/contracts/serializers';
 import { TypeBuilder, buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/domain/built-value/contracts/type';
 import { ObjectSerializer, JsonProperty } from 'src/app/lib/domain/built-value/core/serializers';
-import { IDynamicFormBindableModel } from 'src/app/lib/domain/components/dynamic-inputs/core/contracts/form-control';
 
 export class RessourceAssignmentBuilder implements ISerializableBuilder<RessourceAssignment>, TypeBuilder<RessourceAssignment> {
   serializer: ISerializer;
@@ -23,7 +22,7 @@ export class RessourceAssignmentBuilder implements ISerializableBuilder<Ressourc
   /**
    * @inheritdoc
    */
-  toSerialized(value: RessourceAssignment) {
+  toSerialized = (value: RessourceAssignment) => {
     return this.serializer.serialize(RessourceAssignment, value);
   }
 
@@ -44,7 +43,7 @@ export class RessourceAssignmentBuilder implements ISerializableBuilder<Ressourc
 }
 
 
-export class RessourceAssignment implements IDynamicFormBindableModel {
+export class RessourceAssignment {
 
   @JsonProperty('id')
   id: number = undefined;
