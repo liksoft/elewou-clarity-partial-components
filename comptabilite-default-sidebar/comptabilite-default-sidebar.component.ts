@@ -22,10 +22,8 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       navbar_tiei_saisie_manuel: 'Nouvelle écriture',
 
       navbar_tiei_saisie_journaux: 'Journaux',
-      navbar_tiei_saisie_ecritures_liste: 'Journal (Liste)',
-      navbar_tiei_saisie_ecritures_releve: 'Journal (Relevé)',
-
-      navbar_tiei_accounting_transfert: 'Transfert Comptable',
+      navbar_tiei_saisie_ecritures_liste: 'Journal',
+      // navbar_tiei_saisie_ecritures_releve: 'Journal (Relevé)',
 
       navbar_tiei_etats_comptable: 'Etats Comptables',
       // navbar_tiei_balance: 'Balance',
@@ -71,16 +69,16 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
               partialConfigs.acl.update_accountancy_operations,
             ]
           },
-          {
-            key: 'navbar_tiei_saisie_ecritures_releve',
-            route: `/${defaultPath}/${comptabilitePath.tieiSaisieEcrituresReleveRoute}`,
-            permissions: [
-              partialConfigs.acl.list_accountancy_operations,
-              partialConfigs.acl.all,
-              partialConfigs.acl.create_accountancy_operations,
-              partialConfigs.acl.update_accountancy_operations,
-            ]
-          }
+          // {
+          //   key: 'navbar_tiei_saisie_ecritures_releve',
+          //   route: `/${defaultPath}/${comptabilitePath.tieiSaisieEcrituresReleveRoute}`,
+          //   permissions: [
+          //     partialConfigs.acl.list_accountancy_operations,
+          //     partialConfigs.acl.all,
+          //     partialConfigs.acl.create_accountancy_operations,
+          //     partialConfigs.acl.update_accountancy_operations,
+          //   ]
+          // }
         ]
       },
       // {
@@ -99,22 +97,6 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       //     }
       //   ]
       // },
-      {
-        key: 'navbar_tiei_accounting_transfert',
-        permissions: cptaPermissions,
-        children: [
-          {
-            key: 'navbar_tiei_accounting_transfert',
-            route: `/${defaultPath}/${comptabilitePath.tieiAccountingTransfertRoute}`,
-            permissions: [
-              partialConfigs.acl.list_accountancy_operations,
-              partialConfigs.acl.all,
-              partialConfigs.acl.create_accountancy_operations,
-              partialConfigs.acl.update_accountancy_operations,
-            ],
-          },
-        ]
-      },
       {
         key: 'navbar_tiei_etats_comptable',
         permissions: cptaPermissions,

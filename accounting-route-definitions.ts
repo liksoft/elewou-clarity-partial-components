@@ -13,8 +13,6 @@ export const accountingRouteDefinitions = {
   tieiGrandlivreRoute: 'home/tiei-grand-livre/liste',
   // Manage Deversements
   tieiDeversementsRoute: 'home/tiei-deversements',
-  // transfert comptable
-  tieiAccountingTransfertRoute: 'home/tiei-accounting-transfert',
   // Gestion Etats Comptables
   tieiEtatsComptablesRoute: 'home/tiei-etats-comptables',
   // Gestion Etats Financiers
