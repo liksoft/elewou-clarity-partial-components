@@ -1,17 +1,21 @@
-<section class="sidenav-content">
-  <section class="nav-group collapsible">
-    <clr-tree *ngIf="routesMap">
-      <ng-container *ngFor="let item of routesMap">
-        <clr-tree-node  [clrExpanded]="typeHelper.isDefined(item?.children)"> <!-- *ngIf="auth?.user?.canAny(item.permissions)" -->
-          <strong>{{ getRouteLinkFromMap(item.key)?.routeDescription }}</strong>
-          <clr-tree-node *ngFor="let child of getRouteLinkFromMap(item?.key)?.children">
-            <ng-container> <!-- *ngIf="auth?.user?.canAny(child?.routePermission)" -->
-              <a [routerLink]="child?.routePath" [routerLinkActive]="'active'"
-                class="clr-treenode-link">{{ child.routeDescription }}</a>
-            </ng-container>
-          </clr-tree-node>
-        </clr-tree-node>
+<ng-container *ngFor="let item of routesMap">
+  <clr-vertical-nav-group routerLinkActive="active" *ngIf="typeHelper.isDefined(item?.children)">
+    <clr-icon *ngIf="getRouteLinkFromMap(item.key)?.routeIcon" [attr.shape]="getRouteLinkFromMap(item.key)?.routeIcon"
+      clrVerticalNavIcon></clr-icon>
+    {{ getRouteLinkFromMap(item.key)?.routeDescription }}
+    <clr-vertical-nav-group-children>
+      <ng-container *ngFor="let child of getRouteLinkFromMap(item?.key)?.children">
+        <a clrVerticalNavLink [routerLink]="child?.routePath" routerLinkActive="active">
+          <clr-icon *ngIf="child?.routeIcon" [attr.shape]="child?.routeIcon" clrVerticalNavIcon></clr-icon>
+          {{ child.routeDescription }}
+        </a>
       </ng-container>
-    </clr-tree>
-  </section>
-</section>
+    </clr-vertical-nav-group-children>
+  </clr-vertical-nav-group>
+  <a *ngIf="!typeHelper.isDefined(item?.children)" clrVerticalNavLink routerLinkActive="active"
+    [routerLink]="getRouteLinkFromMap(item.key)?.routePath">
+    <clr-icon *ngIf="getRouteLinkFromMap(item.key)?.routeIcon" [attr.shape]="getRouteLinkFromMap(item.key)?.routeIcon"
+      clrVerticalNavIcon></clr-icon>
+    {{ getRouteLinkFromMap(item.key)?.routeDescription }}
+  </a>
+</ng-container>

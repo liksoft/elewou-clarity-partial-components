@@ -38,6 +38,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
     this.navbarRoutesMap = [
       {
         key: 'navbar_user_groups_header',
+        routeIcon: 'users',
         children: [
           {
             key: 'navbar_users_management_list',
@@ -51,6 +52,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_forms_managenents_header',
+        routeIcon: 'form',
         children: [
           {
             key: 'navbar_forms_list',
@@ -60,6 +62,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_modules_management_header',
+        routeIcon: 'blocks-group',
         children: [
           {
             key: 'navbar_modules_list',
@@ -69,6 +72,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_department_management_header',
+        routeIcon: 'employee-group',
         children: [
           {
             key: 'navbar_department_list',
@@ -79,6 +83,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
       // Configurations
       {
         key: 'navbar_cofigs',
+        routeIcon: 'cog',
         children: [
           {
             key: 'navbar_global_config',
@@ -96,6 +101,7 @@ export class AdminDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_account',
+        routeIcon: 'info-standard',
         children: [
           {
             key: 'navbar_personal_information',

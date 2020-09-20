@@ -14,7 +14,7 @@ import { TypeUtilHelper } from '../../../domain/helpers/type-utils-helper';
 export class SidebarComponent extends AbstractAlertableComponent implements OnInit {
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
-  @Input() public routesMap: RoutesMap[];
+  @Input() routesMap: RoutesMap[];
   @Input() routeDescriptions: { [index: string]: string };
 
   constructor(
