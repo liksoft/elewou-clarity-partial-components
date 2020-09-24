@@ -24,7 +24,7 @@ export class DrewlabsRessourceAssignmentBuilder implements
   /**
    * @inheritdoc
    */
-  toSerialized(value: DrewlabsRessourceAssignment) {
+  toSerialized = (value: DrewlabsRessourceAssignment) => {
     return this.serializer.serialize(DrewlabsRessourceAssignment, value);
   }
 

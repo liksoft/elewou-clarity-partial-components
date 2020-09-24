@@ -47,6 +47,7 @@ export class DrewlabsRessourceAssignmentComponent extends AbstractAlertableCompo
     public componentService: DrewlabsRessourceAssignmentService,
   ) { super(uiStore); }
 
+  // tslint:disable-next-line: typedef
   async ngOnInit() {
     let permissionquery = null;
     if (isDefined(this.permission) && isArray(this.permission.length)) {
@@ -62,10 +63,12 @@ export class DrewlabsRessourceAssignmentComponent extends AbstractAlertableCompo
     }
   }
 
+  // tslint:disable-next-line: typedef
   async onUserSelected(user: User) {
     this.onBatchAssignment(user, this.selectedIds);
   }
 
+  // tslint:disable-next-line: typedef
   async onBatchAssignment(user: User, selectedItems: number[]) {
     const translations = await this.componentService.loadTranslations(null, user.username, selectedItems.length);
     if (this.dialog.confirm(translations.batchAssignmentPrompt)) {
@@ -87,7 +90,7 @@ export class DrewlabsRessourceAssignmentComponent extends AbstractAlertableCompo
   }
 
   // tslint:disable-next-line: deprecation
-  onAssignmentResponse(res: DrewlabsRessourceAssignment | IResponseBody, trans: any) {
+  onAssignmentResponse(res: DrewlabsRessourceAssignment | IResponseBody, trans: any): void {
     if ((res instanceof DrewlabsRessourceAssignment) || (res.statusOK)) {
       // Notify the parent of successful completion of the assignment request
       this.assignmentCompletedSuccessfully.emit({});

@@ -5,7 +5,9 @@ import { HttpRequestService } from 'src/app/lib/domain/http/core';
 import { TranslationService } from 'src/app/lib/domain/translator';
 import { DrewlabsRessourceAssignment } from './ressource-assignment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DrewlabsRessourceAssignmentService {
 
   public readonly assignationRessoucesPath = 'ressources/ressource_assignations';
@@ -37,7 +39,7 @@ export class DrewlabsRessourceAssignmentService {
     ], {name: `Demande No ${ressourceId}`, username, count}).toPromise();
   }
 
-  public createAssignment(requestURL: string, requestBody: object|object[]) {
+  public createAssignment = (requestURL: string, requestBody: object|object[]) => {
     return postRessource<DrewlabsRessourceAssignment>(
       this.client,
       `${requestURL}`,

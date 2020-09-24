@@ -42,7 +42,7 @@ export class RessourceRequestProcessingService {
     ], {name: `Demande No ${ressourceId}`, username, count}).toPromise();
   }
 
-  public createAssignment(requestURL: string, requestBody: object|object[]) {
+  createAssignment = (requestURL: string, requestBody: object|object[]) => {
     return postRessource<RessourceAssignment>(
       this.client,
       `${requestURL}`,
@@ -76,7 +76,7 @@ export class RessourceRequestProcessingService {
     );
   }
 
-  isDefined(value: any) {
+  isDefined = (value: any) => {
     return isDefined(value);
   }
 }

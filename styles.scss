@@ -654,3 +654,55 @@ clr-date-container .clr-input-group {
   padding: 11px 0px;
   background: #ececec;
 }
+
+.ng-select .ng-select-container {
+  color: #333;
+  background-color: transparent;
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 1px solid #ccc !important;
+  min-height: 36px;
+  align-items: center;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .main-container.open-hamburger-menu .header .branding {
+      width: 14.4rem;
+      max-width: 14.4rem;
+      display: none;
+  }
+}
+
+.datagrid {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+
+.table {
+  border-radius: 0;
+}
+
+.card {
+  border-radius: 0;
+}
+.dashboard-preview {
+  padding: 2.2rem 3.2rem !important;
+}
+
+@media(max-width: 768px) {
+  .dashboard-preview {
+    padding: 1rem !important;
+  }
+}
+
+.datagrid-footer {
+  border-radius: 0;
+}

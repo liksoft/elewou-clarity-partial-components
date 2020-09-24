@@ -25,7 +25,8 @@ import { DrewlabsRessourceAssignmentComponent } from './ressource-assignment/res
   exports: [
     RessourceRequestProcessingComponent,
     DrewlabsRessourceAssignmentComponent
-  ]
+  ],
+  providers: []
 })
 export class RessourceRequestProcessingModule {
 }
