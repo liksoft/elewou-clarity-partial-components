@@ -16,7 +16,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.navbarRouteDefinitions = {
       navbar_tiei_saisie_ecritures: 'Ecritures',
       navbar_tiei_saisie_manuel: 'Passer une écriture',

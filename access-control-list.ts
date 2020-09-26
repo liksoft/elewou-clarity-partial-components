@@ -72,7 +72,7 @@ export const appAccessControlList = {
   update_rc_memberships: 'update-rc-memberships',
   delete_rc_memberships: 'delete-rc-memberships',
   list_rc_membership_assignations: 'list-rc-membership-assignations',
-  create_rc_membership_assignations: 'ccreate-rc-membership-assignations',
+  create_rc_membership_assignations: 'create-rc-membership-assignations',
   update_rc_membership_assignations: 'update-rc-membership-assignations',
   delete_rc_membership_assignations: 'delete-rc-membership-assignations',
   list_rc_contribution_declaration_assignations: 'list-rc-contribution-declaration-assignations',

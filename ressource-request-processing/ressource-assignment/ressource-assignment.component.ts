@@ -1,11 +1,18 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { DrewlabsRessourceAssignment } from './ressource-assignment';
-import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { User } from 'src/app/lib/domain/auth/contracts/v2';
-import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
+import { UIStateStatusCode } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { DrewlabsRessourceAssignmentService } from './ressource-assignment.service';
-import { Dialog, isDefined, isArray } from 'src/app/lib/domain/utils';
-import { IResponseBody } from 'src/app/lib/domain/http/core';
+import { Dialog, isArray } from 'src/app/lib/domain/utils';
+import { DrewlabsRessourceServerClient, IResponseBody } from 'src/app/lib/domain/http/core';
+import { UsersProvider } from '../../../../domain/auth/core/providers';
+import { getUsersAction } from '../../../../domain/auth/core/actions/app-users';
+import { map, takeUntil } from 'rxjs/operators';
+import { AppUIStateProvider } from '../../../../domain/helpers/app-ui-store-manager.service';
+import { combineLatest } from 'rxjs';
+import { Log } from '../../../../domain/utils/logger';
+import { createSubject } from '../../../../domain/rxjs/helpers/index';
+import { doLog } from '../../../../domain/rxjs/operators/index';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -29,38 +36,61 @@ import { IResponseBody } from 'src/app/lib/domain/http/core';
     `
   ]
 })
-export class DrewlabsRessourceAssignmentComponent extends AbstractAlertableComponent implements OnInit {
+export class DrewlabsRessourceAssignmentComponent implements OnDestroy {
 
   @Input() collectionID: number | string;
-  public users: User[];
-  @Input() public permission: string[] | string;
+  // @Input() public permission: string[] | string;
   @Input() public buttonDisabled = false;
   @Input() selectedIds: number[] = [];
   // tslint:disable-next-line: no-inferrable-types
   @Input() triggerButtonClass: string = 'btn btn-primary';
   @Output() assignmentCompletedSuccessfully = new EventEmitter<object>();
 
+  @Input() set permission(value: string | string[]) {
+    if (value) {
+      // tslint:disable-next-line: prefer-const
+      let queryParams = {};
+      if (isArray(value.length)) {
+        queryParams = { ...queryParams, permission: `${(value as string[]).join(',')}`.trim() };
+      } else if (!isArray(value.length)) {
+        queryParams = { ...queryParams, permission: (value as string).trim() };
+      }
+      getUsersAction(this._usersProvider.store$)(this._client, 'users', queryParams);
+    }
+  }
+
+  // tslint:disable-next-line: variable-name
+  private _destroy$ = createSubject();
+
+  // tslint:disable-next-line: variable-name
+  _usersState$ = this._usersProvider.state$.pipe(
+    map(state => ({ performingAction: state.performingAction, items: state.items || {} })),
+    map(state => ({ ...state, items: Object.values(state.items) }))
+  );
+
+  state$ = combineLatest([
+    this._usersState$,
+    this._uiState.uiState
+  ]).pipe(
+    map(([state, uistate]) => ({ ...state, performingAction: state.performingAction || uistate.performingAction })),
+    doLog('Assignment component state:')
+  );
 
   constructor(
-    uiStore: AppUIStoreManager,
+    // tslint:disable-next-line: variable-name
+    private _uiState: AppUIStateProvider,
     private dialog: Dialog,
     public componentService: DrewlabsRessourceAssignmentService,
-  ) { super(uiStore); }
+    // tslint:disable-next-line: variable-name
+    private _usersProvider: UsersProvider,
+    // tslint:disable-next-line: variable-name
+    private _client: DrewlabsRessourceServerClient
+  ) {
+    this._usersState$.pipe(takeUntil(this._destroy$)).subscribe();
+  }
 
-  // tslint:disable-next-line: typedef
-  async ngOnInit() {
-    let permissionquery = null;
-    if (isDefined(this.permission) && isArray(this.permission.length)) {
-      permissionquery = `${'?permission=' + (this.permission as string[]).join(',')}`.trim();
-    } else if (isDefined(this.permission) && !isArray(this.permission.length)) {
-      permissionquery = `${'?permission=' + this.permission}`.trim();
-    }
-    try {
-      // TODO : Write the users reducers, action and provider for this implementation to work
-      // this.users = await this.service.getUsers(`${this.service.ressourcesPath}${isDefined(permissionquery) ? permissionquery : ''}`);
-    } catch (_) {
-      console.log(_);
-    }
+  ngOnDestroy(): void {
+    this._destroy$.next({});
   }
 
   // tslint:disable-next-line: typedef
@@ -72,7 +102,7 @@ export class DrewlabsRessourceAssignmentComponent extends AbstractAlertableCompo
   async onBatchAssignment(user: User, selectedItems: number[]) {
     const translations = await this.componentService.loadTranslations(null, user.username, selectedItems.length);
     if (this.dialog.confirm(translations.batchAssignmentPrompt)) {
-      this.appUIStoreManager.initializeUIStoreAction();
+      this._uiState.startAction();
       this.componentService.createAssignment(
         `${this.componentService.assignationRessoucesPath}/${this.collectionID}`, selectedItems.map((i) => {
           return {
@@ -84,22 +114,25 @@ export class DrewlabsRessourceAssignmentComponent extends AbstractAlertableCompo
           this.onAssignmentResponse(res, translations);
         })
         .catch((_) => {
-          this.showErrorMessage(translations.serverRequestFailed);
+          this._uiState.endAction(translations.serverRequestFailed, UIStateStatusCode.ERROR);
         });
     }
   }
 
   // tslint:disable-next-line: deprecation
-  onAssignmentResponse(res: DrewlabsRessourceAssignment | IResponseBody, trans: any): void {
+  onAssignmentResponse = (res: DrewlabsRessourceAssignment | IResponseBody, trans: any) => {
     if ((res instanceof DrewlabsRessourceAssignment) || (res.statusOK)) {
       // Notify the parent of successful completion of the assignment request
       this.assignmentCompletedSuccessfully.emit({});
-      this.showSuccessMessage(trans.successfullAssignment);
+      this._uiState
+        .endAction(trans.successfullAssignment, UIStateStatusCode.STATUS_OK);
       this.buttonDisabled = true;
     } else if (res.errors) {
-      this.showBadRequestMessage(trans.invalidRequestParams);
+      this._uiState
+        .endAction(trans.invalidRequestParams, UIStateStatusCode.BAD_REQUEST);
     } else {
-      this.showBadRequestMessage(trans.serverRequestFailed);
+      this._uiState
+        .endAction(trans.serverRequestFailed, UIStateStatusCode.BAD_REQUEST);
     }
   }
 }
