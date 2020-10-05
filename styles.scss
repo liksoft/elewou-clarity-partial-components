@@ -138,7 +138,7 @@ div.sortable div.dragging {
     background: #efefef;
   }
   a.clr-treenode-link {
-    padding-left: 34px;
+    padding-left: 5px;
   }
 }
 
@@ -587,6 +587,9 @@ clr-date-container .clr-input-group {
   -o-border-radius: 0;
 }
 
+.clr-row .clr-col-md-4 {
+  margin-top: 1rem;
+}
 
 /* Creating Card Merge Style for styling multiple sections forms */
 .clr-form .card-merge:nth-of-type(n+1) {
@@ -606,17 +609,13 @@ clr-date-container .clr-input-group {
   padding: 0;
 }
 
-.ecriture-table .ecriture-table-td, .ecriture-table-th{
+.ecriture-table .ecriture-table-td,.ecriture-table .ecriture-table-th{
   margin: 0;
   padding: 5px;
 
-  .clr-select-wrapper {
+  .clr-select-wrapper, select {
     width: 100%;
   }
-}
-
-.ecriture-table-head .clr-col:not(:first-child), .ecriture-table-td:not(:first-child){
-  border-left: 1px solid #ddd;
 }
 
 .card-block.ecriture-table {
@@ -624,17 +623,16 @@ clr-date-container .clr-input-group {
   padding-bottom: 0;
 }
 
-.clr-row .ecriture-table-td .clr-control-container input.clr-input, .clr-row .ecriture-table-td .clr-control-container select.clr-select {
+.td-container input.clr-input, .td-container select.clr-select {
   background: #FFF;
   border-bottom: 0px!important;
+  /* Added Focus Style */
+  &:focus {
+    border: 2px solid #ffea8e;
+    background: #fffcca!important;
+  }
 }
 
-
-/* Added Focus Style */
-.clr-control-container input.clr-input:focus, .clr-control-container select.clr-select:focus {
-  border: 1px solid #ffea8e;
-  background: #fffcca!important;
-}
 
 .clr-row.ecriture-table-totals {
   padding: 0px;
@@ -642,7 +640,7 @@ clr-date-container .clr-input-group {
 }
 
 .total-zone {
-    border-right: 4px solid #fff;
+  border-right: 4px solid #fff;
 }
 
 .title-zone {
@@ -653,6 +651,15 @@ clr-date-container .clr-input-group {
 .add-new-row {
   padding: 11px 0px;
   background: #ececec;
+
+  button:focus {
+    border: 2px solid #fdf3b4;
+  }
+}
+
+
+app-dynamic-inputs {
+  margin-top: 0.5rem;
 }
 
 .ng-select .ng-select-container {
@@ -705,4 +712,7 @@ clr-date-container .clr-input-group {
 
 .datagrid-footer {
   border-radius: 0;
+}
+.content-area .card-merge {
+  margin-top: 0;
 }
