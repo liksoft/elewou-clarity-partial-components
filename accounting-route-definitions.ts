@@ -22,3 +22,7 @@ export const accountingRouteDefinitions = {
   // Ordonnance Paramétrages
   tieiParametrageComptesRoute: 'home/tiei-parametrage-comptes',
 };
+
+export enum accountingRouteParams {
+  id = '/:id',
+}
