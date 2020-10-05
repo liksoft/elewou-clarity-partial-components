@@ -42,6 +42,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_tiei_saisie_ecritures',
         permissions: cptaPermissions,
+        routeIcon: 'form',
         children: [
           {
             key: 'navbar_tiei_saisie_manuel',
@@ -53,6 +54,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_tiei_saisie_journaux',
         permissions: cptaPermissions,
+        routeIcon: 'map',
         children: [
           {
             key: 'navbar_tiei_saisie_ecritures_liste',
@@ -63,6 +65,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_tiei_etats_comptable',
         permissions: cptaPermissions,
+        routeIcon: 'balance',
         children: [
           {
             key: 'navbar_tiei_balance_liste',
@@ -80,6 +83,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_tiei_etat_financiers',
         permissions: cptaPermissions,
+        routeIcon: 'bar-chart',
         children: [
           {
             key: 'navbar_tiei_etat_financiers1',
@@ -91,7 +95,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_tiei_parametrage_comptes',
-        // permissions: [],
+        routeIcon: 'cog',
         children: [
           {
             key: 'navbar_tiei_parametrage_comptes_list',
