@@ -44,7 +44,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() rejectionButtonDisabled = false;
   @Input() validationButtonDisabled = false;
   // tslint:disable-next-line: no-inferrable-types
-  @Input() triggerButtonClass: string = 'btn btn-primary';
+  @Input() triggerButtonClass: string = 'btn btn-primary btn-sm';
   // tslint:disable-next-line: no-inferrable-types
   @Input() showAssignmentButton: boolean = true;
 

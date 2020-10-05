@@ -5,13 +5,13 @@
     </a>
     <span class="module_name title"> {{ moduleName }}</span>
   </div>
-  <div class="header-nav">
+  <div class="header-nav hide-for-print">
     <ng-container *ngFor="let item of routesMap">
       <a [routerLink]="getRouteLinkFromMap(item.key)?.routePath" routerLinkActive="active"
         class="nav-link nav-text">{{ getRouteLinkFromMap(item.key)?.routeDescription }}</a>
     </ng-container>
   </div>
-  <div class="header-actions">
+  <div class="header-actions hide-for-print">
     <clr-dropdown>
       <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
         <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" />
