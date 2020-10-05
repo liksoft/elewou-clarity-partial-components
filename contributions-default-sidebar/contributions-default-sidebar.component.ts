@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesMap } from '../../routes-definitions';
+import { RoutesMap } from 'src/app/lib/domain/routes';
 import { partialConfigs, defaultPath, contributionPath, RC_STRUCTURES, RC_MEMBERS, contributionPermissions, rcContributionPermissions } from '../partials-configs';
 
 @Component({
@@ -14,9 +14,7 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
     [index: string]: string;
   };
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion des cotisations (RCAP)',
       navbar_tiei_enregistrement: 'Enregistrement des cotisations',

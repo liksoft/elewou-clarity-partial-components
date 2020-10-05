@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesMap } from '../../routes-definitions';
+import { RoutesMap } from 'src/app/lib/domain/routes';
 import { defaultPath, adminPath } from '../partials-configs';
 
 @Component({
@@ -12,9 +12,7 @@ export class AdminManagementSidebarComponent implements OnInit {
   public navbarRoutesMap: RoutesMap[];
   public navbarRouteDefinitions: { [index: string]: string };
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.navbarRouteDefinitions = {
       navbar_user_groups_header: 'Utilisateurs & groupes',
       navbar_forms_managenents_header: 'Gestion des formulaires',

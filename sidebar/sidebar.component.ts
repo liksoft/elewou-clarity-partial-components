@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from '../../routes-definitions';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { AuthService } from 'src/app/lib/domain/auth/core';
@@ -26,7 +26,7 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
     this.navigationRoutes = new Collection();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
     builLinkFromRoutesMap(this.routesMap, this.routeDescriptions).forEach(
       (item: IRouteLinkCollectionItem) =>

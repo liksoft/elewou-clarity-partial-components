@@ -3,7 +3,7 @@ import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component
 import { partialConfigs } from '../../partials-configs';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { AuthService, AuthPathConfig } from 'src/app/lib/domain/auth/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from '../../../routes-definitions';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
 import { TranslationService } from 'src/app/lib/domain/translator';
 import { Router } from '@angular/router';
 import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
@@ -45,7 +45,7 @@ export class ClientTopBarComponent extends AbstractAlertableComponent implements
     this.dashboardRoute = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
     // tslint:disable-next-line: deprecation
     this.connectUser = this.auth.user as User;
@@ -63,14 +63,14 @@ export class ClientTopBarComponent extends AbstractAlertableComponent implements
     return this.navigationRoutes.get(key);
   }
 
-  public redirectToLogin() {
+  public redirectToLogin(): void {
     this.router.navigate([AuthPathConfig.LOGIN_PATH], {
       replaceUrl: true
     });
     this.appUIStoreManager.completeUIStoreAction();
   }
 
-  async actionLogout(event: Event) {
+  async actionLogout(event: Event): Promise<void> {
     event.preventDefault();
     const translation = await this.translator.translate('promptLogout').toPromise();
     if (this.dialog.confirm(translation)) {

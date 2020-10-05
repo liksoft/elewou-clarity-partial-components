@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesMap } from '../../routes-definitions';
+import { RoutesMap } from 'src/app/lib/domain/routes';
 import { defaultPath, liquidationsPath, inLiquidationPermissions, partialConfigs, rcLiquidationPermissions } from '../partials-configs';
 
 @Component({
@@ -16,7 +16,7 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.navbarRouteDefinitions = {
       navbar_tiei: 'Gestion Liquidations (RCAP)',
       navbar_tiei_enregistrement_liquidation: 'Enregistrer une liquidation',
@@ -121,16 +121,6 @@ export class LiquidationsDefaultSidebarComponent implements OnInit {
               partialConfigs.acl.list_rc_liquidations,
             ]
           },
-          // Rc Retirees
-          // {
-          //   key: 'navbar_tiei_retirees',
-          //   route: `/${defaultPath}/${liquidationsPath.tieiRetireeListRoute}`,
-          //   permissions: [
-          //     partialConfigs.acl.all,
-          //     partialConfigs.acl.create_rtiei_liquidations,
-          //     partialConfigs.acl.list_rtiei_liquidations,
-          //   ]
-          // },
         ]
       },
     ];

@@ -12,7 +12,6 @@ import { RessourceRequestProcessingService } from './ressource-request-processin
 import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
 import { AdminManagementSidebarComponent } from './admin-management-sidebar/admin-management-sidebar.component';
 import { AdminDefaultSidebarComponent } from './admin-default-sidebar/admin-default-sidebar.component';
-import { StructureTypeDropdownComponent } from './structure-type-dropdown/structure-type-dropdown.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { LiquidationsDefaultSidebarComponent } from './liquidations-default-sidebar/liquidations-default-sidebar.component';
 import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
@@ -38,7 +37,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
     RessourceRequestProcessingModule,
-    StructureTypeDropdownComponent,
     LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
@@ -55,7 +53,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     ContributionsDefaultSidebarComponent,
     AdminManagementSidebarComponent,
     AdminDefaultSidebarComponent,
-    StructureTypeDropdownComponent,
     LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,

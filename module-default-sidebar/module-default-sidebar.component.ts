@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesMap } from '../../routes-definitions';
+import { RoutesMap } from 'src/app/lib/domain/routes';
 import { partialConfigs, immatriculationPath, defaultPath, inImmRequestPermissions, rcMembershipPermissions } from '../partials-configs';
 @Component({
   selector: 'app-module-default-sidebar',
@@ -14,8 +14,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
   };
   public accessControlList = partialConfigs.acl;
 
-  constructor() { }
-  ngOnInit() {
+  ngOnInit(): void {
 
     this.navbarRouteDefinitions = {
       navbar_economie_informelle: 'Indépendants & Economie Informelle',

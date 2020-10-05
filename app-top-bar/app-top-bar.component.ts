@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from '../../routes-definitions';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
 import { AuthPathConfig, AuthService } from 'src/app/lib/domain/auth/core';
 import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/lib/domain/translator';
@@ -9,9 +9,6 @@ import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
 import { Collection } from 'src/app/lib/domain/collections';
 import { Dialog, isDefined } from 'src/app/lib/domain/utils';
 import { User } from '../../../domain/auth/contracts/v2';
-
-// declare the variable require to use ad image path
-declare var require: any;
 
 @Component({
   selector: 'app-app-top-bar',
@@ -69,7 +66,7 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
     this.navigationRoutes = new Collection();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
     // tslint:disable-next-line: deprecation
     this.connectUser = this.auth.user as User;
@@ -83,7 +80,7 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
    * @description Checks if a given value is null or undefined
    * @param value [[value]]
    */
-  public isDefined(value: any) {
+  public isDefined(value: any): boolean {
     return isDefined(value);
   }
 
@@ -95,14 +92,14 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
     return this.navigationRoutes.get(key);
   }
 
-  public redirectToLogin() {
+  public redirectToLogin(): void {
     this.router.navigate([AuthPathConfig.LOGIN_PATH], {
       replaceUrl: true
     });
     this.appUIStoreManager.completeUIStoreAction();
   }
 
-  async actionLogout(event: Event) {
+  async actionLogout(event: Event): Promise<void> {
     event.preventDefault();
     const translation = await this.translator.translate('promptLogout').toPromise();
     if (this.dialog.confirm(translation)) {
