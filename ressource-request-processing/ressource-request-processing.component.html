@@ -55,6 +55,7 @@
   <div class="modal-body">
     <!-- Page content goes here -->
     <div class="clr-form-control-container">
+      <ng-content select="div.warning-content"></ng-content>
       <form *ngIf="validationForm">
         <app-dynamic-form-wapper [componentFormGroup]="validationFormGroup" [form]="validationForm">
         </app-dynamic-form-wapper>

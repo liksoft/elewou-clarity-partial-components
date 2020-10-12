@@ -556,7 +556,13 @@ clr-date-container .clr-input-group {
 .app-page-header .card {
   background: rgba(white, 0.85);
   border: none;
-  padding: 1rem 20rem 1rem 1rem;
+  padding: 1rem 2rem 1rem 1rem;
+}
+
+@media(min-width: 960px) {
+  .app-page-header .card {
+    padding: 1rem 20rem 1rem 1rem;
+  }
 }
 
 .app-page-header .card-header {

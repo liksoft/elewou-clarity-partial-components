@@ -10,7 +10,6 @@ import { getUsersAction } from '../../../../domain/auth/core/actions/app-users';
 import { map, takeUntil } from 'rxjs/operators';
 import { AppUIStateProvider } from '../../../../domain/helpers/app-ui-store-manager.service';
 import { combineLatest } from 'rxjs';
-import { Log } from '../../../../domain/utils/logger';
 import { createSubject } from '../../../../domain/rxjs/helpers/index';
 import { doLog } from '../../../../domain/rxjs/operators/index';
 
