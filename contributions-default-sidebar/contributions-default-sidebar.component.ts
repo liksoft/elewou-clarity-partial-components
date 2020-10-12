@@ -33,6 +33,7 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
         key: 'navbar_tiei',
         // route: `/${defaultPath}/${contributionPath.tieiEnregistrementRoute}`,
         permissions: contributionPermissions,
+        routeIcon: 'coin-bag',
         children: [
           {
             key: 'navbar_tiei_enregistrement',
@@ -75,6 +76,7 @@ export class ContributionsDefaultSidebarComponent implements OnInit {
       {
         key: 'navbar_rc',
         permissions: rcContributionPermissions,
+        routeIcon: 'e-check',
         children: [
           {
             key: 'navbar_rc_enregistrement',
