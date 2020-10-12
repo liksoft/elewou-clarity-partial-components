@@ -46,7 +46,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             route: `/${defaultPath}/${immatriculationPath.enregistrementRoute}`,
             permissions: [
               this.accessControlList.all,
-              this.accessControlList.create_imm_requests
+              this.accessControlList.create_rtiei_membership_requests
             ]
           },
           {
@@ -54,7 +54,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             route: `/${defaultPath}/${immatriculationPath.listRecordsRoute}`,
             permissions: [
               this.accessControlList.all,
-              this.accessControlList.create_imm_requests
+              this.accessControlList.create_rtiei_membership_requests
             ]
           },
           {
@@ -62,7 +62,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
             route: `/${defaultPath}/${immatriculationPath.workersRoute}`,
             permissions: [
               this.accessControlList.all,
-              this.accessControlList.create_imm_requests
+              this.accessControlList.create_rtiei_membership_requests
             ]
           },
           {
