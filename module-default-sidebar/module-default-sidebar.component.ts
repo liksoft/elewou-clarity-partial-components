@@ -23,6 +23,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       navbar_list_adhesions: 'Demandes d\'Adhésion',
       navbar_manage_structures: 'Structures',
       navbar_manage_members: 'Adhérents',
+      navbar_rtiei_contribution_business_day: 'Journée Comptable (Déclaration cotisations)',
       navbar_imm_processes: 'Aide : Processus',
       navbar_retraite_complementaire: 'Retraite Complémentaire',
       navbar_rc_new_request: 'Nouvelle adhésion',
@@ -33,7 +34,8 @@ export class ModuleDefaultSidebarComponent implements OnInit {
       navbar_workers: 'Travailleurs',
       navbar_list_workers: 'Dossier des Travailleurs',
       navbar_account: 'Mon compte',
-      navbar_personal_information: 'Informations personnelles'
+      navbar_personal_information: 'Informations personnelles',
+      navbar_rc_contribution_business_day: 'Journée Comptable (Déclaration cotisations)',
     };
     this.navbarRoutesMap = [
       {
@@ -73,6 +75,13 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.list_structures
             ]
           },
+          {
+            key: 'navbar_rtiei_contribution_business_day',
+            route: `#`,
+            permissions: [
+
+            ]
+          }
         ]
       },
       {
@@ -111,6 +120,13 @@ export class ModuleDefaultSidebarComponent implements OnInit {
               this.accessControlList.list_rc_memberships
             ]
           },
+          {
+            key: 'navbar_rc_contribution_business_day',
+            route: `#`,
+            permissions: [
+
+            ]
+          }
         ]
       },
     ];
