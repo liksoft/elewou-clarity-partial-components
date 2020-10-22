@@ -77,7 +77,7 @@ export class ModuleDefaultSidebarComponent implements OnInit {
           },
           {
             key: 'navbar_rtiei_contribution_business_day',
-            route: `#`,
+            route: `/${defaultPath}/${immatriculationPath.rtieiContributionDeclarationBusinessDay}`,
             permissions: [
 
             ]

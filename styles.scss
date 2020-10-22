@@ -332,6 +332,17 @@ span.ng-value-label {
   // background: #f3f3f3;
 }
 
+.business-day-content {
+  border-top: 3px solid map-get($map: $colors, $key: "blue");
+  padding: 15px;
+}
+
+.rtiei-contribution-declaration-content {
+  border-top: 3px solid #fee67d;
+  padding: 15px;
+  // background: #f3f3f3;
+}
+
 .nav .nav-link.active,
 .nav .nav-link:hover {
   box-shadow: none;
