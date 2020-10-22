@@ -6,7 +6,6 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubnavComponent } from './subnav/subnav.component';
-import { ModuleDefaultSidebarComponent } from './module-default-sidebar/module-default-sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
 import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
@@ -31,7 +30,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ModuleDefaultSidebarComponent,
     ContributionsDefaultSidebarComponent,
     RessourceRequestProcessingModule,
     LiquidationsDefaultSidebarComponent,
@@ -46,7 +44,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ModuleDefaultSidebarComponent,
     ContributionsDefaultSidebarComponent,
     LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,

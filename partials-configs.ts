@@ -122,7 +122,7 @@ export const rcMembershipPermissions = [
 
 // imm_request memberships
 
-export const inImmRequestPermissions = [
+export const rtieiMembershipRequestPermissions = [
   partialConfigs.acl.list_rtiei_membership_requests,
   partialConfigs.acl.create_rtiei_membership_requests,
   partialConfigs.acl.update_rtiei_membership_requests,
