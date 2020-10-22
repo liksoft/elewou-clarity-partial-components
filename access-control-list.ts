@@ -13,7 +13,6 @@ export const appAccessControlList = {
   create_rtiei_contribution_declarations: 'create-rtiei-contribution-declarations',
   create_rtiei_contribution_payments: 'create-rtiei-contribution-payments',
   create_rtiei_membership_request_assignations: 'create-rtiei-membership-request-assignations',
-  // create_rtiei_membership_requests: 'create-rtiei-membership-requests',
   delete_departments: 'delete-departments',
   delete_rtiei_membership_request_assignation: 'delete-rtiei-membership-request-assignations',
   delete_rtiei_membership_requests: 'delete-rtiei-membership-requests',
@@ -26,7 +25,6 @@ export const appAccessControlList = {
   delete_rtiei_contribution_payment_assignations: 'delete-rtiei-contribution-payment-assignations',
   delete_rtiei_contribution_payments: 'delete-rtiei-contribution-payments',
   delete_rtiei_membership_request_assignations: 'delete-rtiei-membership-request-assignations',
-  // delete_rtiei_membership_requests: 'delete-rtiei-membership-requests',
   list_departments: 'list-departments',
   list_rtiei_membership_request_assignations: 'list-rtiei-membership-request-assignations',
   list_rtiei_membership_requests: 'list-rtiei-membership-requests',
@@ -39,8 +37,6 @@ export const appAccessControlList = {
   list_rtiei_contribution_declarations: 'list-rtiei-contribution-declarations',
   list_rtiei_contribution_payment_assignations: 'list-rtiei-contribution-payment-assignations',
   list_rtiei_contribution_payments: 'list-rtiei-contribution-payments',
-  // list_rtiei_membership_request_assignations: 'list-rtiei-membership-request-assignations',
-  // list_rtiei_membership_requests: 'list-rtiei-membership-requests',
   manage_departments: 'manage-departments',
   manage_organisations: 'manage-organisations',
   manage_permissions: 'manage-permissions',
@@ -58,7 +54,6 @@ export const appAccessControlList = {
   update_rtiei_contribution_payment_assignations: 'update-rtiei-contribution-payment-assignations',
   update_rtiei_contribution_payments: 'update-rtiei-contribution-payments',
   update_rtiei_membership_request_assignations: 'update-rtiei-membership-request-assignations',
-  // update_rtiei_membership_requests: 'update-rtiei-membership-requests',
   list_structures: 'list-structures',
   create_structures: 'create-structures',
   update_structures: 'update-structures',
@@ -183,5 +178,11 @@ export const appAccessControlList = {
   cpta_accounting_entries_list: 'cpta-accounting-entries-list',
   cpta_accounting_entries_create: 'cpta-accounting-entries-create',
   cpta_accounting_entries_update: 'cpta-accounting-entries-update',
-  cpta_accounting_entries_delete: 'cpta-accounting-entries-delete'
+  cpta_accounting_entries_delete: 'cpta-accounting-entries-delete',
+
+  // Business days authorization handlers
+  business_days_list: 'business-days-list',
+  business_days_create: 'business-days-create',
+  business_days_update: 'business-days-update',
+  business_days_delete: 'business-days-delete',
 };
