@@ -181,8 +181,12 @@ export const appAccessControlList = {
   cpta_accounting_entries_delete: 'cpta-accounting-entries-delete',
 
   // Business days authorization handlers
-  business_days_list: 'business-days-list',
-  business_days_create: 'business-days-create',
-  business_days_update: 'business-days-update',
-  business_days_delete: 'business-days-delete',
+  rtiei_contribution_declarations_business_days_list: 'rtiei-contribution-declarations-business-days-list',
+  rtiei_contribution_declarations_business_days_create: 'rtiei-contribution-declarations-business-days-create',
+  rtiei_contribution_declarations_business_days_update: 'rtiei-contribution-declarations-business-days-update',
+  rtiei_contribution_declarations_business_days_delete: 'rtiei-contribution-declarations-business-days-delete',
+  rc_contribution_declarations_business_days_list: 'rc-contribution-declarations-business-days-list',
+  rc_contribution_declarations_business_days_create: 'rc-contribution-declarations-business-days-create',
+  rc_contribution_declarations_business_days_update: 'rc-contribution-declarations-business-days-update',
+  rc_contribution_declarations_business_days_delete: 'rc-contribution-declarations-business-days-delete'
 };
