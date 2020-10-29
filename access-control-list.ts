@@ -179,6 +179,10 @@ export const appAccessControlList = {
   cpta_accounting_entries_create: 'cpta-accounting-entries-create',
   cpta_accounting_entries_update: 'cpta-accounting-entries-update',
   cpta_accounting_entries_delete: 'cpta-accounting-entries-delete',
+  cpta_pending_accounting_records_list: 'cpta-pending-accounting-records-list',
+  cpta_pending_accounting_records_create: 'cpta-pending-accounting-records-create',
+  cpta_pending_accounting_records_update: 'cpta-pending-accounting-records-update',
+  cpta_pending_accounting_records_delete: 'cpta-pending-accounting-records-delete',
 
   // Business days authorization handlers
   rtiei_contribution_declarations_business_days_list: 'rtiei-contribution-declarations-business-days-list',
@@ -188,5 +192,13 @@ export const appAccessControlList = {
   rc_contribution_declarations_business_days_list: 'rc-contribution-declarations-business-days-list',
   rc_contribution_declarations_business_days_create: 'rc-contribution-declarations-business-days-create',
   rc_contribution_declarations_business_days_update: 'rc-contribution-declarations-business-days-update',
-  rc_contribution_declarations_business_days_delete: 'rc-contribution-declarations-business-days-delete'
+  rc_contribution_declarations_business_days_delete: 'rc-contribution-declarations-business-days-delete',
+  rtiei_liquidation_business_days_list: 'rtiei-liquidation-business-days-list',
+  rtiei_liquidation_business_days_create: 'rtiei-liquidation-business-days-create',
+  rtiei_liquidation_business_days_update: 'rtiei-liquidation-business-days-update',
+  rtiei_liquidation_business_days_delete: 'rtiei-liquidation-business-days-delete',
+  rc_liquidation_business_days_list: 'rc-liquidation-business-days-list',
+  rc_liquidation_business_days_create: 'rc-liquidation-business-days-create',
+  rc_liquidation_business_days_update: 'rc-liquidation-business-days-update',
+  rc_liquidation_business_days_delete: 'rc-liquidation-business-days-delete'
 };

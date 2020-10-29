@@ -24,4 +24,6 @@ export const immatriculationRouteDefinitions = {
   membershipRcListRoute: 'home/rcomp-list-memberships',
   // Liste Adhérents
   membershipRcMembersRoute: 'home/rtiei-members',
+
+  rcContributionDeclarationBusinessDay: 'rcomp-journee-comptable',
 };
