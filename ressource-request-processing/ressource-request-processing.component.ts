@@ -155,7 +155,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
       this.componentService.updateRessource(
         this.url,
         this.id,
-        { status: this.validatedStatusCode, observations: this.formControl.value },
+        { status: this.rejectedStatusCode, observations: this.formControl.value },
       ).then((res) => {
         if (res.statusOK) {
           this.doCancelAction();
