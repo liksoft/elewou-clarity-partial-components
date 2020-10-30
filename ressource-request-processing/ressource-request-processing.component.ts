@@ -137,7 +137,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
         this.rejectionButtonDisabled = true;
         this.assignationButtonDisabled = true;
         this.showSuccessMessage(translations.successfulValidation);
-        this.ressourceHandlerCompleted.emit(1);
+        this.ressourceHandlerCompleted.emit(this.validatedStatusCode);
       } else if (res.errors) {
         this.showBadRequestMessage(translations.invalidRequestParams);
       } else {
@@ -163,7 +163,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
           this.rejectionButtonDisabled = true;
           this.assignationButtonDisabled = true;
           this.showSuccessMessage(translations.successfulRejection);
-          this.ressourceHandlerCompleted.emit(2);
+          this.ressourceHandlerCompleted.emit(this.rejectedStatusCode);
         } else if (res.errors) {
           this.showBadRequestMessage(translations.invalidRequestParams);
         } else {
