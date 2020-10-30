@@ -750,3 +750,8 @@ app-dynamic-inputs {
     }
   }
 }
+
+.embeded-ressource {
+  width: 100% !important;
+  height: calc(100vh - 72px) !important;
+}
