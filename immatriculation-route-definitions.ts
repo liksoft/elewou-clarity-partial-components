@@ -11,7 +11,6 @@ export const immatriculationRouteDefinitions = {
   addStructureRoute: 'home/structures/add-structure',
   // Mon compte routes
   userInfoRoute: 'profile',
-
   rtieiContributionDeclarationBusinessDay: 'rtiei-journee-comptable',
 
   // Adhésion RC route

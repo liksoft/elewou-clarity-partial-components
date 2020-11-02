@@ -19,6 +19,7 @@ export const contributionRouteDefinitions = {
   tieiListIndividualContributionsRoute: 'home/tiei-list-individual-contributions',
   // List Structures contributions path
   tieiListStructuresContributionsRoute: 'home/tiei-list-structure-contributions',
+  rtieiContributionDeclarationBusinessDay: 'rtiei-journee-comptable',
   // Rc routes definitions
   // Register contributions route path
   rcEnregistrementRoute: 'home/rc-register-contributions',
@@ -28,4 +29,5 @@ export const contributionRouteDefinitions = {
   rcIndividualAccountsRoute: 'home/rc-comptes-individuels',
   // Rc Contributors account manage path
   rcContributorsAccountsRoute: 'home/rc-comptes-cotisants',
+  rcContributionDeclarationBusinessDay: 'rcomp-journee-comptable'
 };
