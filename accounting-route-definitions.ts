@@ -19,8 +19,28 @@ export const accountingRouteDefinitions = {
   tieiEtatsFinanciersRoute: 'home/tiei-etats-financiers',
   tieiEtatsFinanciersBilanRoute: 'home/tiei-bilan',
   tieiEtatsFinanciersResultatRoute: 'home/tiei-resultat',
+
   // Ordonnance Paramétrages
   tieiParametrageComptesRoute: 'home/tiei-parametrage-comptes',
+  actBalanceSheetRoute: 'home/act-parametrage-bilan',
+  actResultAccountRoute: 'home/act-parametrage-resultat',
+  actAccountNatureRoute: 'home/act-parametrage-nature',
+
+  // exerices
+  exerciseRoute: 'home/exercise',
+  exercisePeriodRoute: 'home/exercise-period',
+
+  // type operation / type journal
+  actTypeJournalRoute: 'home/act-type-journal',
+  actTypeJournalOperation: 'home/act-type-operation',
+
+  // informations de compte (company, director, setting)
+  actSettingsRoute: 'home/act-setting',
+  actCompanyRoute: 'home/act-company',
+  actDirectorRoute: 'home/act-director',
+
+  //onboardroot
+  tieiOnBoardRoute: 'home/act-onBoard',
 };
 
 export enum accountingRouteParams {

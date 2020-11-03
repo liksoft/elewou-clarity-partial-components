@@ -35,8 +35,25 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       // navbar_tiei_etat_financiers_bilan: 'Bilan',
       // navbar_tiei_etat_financiers_resultat: 'Résultat',
 
-      navbar_tiei_parametrage_comptes: 'Paramétrage',
+      navbar_tiei_parametrage_comptes: 'Paramétrage des Comptes',
       navbar_tiei_parametrage_comptes_list: 'Configuration',
+      navbar_act_balance_sheet: 'Bilan',
+      navbar_act_account_result: 'Résultat',
+      navbar_act_account_nature: 'Nature de compte',
+
+      navbar_act_writting_parameter: 'Paramétrage des écritures',
+      navbar_act_journal_type: 'Type d\'ecriture',
+      navbar_act_operation_type: 'Type d\'opération',
+
+      navbar_exercice_param: 'Paramétrage des exercices',
+      navbar_exercice: 'Exercices',
+      navbar_exercice_period: 'Période d\'exercices',
+
+      navbar_parametre_general: 'Paramètres Généraux',
+      navbar_societe: 'Société',
+      navbar_directeur: 'Premier Dirigeant',
+      navbar_setting: 'Paramètres',
+
     };
     this.navbarRoutesMap = [
       {
@@ -90,12 +107,80 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
         ]
       },
       {
+        key: 'navbar_exercice_param',
+        // permissions: [],
+        children: [
+          {
+            key: 'navbar_exercice',
+            route: `/${defaultPath}/${comptabilitePath.exerciseRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_exercice_period',
+            route: `/${defaultPath}/${comptabilitePath.exercisePeriodRoute}`,
+            // permissions: []
+          },
+        ]
+      },
+      {
         key: 'navbar_tiei_parametrage_comptes',
         // permissions: [],
         children: [
           {
             key: 'navbar_tiei_parametrage_comptes_list',
             route: `/${defaultPath}/${comptabilitePath.tieiParametrageComptesRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_act_balance_sheet',
+            route: `/${defaultPath}/${comptabilitePath.actBalanceSheetRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_act_account_result',
+            route: `/${defaultPath}/${comptabilitePath.actResultAccountRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_act_account_nature',
+            route: `/${defaultPath}/${comptabilitePath.actAccountNatureRoute}`,
+            // permissions: []
+          },
+        ]
+      },
+      {
+        key: 'navbar_act_writting_parameter',
+        // permissions: [],
+        children: [
+          {
+            key: 'navbar_act_journal_type',
+            route: `/${defaultPath}/${comptabilitePath.actTypeJournalRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_act_operation_type',
+            route: `/${defaultPath}/${comptabilitePath.actTypeJournalOperation}`,
+            // permissions: []
+          },
+        ]
+      },
+      {
+        key: 'navbar_parametre_general',
+        // permissions: [],
+        children: [
+          {
+            key: 'navbar_societe',
+            route: `/${defaultPath}/${comptabilitePath.actCompanyRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_directeur',
+            route: `/${defaultPath}/${comptabilitePath.actDirectorRoute}`,
+            // permissions: []
+          },
+          {
+            key: 'navbar_setting',
+            route: `/${defaultPath}/${comptabilitePath.actSettingsRoute}`,
             // permissions: []
           },
         ]
