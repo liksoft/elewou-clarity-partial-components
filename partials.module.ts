@@ -8,9 +8,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubnavComponent } from './subnav/subnav.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
-import { ContributionsDefaultSidebarComponent } from './contributions-default-sidebar/contributions-default-sidebar.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { LiquidationsDefaultSidebarComponent } from './liquidations-default-sidebar/liquidations-default-sidebar.component';
 import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
 import { ClientTopBarComponent } from './online/client-top-bar/client-top-bar.component';
 import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.component';
@@ -30,9 +28,7 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ContributionsDefaultSidebarComponent,
     RessourceRequestProcessingModule,
-    LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
     ClientSidebarComponent,
@@ -44,8 +40,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     PageTitleComponent,
     SidebarComponent,
     SubnavComponent,
-    ContributionsDefaultSidebarComponent,
-    LiquidationsDefaultSidebarComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
     ClientSidebarComponent,
