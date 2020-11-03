@@ -7,6 +7,9 @@
 @import "./assets/css/app-dropzone.css";
 @import "./assets/css/content-overlay.css";
 @import "./assets/css/clr-modal.css";
+@import "./assets/mixins/print";
+
+
 .card {
   box-shadow: none;
 }
@@ -126,9 +129,9 @@ div.sortable div.dragging {
       button.clr-treenode-caret {
         background: #ffffff;
       }
-      .clr-treenode-content {
-        padding: 0px 1px 0px 0px;
-      }
+    //   .clr-treenode-content {
+    // // padding: 0px 1px 0px 0px;
+    //   }
     }
   }
   .clr-treenode-children {
@@ -505,7 +508,7 @@ clr-accordion-title.clr-accordion-title {
 
 .clr-row.edit-forms {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
 }
 
 .modal-footer.clr-wizard-footer {
@@ -651,7 +654,7 @@ clr-date-container .clr-input-group {
 .add-new-row {
   padding: 11px 0px;
   background: #ececec;
-  
+
   button:focus {
     border: 2px solid #fdf3b4;
   }
@@ -664,4 +667,34 @@ app-dynamic-inputs {
 
 .content-area .card-merge {
   margin-top: 0;
+}
+
+/** edit page  **/
+.editor-header {
+  position: fixed;
+  width: calc(100% - 200px);
+  z-index: 2;
+  padding: 0rem 10px;
+
+  .card-header {
+    background: #eaeaea;
+    padding: 0px 10px;
+  }
+
+  ul.folder-details {
+    list-style-type: none;
+    width: 100%;
+    display: inline-block;
+  }
+
+  ul.folder-details li {
+      display: inline-block;
+      width: 33%;
+      font-weight: 300;
+      span.item-value.folder-number {
+        font-size: 0.7rem;
+        color: #004c8a;
+        font-weight: 700;
+    }
+  }
 }
