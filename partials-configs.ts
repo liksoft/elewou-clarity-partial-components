@@ -136,7 +136,7 @@ export const inImmRequestPermissions = [
 
 // Permissions for handling rtiei liquidations
 
-export const inLiquidationPermissions = [
+export const rtieiLiquidationPermissions = [
   partialConfigs.acl.list_rtiei_liquidations,
   partialConfigs.acl.create_rtiei_liquidations,
   partialConfigs.acl.update_rtiei_liquidations,
