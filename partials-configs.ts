@@ -32,7 +32,7 @@ export const partialConfigs = {
   immRequestExcelHeaders: immRequestExcelSheetHeaders,
   rcDncExcelHeaders: rcDncHeaders,
   assignableCollections: {
-    imm_requests: 1,
+    rtiei_membership_requests: 1,
     rtiei_contribution_declarations: 2,
     rtiei_contribution_payments: 3,
     rtiei_liquidations: 4,
@@ -122,15 +122,15 @@ export const rcMembershipPermissions = [
 
 // imm_request memberships
 
-export const inImmRequestPermissions = [
-  partialConfigs.acl.list_imm_requests,
-  partialConfigs.acl.create_imm_requests,
-  partialConfigs.acl.update_imm_requests,
-  partialConfigs.acl.delete_imm_requests,
-  partialConfigs.acl.list_imm_request_assignations,
-  partialConfigs.acl.create_imm_request_assignation,
-  partialConfigs.acl.update_imm_request_assignation,
-  partialConfigs.acl.delete_imm_request_assignation,
+export const rtieiMembershipRequestPermissions = [
+  partialConfigs.acl.list_rtiei_membership_requests,
+  partialConfigs.acl.create_rtiei_membership_requests,
+  partialConfigs.acl.update_rtiei_membership_requests,
+  partialConfigs.acl.delete_rtiei_membership_requests,
+  partialConfigs.acl.list_rtiei_membership_request_assignations,
+  partialConfigs.acl.create_rtiei_membership_requests_assignation,
+  partialConfigs.acl.update_rtiei_membership_request_assignation,
+  partialConfigs.acl.delete_rtiei_membership_request_assignation,
 ];
 
 
@@ -266,7 +266,7 @@ export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSo
 
 // Rtiei Modules
 // ImmRequest Data source provider key
-export const IMM_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
+export const RTIEI_MEMBERSHIP_REQUEST_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'ImmRequestDataSource';
 // inWorkers Data source provider key
 export const IN_WORKERS_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'InWorkersDataSource';
 // Strutures Data source provider key

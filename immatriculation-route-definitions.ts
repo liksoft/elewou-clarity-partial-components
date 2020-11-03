@@ -1,25 +1,28 @@
 export const immatriculationRouteDefinitions = {
   // Enregistrement routes
-  enregistrementRoute: 'home/enregistrement',
+  enregistrementRoute: 'home/rtiei-create-membership',
   // Dossier enregistrement routes
-  listRecordsRoute: 'home/liste-enregistrements',
+  listRecordsRoute: 'home/rtiei-list-membership',
   // Dossier Structures routes
-  structuresRoute: 'home/structures',
+  structuresRoute: 'home/rtiei-structures',
   // Dossier Travailleurs routes
-  workersRoute: 'home/workers',
+  workersRoute: 'home/rtiei-members',
   // Ajouter Structures routes
   addStructureRoute: 'home/structures/add-structure',
   // Mon compte routes
   userInfoRoute: 'profile',
+  rtieiContributionDeclarationBusinessDay: 'rtiei-journee-comptable',
 
   // Adhésion RC route
-  createMembershipRcRoute: 'home/membership_rc',
+  createMembershipRcRoute: 'home/rcomp-create-membership',
   // Adhésion en mass
-  createManyMembershipsRoute: 'home/membership_rcs',
+  createManyMembershipsRoute: 'home/rcomp-create-memberships',
   // Adhésion Employeurs Route
-  membershipRcEmployersRoute: 'home/employers',
+  membershipRcEmployersRoute: 'home/rcomp-structures',
   // Liste Demandes d'Adhésion Route
-  membershipRcListRoute: 'home/membership_list',
+  membershipRcListRoute: 'home/rcomp-list-memberships',
   // Liste Adhérents
-  membershipRcMembersRoute: 'home/members_rc',
+  membershipRcMembersRoute: 'home/rtiei-members',
+
+  rcContributionDeclarationBusinessDay: 'rcomp-journee-comptable',
 };

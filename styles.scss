@@ -332,6 +332,17 @@ span.ng-value-label {
   // background: #f3f3f3;
 }
 
+.business-day-content {
+  border-top: 3px solid map-get($map: $colors, $key: "blue");
+  padding: 15px;
+}
+
+.rtiei-contribution-declaration-content {
+  border-top: 3px solid #fee67d;
+  padding: 15px;
+  // background: #f3f3f3;
+}
+
 .nav .nav-link.active,
 .nav .nav-link:hover {
   box-shadow: none;
@@ -556,7 +567,13 @@ clr-date-container .clr-input-group {
 .app-page-header .card {
   background: rgba(white, 0.85);
   border: none;
-  padding: 1rem 20rem 1rem 1rem;
+  padding: 1rem 2rem 1rem 1rem;
+}
+
+@media(min-width: 960px) {
+  .app-page-header .card {
+    padding: 1rem 20rem 1rem 1rem;
+  }
 }
 
 .app-page-header .card-header {
@@ -588,9 +605,9 @@ clr-date-container .clr-input-group {
   -o-border-radius: 0;
 }
 
-.clr-row .clr-col-md-4 {
-  margin-top: 1rem;
-}
+// .clr-row .clr-col-md-4 {
+//   margin-top: 1rem;
+// }
 
 /* Creating Card Merge Style for styling multiple sections forms */
 .clr-form .card-merge:nth-of-type(n+1) {
@@ -732,4 +749,9 @@ app-dynamic-inputs {
         font-weight: 700;
     }
   }
+}
+
+.embeded-ressource {
+  width: 100% !important;
+  height: calc(100vh - 72px) !important;
 }

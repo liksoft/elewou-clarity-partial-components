@@ -8,6 +8,7 @@ import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dy
 import { DynamicControlParser } from 'src/app/lib/domain/helpers/dynamic-control-parser';
 import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 import { Dialog } from 'src/app/lib/domain/utils';
+import { Log } from 'src/app/lib/domain/utils/logger';
 
 @Component({
   selector: 'app-ressource-request-processing',
@@ -49,11 +50,18 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() showAssignmentButton: boolean = true;
 
   @Input() validationForm: IDynamicForm;
-  @Output() validationFormSumitted = new EventEmitter<{translations: any, body: object}>();
+  @Output() validationFormSumitted = new EventEmitter<{ translations: any, body: object }>();
   validationFormGroup: FormGroup;
 
   @Output() assignmentCompletedSuccessfully = new EventEmitter();
   @Output() ressourceHandlerCompleted = new EventEmitter<number>();
+
+  // tslint:disable-next-line: no-inferrable-types
+  @Input() validatedStatusCode: number = 1;
+  // tslint:disable-next-line: no-inferrable-types
+  @Input() rejectedStatusCode: number = 2;
+  // tslint:disable-next-line: no-inferrable-types
+  @Input() pendingStatuCode: number = 0;
 
   modalOpened = false;
   modalDescriptionText: string;
@@ -115,12 +123,12 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
 
   validateProcess = async () => {
     const translations = await this.componentService.loadTranslations(this.id);
-    this.validationFormSumitted.emit({translations, body: this.validationFormGroup.getRawValue()});
+    this.validationFormSumitted.emit({ translations, body: this.validationFormGroup.getRawValue() });
   }
 
   onValidate = (translations: any, requestObjet?: object | any) => {
-    const obj = this.typeHelper.isDefined(requestObjet) ? Object.assign(requestObjet, { status: 1 }) :
-      { status: 1, observations: this.formControl.value };
+    const obj = this.typeHelper.isDefined(requestObjet) ? { ...requestObjet, status: this.validatedStatusCode } :
+      { status: this.validatedStatusCode, observations: this.formControl.value };
     this.appUIStoreManager.initializeUIStoreAction();
     this.componentService.updateRessource(this.url, this.id, obj).then((res) => {
       if (res.statusOK) {
@@ -129,7 +137,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
         this.rejectionButtonDisabled = true;
         this.assignationButtonDisabled = true;
         this.showSuccessMessage(translations.successfulValidation);
-        this.ressourceHandlerCompleted.emit(1);
+        this.ressourceHandlerCompleted.emit(this.validatedStatusCode);
       } else if (res.errors) {
         this.showBadRequestMessage(translations.invalidRequestParams);
       } else {
@@ -147,7 +155,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
       this.componentService.updateRessource(
         this.url,
         this.id,
-        { status: 2, observations: this.formControl.value },
+        { status: this.rejectedStatusCode, observations: this.formControl.value },
       ).then((res) => {
         if (res.statusOK) {
           this.doCancelAction();
@@ -155,7 +163,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
           this.rejectionButtonDisabled = true;
           this.assignationButtonDisabled = true;
           this.showSuccessMessage(translations.successfulRejection);
-          this.ressourceHandlerCompleted.emit(2);
+          this.ressourceHandlerCompleted.emit(this.rejectedStatusCode);
         } else if (res.errors) {
           this.showBadRequestMessage(translations.invalidRequestParams);
         } else {

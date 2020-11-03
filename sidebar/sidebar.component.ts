@@ -34,6 +34,10 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
     );
   }
 
+  isFirstRoute(routes: RoutesMap[], item: RoutesMap): boolean {
+    return routes.indexOf(item) === 0;
+  }
+
   /**
    * @description Get [[RouteLink]] instance from the collection of RouteLink
    * @param key [[string]]
