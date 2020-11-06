@@ -1,11 +1,11 @@
 import { backendRoutes } from './backend-route-paths';
 import { immRequestExcelSheetHeaders, rcDncHeaders } from './excel-sheets-headers';
 import { appAccessControlList } from './access-control-list';
-import { routeDefinitions } from './admin-route-definitions';
-import { immatriculationRouteDefinitions } from './immatriculation-route-definitions';
-import { contributionRouteDefinitions } from './contribution-route-definitions';
-import { liquidationRouteDefinitions } from './liquidation-route-definitions';
-import { accountingRouteDefinitions } from './accounting-route-definitions';
+import { routeDefinitions as adminModuleRoutes } from './admin-route-definitions';
+import { immatriculationRouteDefinitions as immatriculationModuleRoutes } from './immatriculation-route-definitions';
+import { contributionRouteDefinitions as contributionsModuleRoutes} from './contribution-route-definitions';
+import { liquidationRouteDefinitions as liquidationsModuleRoutes } from './liquidation-route-definitions';
+import { accountingRouteDefinitions as comptabiliteModuleRoutes } from './accounting-route-definitions';
 import { clientRoutes } from './online/client-route-paths';
 import { clientRouteDefinitions } from './online/client-route-definitions';
 
@@ -19,11 +19,11 @@ export const partialConfigs = {
       dashboardHomeRoute: 'dashboard/home',
       homeRoute: 'home',
     },
-    adminModuleRoutes: routeDefinitions,
-    immatriculationModuleRoutes: immatriculationRouteDefinitions,
-    contributionsModuleRoutes: contributionRouteDefinitions,
-    liquidationsModuleRoutes: liquidationRouteDefinitions,
-    comptabiliteModuleRoutes: accountingRouteDefinitions,
+    adminModuleRoutes,
+    immatriculationModuleRoutes,
+    contributionsModuleRoutes,
+    liquidationsModuleRoutes,
+    comptabiliteModuleRoutes,
     clientModuleRoutes: clientRouteDefinitions
   },
   acl: appAccessControlList,
@@ -287,7 +287,7 @@ export const liquidationTypes = partialConfigs.liquidationTypes;
 // Component form ids constants
 export { rcModulesForms, inModulesForms } from './modules-forms';
 
-// Complementary retireement entity definition for structures
+// Complementary retirement entity definition for structures
 export const RC_STRUCTURES = 'rc_structures';
 // Complementary retireement entity definition for members
 export const RC_MEMBERS = 'rc_members';

@@ -31,6 +31,8 @@ export const routeDefinitions = {
   createDepartmentRoute: 'department',
   // Configurations
   globalConfigurationsRoute: 'configurations-globales',
+
   rcapConfigurationsRoute: 'configurations-retraite-par-capitalisation',
+
   rCompConfigurationsRoute: 'configurations-retraite-complémentaire'
 };

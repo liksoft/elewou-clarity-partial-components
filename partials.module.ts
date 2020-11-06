@@ -5,7 +5,6 @@ import { SharedModule } from '../shared.module';
 import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { SubnavComponent } from './subnav/subnav.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -27,7 +26,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
-    SubnavComponent,
     RessourceRequestProcessingModule,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
@@ -39,7 +37,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
-    SubnavComponent,
     ComptabiliteDefaultSidebarComponent,
     ClientTopBarComponent,
     ClientSidebarComponent,

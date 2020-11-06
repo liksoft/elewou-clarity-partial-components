@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Log } from 'src/app/lib/domain/utils/logger';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,7 +7,7 @@ import { Log } from 'src/app/lib/domain/utils/logger';
   styles: [
   ],
 })
-export class DatgridHeaderComponent implements OnInit {
+export class DatgridHeaderComponent {
 
   // Component outputs properties
   @Output() createEvent = new EventEmitter<object>();
@@ -27,10 +26,5 @@ export class DatgridHeaderComponent implements OnInit {
   @Input() selectedIds: number[];
   @Input() assignableEntity: string|number;
   @Input() buttonClass = 'btn btn-sm btn-secondary';
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }
