@@ -15,6 +15,7 @@
 @import "./assets/scss/@clr/cards";
 @import "./assets/scss/@clr/tables";
 @import "./assets/scss/@clr/forms";
+@import "./assets/scss/@clr/sidenav";
 
 .card {
   box-shadow: none;
@@ -437,7 +438,7 @@ button.btn.btn-link.clr-wizard-stepnav-link {
 }
 
 nav.sidenav {
-  background: white;
+  background: #dcdcdc;
   z-index: 0;
 }
 
