@@ -13,7 +13,7 @@ export const backendRoutes = {
   rtieiGenerateLocalSlipsPath: 'ressources/generate-local-rtiei-slips',
   rtieiGenerateFinancialSlipsPath: 'ressources/generate-financial-rtiei-slips',
   departmentPath: 'departments',
-  inWorkersPath: 'ressources/members',
+  inWorkersPath: 'ressources/rtiei-members',
   structuresPath: 'ressources/rtiei-structures',
   getMembershipRequestMemberDetails: 'ressources/rc-membership-member-details',
   contributionOptions: 'ressources/contribution-options',
@@ -45,5 +45,13 @@ export const backendRoutes = {
   // Administration paths
   roles: 'roles',
   permissions: 'permissions',
-  users: 'users'
+  users: 'users',
+
+  // Allowances and Annuitances routes
+  rtieiAllowancesPath: 'ressources/rtiei-allowances',
+  rtieiAnnuitancesPath: 'ressources/rtiei-annuitances',
+  rtieiAllowancesPaymentSlipPath: 'ressources/rtiei-allowances-payment-slip',
+  rtieiAnnuitancesPaymentSlipPath: 'ressources/rtiei-annuitances-payment-slip',
+  rcAllowancesPath: 'ressources/rc-allowances',
+  rcAnnuitancesPath: 'ressources/rc-annuitances',
 };
