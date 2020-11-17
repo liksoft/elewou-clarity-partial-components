@@ -9,8 +9,6 @@ import { RessourceRequestProcessingModule } from './ressource-request-processing
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
-import { ClientTopBarComponent } from './online/client-top-bar/client-top-bar.component';
-import { ClientSidebarComponent } from './online/client-sidebar/client-sidebar.component';
 import { AppModuleModule } from './app-modules/app-modules.module';
 import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.component';
 
@@ -28,8 +26,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     SidebarComponent,
     RessourceRequestProcessingModule,
     ComptabiliteDefaultSidebarComponent,
-    ClientTopBarComponent,
-    ClientSidebarComponent,
     AppModuleModule,
     DatgridHeaderComponent
   ],
@@ -38,8 +34,6 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     PageTitleComponent,
     SidebarComponent,
     ComptabiliteDefaultSidebarComponent,
-    ClientTopBarComponent,
-    ClientSidebarComponent,
     DatgridHeaderComponent
   ],
   providers: [RessourceRequestProcessingService]
