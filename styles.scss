@@ -541,15 +541,18 @@ clr-date-container .clr-input-group {
 }
 
 
+// .spinner.spinner-inline {
+//   position: fixed;
+//   width: 32px;
+//   height: 32px;
+//   left: 60%;
+//   right: 40%;
+//   top: 50%;
+//   bottom: 50%;
+//   z-index: 99;
+// }
 .spinner.spinner-inline {
-  position: fixed;
-  width: 32px;
-  height: 32px;
-  left: 60%;
-  right: 40%;
-  top: 50%;
-  bottom: 50%;
-  z-index: 99;
+  margin: 0 .5rem 0 0;
 }
 
 .content-area .card:first-of-type {

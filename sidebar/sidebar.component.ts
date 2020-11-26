@@ -5,6 +5,8 @@ import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manag
 import { AuthService } from 'src/app/lib/domain/auth/core';
 import { Collection } from 'src/app/lib/domain/collections';
 import { TypeUtilHelper } from '../../../domain/helpers/type-utils-helper';
+import { Authorizable, userCanAny } from 'src/app/lib/domain/auth/contracts/v2';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,6 +18,10 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
   public routesIndexes: string[];
   @Input() routesMap: RoutesMap[];
   @Input() routeDescriptions: { [index: string]: string };
+
+  state$ = this.auth.state$.pipe(
+    map(state => state.user)
+  );
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
@@ -44,6 +50,10 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
    */
   public getRouteLinkFromMap(key: string): RouteLink {
     return this.navigationRoutes.get(key);
+  }
+
+  hasAuthorizations(user: Authorizable, authorizations: string[]): boolean {
+    return userCanAny(user, authorizations);
   }
 
 }
