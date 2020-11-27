@@ -35,17 +35,17 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       // navbar_tiei_etat_financiers_bilan: 'Bilan',
       // navbar_tiei_etat_financiers_resultat: 'Résultat',
 
-      navbar_tiei_parametrage_comptes: 'Paramétrage des Comptes',
+      navbar_tiei_parametrage_comptes: 'Comptes',
       navbar_tiei_parametrage_comptes_list: 'Configuration',
       navbar_act_balance_sheet: 'Bilan',
       navbar_act_account_result: 'Résultat',
       navbar_act_account_nature: 'Nature de compte',
 
-      navbar_act_writting_parameter: 'Paramétrage des écritures',
-      navbar_act_journal_type: 'Type d\'ecriture',
+      navbar_act_writting_parameter: 'Ecritures',
+      navbar_act_journal_type: 'Type de Journaux',
       navbar_act_operation_type: 'Type d\'opération',
 
-      navbar_exercice_param: 'Paramétrage des exercices',
+      navbar_exercice_param: 'Exercices',
       navbar_exercice: 'Exercices',
       navbar_exercice_period: 'Période d\'exercices',
 
@@ -112,16 +112,17 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_exercice_param',
+        routeIcon: 'cog',
         // permissions: [],
         children: [
           {
             key: 'navbar_exercice',
-            route: `/${defaultPath}/${comptabilitePath.exerciseRoute}`,
+            route: `/${defaultPath}/${comptabilitePath.actExerciseRoute}`,
             // permissions: []
           },
           {
             key: 'navbar_exercice_period',
-            route: `/${defaultPath}/${comptabilitePath.exercisePeriodRoute}`,
+            route: `/${defaultPath}/${comptabilitePath.actExercisePeriodRoute}`,
             // permissions: []
           },
         ]
@@ -154,6 +155,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_act_writting_parameter',
+        routeIcon: 'cog',
         // permissions: [],
         children: [
           {
@@ -170,6 +172,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       },
       {
         key: 'navbar_parametre_general',
+        routeIcon: 'cog',
         // permissions: [],
         children: [
           {
