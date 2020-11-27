@@ -41,7 +41,7 @@ export const accountingRouteDefinitions = {
   actCompanyRoute: 'home/act-company',
   actDirectorRoute: 'home/act-director',
 
-  //onboardroot
+  // Onboarding root
   tieiOnBoardRoute: 'home/act-onBoard',
 };
 

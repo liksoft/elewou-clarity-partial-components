@@ -755,3 +755,17 @@ app-dynamic-inputs {
   width: 100% !important;
   height: calc(100vh - 72px) !important;
 }
+
+.var-width-embeded-ressource {
+  width: 100% !important;
+  height:100% !important;
+}
+
+.edit-request-info-alert {
+  margin: 1.2rem 0 !important;
+}
+
+.fc { /* the calendar root */
+  max-width: 100%;
+  margin: 0 auto;
+}
