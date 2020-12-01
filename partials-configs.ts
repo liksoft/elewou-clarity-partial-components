@@ -6,8 +6,7 @@ import { immatriculationRouteDefinitions as immatriculationModuleRoutes } from '
 import { contributionRouteDefinitions as contributionsModuleRoutes } from './contribution-route-definitions';
 import { liquidationRouteDefinitions as liquidationsModuleRoutes } from './liquidation-route-definitions';
 import { accountingRouteDefinitions as comptabiliteModuleRoutes } from './accounting-route-definitions';
-import { clientRoutes } from './online/client-route-paths';
-import { clientRouteDefinitions } from './online/client-route-definitions';
+import { onboardingDeskRouteDefinitions } from './onboarding-desk-route-definitions';
 
 /**
  * This file defines configuration values that are shared accross modules
@@ -24,11 +23,10 @@ export const partialConfigs = {
     contributionsModuleRoutes,
     liquidationsModuleRoutes,
     comptabiliteModuleRoutes,
-    clientModuleRoutes: clientRouteDefinitions
   },
   acl: appAccessControlList,
   backendRoutesPaths: backendRoutes,
-  clientRoutePaths: clientRoutes,
+  // clientRoutePaths: clientRoutes,
   immRequestExcelHeaders: immRequestExcelSheetHeaders,
   rcDncExcelHeaders: rcDncHeaders,
   assignableCollections: {
@@ -87,19 +85,22 @@ export const partialConfigs = {
 // Default Dashboard path
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
 // Immatriculation Module Path
-export const immatriculationPath = partialConfigs.routes.immatriculationModuleRoutes;
+export const immatriculationPath = immatriculationModuleRoutes;
 // Liquidation Module Path
-export const liquidationsPath = partialConfigs.routes.liquidationsModuleRoutes;
+export const liquidationsPath = liquidationsModuleRoutes;
 // Contriution Module Path
-export const contributionPath = partialConfigs.routes.contributionsModuleRoutes;
+export const contributionPath = contributionsModuleRoutes;
 // Contriution Module Path
-export const comptabilitePath = partialConfigs.routes.comptabiliteModuleRoutes;
+export const comptabilitePath = comptabiliteModuleRoutes;
 // Admin module path
-export const adminPath = partialConfigs.routes.adminModuleRoutes;
+export const adminPath = adminModuleRoutes;
 // Route definitions for backend ressources
-export const backendRoutePaths = partialConfigs.backendRoutesPaths;
+export const backendRoutePaths = backendRoutes;
 // Route definitions for clients ressources
-export const clientRoutePaths = partialConfigs.clientRoutePaths;
+// export const clientRoutePaths = partialConfigs.clientRoutePaths;
+
+// Route definitions for dossiers ressources
+export const onboardingDeskPaths = onboardingDeskRouteDefinitions;
 
 // contribution cotisation account id
 export const contributionAccountType = 1;

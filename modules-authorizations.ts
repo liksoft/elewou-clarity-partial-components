@@ -171,3 +171,38 @@ export const cptaPermissions = [
   appAccessControlList.cpta_accounting_entries_update,
   appAccessControlList.cpta_accounting_entries_delete,
 ];
+
+export const dossierRegistrationAuthorizations = [
+  appAccessControlList.rtiei_membership_dossiers_list,
+  appAccessControlList.rtiei_membership_dossiers_create,
+  appAccessControlList.rtiei_membership_dossiers_update,
+  appAccessControlList.rtiei_membership_dossiers_delete,
+  appAccessControlList.rc_membership_dossiers_list,
+  appAccessControlList.rc_membership_dossiers_create,
+  appAccessControlList.rc_membership_dossiers_update,
+  appAccessControlList.rc_membership_dossiers_delete,
+  appAccessControlList.rtiei_liquidation_dossiers_list,
+  appAccessControlList.rtiei_liquidation_dossiers_create,
+  appAccessControlList.rtiei_liquidation_dossiers_update,
+  appAccessControlList.rtiei_liquidation_dossiers_delete,
+  appAccessControlList.rc_liquidation_dossiers_list,
+  appAccessControlList.rc_liquidation_dossiers_create,
+  appAccessControlList.rc_liquidation_dossiers_update,
+  appAccessControlList.rc_liquidation_dossiers_delete,
+  appAccessControlList.rtiei_contribution_declaration_dossiers_list,
+  appAccessControlList.rtiei_contribution_declaration_dossiers_create,
+  appAccessControlList.rtiei_contribution_declaration_dossiers_update,
+  appAccessControlList.rtiei_contribution_declaration_dossiers_delete,
+  appAccessControlList.rc_contribution_declaration_dossiers_list,
+  appAccessControlList.rc_contribution_declaration_dossiers_create,
+  appAccessControlList.rc_contribution_declaration_dossiers_update,
+  appAccessControlList.rc_contribution_declaration_dossiers_delete,
+];
+
+
+export const registeredDossierFilesAuthorizations = [
+  appAccessControlList.dossier_files_list,
+  appAccessControlList.dossier_files_create,
+  appAccessControlList.dossier_files_update,
+  appAccessControlList.dossier_files_delete,
+];
