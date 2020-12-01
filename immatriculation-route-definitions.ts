@@ -22,7 +22,7 @@ export const immatriculationRouteDefinitions = {
   // Liste Demandes d'Adhésion Route
   membershipRcListRoute: 'home/rcomp-list-memberships',
   // Liste Adhérents
-  membershipRcMembersRoute: 'home/rtiei-members',
+  membershipRcMembersRoute: 'home/rcomp-members',
 
   rcContributionDeclarationBusinessDay: 'rcomp-journee-comptable',
 };
