@@ -5,7 +5,8 @@ export const backendRoutes = {
 
   // Busness logic routing definitions
   members: 'ressources/rtiei-members',
-  contributionNotificationEndpoint: 'ressources/rtiei-contribution-declaration-notification/',
+  contributionNotificationEndpoint: 'ressources/rtiei-contribution-declaration-notification-file',
+  rcContributionNotificationEndpoint: 'ressources/rc-contribution-declarations-notification-file',
   liquidationPath: 'ressources/rtiei-liquidations',
   immRequestPath: 'ressources/rtiei-membership-requests',
   rtieiSlipsPath: 'ressources/rtiei-slips',
