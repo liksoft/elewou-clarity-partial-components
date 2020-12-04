@@ -36,7 +36,7 @@ export class ComptabiliteDefaultSidebarComponent implements OnInit {
       // navbar_tiei_etat_financiers_resultat: 'Résultat',
 
       navbar_tiei_parametrage_comptes: 'Comptes',
-      navbar_tiei_parametrage_comptes_list: 'Configuration',
+      navbar_tiei_parametrage_comptes_list: 'Configuration / Nouveau',
       navbar_act_balance_sheet: 'Bilan',
       navbar_act_account_result: 'Résultat',
       navbar_act_account_nature: 'Nature de compte',
