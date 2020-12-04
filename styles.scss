@@ -8,7 +8,14 @@
 @import "./assets/css/content-overlay.css";
 @import "./assets/css/clr-modal.css";
 @import "./assets/mixins/print";
-
+@import "./assets/scss/settings";
+@import "./assets/scss/header";
+@import "./assets/scss/default";
+@import "./assets/scss/@clr/buttons";
+@import "./assets/scss/@clr/cards";
+@import "./assets/scss/@clr/tables";
+@import "./assets/scss/@clr/forms";
+@import "./assets/scss/@clr/sidenav";
 
 .card {
   box-shadow: none;
@@ -81,17 +88,31 @@ header .search-box label::before {
   margin-right: 10px;
 }
 
-.header .branding .title,
-header .branding .title {
-  color: #0076b8;
+.header,
+header{
+  .branding{
+    background-color: var(--flat-white);
+    .title{
+      color: #0076b8;
+      padding: 0 16px;
+    }
+    .nav-link{
+      display: inline-flex;
+      align-items: center;
+      height: 2.5rem;
+    }
+  }
 }
 
-.main-container .content-area {
-  padding: 0;
-  // Updated the size of the container a little bit
-  // max-width: 960px;
-  // max-width: 1024px;
-  margin: 0 auto;
+.main-container {
+  .content-area {
+    padding: 0;
+    margin: 0 auto;
+
+    .app-page-content {
+      padding: 1rem;
+    }
+  }
 }
 
 .main-container .page-title {
@@ -366,7 +387,6 @@ span.ng-value-label {
 }
 
 .card-text {
-  font-size: 12px;
   line-height: 1.8;
 }
 
@@ -418,7 +438,7 @@ button.btn.btn-link.clr-wizard-stepnav-link {
 }
 
 nav.sidenav {
-  background: white;
+  background: #dcdcdc;
   z-index: 0;
 }
 
@@ -541,15 +561,18 @@ clr-date-container .clr-input-group {
 }
 
 
+// .spinner.spinner-inline {
+//   position: fixed;
+//   width: 32px;
+//   height: 32px;
+//   left: 60%;
+//   right: 40%;
+//   top: 50%;
+//   bottom: 50%;
+//   z-index: 99;
+// }
 .spinner.spinner-inline {
-  position: fixed;
-  width: 32px;
-  height: 32px;
-  left: 60%;
-  right: 40%;
-  top: 50%;
-  bottom: 50%;
-  z-index: 99;
+  margin: 0 .5rem 0 0;
 }
 
 .content-area .card:first-of-type {
