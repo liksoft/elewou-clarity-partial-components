@@ -4,4 +4,6 @@ export const onboardingDeskRouteDefinitions = {
   createDossierRegistration: 'create-dossier-registration',
   // List dossier entry route
   listDossierRegistrations: 'dossier-registrations',
+  // List dossier entry route
+  dossierVoucher: 'dossier-voucher',
 };
