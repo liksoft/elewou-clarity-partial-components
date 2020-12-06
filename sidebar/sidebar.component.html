@@ -1,6 +1,6 @@
 <ng-container *ngIf="state$ | async as user">
   <ng-container *ngFor="let item of routesMap">
-    <clr-vertical-nav-group routerLinkActive="active" *ngIf="typeHelper.isDefined(item?.children)">
+    <clr-vertical-nav-group routerLinkActive="active" *ngIf="typeHelper.isDefined(item?.children) && hasAuthorizations(user, getRouteLinkFromMap(item.key)?.routePermissions)">
       <clr-icon *ngIf="getRouteLinkFromMap(item.key)?.routeIcon" [attr.shape]="getRouteLinkFromMap(item.key)?.routeIcon"
         clrVerticalNavIcon></clr-icon>
       {{ getRouteLinkFromMap(item.key)?.routeDescription }}
