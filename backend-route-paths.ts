@@ -55,4 +55,10 @@ export const backendRoutes = {
   rtieiAnnuitancesPaymentSlipPath: 'ressources/rtiei-annuitances-payment-slip',
   rcAllowancesPath: 'ressources/rc-allowances',
   rcAnnuitancesPath: 'ressources/rc-annuitances',
+
+  // Financial organizations route path
+  forganizationsPath: 'collections/forganizations',
+
+  // business days slips download path
+  businessDaysSlipsDownladPath: 'ressources/business-days-slip'
 };
