@@ -7,15 +7,15 @@
   </div>
   <div class="header-nav hide-for-print">
     <ng-container *ngFor="let item of routesMap">
-      <a [routerLink]="getRouteLinkFromMap(item.key)?.routePath" routerLinkActive="active"
-        class="nav-link nav-text">{{ getRouteLinkFromMap(item.key)?.routeDescription }}</a>
+      <a [routerLink]="getRouteLinkFromMap(item.key)?.routePath" routerLinkActive="active" class="nav-link nav-text">{{
+        getRouteLinkFromMap(item.key)?.routeDescription }}</a>
     </ng-container>
   </div>
-  <div class="header-actions hide-for-print">
+  <div class="header-actions hide-for-print" *ngIf="state$ | async as state">
     <clr-dropdown>
       <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
         <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" />
-        {{ connectUser.username }}
+        {{ state?.username }}
         <clr-icon shape="caret down"></clr-icon>
       </button>
       <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
