@@ -45,7 +45,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
-  // public connectUser: User;
   public dashboardRoute = `/${defaultPath}`;
   public profileRoute = `/${defaultPath}/${adminPath.accountRoute}`;
 
@@ -78,8 +77,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
-    // tslint:disable-next-line: deprecation
-    // this.connectUser = this.auth.user as User;
     builLinkFromRoutesMap(this.routesMap, this.routeDescriptions).forEach(
       (item: IRouteLinkCollectionItem) =>
         this.navigationRoutes.add(item.key, item.value)
