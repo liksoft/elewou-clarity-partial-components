@@ -17,7 +17,7 @@ import { combineLatest } from 'rxjs';
       <ng-container [ngSwitch]="state.status">
         <clr-alert *ngSwitchCase="uiStateResultCode.ERROR" [clrAlertType]="'danger'" [clrAlertClosable]="false">
           <clr-alert-item>
-              <span class="alert-text" [innerHTML]="'serverRequestFailed' | translate | safeWebContent"></span>
+              <span class="alert-text" [innerHTML]="(state?.message || 'serverRequestFailed') | translate | safeWebContent"></span>
               <div class="alert-actions">
                   <clr-icon shape="times" (click)="onClrAlertClosedChanged(true)"></clr-icon>
               </div>

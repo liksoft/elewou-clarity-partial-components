@@ -22,12 +22,15 @@ export const accountingRouteDefinitions = {
   // Ordonnance Paramétrages
   tieiParametrageComptesRoute: 'home/tiei-parametrage-comptes',
   actBalanceSheetRoute: 'home/act-parametrage-bilan',
+  actBalanceSheetRootRoute: 'home/act-parametrage-bilan-root',
   actResultAccountRoute: 'home/act-parametrage-resultat',
+  actResultAccountRootRoute: 'home/act-parametrage-resultat-root',
   actAccountNatureRoute: 'home/act-parametrage-nature',
+  actAccountNatureRootRoute: 'home/act-parametrage-nature-roots',
 
   // exerices
-  exerciseRoute: 'home/exercise',
-  exercisePeriodRoute: 'home/exercise-period',
+  actExerciseRoute: 'home/exercise',
+  actExercisePeriodRoute: 'home/exercise-period',
 
   // type operation / type journal
   actTypeJournalRoute: 'home/act-type-journal',

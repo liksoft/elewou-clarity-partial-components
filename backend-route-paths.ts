@@ -5,7 +5,8 @@ export const backendRoutes = {
 
   // Busness logic routing definitions
   members: 'ressources/rtiei-members',
-  contributionNotificationEndpoint: 'ressources/rtiei-contribution-declaration-notification/',
+  contributionNotificationEndpoint: 'ressources/rtiei-contribution-declaration-notification-file',
+  rcContributionNotificationEndpoint: 'ressources/rc-contribution-declarations-notification-file',
   liquidationPath: 'ressources/rtiei-liquidations',
   immRequestPath: 'ressources/rtiei-membership-requests',
   rtieiSlipsPath: 'ressources/rtiei-slips',
@@ -54,4 +55,10 @@ export const backendRoutes = {
   rtieiAnnuitancesPaymentSlipPath: 'ressources/rtiei-annuitances-payment-slip',
   rcAllowancesPath: 'ressources/rc-allowances',
   rcAnnuitancesPath: 'ressources/rc-annuitances',
+
+  // Financial organizations route path
+  forganizationsPath: 'collections/forganizations',
+
+  // business days slips download path
+  businessDaysSlipsDownladPath: 'ressources/business-days-slip'
 };

@@ -8,7 +8,8 @@ import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manag
 import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
 import { Collection } from 'src/app/lib/domain/collections';
 import { Dialog, isDefined } from 'src/app/lib/domain/utils';
-import { User } from '../../../domain/auth/contracts/v2';
+import { IAppUser, User } from '../../../domain/auth/contracts/v2';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-app-top-bar',
@@ -44,7 +45,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
-  public connectUser: User;
   public dashboardRoute = `/${defaultPath}`;
   public profileRoute = `/${defaultPath}/${adminPath.accountRoute}`;
 
@@ -54,6 +54,15 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   @Input() public applicationName: string;
 
   public modulesBackendRoute = backendRoutePaths.modules;
+
+  state$ = this.auth.state$.pipe(
+    map(state => state.user as IAppUser),
+    map(state => ({
+      username: state.userDetails ?
+        (state.userDetails.firstname && state.userDetails.lastname ? `${state.userDetails.firstname}, ${state.userDetails.lastname}` :
+          (state.userDetails.email ? state.userDetails.email : state.username)) : state.username
+    }))
+  );
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
@@ -68,8 +77,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
-    // tslint:disable-next-line: deprecation
-    this.connectUser = this.auth.user as User;
     builLinkFromRoutesMap(this.routesMap, this.routeDescriptions).forEach(
       (item: IRouteLinkCollectionItem) =>
         this.navigationRoutes.add(item.key, item.value)
