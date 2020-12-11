@@ -97,7 +97,6 @@ export const adminPath = adminModuleRoutes;
 // Route definitions for backend ressources
 export const backendRoutePaths = backendRoutes;
 // Route definitions for clients ressources
-// export const clientRoutePaths = partialConfigs.clientRoutePaths;
 
 // Route definitions for dossiers ressources
 export const onboardingDeskPaths = onboardingDeskRouteDefinitions;
