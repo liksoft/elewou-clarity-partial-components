@@ -282,6 +282,12 @@ export class MembershipDossier implements DossierInterface, DossierFileConfigInt
   type: string = undefined;
   regime: string = undefined;
   regimeId: number = undefined;
+  identityFileNumber?: string = undefined;
+  identityFileIssueDate?: string = undefined;
+  identityFileIssueBy?: number | string = undefined;
+  identityFileIssueAt?: number | string = undefined;
+  passportPictureSourceFileId?: number = undefined;
+  identitySourceFileId?: number = undefined;
 
   applicationSheetId: number = undefined;
   dossierId: string = undefined;
@@ -292,7 +298,7 @@ export class MembershipDossier implements DossierInterface, DossierFileConfigInt
   registrantPhoneNumber: string = undefined;
   registranNationality?: number = undefined;
   registrantMartialStatus?: number = undefined;
-  idenityFileType: string | number = undefined;
+  // idenityFileType: string | number = undefined;
   hasIdentityFile: boolean = undefined;
   identityFileId: number = undefined;
   hasPassportPicture: boolean = undefined;
@@ -331,6 +337,12 @@ export class MembershipDossier implements DossierInterface, DossierFileConfigInt
     group_id: 'groupId',
     requiredFiles: 'requiredFiles',
     registrant_email: 'registrantEmail',
+    identity_file_number: 'identityFileNumber',
+    identity_file_issue_date: 'identityFileIssueDate',
+    identity_file_issue_by: 'identityFileIssueBy',
+    identity_file_issue_at: 'identityFileIssueAt',
+    passport_picture_source_file_id: 'passportPictureSourceFileId',
+    identity_source_file_id: 'identitySourceFileId',
   })
 }
 
@@ -358,7 +370,7 @@ export class GroupedMembershipDossier implements DossierInterface, DossierFileCo
   dossierId: string = undefined;
   structureId: string = undefined;
   totalMembers: number = undefined;
-  memberListSheetId: string|number = undefined;
+  memberListSheetId: string | number = undefined;
   requiredFiles: DossierRequiredFilesType[] = [];
   registrantPhoneNumber: string = undefined;
   registrantEmail: string = undefined;
@@ -413,7 +425,7 @@ export class GroupedContributionDeclarationDossier implements DossierInterface, 
   requiredFiles: DossierRequiredFilesType[] = [];
   registrantPhoneNumber: string = undefined;
   registrantEmail: string = undefined;
-  dncFileID: string|number = undefined;
+  dncFileID: string | number = undefined;
   isCompleted: boolean = undefined;
 
   static builder = () => new GenericSerializaleSerializer(GroupedContributionDeclarationDossier, new UndecoratedSerializer());
