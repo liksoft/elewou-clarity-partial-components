@@ -24,7 +24,7 @@ import { combineLatest } from 'rxjs';
           </clr-alert-item>
         </clr-alert>
         <!-- Case bad request input authentication -->
-        <clr-alert *ngSwitchCase="uiStateResultCode.BAD_REQUEST" [clrAlertType]="'danger'" [clrAlertClosable]="false">
+        <clr-alert *ngSwitchCase="uiStateResultCode.BAD_REQUEST" [clrAlertType]="'warning'" [clrAlertClosable]="false">
           <clr-alert-item>
               <span class="alert-text" [innerHTML]="(state?.message ? state?.message : 'invalidRequestParams') | translate | safeWebContent"></span>
               <div class="alert-actions">

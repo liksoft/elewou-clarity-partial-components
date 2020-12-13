@@ -170,7 +170,7 @@ export class LiquidationDossier implements DossierInterface, DossierFileConfigIn
   // Dossier details
   applicationSheetId: number = undefined;
   dossierId: number = undefined;
-  insuranceId: string = undefined;
+  insuranceId: number = undefined;
   registrantFirstname: string = undefined;
   registrantLastname: string = undefined;
   registrantAddress: string = undefined;
@@ -234,7 +234,7 @@ export class MemberContributionDeclarationDossier implements DossierInterface, D
   // Details properties
   applicationSheetId: number = undefined;
   dossierId: string = undefined;
-  insuranceId: string = undefined;
+  insuranceId: number = undefined;
   month: number = undefined;
   year: number = undefined;
   amount: number = undefined;
@@ -244,6 +244,7 @@ export class MemberContributionDeclarationDossier implements DossierInterface, D
   registrantPhoneNumber: string = undefined;
   registrantEmail: string = undefined;
   isCompleted: boolean = undefined;
+  paymentSourceFileID: number = undefined;
 
   static builder = () => new GenericSerializaleSerializer(MemberContributionDeclarationDossier, new UndecoratedSerializer());
 
@@ -263,6 +264,7 @@ export class MemberContributionDeclarationDossier implements DossierInterface, D
     requiredFiles: 'requiredFiles',
     registrant_phonenumber: 'registrantPhoneNumber',
     registrant_email: 'registrantEmail',
+    payment_source_file_id: 'paymentSourceFileID'
   })
 }
 
@@ -291,7 +293,7 @@ export class MembershipDossier implements DossierInterface, DossierFileConfigInt
 
   applicationSheetId: number = undefined;
   dossierId: string = undefined;
-  insuranceId: string = undefined;
+  insuranceId: number = undefined;
   registrantFirstname: string = undefined;
   registrantLastname: string = undefined;
   registrantAddress: string = undefined;
@@ -368,7 +370,7 @@ export class GroupedMembershipDossier implements DossierInterface, DossierFileCo
   // Details properties
   applicationSheetId: number = undefined;
   dossierId: string = undefined;
-  structureId: string = undefined;
+  structureId: number = undefined;
   totalMembers: number = undefined;
   memberListSheetId: string | number = undefined;
   requiredFiles: DossierRequiredFilesType[] = [];
@@ -416,7 +418,7 @@ export class GroupedContributionDeclarationDossier implements DossierInterface, 
   // Details properties
   applicationSheetId: number = undefined;
   dossierId: string = undefined;
-  structureId: string = undefined;
+  structureId: number = undefined;
   month: number = undefined;
   year: number = undefined;
   amount: number = undefined;
@@ -427,6 +429,8 @@ export class GroupedContributionDeclarationDossier implements DossierInterface, 
   registrantEmail: string = undefined;
   dncFileID: string | number = undefined;
   isCompleted: boolean = undefined;
+  paymentSourceFileID: number = undefined;
+  dncSourceFileID: number = undefined;
 
   static builder = () => new GenericSerializaleSerializer(GroupedContributionDeclarationDossier, new UndecoratedSerializer());
 
@@ -446,6 +450,8 @@ export class GroupedContributionDeclarationDossier implements DossierInterface, 
     requiredFiles: 'requiredFiles',
     registrant_phonenumber: 'registrantPhoneNumber',
     registrant_email: 'registrantEmail',
-    dnc_file_id: 'dncFileID'
+    dnc_file_id: 'dncFileID',
+    payment_source_file_id: 'paymentSourceFileID',
+    dnc_source_file_id: 'dncSourceFileID'
   })
 }
