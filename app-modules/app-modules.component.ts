@@ -5,6 +5,7 @@ import { ModulesProvider } from './core/v2/providers/module';
 import { DrewlabsRessourceServerClient } from '../../../domain/http/core/ressource-server-client';
 import { getModulesAction } from './core/v2/actions/module';
 import { emptyObservable } from '../../../domain/rxjs/helpers/index';
+import { SessionStorage } from 'src/app/lib/domain/storage/core';
 
 @Component({
   selector: 'app-app-modules',
@@ -28,11 +29,12 @@ export class AppModulesComponent implements AfterViewInit {
 
   constructor(
     private provider: ModulesProvider,
-    private client: DrewlabsRessourceServerClient
+    private client: DrewlabsRessourceServerClient,
+    private _cache: SessionStorage
   ) { }
 
   async ngAfterViewInit() {
-    getModulesAction(this.provider.store$)(this.client, this.ressourcePath || backendRoutePaths.modules);
+    getModulesAction(this.provider.store$)(this.client, this.ressourcePath || backendRoutePaths.modules, {}, this._cache);
   }
 
 }
