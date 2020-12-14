@@ -37,12 +37,14 @@ export const accountingRouteDefinitions = {
   actTypeJournalOperation: 'home/act-type-operation',
 
   // informations de compte (company, director, setting)
-  actSettingsRoute: 'home/act-setting',
-  actCompanyRoute: 'home/act-company',
-  actDirectorRoute: 'home/act-director',
+  actSettingsRoute: 'home/settings/general',
+  actCompanyRoute: 'home/settings/company',
+  actDirectorRoute: 'home/settings/company-director',
 
   // Onboarding root
   tieiOnBoardRoute: 'home/act-onBoard',
+
+  // Automatic accouting record configurations
 };
 
 export enum accountingRouteParams {

@@ -8,7 +8,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { ComptabiliteDefaultSidebarComponent } from './comptabilite-default-sidebar/comptabilite-default-sidebar.component';
 import { AppModuleModule } from './app-modules/app-modules.module';
 import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.component';
 import { ModuleDossierDepositsComponent } from './dossiers/module-dossier-deposits.component';
@@ -27,7 +26,6 @@ import { DossierFilesPresenterComponent } from './dossiers/dossier-files-present
     PageTitleComponent,
     SidebarComponent,
     RessourceRequestProcessingModule,
-    ComptabiliteDefaultSidebarComponent,
     AppModuleModule,
     DatgridHeaderComponent,
     ModuleDossierDepositsComponent,
@@ -37,7 +35,6 @@ import { DossierFilesPresenterComponent } from './dossiers/dossier-files-present
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
-    ComptabiliteDefaultSidebarComponent,
     DatgridHeaderComponent,
     ModuleDossierDepositsComponent,
     DossierFilesPresenterComponent
