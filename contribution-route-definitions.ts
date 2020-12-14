@@ -20,7 +20,7 @@ export const contributionRouteDefinitions = {
   // List Structures contributions path
   tieiListStructuresContributionsRoute: 'home/tiei-list-structure-contributions',
   rtieiContributionDeclarationBusinessDay: 'rtiei-journee-comptable',
-  rtieiContributionDeclarationDossiersPath: 'rcap-contribution-declarations',
+  rtieiContributionDeclarationDossiersPath: 'rcap-contribution-declaration-dossiers',
   // Rc routes definitions
   // Register contributions route path
   rcEnregistrementRoute: 'home/rc-register-contributions',

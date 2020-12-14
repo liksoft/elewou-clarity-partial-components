@@ -186,6 +186,9 @@ export class LiquidationDossier implements DossierInterface, DossierFileConfigIn
   registrantEmail: string = undefined;
   requiredFiles: DossierRequiredFilesType[] = undefined;
   isCompleted: boolean = undefined;
+  registrantPictureSourceFileId: number = undefined;
+  memberDeathCertificateSourceFileId: number = undefined;
+  medicalCertificateSourceFileId: number = undefined;
 
   static builder = () => new GenericSerializaleSerializer(LiquidationDossier, new UndecoratedSerializer());
 
@@ -210,7 +213,10 @@ export class LiquidationDossier implements DossierInterface, DossierFileConfigIn
     medical_certificate_file_id: 'medicalCertificateFileId',
     liquidation_type_id: 'liquidationTypeId',
     registrant_email: 'registrantEmail',
-    requiredFiles: 'requiredFiles'
+    requiredFiles: 'requiredFiles',
+    registrant_picture_source_file_id: 'registrantPictureSourceFileId',
+    member_death_certificate_source_file_id: 'memberDeathCertificateSourceFileId',
+    medical_certificate_source_file_id: 'medicalCertificateSourceFileId'
   })
 }
 
