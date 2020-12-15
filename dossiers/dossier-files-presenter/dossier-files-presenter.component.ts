@@ -16,8 +16,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-dossier-files-presenter',
   templateUrl: './dossier-files-presenter.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class DossierFilesPresenterComponent implements OnDestroy {
   // tslint:disable-next-line: variable-name

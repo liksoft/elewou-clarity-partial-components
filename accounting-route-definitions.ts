@@ -1,50 +1,52 @@
 export const accountingRouteDefinitions = {
   // Register Saisie Ecritures
-  tieiSaisieEcrituresRoute: 'home/tiei-saisie-ecritures',
-  tieiAjoutEcrituresRoute: 'home/add-ecriture',
-  tieiSaisieEcrituresReleveRoute: 'home/releve-ecriture',
+  tieiSaisieEcrituresRoute: 'tiei-saisie-ecritures',
+  tieiAjoutEcrituresRoute: 'add-ecriture',
+  tieiSaisieEcrituresReleveRoute: 'releve-ecriture',
   // Register Saisie Ecritures details
-  tieiSaisieEcrituresDetailsRoute: 'home/tiei-saisie-ecritures/details',
-  tieiSaisieEcrituresUpdateRoute: 'home/tiei-saisie-ecritures/update',
+  tieiSaisieEcrituresDetailsRoute: 'tiei-saisie-ecritures/details',
+  tieiSaisieEcrituresUpdateRoute: 'tiei-saisie-ecritures/update',
   // Balance
-  tieiBalanceRoute: 'home/tiei-balance/liste',
+  tieiBalanceRoute: 'tiei-balance/liste',
   // grand livre
-  tieiGrandlivreRoute: 'home/tiei-grand-livre/liste',
+  tieiGrandlivreRoute: 'tiei-grand-livre/liste',
   // Manage Deversements
-  tieiDeversementsRoute: 'home/tiei-deversements',
+  tieiDeversementsRoute: 'tiei-deversements',
   // Gestion Etats Comptables
-  tieiEtatsComptablesRoute: 'home/tiei-etats-comptables',
+  tieiEtatsComptablesRoute: 'tiei-etats-comptables',
   // Gestion Etats Financiers
-  tieiEtatsFinanciersRoute: 'home/tiei-etats-financiers',
-  tieiEtatsFinanciersBilanRoute: 'home/tiei-bilan',
-  tieiEtatsFinanciersResultatRoute: 'home/tiei-resultat',
+  tieiEtatsFinanciersRoute: 'tiei-etats-financiers',
+  tieiEtatsFinanciersBilanRoute: 'tiei-bilan',
+  tieiEtatsFinanciersResultatRoute: 'tiei-resultat',
 
   // Ordonnance Paramétrages
-  tieiParametrageComptesRoute: 'home/tiei-parametrage-comptes',
-  actBalanceSheetRoute: 'home/act-parametrage-bilan',
-  actBalanceSheetRootRoute: 'home/act-parametrage-bilan-root',
-  actResultAccountRoute: 'home/act-parametrage-resultat',
-  actResultAccountRootRoute: 'home/act-parametrage-resultat-root',
-  actAccountNatureRoute: 'home/act-parametrage-nature',
-  actAccountNatureRootRoute: 'home/act-parametrage-nature-roots',
+  tieiParametrageComptesRoute: 'tiei-parametrage-comptes',
+  actBalanceSheetRoute: 'act-parametrage-bilan',
+  actBalanceSheetRootRoute: 'act-parametrage-bilan-root',
+  actResultAccountRoute: 'act-parametrage-resultat',
+  actResultAccountRootRoute: 'act-parametrage-resultat-root',
+  actAccountNatureRoute: 'act-parametrage-nature',
+  actAccountNatureRootRoute: 'act-parametrage-nature-roots',
 
   // exerices
-  actExerciseRoute: 'home/exercise',
-  actExercisePeriodRoute: 'home/exercise-period',
+  actExerciseRoute: 'exercise',
+  actExercisePeriodRoute: 'exercise-period',
 
   // type operation / type journal
-  actTypeJournalRoute: 'home/act-type-journal',
-  actTypeJournalOperation: 'home/act-type-operation',
+  actTypeJournalRoute: 'act-type-journal',
+  actTypeJournalOperation: 'act-type-operation',
 
   // informations de compte (company, director, setting)
-  actSettingsRoute: 'home/settings/general',
-  actCompanyRoute: 'home/settings/company',
-  actDirectorRoute: 'home/settings/company-director',
+  actSettingsRoute: 'settings/general',
+  actCompanyRoute: 'settings/company',
+  actDirectorRoute: 'settings/company-director',
 
   // Onboarding root
-  tieiOnBoardRoute: 'home/act-onBoard',
+  tieiOnBoardRoute: 'act-onBoard',
 
   // Automatic accouting record configurations
+  actAutomaticRecordConfigurationPath: 'settings/act-automatic-records',
+  actAutomaticRecordsPath: 'act-automatic-records'
 };
 
 export enum accountingRouteParams {
