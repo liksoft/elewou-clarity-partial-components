@@ -1,17 +1,17 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { DrewlabsRessourceAssignment } from './ressource-assignment';
-import { User } from 'src/app/lib/domain/auth/contracts/v2';
-import { UIStateStatusCode } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
+import { User } from 'src/app/lib/auth/contracts/v2';
+import { UIStateStatusCode } from 'src/app/lib/helpers/app-ui-store-manager.service';
 import { DrewlabsRessourceAssignmentService } from './ressource-assignment.service';
-import { Dialog, isArray } from 'src/app/lib/domain/utils';
-import { DrewlabsRessourceServerClient, IResponseBody } from 'src/app/lib/domain/http/core';
-import { UsersProvider } from '../../../../domain/auth/core/providers';
-import { getUsersAction } from '../../../../domain/auth/core/actions/app-users';
+import { Dialog, isArray } from 'src/app/lib/utils';
+import { DrewlabsRessourceServerClient, IResponseBody } from 'src/app/lib/http/core';
+import { UsersProvider } from '../src/app/lib/auth/core/providers';
+import { getUsersAction } from '../src/app/lib/auth/core/actions/app-users';
 import { map, takeUntil } from 'rxjs/operators';
-import { AppUIStateProvider } from '../../../../domain/helpers/app-ui-store-manager.service';
+import { AppUIStateProvider } from '../src/app/lib/helpers/app-ui-store-manager.service';
 import { combineLatest } from 'rxjs';
-import { createSubject } from '../../../../domain/rxjs/helpers/index';
-import { doLog } from '../../../../domain/rxjs/operators/index';
+import { createSubject } from '../src/app/lib/rxjs/helpers/index';
+import { doLog } from '../src/app/lib/rxjs/operators/index';
 
 @Component({
   // tslint:disable-next-line: component-selector

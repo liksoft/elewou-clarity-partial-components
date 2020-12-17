@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { createStore } from '../../../../../../domain/rxjs/state/rx-state';
+import { createStore } from 'src/app/lib/rxjs/state/rx-state';
 import { initialModulesState, ModulesState, resetModulesStore } from '../actions/module';
 import { modulesReducer } from '../reducers/module';
 

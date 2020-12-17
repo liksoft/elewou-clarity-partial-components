@@ -1,6 +1,6 @@
-import { ISerializableBuilder, ISerializer, TypeBuilder } from 'src/app/lib/domain/built-value/contracts';
-import { buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/domain/built-value/contracts/type';
-import { JsonProperty, ObjectSerializer } from 'src/app/lib/domain/built-value/core/serializers';
+import { ISerializableBuilder, ISerializer, TypeBuilder } from 'src/app/lib/built-value/contracts';
+import { buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/built-value/contracts/type';
+import { JsonProperty, ObjectSerializer } from 'src/app/lib/built-value/core/serializers';
 
 
 export class DrewlabsRessourceAssignmentBuilder implements

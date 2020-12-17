@@ -1,6 +1,6 @@
-import { ISerializableBuilder, ISerializer } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { TypeBuilder, buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/domain/built-value/contracts/type';
-import { ObjectSerializer, JsonProperty } from 'src/app/lib/domain/built-value/core/serializers';
+import { ISerializableBuilder, ISerializer } from 'src/app/lib/built-value/contracts/serializers';
+import { TypeBuilder, buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/built-value/contracts/type';
+import { ObjectSerializer, JsonProperty } from 'src/app/lib/built-value/core/serializers';
 
 export class RessourceAssignmentBuilder implements ISerializableBuilder<RessourceAssignment>, TypeBuilder<RessourceAssignment> {
   serializer: ISerializer;

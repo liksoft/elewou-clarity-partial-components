@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts';
-import { postRessource } from 'src/app/lib/domain/contracts/abstract-request-client';
-import { HttpRequestService } from 'src/app/lib/domain/http/core';
-import { TranslationService } from 'src/app/lib/domain/translator';
+import { ISerializableBuilder } from 'src/app/lib/built-value/contracts';
+import { postRessource } from 'src/app/lib/contracts/abstract-request-client';
+import { HttpRequestService } from 'src/app/lib/http/core';
+import { TranslationService } from 'src/app/lib/translator';
 import { DrewlabsRessourceAssignment } from './ressource-assignment';
 
 @Injectable({

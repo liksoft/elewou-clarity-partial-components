@@ -1,8 +1,8 @@
-import { ISerializer, ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { ObjectSerializer, JsonProperty } from 'src/app/lib/domain/built-value/core/serializers';
-import { TypeBuilder, buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/domain/built-value/contracts/type';
-import { Role } from 'src/app/lib/domain/auth/models/role';
-import { FormViewModel } from 'src/app/lib/domain/components/dynamic-inputs/core/contracts/dynamic-form';
+import { ISerializer, ISerializableBuilder } from 'src/app/lib/built-value/contracts/serializers';
+import { ObjectSerializer, JsonProperty } from 'src/app/lib/built-value/core/serializers';
+import { TypeBuilder, buildJSObjectType, rebuildJSObjectType } from 'src/app/lib/built-value/contracts/type';
+import { Role } from 'src/app/lib/auth/models/role';
+import { FormViewModel } from 'src/app/lib/components/dynamic-inputs/core/contracts/dynamic-form';
 
 export class ModuleBuilder implements ISerializableBuilder<Module>, TypeBuilder<Module> {
   serializer: ISerializer;

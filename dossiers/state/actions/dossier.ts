@@ -1,14 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isObject } from 'lodash';
 import { catchError, map } from 'rxjs/operators';
-import { DrewlabsHttpResponseStatusCode, DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
-import { createAction, DefaultStoreAction, DrewlabsFluxStore, onErrorAction, StoreAction } from 'src/app/lib/domain/rxjs/state/rx-state';
+import { DrewlabsHttpResponseStatusCode, DrewlabsRessourceServerClient } from 'src/app/lib/http/core';
+import { createAction, DefaultStoreAction, DrewlabsFluxStore, onErrorAction, StoreAction } from 'src/app/lib/rxjs/state/rx-state';
 import { Dossier } from '../models/dossier';
-import { getResponseDataFromHttpResponse } from 'src/app/lib/domain/http/helpers';
-import { emptyObservable } from 'src/app/lib/domain/rxjs/helpers';
-import { isArray, isDefined } from 'src/app/lib/domain/utils';
-import { UIStateStatusCode } from 'src/app/lib/domain/helpers';
-import { PaginationDataState } from 'src/app/lib/domain/rxjs/types';
+import { getResponseDataFromHttpResponse } from 'src/app/lib/http/helpers';
+import { emptyObservable } from 'src/app/lib/rxjs/helpers';
+import { isArray, isDefined } from 'src/app/lib/utils';
+import { UIStateStatusCode } from 'src/app/lib/helpers';
+import { PaginationDataState } from 'src/app/lib/rxjs/types';
 
 export enum DossierStoreActions {
   GET_ALL_VALUES = '[GET_ALL_DOSSIERS]',

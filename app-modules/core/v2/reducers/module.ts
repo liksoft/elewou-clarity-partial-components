@@ -1,8 +1,8 @@
 import * as lodash from 'lodash';
-import { DefaultStoreAction, StoreAction } from '../../../../../../domain/rxjs/state/rx-state';
+import { DefaultStoreAction, StoreAction } from 'src/app/lib/rxjs/state/rx-state';
 import { ModulesState, ModulesStoreActions } from '../actions/module';
 import { ModuleV2 } from '../models/module';
-import { Log } from '../../../../../../domain/utils/logger';
+import { Log } from 'src/app/lib/utils/logger';
 
 export const modulesReducer = (state: ModulesState, action: Partial<StoreAction>) => {
   let items: ModuleV2[] = [];

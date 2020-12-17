@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
-import { AuthPathConfig, AuthService } from 'src/app/lib/domain/auth/core';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/routes';
+import { AuthPathConfig, AuthService } from 'src/app/lib/auth/core';
 import { Router } from '@angular/router';
-import { TranslationService } from 'src/app/lib/domain/translator';
-import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
+import { TranslationService } from 'src/app/lib/translator';
+import { AbstractAlertableComponent } from 'src/app/lib/helpers/component-interfaces';
+import { AppUIStoreManager } from 'src/app/lib/helpers/app-ui-store-manager.service';
 import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
-import { Collection } from 'src/app/lib/domain/collections';
-import { Dialog, isDefined } from 'src/app/lib/domain/utils';
-import { IAppUser, User } from '../../../domain/auth/contracts/v2';
+import { Collection } from 'src/app/lib/collections';
+import { Dialog, isDefined } from 'src/app/lib/utils';
+import { IAppUser, User } from 'src/app/lib/auth/contracts/v2';
 import { map } from 'rxjs/operators';
 
 @Component({

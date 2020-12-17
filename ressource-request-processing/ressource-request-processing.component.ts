@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { User } from 'src/app/lib/domain/auth/contracts/v2';
+import { AbstractAlertableComponent } from 'src/app/lib/helpers/component-interfaces';
+import { AppUIStoreManager } from 'src/app/lib/helpers/app-ui-store-manager.service';
+import { User } from 'src/app/lib/auth/contracts/v2';
 import { RessourceRequestProcessingService } from './ressource-request-processing.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dynamic-inputs/core';
-import { DynamicControlParser } from 'src/app/lib/domain/helpers/dynamic-control-parser';
-import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
-import { Dialog } from 'src/app/lib/domain/utils';
-import { Log } from 'src/app/lib/domain/utils/logger';
+import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/components/dynamic-inputs/core';
+import { DynamicControlParser } from 'src/app/lib/helpers/dynamic-control-parser';
+import { TypeUtilHelper } from 'src/app/lib/helpers/type-utils-helper';
+import { Dialog } from 'src/app/lib/utils';
+import { Log } from 'src/app/lib/utils/logger';
 
 @Component({
   selector: 'app-ressource-request-processing',

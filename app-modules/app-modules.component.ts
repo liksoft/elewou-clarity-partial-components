@@ -2,9 +2,9 @@ import { Component, Input, ChangeDetectionStrategy, AfterViewInit } from '@angul
 import { catchError, map } from 'rxjs/operators';
 import { backendRoutePaths } from '../partials-configs';
 import { ModulesProvider } from './core/v2/providers/module';
-import { DrewlabsRessourceServerClient } from '../../../domain/http/core/ressource-server-client';
 import { getModulesAction } from './core/v2/actions/module';
-import { emptyObservable } from '../../../domain/rxjs/helpers/index';
+import { emptyObservable } from 'src/app/lib/rxjs/helpers';
+import { DrewlabsRessourceServerClient } from 'src/app/lib/http/core';
 
 @Component({
   selector: 'app-app-modules',
