@@ -16,9 +16,13 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 
+  head {
+    display: none;
+  }
+
   @page {
-    size: A4 landscape;
-    margin: 1cm 1cm 1cm;
+    size: A4;
+    margin: 2pt;
     font-family: Arial, Helvetica, sans-serif;
   }
 
@@ -156,5 +160,13 @@
 
   a:not(:local-link):after {
     content:" < " attr(href) "> ";
+  }
+
+  .header, .clr-vertical-nav {
+    display: none;
+  }
+
+  .main-container .content-area {
+    margin: 0;
   }
 }
