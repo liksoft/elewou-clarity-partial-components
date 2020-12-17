@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/routes';
-import { AbstractAlertableComponent } from 'src/app/lib/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/helpers/app-ui-store-manager.service';
 import { AuthService } from 'src/app/lib/auth/core';
 import { Collection } from 'src/app/lib/collections';
 import { TypeUtilHelper } from 'src/app/lib/helpers/type-utils-helper';
@@ -13,7 +11,7 @@ import { map } from 'rxjs/operators';
   templateUrl: './sidebar.component.html',
   styles: []
 })
-export class SidebarComponent extends AbstractAlertableComponent implements OnInit {
+export class SidebarComponent implements OnInit {
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
   @Input() routesMap: RoutesMap[];
@@ -24,11 +22,9 @@ export class SidebarComponent extends AbstractAlertableComponent implements OnIn
   );
 
   constructor(
-    public appUIStoreManager: AppUIStoreManager,
     public auth: AuthService,
     public readonly typeHelper: TypeUtilHelper
   ) {
-    super(appUIStoreManager);
     this.navigationRoutes = new Collection();
   }
 
