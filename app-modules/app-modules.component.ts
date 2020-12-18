@@ -5,7 +5,7 @@ import { ModulesProvider } from './core/v2/providers/module';
 import { getModulesAction } from './core/v2/actions/module';
 import { emptyObservable } from 'src/app/lib/rxjs/helpers';
 import { DrewlabsRessourceServerClient } from 'src/app/lib/http/core';
-import { SessionStorage } from 'src/app/lib/domain/storage/core';
+import { SessionStorage } from 'src/app/lib/storage/core';
 
 @Component({
   selector: 'app-app-modules',
