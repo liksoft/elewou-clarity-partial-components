@@ -271,4 +271,8 @@ export const appAccessControlList = {
   dossier_files_create: 'dossier-files-create',
   dossier_files_update: 'dossier-files-update',
   dossier_files_delete: 'dossier-files-delete',
+  cpta_accounting_entry_automation_config_list: 'cpta-accounting-entry-automation-config-list',
+  cpta_accounting_entry_automation_config_create: 'cpta-accounting-entry-automation-config-create',
+  cpta_accounting_entry_automation_config_update: 'cpta-accounting-entry-automation-config-update',
+  cpta_accounting_entry_automation_config_delete: 'cpta-accounting-entry-automation-config-delete',
 };
