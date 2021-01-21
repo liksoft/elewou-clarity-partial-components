@@ -54,6 +54,10 @@ export const partialConfigs = {
     invalidityAnnuity: 6
   },
   liquidationTypeBusinessDayLabel: {
+    rachat: {
+      id: 2,
+      rcBusinessDayLabel: 'romp_rachat_business_days'
+    },
     annuity: {
       id: 2,
       rtieiBusinessDayLabel: 'rcap_life_annuity_business_days',
