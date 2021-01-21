@@ -10,6 +10,8 @@ import { RessourceRequestProcessingService } from './ressource-request-processin
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppModuleModule } from './app-modules/app-modules.module';
 import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.component';
+import { ModuleDossierDepositsComponent } from './dossiers/module-dossier-deposits.component';
+import { DossierFilesPresenterComponent } from './dossiers/dossier-files-presenter/dossier-files-presenter.component';
 
 @NgModule({
   imports: [
@@ -25,14 +27,28 @@ import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.componen
     SidebarComponent,
     RessourceRequestProcessingModule,
     AppModuleModule,
-    DatgridHeaderComponent
+    DatgridHeaderComponent,
+    ModuleDossierDepositsComponent,
+    DossierFilesPresenterComponent
   ],
   declarations: [
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
-    DatgridHeaderComponent
+    DatgridHeaderComponent,
+    ModuleDossierDepositsComponent,
+    DossierFilesPresenterComponent
   ],
-  providers: [RessourceRequestProcessingService]
+  providers: [
+    RessourceRequestProcessingService,
+    {
+      provide: 'DOSSIER_FILES_ENDOINT',
+      useValue: 'dossier-files'
+    },
+    {
+      provide: 'DOSSIER_ENDPOINT',
+      useValue: 'dossiers'
+    }
+  ]
 })
 export class PartialsModule { }

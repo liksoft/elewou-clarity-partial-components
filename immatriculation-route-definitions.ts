@@ -1,17 +1,17 @@
 export const immatriculationRouteDefinitions = {
   // Enregistrement routes
-  enregistrementRoute: 'home/rtiei-create-membership',
+  enregistrementRoute: 'home/rcap-create-membership',
   // Dossier enregistrement routes
-  listRecordsRoute: 'home/rtiei-list-membership',
+  listRecordsRoute: 'home/rcap-list-membership',
   // Dossier Structures routes
-  structuresRoute: 'home/rtiei-structures',
+  structuresRoute: 'home/rcap-structures',
   // Dossier Travailleurs routes
-  workersRoute: 'home/rtiei-members',
+  workersRoute: 'home/rcap-members',
   // Ajouter Structures routes
   addStructureRoute: 'home/structures/add-structure',
   // Mon compte routes
   userInfoRoute: 'profile',
-  rtieiContributionDeclarationBusinessDay: 'rtiei-journee-comptable',
+  rtieiContributionDeclarationBusinessDay: 'rcap-journee-comptable',
 
   // Adhésion RC route
   createMembershipRcRoute: 'home/rcomp-create-membership',
@@ -23,6 +23,10 @@ export const immatriculationRouteDefinitions = {
   membershipRcListRoute: 'home/rcomp-list-memberships',
   // Liste Adhérents
   membershipRcMembersRoute: 'home/rcomp-members',
-
+  // Contribution path
   rcContributionDeclarationBusinessDay: 'rcomp-journee-comptable',
+  // Dossiers paths
+  rtieiMembershipRequestDossiersPath: 'rcap-membership-dossiers',
+  // Rcomp Dossiers
+  rcMembershipRequestDossiers: 'rcomp-membership-dossiers'
 };

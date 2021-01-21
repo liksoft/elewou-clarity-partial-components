@@ -1,0 +1,33 @@
+<ng-container *ngIf="state$ | async as state">
+  <clr-datagrid (clrDgRefresh)="onDgRefresh($event)" #clrDataGrid [clrDgLoading]="state?.performingAction">
+    <clr-dg-action-bar>
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-primary" (click)="onDgRefresh()">
+          <clr-icon shape="refresh"></clr-icon> Actualiser
+        </button>
+      </div>
+    </clr-dg-action-bar>
+    <clr-dg-column>Date</clr-dg-column>
+    <clr-dg-column [clrDgField]="'label'">No Enregistrement</clr-dg-column>
+    <clr-dg-column [clrDgField]="'dossier_type__regime__label'">Régime</clr-dg-column>
+    <clr-dg-column [clrDgField]="'dossier_type__label'">Type</clr-dg-column>
+    <clr-dg-column>Client</clr-dg-column>
+    <clr-dg-row *ngFor="let item of state?.dataSource?.data; let i = index">
+      <clr-dg-action-overflow>
+        <button class="action-item" (click)="onGoToDetailsView(item)">{{ buttonActionLabel | translate }}</button>
+      </clr-dg-action-overflow>
+      <clr-dg-cell> {{item?.createdAt | date}} </clr-dg-cell>
+      <clr-dg-cell>{{ item?.label }}</clr-dg-cell>
+      <clr-dg-cell>{{ item?.regime }} </clr-dg-cell>
+      <clr-dg-cell>{{ item?.type }}</clr-dg-cell>
+      <clr-dg-cell>{{ item?.registrant }}</clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="20" [clrDgTotalItems]="state?.dataSource?.total">
+        <clr-dg-page-size [clrPageSizeOptions]="[20, 30, 50, 100]"></clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        {{ 'pagination.of' | translate }} {{pagination.totalItems}} {{ 'Opérations' | translate }}
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</ng-container>

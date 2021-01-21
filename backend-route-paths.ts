@@ -60,5 +60,10 @@ export const backendRoutes = {
   forganizationsPath: 'collections/forganizations',
 
   // business days slips download path
-  businessDaysSlipsDownladPath: 'ressources/business-days-slip'
+  businessDaysSlipsDownladPath: 'ressources/business-days-slip',
+
+  // Accounting records paths
+  accountingRecordAutomationConfigPath: 'ressources/accounting-record-automation-configs',
+  // Pending record route definitions
+  accountingPendingRecordsPath: 'ressources/pending-accounting-records'
 };

@@ -50,13 +50,14 @@ export const partialConfigs = {
     capitalTypeID: 4,
     reversionTypeID: 5,
     annuityTypeID: 2,
-    invalidityTypeID: 3
+    invalidityTypeID: 3,
+    invalidityAnnuity: 6
   },
   liquidationTypeBusinessDayLabel: {
     annuity: {
       id: 2,
       rtieiBusinessDayLabel: 'rcap_life_annuity_business_days',
-      rcBusinessDayLabel: 'rcap_life_annuity_business_days'
+      rcBusinessDayLabel: 'romp_life_annuity_business_days'
     },
     capital: {
       id: 4,
@@ -72,6 +73,11 @@ export const partialConfigs = {
       id: 3,
       rtieiBusinessDayLabel: 'rcap_invalidity_allowance_business_days',
       rcBusinessDayLabel: 'rcomp_invalidity_allowance_business_days'
+    },
+    invalidityAnnuity: {
+      id: 6,
+      rtieiBusinessDayLabel: 'rcap_invalidity_life_annuity_business_day',
+      rcBusinessDayLabel: 'rcomp_invalidity_life_annuity_business_day'
     }
   },
   regimes: {
@@ -97,7 +103,6 @@ export const adminPath = adminModuleRoutes;
 // Route definitions for backend ressources
 export const backendRoutePaths = backendRoutes;
 // Route definitions for clients ressources
-// export const clientRoutePaths = partialConfigs.clientRoutePaths;
 
 // Route definitions for dossiers ressources
 export const onboardingDeskPaths = onboardingDeskRouteDefinitions;
@@ -135,6 +140,8 @@ export const RC_CONTRIBUTION_DECLRATION_PAGINATOR_DATASOURCE_INJECTION_TOKEN = '
 
 // Type of possible liquidations
 export const liquidationTypes = partialConfigs.liquidationTypes;
+
+export const liquidationTypesBusinessDayLabels = partialConfigs.liquidationTypeBusinessDayLabel;
 
 // Complementary retirement entity definition for structures
 export const RC_STRUCTURES = 'rc_structures';
