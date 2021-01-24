@@ -2,12 +2,13 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AppUIStateProvider, UIStateStatusCode } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { User } from 'src/app/lib/domain/auth/contracts/v2';
 import { RessourceRequestProcessingService } from './ressource-request-processing.service';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dynamic-inputs/core';
 import { DynamicControlParser } from 'src/app/lib/domain/helpers/dynamic-control-parser';
 import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 import { Dialog } from 'src/app/lib/domain/utils';
 import { ProcessActionType, ResourceStatus } from './types';
+import { isFunction } from 'lodash';
 
 @Component({
   selector: 'app-ressource-request-processing',
@@ -39,7 +40,6 @@ export class RessourceRequestProcessingComponent {
   @Input() permission: string;
   @Input() collectionID: string | number;
   users: User[] = [];
-  authenticatedUser: User;
   @Input() assignationButtonDisabled = false;
   @Input() rejectionButtonDisabled = false;
   @Input() validationButtonDisabled = false;
@@ -83,14 +83,14 @@ export class RessourceRequestProcessingComponent {
 
   @Input() rejectModalTitle = "Observation de traitement";
   private _rejectModalDescription: string;
-  set rejectModalDescription(value: string) {
+  @Input() set rejectModalDescription(value: string) {
     this._rejectModalDescription = value;
   }
   get rejectModalDescription() {
     return this._rejectModalDescription;
   }
   @Input() observationInputLabelText = 'Observation';
-
+  @Input() onRejectFormSubmitted: (control: AbstractControl, resourceID: string | number) => void;
   public state$ = this.uiState.uiState;
 
   constructor(
@@ -101,6 +101,11 @@ export class RessourceRequestProcessingComponent {
     private controlParser: DynamicControlParser
   ) { }
 
+  public setResourceID(id: string | number) {
+    this.id = id;
+    return this;
+  }
+
   buildValidationFormGroup = (form: IDynamicForm, title?: string, description?: string) => {
     this.validationForm = form;
     this.validationForm.title = this.typeHelper.isDefined(title) ? title : form.title;
@@ -109,27 +114,27 @@ export class RessourceRequestProcessingComponent {
   }
 
   performRessourceProcessingAction = async (value: boolean) => {
-    if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
-      const translations = await this.componentService.loadTranslations(this.id);
-      if (value) {
-        this._actionType = ProcessActionType.VALIDATION;
-        this.typeHelper.isDefined(this.validationForm) ?
-          this.showValidationModal = true :
-          (this.dialog.confirm(translations.validationPrompt) ? this.onValidate(translations) : false);
-      } else {
-        this.rejectModalDescription = translations.rejectionPrompt;
-        this.showRejectModal = true;
-        this._actionType = ProcessActionType.REJECTION;
-      }
+    const translations = await this.componentService.loadTranslations(this.id);
+    if (value) {
+      this._actionType = ProcessActionType.VALIDATION;
+      this.typeHelper.isDefined(this.validationForm) ?
+        this.showValidationModal = true :
+        (this.dialog.confirm(translations.validationPrompt) ? this.onValidate(translations) : false);
+    } else {
+      this.rejectModalDescription = this.rejectModalDescription ?? translations.rejectionPrompt;
+      this.showRejectModal = true;
+      this._actionType = ProcessActionType.REJECTION;
     }
   }
 
   confirmDataProcessingAction = async () => {
-    if (!this.rejectionButtonDisabled && !this.validationButtonDisabled) {
-      this.formControl.markAllAsTouched();
-      const translations = await this.componentService.loadTranslations(this.id);
-      return this._actionType === ProcessActionType.VALIDATION ? this.onValidate(translations) : this.onReject(translations);
-    }
+    this.formControl.markAllAsTouched();
+    const translations = await this.componentService.loadTranslations(this.id);
+    return this._actionType === ProcessActionType.VALIDATION ? this.onValidate(translations) : (
+      this.typeHelper.isDefined(this.onRejectFormSubmitted) && isFunction(this.onRejectFormSubmitted) ?
+        this.onRejectFormSubmitted(this.formControl, this.id) :
+        this.onReject(translations)
+    );
   }
 
   validateProcess = async () => {
