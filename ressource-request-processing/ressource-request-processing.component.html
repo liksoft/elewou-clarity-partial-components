@@ -1,72 +1,79 @@
-<drewlabs-ressource-assignment *ngIf="showAssignmentButton"
-  (assignmentCompletedSuccessfully)="assignmentCompletedSuccessfully.emit($event)" [collectionID]="collectionID"
-  [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"
-  [triggerButtonClass]="triggerButtonClass">
-</drewlabs-ressource-assignment>
-<button class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled"
-  (click)="performRessourceProcessingAction(true)">
-  <clr-icon shape="check-circle" class="is-solid"></clr-icon> Valider
-</button>
-<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled"
-  (click)="performRessourceProcessingAction(false)">
-  <clr-icon shape="times-circle"></clr-icon> Annuler/Rejeter
-</button>
-<clr-modal [(clrModalOpen)]="modalOpened" [clrModalClosable]="true" [clrModalSize]="'md'">
-  <div class="modal-title">
-    <h3>{{ "Observation de traitement" }}</h3>
-    <span class="title-desc">{{ modalDescriptionText }}</span>
-  </div>
-  <div class="modal-body">
-    <!-- Page content goes here -->
-    <div class="clr-form-control-container">
-      <form>
-        <div class="clr-form-control">
-          <label for="observation" class="clr-control-label">{{ 'Observation' }}<small
-              class="required-text">(*)</small></label>
-          <div class="clr-control-container">
-            <div class="clr-input-wrapper">
-              <input type="text" id="observation" [maxLength]="255" class="clr-input" [formControl]="formControl"
-                placeholder="Ajouter une observation" />
+<ng-container *ngIf="state$ | async as vm">
+  <drewlabs-ressource-assignment *ngIf="showAssignmentButton"
+    (assignmentCompletedSuccessfully)="assignmentCompletedSuccessfully.emit($event)" [collectionID]="collectionID"
+    [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"
+    [triggerButtonClass]="triggerButtonClass">
+  </drewlabs-ressource-assignment>
+  <button [ngIf]="showValidateButton" class="btn btn-sm btn-app"
+    [disabled]="vm?.performingAction || validationButtonDisabled" (click)="performRessourceProcessingAction(true)">
+    <clr-icon shape="check-circle" class="is-solid"></clr-icon> {{ validateBtnText | translate }}
+  </button>
+  <button [ngIf]="showRejectButton" class="btn btn-sm btn-outline-warning"
+    [disabled]="vm?.performingAction || rejectionButtonDisabled" (click)="performRessourceProcessingAction(false)">
+    <clr-icon shape="times-circle"></clr-icon> {{ rejectBtnText | translate }}
+  </button>
+  <clr-modal [(clrModalOpen)]="showRejectModal" [clrModalClosable]="true" [clrModalSize]="'md'">
+    <div class="modal-title">
+      <h3>{{ rejectModalTitle | translate }}</h3>
+      <span class="title-desc">{{ rejectModalDescription | translate}}</span>
+    </div>
+    <div class="modal-body">
+      <!-- Page content goes here -->
+      <div class="clr-form-control-container">
+        <form>
+          <div class="clr-form-control">
+            <label for="observation" class="clr-control-label">{{ observationInputLabelText | translate}}<small
+                class="required-text">(*)</small></label>
+            <div class="clr-control-container">
+              <div class="clr-input-wrapper">
+                <input type="text" id="observation" [maxLength]="255" class="clr-input" [formControl]="formControl"
+                  placeholder="Saisir..." />
+              </div>
+              <clr-control-error class="field-has-error"
+                *ngIf="formControl.hasError('required') && formControl.touched">
+                <span [translate]="'validation.required'"></span>
+              </clr-control-error>
+              <clr-control-error class="field-has-error"
+                *ngIf="formControl.hasError('maxLength') && formControl.touched">
+                <span [translate]="'validation.maxValue'" [translateParams]="{ value: 255 }"></span>
+              </clr-control-error>
             </div>
-            <clr-control-error class="field-has-error" *ngIf="formControl.hasError('required') && formControl.touched">
-              <span [translate]="'validation.required'"></span>
-            </clr-control-error>
-            <clr-control-error class="field-has-error" *ngIf="formControl.hasError('maxLength') && formControl.touched">
-              <span [translate]="'validation.maxValue'" [translateParams]="{ value: 255 }"></span>
-            </clr-control-error>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
+      <!-- End of page content -->
     </div>
-    <!-- End of page content -->
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-sm btn-outline" (click)="doCancelAction()">Annuler</button>
-    <button type="button" class="btn btn-sm btn-outline" (click)="confirmDataProcessingAction()">Confirmer</button>
-  </div>
-</clr-modal>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-outline" (click)="doCancelAction()">{{cancelFormActionBtnText |
+        translate}}</button>
+      <button type="button" class="btn btn-sm btn-outline" (click)="confirmDataProcessingAction()">{{
+        confirmFormActionBtnText | translate}} </button>
+    </div>
+  </clr-modal>
 
-<!-- Validation modal contents -->
-<clr-modal [(clrModalOpen)]="validationFormModalOpen" [clrModalClosable]="true" [clrModalSize]="'md'">
-  <div class="modal-title">
-    <h3>{{ validationForm?.title }}</h3>
-    <span class="title-desc">{{ validationForm?.description }}</span>
-  </div>
-  <div class="modal-body">
-    <!-- Page content goes here -->
-    <div class="clr-form-control-container">
-      <ng-content select="div.warning-content"></ng-content>
-      <form *ngIf="validationForm">
-        <app-dynamic-form-wapper [componentFormGroup]="validationFormGroup" [form]="validationForm">
-        </app-dynamic-form-wapper>
-      </form>
+  <!-- Validation modal contents -->
+  <clr-modal [(clrModalOpen)]="showValidationModal" [clrModalClosable]="true" [clrModalSize]="'md'">
+    <div class="modal-title">
+      <h3>{{ validationForm?.title }}</h3>
+      <span class="title-desc">{{ validationForm?.description }}</span>
     </div>
-    <!-- End of page content -->
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-sm btn-outline" (click)="doValidationCancelAction()">Annuler</button>
-    <button type="button" [disabled]="performingAction || !(validationFormGroup?.valid)" class="btn btn-sm btn-outline"
-      (click)="validateProcess()">Confirmer</button>
-  </div>
-</clr-modal>
-<!--/ End of validation modal contents -->
+    <div class="modal-body">
+      <!-- Page content goes here -->
+      <div class="clr-form-control-container">
+        <ng-content select="div.warning-content"></ng-content>
+        <form *ngIf="validationForm">
+          <app-dynamic-form-wapper [componentFormGroup]="validationFormGroup" [form]="validationForm">
+          </app-dynamic-form-wapper>
+        </form>
+      </div>
+      <!-- End of page content -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-outline"
+        (click)="doValidationCancelAction()">{{cancelFormActionBtnText | translate}}</button>
+      <button type="button" [disabled]="vm?.performingAction || !(validationFormGroup?.valid)"
+        class="btn btn-sm btn-outline" (click)="validateProcess()"> {{ confirmFormActionBtnText | translate}} </button>
+    </div>
+  </clr-modal>
+  <!--/ End of validation modal contents -->
+</ng-container>
