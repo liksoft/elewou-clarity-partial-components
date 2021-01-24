@@ -91,6 +91,7 @@ export class RessourceRequestProcessingComponent {
   }
   @Input() observationInputLabelText = 'Observation';
   @Input() onRejectFormSubmitted: (control: AbstractControl, resourceID: string | number) => void;
+
   public state$ = this.uiState.uiState;
 
   constructor(

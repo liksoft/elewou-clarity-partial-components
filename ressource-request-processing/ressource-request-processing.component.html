@@ -4,11 +4,11 @@
     [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"
     [triggerButtonClass]="triggerButtonClass">
   </drewlabs-ressource-assignment>
-  <button [ngIf]="showValidateButton" class="btn btn-sm btn-app"
+  <button *ngIf="showValidateButton" class="btn btn-sm btn-app"
     [disabled]="vm?.performingAction || validationButtonDisabled" (click)="performRessourceProcessingAction(true)">
     <clr-icon shape="check-circle" class="is-solid"></clr-icon> {{ validateBtnText | translate }}
   </button>
-  <button [ngIf]="showRejectButton" class="btn btn-sm btn-outline-warning"
+  <button *ngIf="showRejectButton" class="btn btn-sm btn-outline-warning"
     [disabled]="vm?.performingAction || rejectionButtonDisabled" (click)="performRessourceProcessingAction(false)">
     <clr-icon shape="times-circle"></clr-icon> {{ rejectBtnText | translate }}
   </button>
