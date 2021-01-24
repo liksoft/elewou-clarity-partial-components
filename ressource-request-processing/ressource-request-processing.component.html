@@ -3,25 +3,25 @@
   [permission]="permission" [buttonDisabled]="assignationButtonDisabled" [selectedIds]="[id]"
   [triggerButtonClass]="triggerButtonClass">
 </drewlabs-ressource-assignment>
-<button class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled"
+<button [ngIf]="showValidateButton" class="btn btn-sm btn-app" [disabled]="performingAction || validationButtonDisabled"
   (click)="performRessourceProcessingAction(true)">
   <clr-icon shape="check-circle" class="is-solid"></clr-icon> Valider
 </button>
-<button class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled"
+<button [ngIf]="showRejectButton" class="btn btn-sm btn-outline-warning" [disabled]="performingAction || rejectionButtonDisabled"
   (click)="performRessourceProcessingAction(false)">
   <clr-icon shape="times-circle"></clr-icon> Annuler/Rejeter
 </button>
 <clr-modal [(clrModalOpen)]="modalOpened" [clrModalClosable]="true" [clrModalSize]="'md'">
   <div class="modal-title">
     <h3>{{ "Observation de traitement" }}</h3>
-    <span class="title-desc">{{ modalDescriptionText }}</span>
+    <span class="title-desc">{{ modalDescriptionText | translate}}</span>
   </div>
   <div class="modal-body">
     <!-- Page content goes here -->
     <div class="clr-form-control-container">
       <form>
         <div class="clr-form-control">
-          <label for="observation" class="clr-control-label">{{ 'Observation' }}<small
+          <label for="observation" class="clr-control-label">{{ 'Observation' | translate}}<small
               class="required-text">(*)</small></label>
           <div class="clr-control-container">
             <div class="clr-input-wrapper">

@@ -8,7 +8,6 @@ import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dy
 import { DynamicControlParser } from 'src/app/lib/domain/helpers/dynamic-control-parser';
 import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 import { Dialog } from 'src/app/lib/domain/utils';
-import { Log } from 'src/app/lib/domain/utils/logger';
 
 @Component({
   selector: 'app-ressource-request-processing',
@@ -48,6 +47,8 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
   @Input() triggerButtonClass: string = 'btn btn-primary btn-sm';
   // tslint:disable-next-line: no-inferrable-types
   @Input() showAssignmentButton: boolean = true;
+  @Input() showValidateButton: boolean = true;
+  @Input() showRejectButton: boolean = true;
 
   @Input() validationForm: IDynamicForm;
   @Output() validationFormSumitted = new EventEmitter<{ translations: any, body: object }>();
@@ -74,6 +75,10 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     Validators.required,
     Validators.maxLength(255)
   ]));
+
+  // Modals buttons text
+  @Input() rejectBtnText = '';
+  @Input() validateBtnText = '';
 
   constructor(
     uiStore: AppUIStoreManager,
