@@ -20,14 +20,17 @@ import { isFunction } from 'lodash';
       color: rgb(241, 50, 50);
     }
 
-    .clr-control-container textarea {
-      min-width: 100% !important;
+    .clr-control-container textarea, .clr-control-container input[type="text"] {
+      /* width: 100% !important; */
+      width: 400px !important;
+      max-width: 100% !important;
     }
 
-    .clr-select-wrapper {
+    /* .clr-select-wrapper {
       min-width: 100% !important;
-    }
+    } */
     .clr-form-control-container {
+      /* width: 100% !important! */
       margin: 24px auto;
     }
     `
@@ -189,6 +192,11 @@ export class RessourceRequestProcessingComponent {
           this.uiState.endAction(translations.serverRequestFailed, UIStateStatusCode.ERROR);
         });
     }
+  }
+
+  doFinishAction = () => {
+    this.showValidationModal = false;
+    this.showRejectModal = false;
   }
 
   doValidationCancelAction = () => {
