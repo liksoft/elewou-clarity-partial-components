@@ -1,16 +1,16 @@
 import { Component, Inject, Input, OnDestroy } from '@angular/core';
 import { distinctUntilChanged, map, takeUntil } from 'rxjs/operators';
-import { FileHelperService, TypeUtilHelper } from 'src/app/lib/domain/helpers';
-import { ServerFileInterface } from 'src/app/lib/domain/helpers/file-helper.service';
-import { DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
-import { getResponseDataFromHttpResponse } from 'src/app/lib/domain/http/helpers';
-import { createStateful, createSubject } from 'src/app/lib/domain/rxjs/helpers';
-import { isArray, isDefined } from 'src/app/lib/domain/utils';
+import { FileHelperService, TypeUtilHelper } from 'src/app/lib/core/helpers';
+import { ServerFileInterface } from 'src/app/lib/core/helpers/file-helper.service';
+import { DrewlabsRessourceServerClient } from 'src/app/lib/core/http/core';
+import { getResponseDataFromHttpResponse } from 'src/app/lib/core/http/helpers';
+import { createStateful, createSubject } from 'src/app/lib/core/rxjs/helpers';
+import { isArray, isDefined } from 'src/app/lib/core/utils';
 import { imagesMimeExtensions } from '../../partials-configs';
 import { dossierUpdatedAction } from '../state/actions/dossier';
 import { Dossier, DossierFile, DossierInterface } from '../state/models/dossier';
 import { DossiersProvider } from '../state/providers/dossier';
-import * as strings from 'src/app/lib/domain/utils/types/strings';
+import * as strings from 'src/app/lib/core/utils/types/strings';
 import { Observable } from 'rxjs';
 
 @Component({

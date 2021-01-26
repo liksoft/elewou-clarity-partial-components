@@ -1,5 +1,5 @@
-import { listItemToIdMaps } from 'src/app/lib/domain/rxjs/helpers';
-import { DefaultStoreAction, StoreAction } from 'src/app/lib/domain/rxjs/state/rx-state';
+import { listItemToIdMaps } from 'src/app/lib/core/rxjs/helpers';
+import { DefaultStoreAction, StoreAction } from 'src/app/lib/core/rxjs/state/rx-state';
 import { DossierTypeState, DossierTypeStoreActions } from '../actions/dossier-type';
 
 

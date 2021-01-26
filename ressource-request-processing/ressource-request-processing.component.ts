@@ -1,12 +1,12 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { AppUIStateProvider, UIStateStatusCode } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { User } from 'src/app/lib/domain/auth/contracts/v2';
+import { AppUIStateProvider, UIStateStatusCode } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
+import { User } from 'src/app/lib/core/auth/contracts/v2';
 import { RessourceRequestProcessingService } from './ressource-request-processing.service';
 import { FormControl, Validators, FormGroup, AbstractControl } from '@angular/forms';
-import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dynamic-inputs/core';
-import { DynamicControlParser } from 'src/app/lib/domain/helpers/dynamic-control-parser';
-import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
-import { Dialog } from 'src/app/lib/domain/utils';
+import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/core/components/dynamic-inputs/core';
+import { DynamicControlParser } from 'src/app/lib/core/helpers/dynamic-control-parser';
+import { TypeUtilHelper } from 'src/app/lib/core/helpers/type-utils-helper';
+import { Dialog } from 'src/app/lib/core/utils';
 import { ProcessActionType, ResourceStatus } from './types';
 import { isFunction } from 'lodash';
 

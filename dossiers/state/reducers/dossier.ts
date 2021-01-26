@@ -1,8 +1,8 @@
 // TODO : Implements the dossier reducer
-import { UIStateStatusCode } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { insertOrUpdateValuesUsingID, updatePaginationData } from 'src/app/lib/domain/rxjs/helpers';
-import { DefaultStoreAction, StoreAction } from 'src/app/lib/domain/rxjs/state/rx-state';
-import { PaginationDataState } from 'src/app/lib/domain/rxjs/types';
+import { UIStateStatusCode } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
+import { insertOrUpdateValuesUsingID, updatePaginationData } from 'src/app/lib/core/rxjs/helpers';
+import { DefaultStoreAction, StoreAction } from 'src/app/lib/core/rxjs/state/rx-state';
+import { PaginationDataState } from 'src/app/lib/core/rxjs/types';
 import { DossierState, DossierStoreActions } from '../actions/dossier';
 import { Dossier } from '../models/dossier';
 

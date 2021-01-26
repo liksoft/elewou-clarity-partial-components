@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
-import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { AuthService } from 'src/app/lib/domain/auth/core';
-import { Collection } from 'src/app/lib/domain/collections';
-import { TypeUtilHelper } from '../../../domain/helpers/type-utils-helper';
-import { Authorizable, userCanAny } from 'src/app/lib/domain/auth/contracts/v2';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/core/routes';
+import { AbstractAlertableComponent } from 'src/app/lib/core/helpers/component-interfaces';
+import { AppUIStoreManager } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
+import { AuthService } from 'src/app/lib/core/auth/core';
+import { Collection } from 'src/app/lib/core/collections';
+import { TypeUtilHelper } from '../../../core/helpers/type-utils-helper';
+import { Authorizable, userCanAny } from 'src/app/lib/core/auth/contracts/v2';
 import { map } from 'rxjs/operators';
 
 @Component({
