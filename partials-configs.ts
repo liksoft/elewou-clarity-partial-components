@@ -1,12 +1,12 @@
 import { backendRoutes } from './backend-route-paths';
-import { immRequestExcelSheetHeaders, rcDncHeaders } from './excel-sheets-headers';
+// import { immRequestExcelSheetHeaders, rcDncHeaders } from './excel-sheets-headers';
 import { appAccessControlList } from './access-control-list';
 import { routeDefinitions as adminModuleRoutes } from './admin-route-definitions';
-import { immatriculationRouteDefinitions as immatriculationModuleRoutes } from './immatriculation-route-definitions';
-import { contributionRouteDefinitions as contributionsModuleRoutes } from './contribution-route-definitions';
-import { liquidationRouteDefinitions as liquidationsModuleRoutes } from './liquidation-route-definitions';
-import { accountingRouteDefinitions as comptabiliteModuleRoutes } from './accounting-route-definitions';
-import { onboardingDeskRouteDefinitions } from './onboarding-desk-route-definitions';
+// import { immatriculationRouteDefinitions as immatriculationModuleRoutes } from './immatriculation-route-definitions';
+// import { contributionRouteDefinitions as contributionsModuleRoutes } from './contribution-route-definitions';
+// import { liquidationRouteDefinitions as liquidationsModuleRoutes } from './liquidation-route-definitions';
+// import { accountingRouteDefinitions as comptabiliteModuleRoutes } from './accounting-route-definitions';
+// import { onboardingDeskRouteDefinitions } from './onboarding-desk-route-definitions';
 
 /**
  * This file defines configuration values that are shared accross modules
@@ -19,16 +19,16 @@ export const partialConfigs = {
       homeRoute: 'home',
     },
     adminModuleRoutes,
-    immatriculationModuleRoutes,
-    contributionsModuleRoutes,
-    liquidationsModuleRoutes,
-    comptabiliteModuleRoutes,
+    // immatriculationModuleRoutes,
+    // contributionsModuleRoutes,
+    // liquidationsModuleRoutes,
+    // comptabiliteModuleRoutes,
   },
   acl: appAccessControlList,
   backendRoutesPaths: backendRoutes,
   // clientRoutePaths: clientRoutes,
-  immRequestExcelHeaders: immRequestExcelSheetHeaders,
-  rcDncExcelHeaders: rcDncHeaders,
+  // immRequestExcelHeaders: immRequestExcelSheetHeaders,
+  // rcDncExcelHeaders: rcDncHeaders,
   assignableCollections: {
     rtiei_membership_requests: 1,
     rtiei_contribution_declarations: 2,
@@ -90,14 +90,14 @@ export const partialConfigs = {
 // Add new constants here for module path
 // Default Dashboard path
 export const defaultPath = `/${partialConfigs.routes.commonRoutes.dashboardRoute}`;
-// Immatriculation Module Path
-export const immatriculationPath = immatriculationModuleRoutes;
-// Liquidation Module Path
-export const liquidationsPath = liquidationsModuleRoutes;
-// Contriution Module Path
-export const contributionPath = contributionsModuleRoutes;
-// Contriution Module Path
-export const comptabilitePath = comptabiliteModuleRoutes;
+// // Immatriculation Module Path
+// export const immatriculationPath = immatriculationModuleRoutes;
+// // Liquidation Module Path
+// export const liquidationsPath = liquidationsModuleRoutes;
+// // Contriution Module Path
+// export const contributionPath = contributionsModuleRoutes;
+// // Contriution Module Path
+// export const comptabilitePath = comptabiliteModuleRoutes;
 // Admin module path
 export const adminPath = adminModuleRoutes;
 // Route definitions for backend ressources
@@ -105,7 +105,7 @@ export const backendRoutePaths = backendRoutes;
 // Route definitions for clients ressources
 
 // Route definitions for dossiers ressources
-export const onboardingDeskPaths = onboardingDeskRouteDefinitions;
+// export const onboardingDeskPaths = onboardingDeskRouteDefinitions;
 
 // contribution cotisation account id
 export const contributionAccountType = 1;
