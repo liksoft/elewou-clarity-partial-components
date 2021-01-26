@@ -24,7 +24,11 @@
     --clr-header-nav-opacity: 0.95;
     --liksoft-cnss-main-color: #0f458d;
     --liksoft-cnss-yellow-color: #caa618;
+    // --liksoft-cnss-lighten-yellow-color: #faf5df;
+    // --liksoft-nav-link-active-bgcolor: #0f458d;
     --clr-header-5-bg-color: var(--liksoft-cnss-main-color);
+    --clr-nav-link-active-bgcolor: var(--liksoft-cnss-lighten-yellow-color, #004c8a);
+    --clr-nav-link-active-color: var(--liksoft-nav-link-active-bgcolor, #ffffff);
 
     // DEFAULT COLOR
     --sedana-main-color: var(--liksoft-cnss-main-color);
