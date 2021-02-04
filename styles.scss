@@ -571,9 +571,10 @@ clr-date-container .clr-input-group {
 .app-intro {
   font-weight: 300;
 }
-.card-header h2 {
+.app-page-header .card .card-header h2 {
   margin: 0;
   font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .app-page-header .card {
@@ -582,11 +583,11 @@ clr-date-container .clr-input-group {
   padding: 1rem 2rem 1rem 1rem;
 }
 
-@media(min-width: 960px) {
-  .app-page-header .card {
-    padding: 1rem 20rem 1rem 1rem;
-  }
-}
+// @media(min-width: 960px) {
+//   .app-page-header .card {
+//     padding: 1rem 20rem 1rem 1rem;
+//   }
+// }
 
 .app-page-header .card-header {
   background:transparent;

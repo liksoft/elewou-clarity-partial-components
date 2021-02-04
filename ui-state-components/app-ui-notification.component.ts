@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
-import { map, tap, takeUntil } from 'rxjs/operators';
+import { map, tap, takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import { AppUIStateProvider, UIStateStatusCode, uiStatusUsingHttpErrorResponse } from 'src/app/lib/core/helpers';
 import { HttpRequestService } from 'src/app/lib/core/http/core';
 import { createSubject } from 'src/app/lib/core/rxjs/helpers';
@@ -98,7 +98,8 @@ export class AppUINotificationComponent implements OnDestroy {
 
   state$ = this.uiState.uiState
     .pipe(
-      doLog('Ui state value stream view state: '),
+      doLog('UI State: '),
+      distinctUntilChanged((prev, curr) => prev.status !== curr.status),
       map((state) => {
         return {
           message: state.uiMessage,
@@ -149,21 +150,6 @@ export class AppUINotificationComponent implements OnDestroy {
         }
       )
     ).subscribe();
-    this.uiState.uiState
-      .pipe(
-        doLog('Ui state value stream: '),
-        takeUntil(this._destroy$)
-      )
-      .subscribe(
-        state => {
-          if (state.hasError) {
-            // Close the alert box after 3s
-            setTimeout(() => {
-              this.uiState.endAction('');
-            }, 3000);
-          }
-        }
-      );
   }
 
   ngOnDestroy = () => this._destroy$.next({});
