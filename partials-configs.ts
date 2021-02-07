@@ -169,6 +169,7 @@ export const allowanceLiquidationTypes = [
 
 export const annuityLiquidationTypes = [
   partialConfigs.liquidationTypes.annuityTypeID,
+  partialConfigs.liquidationTypes.invalidityAnnuity
 ];
 // ! END Liquidation types groups
 

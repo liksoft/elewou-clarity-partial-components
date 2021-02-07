@@ -55,6 +55,8 @@ export const backendRoutes = {
   rtieiAnnuitancesPaymentSlipPath: 'ressources/rtiei-annuitances-payment-slip',
   rcAllowancesPath: 'ressources/rc-allowances',
   rcAnnuitancesPath: 'ressources/rc-annuitances',
+  rcAllowancesPaymentSlipPath: 'ressources/rc-allowances-payment-slip',
+  rcAnnuitancesPaymentSlipPath: 'ressources/rc-annuitances-payment-slip',
 
   // Financial organizations route path
   forganizationsPath: 'collections/forganizations',
