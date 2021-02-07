@@ -28,6 +28,7 @@ export class AppComponentsLoadingComponent {
   // tslint:disable-next-line: no-inferrable-types
   @Input() showUIElements: boolean = true;
   @Output() isAuthenticated: EventEmitter<boolean> = new EventEmitter();
+
   loadingCompleted$ = this.auth.state$.pipe(
     filter(state => !state.authenticating && isDefined(state.isInitialState)),
     mergeMap(state => {
