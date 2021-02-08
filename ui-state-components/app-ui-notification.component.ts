@@ -1,18 +1,18 @@
-import { Component, Input, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
-import { map, tap, takeUntil, distinctUntilChanged } from 'rxjs/operators';
-import { AppUIStateProvider, UIStateStatusCode, uiStatusUsingHttpErrorResponse } from 'src/app/lib/domain/helpers';
+import { Component, Input, ChangeDetectionStrategy, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { map, tap, takeUntil } from 'rxjs/operators';
+import { UIStateStatusCode, uiStatusUsingHttpErrorResponse } from 'src/app/lib/domain/helpers';
 import { HttpRequestService } from 'src/app/lib/domain/http/core';
 import { createSubject } from 'src/app/lib/domain/rxjs/helpers';
 import { isDefined } from 'src/app/lib/domain/utils';
-import { doLog } from 'src/app/lib/domain/rxjs/operators/index';
 import { ConnectionStatus, OnlineStateMonitoringService } from 'src/app/lib/domain/components/online-state-monitoring';
 import { createStateful } from 'src/app/lib/domain/rxjs/helpers/index';
 import { combineLatest } from 'rxjs';
+import { UIState } from '../../../domain/helpers/app-ui-store-manager.service';
 
 @Component({
   selector: 'app-ui-notification',
   template: `
-  <ng-container *ngIf="state$ | async as state">
+  <ng-container *ngIf="state$ | async  as state">
   <drewlabs-action-notification-container *ngIf="!state.hidden">
       <ng-container [ngSwitch]="state.status">
         <clr-alert *ngSwitchCase="uiStateResultCode.ERROR" [clrAlertType]="'danger'" [clrAlertClosable]="false">
@@ -54,7 +54,7 @@ import { combineLatest } from 'rxjs';
         <!-- Resource request completed successfully -->
         <clr-alert *ngSwitchCase="uiStateResultCode.STATUS_OK" [clrAlertType]="'success'" [clrAlertClosable]="false">
           <clr-alert-item>
-              <span class="alert-text" [innerHTML]="state.message"></span>
+              <span class="alert-text" [innerHTML]="state?.message"></span>
               <div class="alert-actions">
                   <clr-icon shape="times" (click)="onClrAlertClosedChanged(true)"></clr-icon>
               </div>
@@ -62,7 +62,7 @@ import { combineLatest } from 'rxjs';
         </clr-alert>
         <clr-alert *ngSwitchCase="uiStateResultCode.STATUS_CREATED" [clrAlertType]="'success'" [clrAlertClosable]="false">
           <clr-alert-item>
-              <span class="alert-text" [innerHTML]="state.message"></span>
+              <span class="alert-text" [innerHTML]="state?.message"></span>
               <div class="alert-actions">
                   <clr-icon shape="times" (click)="onClrAlertClosedChanged(true)"></clr-icon>
               </div>
@@ -93,22 +93,25 @@ import { combineLatest } from 'rxjs';
 export class AppUINotificationComponent implements OnDestroy {
 
   @Input() uiStateResultCode = UIStateStatusCode;
+  private _state$ = createStateful<Partial<{ message: string, status: number, hasError: boolean, hidden: boolean }>>({});
+  @Input() set uiState(state: UIState) {
+    this._state$.next({
+      message: state.uiMessage,
+      status: state.status,
+      hasError: state.hasError,
+      hidden: (state.performingAction || !isDefined(state.status))
+    });
+  }
+
+  public get state$() {
+    return this._state$.asObservable();
+  }
+
+  @Output() endActionEvent = new EventEmitter<{ status?: number, message?: string }>();
+
   // tslint:disable-next-line: variable-name
   private _destroy$ = createSubject();
 
-  state$ = this.uiState.uiState
-    .pipe(
-      doLog('UI State: '),
-      distinctUntilChanged((prev, curr) => prev.status !== curr.status),
-      map((state) => {
-        return {
-          message: state.uiMessage,
-          status: state.status,
-          hasError: state.hasError,
-          hidden: (state.performingAction || !isDefined(state.status))
-        };
-      }),
-    );
   // tslint:disable-next-line: variable-name
   _hideConnectionStateComponent$ = createStateful(false);
   hideConnectionStateComponent$ = this._hideConnectionStateComponent$.asObservable();
@@ -132,21 +135,26 @@ export class AppUINotificationComponent implements OnDestroy {
 
   onClrAlertClosedChanged(value: boolean): void {
     if (value) {
-      this.uiState.endAction('');
+      this._state$.next({
+        message: '',
+        status: null,
+        hasError: false,
+        hidden: true
+      });
     }
   }
 
   constructor(
-    private uiState: AppUIStateProvider,
     httpClient: HttpRequestService,
     private onlineStateMonitoring: OnlineStateMonitoringService
   ) {
-    this.onlineStateMonitoring.registerToConnectionStates();
+    this.onlineStateMonitoring
+      .registerToConnectionStates();
     httpClient.errorState$.pipe(
       takeUntil(this._destroy$),
       tap(
         state => {
-          this.uiState.endAction('', uiStatusUsingHttpErrorResponse(state));
+          this.endActionEvent.emit({ status: uiStatusUsingHttpErrorResponse(state), message: '' });
         }
       )
     ).subscribe();
