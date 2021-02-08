@@ -461,9 +461,9 @@ app-app-top-bar {
   background: #f7f7f7;
 }
 
-.datagrid-header .datagrid-column {
-  @include background-yellow();
-}
+// .datagrid-header .datagrid-column {
+//   @include background-yellow();
+// }
 
 .welcome-admin {
   padding: 15px 21px;
@@ -587,17 +587,23 @@ clr-date-container .clr-input-group {
   font-weight: 600;
 }
 
+.app-page-header .card .card-header h2 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .app-page-header .card {
   background: rgba(white, 0.85);
   border: none;
   padding: 1rem 2rem 1rem 1rem;
 }
 
-@media(min-width: 960px) {
-  .app-page-header .card {
-    padding: 1rem 20rem 1rem 1rem;
-  }
-}
+// @media(min-width: 960px) {
+//   .app-page-header .card {
+//     padding: 1rem 20rem 1rem 1rem;
+//   }
+// }
 
 .app-page-header .card-header {
   background:transparent;
@@ -791,4 +797,8 @@ app-dynamic-inputs {
 .fc { /* the calendar root */
   max-width: 100%;
   margin: 0 auto;
+}
+
+.btn.btn-outline:hover, .btn.btn-outline .btn:hover {
+  color: var(--clr-btn-default-outline-hover-color, #fff) !important;
 }

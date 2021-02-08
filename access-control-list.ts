@@ -263,6 +263,10 @@ export const appAccessControlList = {
   create_rtiei_allowances: 'rtiei-allowances-create',
   update_rtiei_allowances: 'rtiei-allowances-update',
   delete_rtiei_allowances: 'rtiei-allowances-delete',
+  retired_members_list: "retired-members-list",
+  retired_members_create: "retired-members-create",
+  retired_members_update: "retired-members-update",
+  retired_members_delete: "retired-members-delete",
 
   rtiei_membership_dossiers_list: 'rtiei-membership-dossiers-list',
   rtiei_membership_dossiers_create: 'rtiei-membership-dossiers-create',

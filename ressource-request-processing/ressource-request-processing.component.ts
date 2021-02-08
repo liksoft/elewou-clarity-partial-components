@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
 import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
 import { User } from 'src/app/lib/domain/auth/contracts/v2';
@@ -8,7 +8,6 @@ import { IDynamicForm, IHTMLFormControl } from 'src/app/lib/domain/components/dy
 import { DynamicControlParser } from 'src/app/lib/domain/helpers/dynamic-control-parser';
 import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
 import { Dialog } from 'src/app/lib/domain/utils';
-import { Log } from 'src/app/lib/domain/utils/logger';
 
 @Component({
   selector: 'app-ressource-request-processing',
@@ -75,6 +74,8 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
     Validators.maxLength(255)
   ]));
 
+  @Input() validationPromptSuffix: string;
+
   constructor(
     uiStore: AppUIStoreManager,
     public componentService: RessourceRequestProcessingService,
@@ -98,7 +99,7 @@ export class RessourceRequestProcessingComponent extends AbstractAlertableCompon
         this.validating = value;
         if (this.typeHelper.isDefined(this.validationForm)) {
           this.validationFormModalOpen = true;
-        } else if (this.dialog.confirm(translations.validationPrompt)) {
+        } else if (this.dialog.confirm(`${translations.validationPrompt}. ${this.validationPromptSuffix || ''}`)) {
           this.onValidate(translations);
         }
       } else {
