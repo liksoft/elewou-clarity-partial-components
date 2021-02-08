@@ -782,3 +782,7 @@ app-dynamic-inputs {
   max-width: 100%;
   margin: 0 auto;
 }
+
+.btn.btn-outline:hover, .btn.btn-outline .btn:hover {
+  color: var(--clr-btn-default-outline-hover-color, #fff) !important;
+}
