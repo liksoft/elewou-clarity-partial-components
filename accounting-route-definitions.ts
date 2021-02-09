@@ -46,7 +46,9 @@ export const accountingRouteDefinitions = {
 
   // Automatic accouting record configurations
   actAutomaticRecordConfigurationPath: 'settings/act-automatic-records',
-  actRcapAutomaticRecordsPath: 'rcap-act-automatic-records'
+  actRcapAutomaticRecordsPath: 'rcap-act-automatic-records',
+
+  actSelectEntityRoute: 'select-entity',
 };
 
 export enum accountingRouteParams {
