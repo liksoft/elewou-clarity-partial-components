@@ -1,4 +1,4 @@
-import { RoleV2 } from '../../../../../../core/auth/contracts/v2/authorizations/role';
+import { RoleV2 } from '../../../../../../domain/auth/contracts/v2/authorizations/role';
 
 export class ModuleV2 {
   id: string|number = undefined;

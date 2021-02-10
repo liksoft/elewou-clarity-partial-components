@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { mergeMap, filter } from 'rxjs/operators';
-import { AuthService } from 'src/app/lib/core/auth/core';
-import { observableOf } from 'src/app/lib/core/rxjs/helpers';
-import { isDefined } from 'src/app/lib/core/utils';
+import { AuthService } from 'src/app/lib/domain/auth/core';
+import { observableOf } from 'src/app/lib/domain/rxjs/helpers';
+import { isDefined } from 'src/app/lib/domain/utils';
 
 @Component({
   selector: 'app-components-loading',

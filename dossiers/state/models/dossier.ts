@@ -1,5 +1,5 @@
-import { GenericSerializaleSerializer, UndecoratedSerializer } from 'src/app/lib/core/built-value/core/js/serializer';
-import { isDefined } from 'src/app/lib/core/utils/types/type-utils';
+import { GenericSerializaleSerializer, UndecoratedSerializer } from 'src/app/lib/domain/built-value/core/js/serializer';
+import { isDefined } from 'src/app/lib/domain/utils/types/type-utils';
 import { DossierRequiredFilesType } from '../types';
 import { DossierType } from './dossier-type';
 import { isEmpty } from 'lodash';
