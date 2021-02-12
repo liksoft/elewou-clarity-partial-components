@@ -16,6 +16,13 @@
 @import "./assets/scss/@clr/tables";
 @import "./assets/scss/@clr/forms";
 @import "./assets/scss/@clr/sidenav";
+@import "./assets/css/themes/elewou-dark-grey.css";
+@import "./assets/css/themes/elewou-blue.css";
+@import "./assets/css/themes/elewou-gold.css";
+@import "./assets/css/themes/elewou-indigo.css";
+@import "./assets/css/themes/elewou-green.css";
+@import "./assets/css/themes/elewou-brown.css";
+// @import "./assets/css/themes/elewou-red.css";
 
 .card {
   box-shadow: none;
@@ -210,6 +217,11 @@ span.ng-value-label {
 .btn-app-outline .btn,
 .btn.btn-app-outline {
   @include outline-yellow;
+}
+
+
+button.btn.btn-sm {
+  height: 2rem;
 }
 
 .modal-footer,
@@ -506,6 +518,9 @@ table.table.table-sm {
   border-bottom: 2px solid #ead26f;
 }
 
+.main-container .content-container{
+  background: white;
+}
 .main-container .content-container .content-area{
   padding: 0;
 }
@@ -786,3 +801,64 @@ app-dynamic-inputs {
 .btn.btn-outline:hover, .btn.btn-outline .btn:hover {
   color: var(--clr-btn-default-outline-hover-color, #fff) !important;
 }
+
+/** Datagrid Styles */
+.datagrid-host {
+  height: 100vh!important;
+}
+
+.datagrid-table {
+  .datagrid-header .datagrid-column {
+    background: var(--elewou-light-color-2);
+    .datagrid-column-title{
+      color: var(--elewou-normal-color);
+    }
+    clr-icon.is-solid {
+      color: var(--elewou-normal-color);
+      height: 17px;
+      width: 17px;
+    }
+  }
+
+  .datagrid-cell {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}
+
+.datagrid-row {
+  font-weight: 300;
+  color: #404040;
+
+  &:hover {
+    background-color:var(--elewou-dark-color-1);
+    color: var(--elewou-light);
+    span.badge.badge-success {
+      background-color: var(--elewou-light);
+    }
+    .datagrid-row-sticky{
+      background-color: var(--elewou-dark-color-1);
+      clr-icon{
+        color: var(--elewou-light);
+      }
+    }
+    .datagrid-row-detail {
+      background-color: var(--elewou-dark-color-2);
+      color: var(--elewou-light);
+    }
+
+  }
+
+  .datagrid-row-detail {
+    background: var(--elewou-light-color-2);
+    line-height: 1.2;
+    text-transform: lowercase;
+    font-weight: 300;
+    color: var(--elewou-dark-color-1);
+  }
+
+}
+
+
+.datagrid-row-detail span.role-list {font-size: 13px;}
