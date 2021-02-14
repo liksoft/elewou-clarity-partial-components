@@ -8,7 +8,6 @@ import { ConnectionStatus, OnlineStateMonitoringService } from 'src/app/lib/doma
 import { createStateful } from 'src/app/lib/domain/rxjs/helpers/index';
 import { combineLatest } from 'rxjs';
 import { UIState } from '../../../domain/helpers/app-ui-store-manager.service';
-import { Log } from '../../../domain/utils/logger';
 
 @Component({
   selector: 'app-ui-notification',
@@ -103,9 +102,11 @@ export class AppUINotificationComponent implements OnDestroy {
       hidden: (state.performingAction || !isDefined(state.status))
     });
   }
+
   public get state$() {
     return this._state$.asObservable();
   }
+
   @Output() endActionEvent = new EventEmitter<{ status?: number, message?: string }>();
 
   // tslint:disable-next-line: variable-name
@@ -153,7 +154,6 @@ export class AppUINotificationComponent implements OnDestroy {
       takeUntil(this._destroy$),
       tap(
         state => {
-          Log('Emitting HTTP Error State: ', state);
           this.endActionEvent.emit({ status: uiStatusUsingHttpErrorResponse(state), message: '' });
         }
       )
