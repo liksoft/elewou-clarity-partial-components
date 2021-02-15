@@ -3,7 +3,6 @@ import { isDefined } from 'src/app/lib/domain/utils/types/type-utils';
 import { DossierAddedFilesType, DossierRequiredFilesType } from '../types';
 import { DossierType } from './dossier-type';
 import { isEmpty } from 'lodash';
-
 export class File {
   id: number = undefined;
   name: string = undefined;
@@ -199,6 +198,7 @@ export class LiquidationDossier implements DossierWithFilesConfigInterface {
   totalIdentificationDocuments: number = undefined;
   totalDeathCertificateDocuments: number = undefined;
   totalMedicalCertificateDocuments: number = undefined;
+  totalPassportPictureDocuments: number = undefined;
 
   static builder = () => new GenericSerializaleSerializer(LiquidationDossier, new UndecoratedSerializer());
 
@@ -232,6 +232,7 @@ export class LiquidationDossier implements DossierWithFilesConfigInterface {
     total_identification_documents: 'totalIdentificationDocuments',
     total_death_certificate_documents: 'totalDeathCertificateDocuments',
     total_medical_certificate_documents: 'totalMedicalCertificateDocuments',
+    total_passport_picture_documents: 'totalPassportPictureDocuments'
   })
 }
 
@@ -296,6 +297,7 @@ export class MemberContributionDeclarationDossier implements DossierWithFilesCon
 }
 
 export class MembershipDossier implements DossierWithFilesConfigInterface {
+
   id: string | number = undefined;
   dossierFiles: DossierFile[] = [];
   label: string = undefined;
@@ -341,6 +343,7 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
   birthdate: string = undefined;
   birthplace: number = undefined;
   sex: number = undefined;
+  civility: number = undefined;
 
   static builder = () => new GenericSerializaleSerializer(MembershipDossier, new UndecoratedSerializer());
 
@@ -373,9 +376,10 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
     total_application_sheet_documents: 'totalApplicationSheetDocuments',
     total_identity_file_documents: 'totalIdentityFileDocuments',
     total_passport_picture_documents: 'totalPassportPictureDocuments',
-    birthdate: 'birthdate',
-    birthplace: 'birthplace',
-    sex: 'sex',
+    // birthdate: 'birthdate',
+    // birthplace: 'birthplace',
+    // sex: 'sex',
+    // civility: 'civility'
   })
 }
 
@@ -414,6 +418,7 @@ export class GroupedMembershipDossier implements DossierWithFilesConfigInterface
   membersListExcelSheetId: number = undefined;
   totalMembersListDocuments: number = undefined;
   totalMemberDocuments: number = undefined;
+  hasMembersIdFiles: number = undefined;
 
   static builder = () => new GenericSerializaleSerializer(GroupedMembershipDossier, new UndecoratedSerializer());
 
@@ -436,6 +441,7 @@ export class GroupedMembershipDossier implements DossierWithFilesConfigInterface
     members_list_excel_sheet_id: 'membersListExcelSheetId',
     total_members_list_documents: 'totalMembersListDocuments',
     total_member_documents: 'totalMemberDocuments',
+    has_members_id_files: 'hasMembersIdFiles'
   })
 }
 
