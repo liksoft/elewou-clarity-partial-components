@@ -1,0 +1,43 @@
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ClarityModule } from '@clr/angular';
+import { DossierFilesPresenterComponent } from './dossier-files-presenter/dossier-files-presenter.component';
+import { ModuleDossierDepositsComponent } from './module-dossier-deposits.component';
+import { DossiersProvider } from './state/providers/dossier';
+import { TranslateModule } from '@ngx-translate/core';
+import { CustomPipesModule } from 'src/app/lib/domain/components/pipes';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    ClarityModule,
+    TranslateModule,
+    CustomPipesModule
+  ],
+  exports: [
+    ModuleDossierDepositsComponent,
+    DossierFilesPresenterComponent
+  ],
+  declarations: [
+    ModuleDossierDepositsComponent,
+    DossierFilesPresenterComponent
+  ]
+})
+export class DossiersModule {
+  static forRoot(configs?: {dossiersPath: string, dossierFilesPath: string}): ModuleWithProviders<DossiersModule> {
+    return {
+      ngModule: DossiersModule,
+      providers: [
+        DossiersProvider,
+        {
+          provide: 'DOSSIER_FILES_ENDOINT',
+          useValue: configs?.dossierFilesPath || 'dossier-files'
+        },
+        {
+          provide: 'DOSSIER_ENDPOINT',
+          useValue: configs?.dossiersPath || 'dossiers'
+        }
+      ]
+    }
+  }
+}
