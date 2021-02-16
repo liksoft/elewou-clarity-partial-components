@@ -20,7 +20,8 @@ import { DossierFilesPresenterComponent } from './dossiers/dossier-files-present
     SharedModule,
     RessourceRequestProcessingModule,
     ScrollingModule,
-    AppModuleModule],
+    AppModuleModule
+  ],
   exports: [
     AppTopBarComponent,
     PageTitleComponent,

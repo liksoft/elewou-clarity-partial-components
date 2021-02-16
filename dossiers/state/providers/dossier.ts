@@ -1,8 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
+import { getResponseDataFromHttpResponse } from 'src/app/lib/domain/http/helpers';
 import { createStore, onInitStoreStateAction } from 'src/app/lib/domain/rxjs/state/rx-state';
-import { DossierState } from '../actions/dossier';
+import { isArray, isDefined } from 'src/app/lib/domain/utils';
+import { DossierState, dossierUpdatedAction } from '../actions/dossier';
+import { Dossier, DossierFile, DossierInterface } from '../models/dossier';
 import { dossierReducer } from '../reducers/dossier';
+import { UIStateStatusCode } from '../../../../../domain/helpers/app-ui-store-manager.service';
 
 export const initialState = {
   collections: {
@@ -29,11 +35,44 @@ export class DossiersProvider {
 
   public readonly store$ = createStore(dossierReducer, initialState);
 
+  public constructor(
+    private client: DrewlabsRessourceServerClient,
+    @Inject('DOSSIER_FILES_ENDOINT') private endpointURL: string) { }
+
   get state$(): Observable<DossierState> {
     return this.store$.connect();
   }
 
   setState(state?: Partial<DossierState>): void {
     onInitStoreStateAction(this.store$)(state || initialState);
+  }
+
+  getDossierFiles(dossier: DossierInterface) {
+    return this.client.get(this.endpointURL, {
+      params: {
+        _query: JSON.stringify({
+          where: [
+            'dossier_id',
+            dossier?.id
+          ]
+        })
+      }
+    }).pipe(
+      map(state => {
+        const data = getResponseDataFromHttpResponse(state);
+        if (isDefined(data) && isArray(data)) {
+          dossierUpdatedAction(this.store$)({
+            updateResult: null,
+            currentDossier: Dossier.builder().rebuild(
+              (dossier) as Dossier, {
+              dossierFiles: (data as { [prop: string]: any }[]).map(
+                (file) => DossierFile.builder().fromSerialized(file)
+              )
+            })
+          });
+        }
+        return UIStateStatusCode.STATUS_OK;
+      })
+    );
   }
 }

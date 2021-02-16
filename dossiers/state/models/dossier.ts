@@ -313,6 +313,12 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
   type: string = undefined;
   regime: string = undefined;
   regimeId: number = undefined;
+  identityFileNumber?: string = undefined;
+  identityFileIssueDate?: string = undefined;
+  identityFileIssueBy?: number | string = undefined;
+  identityFileIssueAt?: number | string = undefined;
+  passportPictureSourceFileId?: number = undefined;
+  identitySourceFileId?: number = undefined;
 
   applicationSheetId: number = undefined;
   dossierId: string = undefined;
@@ -379,7 +385,13 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
     // birthdate: 'birthdate',
     // birthplace: 'birthplace',
     // sex: 'sex',
-    // civility: 'civility'
+    // civility: 'civility',
+    identity_file_number: 'identityFileNumber',
+    identity_file_issue_date: 'identityFileIssueDate',
+    identity_file_issue_by: 'identityFileIssueBy',
+    identity_file_issue_at: 'identityFileIssueAt',
+    passport_picture_source_file_id: 'passportPictureSourceFileId',
+    identity_source_file_id: 'identitySourceFileId',
   })
 }
 
