@@ -28,9 +28,7 @@ export const initialState = {
   error: null
 };
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DossiersProvider {
 
   public readonly store$ = createStore(dossierReducer, initialState);
