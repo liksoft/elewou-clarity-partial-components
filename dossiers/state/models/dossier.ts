@@ -3,6 +3,7 @@ import { isDefined } from 'src/app/lib/domain/utils/types/type-utils';
 import { DossierAddedFilesType, DossierRequiredFilesType } from '../types';
 import { DossierType } from './dossier-type';
 import { isEmpty } from 'lodash';
+
 export class File {
   id: number = undefined;
   name: string = undefined;
@@ -44,7 +45,7 @@ export class DossierFile {
     dossier_id: 'dossierId',
     file_url: 'fileURL',
     box_label: 'boxLabel',
-    file: 'file'
+    file: { name: 'file', type: File }
   })
 }
 
@@ -328,7 +329,7 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
   registrantAddress: string = undefined;
   registrantPhoneNumber: string = undefined;
   registranNationality?: number = undefined;
-  registrantMartialStatus?: number = undefined;
+  registrantMaritalStatus?: number = undefined;
   idenityFileType: string | number = undefined;
   hasIdentityFile: boolean = undefined;
   identityFileId: number = undefined;
@@ -366,7 +367,7 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
     registrant_address: 'registrantAddress',
     registrant_phonenumber: 'registrantPhoneNumber',
     registrant_nationality: 'registranNationality',
-    registrant_martial_status: 'registrantMartialStatus',
+    registrant_marital_status: 'registrantMaritalStatus',
     identity_file_type: 'identityFileType',
     has_identity_file: 'hasIdentityFile',
     identity_file_id: 'identityFileId',
