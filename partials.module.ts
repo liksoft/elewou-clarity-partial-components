@@ -17,7 +17,7 @@ import { DossiersModule } from './dossiers/dossiers.module';
     RouterModule,
     CommonModule,
     SharedModule,
-    // RessourceRequestProcessingModule,
+    RessourceRequestProcessingModule,
     ScrollingModule,
     AppModuleModule
   ],
