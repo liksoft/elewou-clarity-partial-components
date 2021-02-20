@@ -1,3 +1,5 @@
+import { PaginationDataState } from 'src/app/lib/domain/rxjs/types';
+
 export type DossierRequiredFilesType = {
   label: string;
   required: boolean;
@@ -6,7 +8,6 @@ export type DossierRequiredFilesType = {
   mime_types: string,
   max_file_size: number
 };
-
 
 export enum DossierTypes {
   rtieiLiquidation =  'TYP1101',
@@ -18,4 +19,18 @@ export enum DossierTypes {
   rcMemberContributionDeclaration =  'TYP1100',
   rtieiGroupedContributionDeclaration =  'TYP10001',
   rcGroupedContributionDeclaration =  'TYP10010'
+}
+
+
+export type DossierAddedFilesType = {
+  label: string;
+  index: number;
+}
+
+
+export type CollectionValueState<T> = {
+  performingAction: boolean;
+  current: T,
+  error: any;
+  collections: Partial<PaginationDataState<T>>;
 }

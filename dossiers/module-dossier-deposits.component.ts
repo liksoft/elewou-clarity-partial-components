@@ -8,7 +8,7 @@ import { doLog } from 'src/app/lib/domain/rxjs/operators';
 import { isDefined } from 'src/app/lib/domain/utils';
 import { onDossierAction, paginateDossiersAction } from './state/actions/dossier';
 import { dossierResponseTypeToApplicationTypeDossier } from './state/helpers';
-import { Dossier, DossierFileConfigInterface, DossierInterface } from './state/models/dossier';
+import { Dossier, DossierWithFilesConfigInterface, DossierInterface } from './state/models/dossier';
 import { DossiersProvider } from './state/providers/dossier';
 import * as _ from 'lodash';
 
@@ -44,7 +44,7 @@ export class ModuleDossierDepositsComponent implements OnInit {
           state.collections.data.map(value => {
             // return dossierResponseTypeToApplicationTypeDossier(value);
             return (value instanceof Dossier) ?
-              dossierResponseTypeToApplicationTypeDossier(value) as (DossierInterface & DossierFileConfigInterface) :
+              dossierResponseTypeToApplicationTypeDossier(value) as (DossierInterface & DossierWithFilesConfigInterface) :
               value;
           }) : []
       }
