@@ -46,15 +46,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
 
   public modulesBackendRoute = backendRoutePaths.modules;
 
-  state$ = this.auth.state$.pipe(
-    map(state => state.user as IAppUser),
-    map(state => ({
-      username: state.userDetails ?
-        (state.userDetails.firstname && state.userDetails.lastname ? `${state.userDetails.firstname}, ${state.userDetails.lastname}` :
-          (state.userDetails.email ? state.userDetails.email : state.username)) : state.username
-    }))
-  );
-
   constructor(
     public appUIStoreManager: AppUIStoreManager,
     private auth: AuthService,
@@ -88,21 +79,5 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
    */
   public getRouteLinkFromMap(key: string): RouteLink {
     return this.navigationRoutes.get(key);
-  }
-
-  public redirectToLogin(): void {
-    this.router.navigate([AuthPathConfig.LOGIN_PATH], {
-      replaceUrl: true
-    });
-    this.appUIStoreManager.completeUIStoreAction();
-  }
-
-  async actionLogout(event: Event): Promise<void> {
-    event.preventDefault();
-    const translation = await this.translator.translate('promptLogout').toPromise();
-    if (this.dialog.confirm(translation)) {
-      this.appUIStoreManager.initializeUIStoreAction();
-      await this.auth.logout().toPromise();
-    }
   }
 }
