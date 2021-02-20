@@ -38,10 +38,8 @@ import { doLog } from '../../../../domain/rxjs/operators/index';
 export class DrewlabsRessourceAssignmentComponent implements OnDestroy {
 
   @Input() collectionID: number | string;
-  // @Input() public permission: string[] | string;
   @Input() public buttonDisabled = false;
   @Input() selectedIds: number[] = [];
-  // tslint:disable-next-line: no-inferrable-types
   @Input() triggerButtonClass: string = 'btn btn-primary';
   @Output() assignmentCompletedSuccessfully = new EventEmitter<object>();
 
