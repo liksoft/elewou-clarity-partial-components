@@ -8,7 +8,6 @@ import { isArray, isDefined, isObject } from '../../../../../../domain/utils';
 import { emptyObservable } from '../../../../../../domain/rxjs/helpers';
 import { getResponseDataFromHttpResponse } from '../../../../../../domain/http/helpers/http-response';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Log } from '../../../../../../domain/utils/logger';
 
 export interface ModulesState {
   performingAction: boolean;
