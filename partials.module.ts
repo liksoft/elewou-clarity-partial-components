@@ -16,10 +16,6 @@ import { DatagridHeaderModule } from './datgrid-header/datagrid-header.module';
     RouterModule,
     CommonModule,
     SharedModule,
-<<<<<<< HEAD
-    RessourceRequestProcessingModule,
-=======
->>>>>>> admin-main-branch-v2
     ScrollingModule,
     AppModuleModule
   ],
