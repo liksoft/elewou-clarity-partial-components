@@ -8,29 +8,19 @@ import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manag
 import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
 import { Collection } from 'src/app/lib/domain/collections';
 import { Dialog, isDefined } from 'src/app/lib/domain/utils';
-import { IAppUser, User } from '../../../domain/auth/contracts/v2';
+import { IAppUser } from '../../../domain/auth/contracts/v2';
 import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-app-top-bar',
   templateUrl: './app-top-bar.component.html',
   styles: [
-    `.branding {
-      background: #ffffff;
-      }
+    `
       .title {
         padding: 0 16px;
-        &.module_name{
-          background: #033258;
-          color: #ffbc48;
-          box-shadow: 4px 0px 6px -3px #000000bd;
-        }
       }
       .header .branding, header .branding {
         padding: 0 0 0 1rem;
-      }
-      clr-header.header {
-        box-shadow: 2px 2px 12px -4px #999;
       }
       .app-logo{
         width: 20%;
@@ -40,7 +30,8 @@ import { map } from 'rxjs/operators';
 })
 export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
 
-  public elewouLogo = '/assets/images/logo-elewou-main.png';
+  // public elewouLogo = '/assets/images/logo-elewou-main.png';
+  public elewouLogo = '/assets/images/logo-elewou-main-dark.png';
   public elewouIcon = '/assets/images/icon-elewou.png';
 
   public navigationRoutes: Collection<RouteLink>;

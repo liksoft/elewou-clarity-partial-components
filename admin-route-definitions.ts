@@ -30,9 +30,5 @@ export const routeDefinitions = {
   // Module management routes
   createDepartmentRoute: 'department',
   // Configurations
-  globalConfigurationsRoute: 'configurations-globales',
-
-  rcapConfigurationsRoute: 'configurations-retraite-par-capitalisation',
-
-  rCompConfigurationsRoute: 'configurations-retraite-complémentaire'
+  globalConfigurationsRoute: 'configurations-globales'
 };
