@@ -6,18 +6,20 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
-import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppModuleModule } from './app-modules/app-modules.module';
-import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.component';
 import { DossiersModule } from './dossiers/dossiers.module';
+import { DatagridHeaderModule } from './datgrid-header/datagrid-header.module';
 
 @NgModule({
   imports: [
     RouterModule,
     CommonModule,
     SharedModule,
+<<<<<<< HEAD
     RessourceRequestProcessingModule,
+=======
+>>>>>>> admin-main-branch-v2
     ScrollingModule,
     AppModuleModule
   ],
@@ -27,17 +29,14 @@ import { DossiersModule } from './dossiers/dossiers.module';
     SidebarComponent,
     RessourceRequestProcessingModule,
     AppModuleModule,
-    DatgridHeaderComponent,
-    DossiersModule
+    DossiersModule,
+    DatagridHeaderModule
   ],
   declarations: [
     AppTopBarComponent,
     PageTitleComponent,
-    SidebarComponent,
-    DatgridHeaderComponent
+    SidebarComponent
   ],
-  providers: [
-    RessourceRequestProcessingService
-  ]
+  providers: []
 })
 export class PartialsModule { }
