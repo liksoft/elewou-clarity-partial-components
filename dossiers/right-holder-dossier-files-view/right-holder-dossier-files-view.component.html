@@ -9,10 +9,6 @@
               (click)="fileHelper.saveDataURLAsBlob(item?.content, item?.name, item?.extension)">
               <clr-icon shape="download-cloud"></clr-icon>
             </button>
-            <button [disabled]="performingAction" class="btn btn-sm btn-danger"
-              (click)="onPutFileToTrash(item?.file_id)">
-              <clr-icon shape="trash"></clr-icon>
-            </button>
           </span>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>

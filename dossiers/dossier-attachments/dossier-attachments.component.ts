@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 import { DossierWithFilesConfigInterface } from '../state/models/dossier';
 import { DossiersProvider } from '../state/providers/dossier';
 import { DrewlabsRessourceServerClient } from '../../../../domain/http/core/ressource-server-client';
-import { HttpErrorResponse } from '@angular/common/http';
-import { onErrorAction } from 'src/app/lib/domain/rxjs/state/rx-state';
-import { emptyObservable } from 'src/app/lib/domain/rxjs/helpers';
+import { getDossierUsingID } from '../state/actions/dossier';
+import { doLog } from '../../../../domain/rxjs/operators/index';
+import { dossierResponseTypeToApplicationTypeDossier } from '../state/helpers';
+import { isDefined } from '../../../../domain/utils/types/type-utils';
 
 @Component({
   selector: 'app-dossier-attachments',
@@ -14,33 +15,29 @@ import { emptyObservable } from 'src/app/lib/domain/rxjs/helpers';
 })
 export class DossierAttachmentsComponent implements OnInit {
 
-  @Input() dossierID: string;
-
+  @Input() set dossierID(value: string) {
+    this.getDossierWithAttachmentsUsingID(value);
+  }
   @Input() dossier: DossierWithFilesConfigInterface;
+  state$ = this.provider.state$.pipe(
+    filter(state  => isDefined(state.currentDossier)),
+    map(state => ({
+      ...state,
+      dossier: dossierResponseTypeToApplicationTypeDossier(state?.currentDossier)
+    })),
+    doLog('<DossierAttachmentsComponent> state: ')
+  );
+  @Input() performingAction = false;
 
-  constructor(private provider: DossiersProvider, private client: DrewlabsRessourceServerClient) { }
+  constructor(
+    private provider: DossiersProvider,
+    private client: DrewlabsRessourceServerClient
+  ) { }
 
   ngOnInit(): void { }
 
   getDossierWithAttachmentsUsingID(id: string) {
-    this.provider.getDossier(id).pipe(
-      mergeMap(state => {
-        if (state) {
-          return this.provider.getDossierFiles(state)
-            .pipe();
-        }
-        return emptyObservable();
-      }),
-      catchError(err => {
-        if (err instanceof HttpErrorResponse) {
-          const errorResponse = this.client.handleErrorResponse(err);
-          onErrorAction(this.provider.store$)(errorResponse);
-        } else {
-          onErrorAction(this.provider.store$)(err);
-        }
-        return emptyObservable();
-      })
-    )
+    getDossierUsingID(this.provider.store$)(this.client, this.provider.dossierEndpointURL, id);
   }
 
 }

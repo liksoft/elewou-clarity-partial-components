@@ -53,6 +53,8 @@ export class DossierFilesPresenterComponent implements OnDestroy {
   get dossier(): DossierInterface {
     return this._dossier;
   }
+  @Input() performingAction = false;
+
   constructor(
     private dossiersProvider: DossiersProvider,
     public readonly fileHelper: FileHelperService,

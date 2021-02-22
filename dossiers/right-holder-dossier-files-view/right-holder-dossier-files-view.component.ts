@@ -4,6 +4,7 @@ import { createStateful } from 'src/app/lib/domain/rxjs/helpers';
 import { doLog } from 'src/app/lib/domain/rxjs/operators';
 import * as strings from 'src/app/lib/domain/utils/types/strings';
 import { imagesMimeExtensions } from '../../partials-configs';
+import { RightHolderDossier } from '../state/models/dossier';
 
 @Component({
   selector: 'app-right-holder-dossier-files-view',
@@ -28,9 +29,7 @@ export class RightHolderDossierFilesViewComponent implements OnInit {
       });
     }
   }
-
   @Input() performingAction =  false;
-
   @Output() addDossierRightHolderToTrash = new EventEmitter<{ file_id: number | string, endpointURL: string, curr: RightHolderDossier[]}>();
 
   _state$ = createStateful<Array<Partial<{

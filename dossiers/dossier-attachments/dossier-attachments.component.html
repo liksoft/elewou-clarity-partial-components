@@ -1,1 +1,21 @@
-<p>dossier-attachments works!</p>
+<ng-container *ngIf="state$ | async as state">
+  <div class="card">
+    <div class="card-header">Fichier(s) joints</div>
+    <div class="card-block">
+      <app-dossier-files-presenter *ngIf="state?.dossier" [dossier]="state?.dossier"
+        [dossierFiles]="state?.dossier?.dossierFiles"></app-dossier-files-presenter>
+    </div>
+  </div>
+  <!-- Right holders view content -->
+  <div class="card big-card" *ngIf="state?.dossier?.hasRightHolderProperty">
+    <div class="card-header">
+      <clr-icon shape="minus"></clr-icon>Documents d'identification de(s) ayant(s) droit(s)
+    </div>
+    <div class="card-block">
+      <app-right-holder-dossier-files-view *ngIf="(state?.dossier?.rightHolderDossiers?.length > 0)"
+        [performingAction]="performingAction" [rightHolderDossiers]="state?.dossier?.rightHolderDossiers">
+      </app-right-holder-dossier-files-view>
+    </div>
+  </div>
+  <!--! Right holders view content -->
+</ng-container>

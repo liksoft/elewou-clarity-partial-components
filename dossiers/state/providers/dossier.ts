@@ -37,8 +37,8 @@ export class DossiersProvider {
 
   public constructor(
     private client: DrewlabsRessourceServerClient,
-    @Inject('DOSSIER_FILES_ENDOINT') private filesEndpoint: string,
-    @Inject('DOSSIER_ENDPOINT') private dossierEndpointURL: string
+    @Inject('DOSSIER_FILES_ENDOINT') public readonly filesEndpoint: string,
+    @Inject('DOSSIER_ENDPOINT') public readonly dossierEndpointURL: string
   ) { }
 
   get state$(): Observable<DossierState> {

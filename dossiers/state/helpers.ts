@@ -29,7 +29,9 @@ export const dossierResponseTypeToApplicationTypeDossier: (dossier: Dossier) => 
     type,
     agence,
     agenceId,
-    updatedAt, isCompleted, rightHolderDossiers } = dossier;
+    updatedAt,
+    isCompleted,
+    rightHolderDossiers } = dossier;
   const values = {
     id,
     dossierFiles,
