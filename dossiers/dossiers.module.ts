@@ -27,7 +27,7 @@ import { DossierAttachmentsComponent } from './dossier-attachments/dossier-attac
   ]
 })
 export class DossiersModule {
-  static forRoot(configs?: {dossiersPath: string, dossierFilesPath: string}): ModuleWithProviders<DossiersModule> {
+  static forRoot(configs?: {dossiersPath: string, dossierFilesPath: string, rightHolderDossierPath: string}): ModuleWithProviders<DossiersModule> {
     return {
       ngModule: DossiersModule,
       providers: [
@@ -39,6 +39,10 @@ export class DossiersModule {
         {
           provide: 'DOSSIER_ENDPOINT',
           useValue: configs?.dossiersPath || 'dossiers'
+        },
+        {
+          provide: 'RIGHT_HOLDER_DOSSIER_ENPOINT',
+          useValue: configs?.rightHolderDossierPath || 'right-holder-dossiers'
         }
       ]
     }
