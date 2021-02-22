@@ -134,7 +134,6 @@ export class AppUINotificationComponent implements OnDestroy {
   );
 
   onClrAlertClosedChanged(value: boolean): void {
-    Log('Closing modal: ', value);
     if (value) {
       this._state$.next({
         message: '',
