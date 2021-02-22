@@ -9,8 +9,6 @@ import { DossierState, dossierUpdatedAction } from '../actions/dossier';
 import { Dossier, DossierFile, DossierInterface } from '../models/dossier';
 import { dossierReducer } from '../reducers/dossier';
 import { UIStateStatusCode } from '../../../../../domain/helpers/app-ui-store-manager.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { emptyObservable } from 'src/app/lib/domain/rxjs/helpers';
 
 export const initialState = {
   collections: {

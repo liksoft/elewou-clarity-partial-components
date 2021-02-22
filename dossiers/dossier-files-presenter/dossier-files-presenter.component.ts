@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { distinctUntilChanged, } from 'rxjs/operators';
+import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { FileHelperService, TypeUtilHelper } from 'src/app/lib/domain/helpers';
 import { ServerFileInterface } from 'src/app/lib/domain/helpers/file-helper.service';
 import { createStateful, createSubject } from 'src/app/lib/domain/rxjs/helpers';
@@ -35,7 +35,7 @@ export class DossierFilesPresenterComponent implements OnDestroy {
       });
     } else {
       if (!this._loadFromServer) {
-        this.getDossierFiles().subscribe();
+        this.getDossierFiles().pipe(takeUntil(this._destroy$)).subscribe();
       }
       this._loadFromServer = true;
     }
