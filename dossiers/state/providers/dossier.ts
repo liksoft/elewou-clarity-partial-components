@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
 import { getResponseDataFromHttpResponse } from 'src/app/lib/domain/http/helpers';
-import { createStore, onErrorAction, onInitStoreStateAction } from 'src/app/lib/domain/rxjs/state/rx-state';
+import { createStore, onInitStoreStateAction } from 'src/app/lib/domain/rxjs/state/rx-state';
 import { isArray, isDefined } from 'src/app/lib/domain/utils';
 import { DossierState, dossierUpdatedAction } from '../actions/dossier';
 import { Dossier, DossierFile, DossierInterface } from '../models/dossier';
