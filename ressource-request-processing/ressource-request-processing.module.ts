@@ -7,6 +7,7 @@ import { RessourceRequestProcessingComponent } from './ressource-request-process
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared.module';
 import { DrewlabsRessourceAssignmentComponent } from './ressource-assignment/ressource-assignment.component';
+import { RessourceRequestProcessingService } from './ressource-request-processing.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,10 @@ import { DrewlabsRessourceAssignmentComponent } from './ressource-assignment/res
     RessourceRequestProcessingComponent,
     DrewlabsRessourceAssignmentComponent
   ],
-  providers: []
+  providers: [
+    RessourceRequestProcessingService
+  ]
+
 })
 export class RessourceRequestProcessingModule {
 }

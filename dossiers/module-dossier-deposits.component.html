@@ -20,7 +20,7 @@
       <clr-dg-cell>{{ item?.label }}</clr-dg-cell>
       <clr-dg-cell>{{ item?.regime }} </clr-dg-cell>
       <clr-dg-cell>{{ item?.type }}</clr-dg-cell>
-      <clr-dg-cell>{{ item?.registrant }}</clr-dg-cell>
+      <clr-dg-cell>{{ item?.registrant | uppercase }}</clr-dg-cell>
     </clr-dg-row>
     <clr-dg-footer>
       <clr-dg-pagination #pagination [clrDgPageSize]="20" [clrDgTotalItems]="state?.dataSource?.total">
