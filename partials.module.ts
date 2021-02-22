@@ -10,6 +10,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppModuleModule } from './app-modules/app-modules.module';
 import { DossiersModule } from './dossiers/dossiers.module';
 import { DatagridHeaderModule } from './datgrid-header/datagrid-header.module';
+import { DetailedTablePreviewComponent } from './detailed-table-preview/detailed-table-preview.component';
 
 @NgModule({
   imports: [
@@ -26,12 +27,14 @@ import { DatagridHeaderModule } from './datgrid-header/datagrid-header.module';
     RessourceRequestProcessingModule,
     AppModuleModule,
     DossiersModule,
-    DatagridHeaderModule
+    DatagridHeaderModule,
+    DetailedTablePreviewComponent
   ],
   declarations: [
     AppTopBarComponent,
     PageTitleComponent,
-    SidebarComponent
+    SidebarComponent,
+    DetailedTablePreviewComponent
   ],
   providers: []
 })
