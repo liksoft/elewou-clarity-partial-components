@@ -96,6 +96,7 @@ export class RessourceRequestProcessingComponent {
   @Input() onRejectFormSubmitted: (control: AbstractControl, resourceID: string | number) => void;
 
   public state$ = this.uiState.uiState;
+  @Input() validationPromptSuffix: string;
 
   constructor(
     private uiState: AppUIStateProvider,
@@ -123,7 +124,7 @@ export class RessourceRequestProcessingComponent {
       this._actionType = ProcessActionType.VALIDATION;
       this.typeHelper.isDefined(this.validationForm) ?
         this.showValidationModal = true :
-        (this.dialog.confirm(translations.validationPrompt) ? this.onValidate(translations) : false);
+        (this.dialog.confirm(`${translations.validationPrompt}. ${this.validationPromptSuffix || ''}`) ? this.onValidate(translations) : false);
     } else {
       this.rejectModalDescription = this.rejectModalDescription ?? translations.rejectionPrompt;
       this.showRejectModal = true;
