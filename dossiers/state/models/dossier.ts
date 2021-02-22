@@ -284,6 +284,7 @@ export class MemberContributionDeclarationDossier implements DossierWithFilesCon
   otherPhonenumber: string = undefined;
   totalPaymentDocuments: number = undefined;
   totalApplicationSheetDocuments: number = undefined;
+  paymentSourceFileID: number = undefined;
 
   get hasRightHolderProperty() {
     return false;
@@ -310,7 +311,8 @@ export class MemberContributionDeclarationDossier implements DossierWithFilesCon
     addedFiles: 'addedFiles',
     other_phonenumber: 'otherPhonenumber',
     total_application_sheet_documents: 'totalApplicationSheetDocuments',
-    total_payment_documents: 'totalPaymentDocuments'
+    total_payment_documents: 'totalPaymentDocuments',
+    payment_source_file_id: 'paymentSourceFileID'
   })
 }
 
@@ -523,6 +525,7 @@ export class GroupedContributionDeclarationDossier implements DossierWithFilesCo
   totalApplicationSheetDocuments: number = undefined;
   dncExcelFileId: number = undefined;
   totalDncFileDocuments: number = undefined;
+  paymentSourceFileID: number = undefined;
 
   get hasRightHolderProperty() {
     return false;
@@ -554,6 +557,7 @@ export class GroupedContributionDeclarationDossier implements DossierWithFilesCo
     total_payment_documents: 'totalPaymentDocuments',
     dnc_excel_file_id: 'dncExcelFileId',
     total_dnc_file_documents: 'totalDncFileDocuments',
+    payment_source_file_id: 'paymentSourceFileID'
   })
 }
 export class RightHolderDossier {
