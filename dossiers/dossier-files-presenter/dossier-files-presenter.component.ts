@@ -35,7 +35,7 @@ export class DossierFilesPresenterComponent implements OnDestroy {
       });
     } else {
       if (!this._loadFromServer) {
-        this.getDossierFiles();
+        this.getDossierFiles().subscribe();
       }
       this._loadFromServer = true;
     }
@@ -59,8 +59,8 @@ export class DossierFilesPresenterComponent implements OnDestroy {
     public readonly typeHelper: TypeUtilHelper
   ) { }
 
-  getDossierFiles(): void {
-    this.dossiersProvider.getDossierFiles(this.dossier).subscribe();
+  getDossierFiles() {
+    return this.dossiersProvider.getDossierFiles(this.dossier);
   }
 
   ngOnDestroy(): void { this._destroy$.next({}); }
