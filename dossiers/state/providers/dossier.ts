@@ -1,15 +1,14 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
 import { getResponseDataFromHttpResponse } from 'src/app/lib/domain/http/helpers';
-import { createStore, onInitStoreStateAction } from 'src/app/lib/domain/rxjs/state/rx-state';
+import { createStore, onErrorAction, onInitStoreStateAction } from 'src/app/lib/domain/rxjs/state/rx-state';
 import { isArray, isDefined } from 'src/app/lib/domain/utils';
 import { DossierState, dossierUpdatedAction } from '../actions/dossier';
 import { Dossier, DossierFile, DossierInterface } from '../models/dossier';
 import { dossierReducer } from '../reducers/dossier';
 import { UIStateStatusCode } from '../../../../../domain/helpers/app-ui-store-manager.service';
-
 export const initialState = {
   collections: {
     currentPage: 1,
@@ -35,7 +34,9 @@ export class DossiersProvider {
 
   public constructor(
     private client: DrewlabsRessourceServerClient,
-    @Inject('DOSSIER_FILES_ENDOINT') private endpointURL: string) { }
+    @Inject('DOSSIER_FILES_ENDOINT') public readonly filesEndpoint: string,
+    @Inject('DOSSIER_ENDPOINT') public readonly dossierEndpointURL: string
+  ) { }
 
   get state$(): Observable<DossierState> {
     return this.store$.connect();
@@ -46,7 +47,7 @@ export class DossiersProvider {
   }
 
   getDossierFiles(dossier: DossierInterface) {
-    return this.client.get(this.endpointURL, {
+    return this.client.get(this.filesEndpoint, {
       params: {
         _query: JSON.stringify({
           where: [
@@ -72,5 +73,19 @@ export class DossiersProvider {
         return UIStateStatusCode.STATUS_OK;
       })
     );
+  }
+
+  getDossier(id: string | number, params = {}): Observable<Dossier|any> {
+    return this.client.getUsingID(this.dossierEndpointURL, id, { params })
+      .pipe(
+        map((state) => {
+          // tslint:disable-next-line: one-variable-per-declaration
+          const data = getResponseDataFromHttpResponse(state);
+          if (isDefined(data)) {
+            return Dossier.builder().fromSerialized(data);
+          }
+          return data;
+        })
+      )
   }
 }

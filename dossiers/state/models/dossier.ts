@@ -485,8 +485,6 @@ export class GroupedMembershipDossier implements DossierWithFilesConfigInterface
   })
 }
 
-
-
 export class GroupedContributionDeclarationDossier implements DossierWithFilesConfigInterface {
   id: string | number = undefined;
   dossierFiles: DossierFile[] = [];
