@@ -208,6 +208,9 @@ export class LiquidationDossier implements DossierWithFilesConfigInterface {
   totalMedicalCertificateDocuments: number = undefined;
   totalPassportPictureDocuments: number = undefined;
   rightHolderDossiers: RightHolderDossier[] = undefined;
+  registrantPictureSourceFileId: number = undefined;
+  memberDeathCertificateSourceFileId: number = undefined;
+  medicalCertificateSourceFileId: number = undefined;
 
   get hasRightHolderProperty() {
     return false;
