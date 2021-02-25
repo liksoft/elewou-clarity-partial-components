@@ -5,7 +5,8 @@ import {
   GroupedMembershipDossier,
   LiquidationDossier,
   MemberContributionDeclarationDossier,
-  MembershipDossier
+  MembershipDossier,
+  RightHolderDossier
 } from './models/dossier';
 import { DossierTypes } from './types';
 
@@ -28,7 +29,9 @@ export const dossierResponseTypeToApplicationTypeDossier: (dossier: Dossier) => 
     type,
     agence,
     agenceId,
-    updatedAt, isCompleted } = dossier;
+    updatedAt,
+    isCompleted,
+    rightHolderDossiers } = dossier;
   const values = {
     id,
     dossierFiles,
@@ -44,7 +47,10 @@ export const dossierResponseTypeToApplicationTypeDossier: (dossier: Dossier) => 
     type,
     agence,
     agenceId,
-    isCompleted
+    isCompleted,
+    rightHolderDossiers: rightHolderDossiers ?
+      rightHolderDossiers.map((item) => RightHolderDossier.builder().fromSerialized(item)) :
+      rightHolderDossiers  //
   };
   const dossierTypes = DossierTypes;
 

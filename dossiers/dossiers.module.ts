@@ -6,6 +6,8 @@ import { ModuleDossierDepositsComponent } from './module-dossier-deposits.compon
 import { DossiersProvider } from './state/providers/dossier';
 import { TranslateModule } from '@ngx-translate/core';
 import { CustomPipesModule } from 'src/app/lib/domain/components/pipes';
+import { DossierAttachmentsComponent } from './dossier-attachments/dossier-attachments.component';
+import { RightHolderDossierFilesViewComponent } from './right-holder-dossier-files-view/right-holder-dossier-files-view.component';
 
 @NgModule({
   imports: [
@@ -16,11 +18,15 @@ import { CustomPipesModule } from 'src/app/lib/domain/components/pipes';
   ],
   exports: [
     ModuleDossierDepositsComponent,
-    DossierFilesPresenterComponent
+    DossierFilesPresenterComponent,
+    DossierAttachmentsComponent,
+    RightHolderDossierFilesViewComponent
   ],
   declarations: [
     ModuleDossierDepositsComponent,
-    DossierFilesPresenterComponent
+    DossierFilesPresenterComponent,
+    DossierAttachmentsComponent,
+    RightHolderDossierFilesViewComponent
   ]
 })
 export class DossiersModule {

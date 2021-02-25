@@ -1,9 +1,14 @@
-<div class="files-container" *ngIf="files$ | async as files">
+<div class="files-container" *ngIf="state$ | async as files">
+  <h3 class="files-header" *ngIf="files?.length > 0">Fichier(s)</h3>
   <clr-accordion [clrAccordionMultiPanel]="true">
     <ng-container>
       <clr-accordion-panel *ngFor="let item of files">
         <clr-accordion-title>
-          <span class="attached-file-name">{{ item?.name }}</span><span class="attached-file-download">
+          <span class="attached-file-name">{{ item?.name }}</span><span class="attached-file-download"><button
+              class="btn btn-sm btn-primary" [disabled]="performingAction"
+              (click)="fileHelper.saveDataURLAsBlob(item?.content, item?.name, item?.extension)">
+              <clr-icon shape="download-cloud"></clr-icon>
+            </button>
           </span>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>
@@ -12,7 +17,7 @@
           <div class="button-container"
             *ngIf="typeHelper.isDefined(item?.name) && typeHelper.isDefined(item?.content) && item?.showldownload">
             <button class="btn btn-sm btn-outline-primary" [disabled]="performingAction"
-              (click)="fileHelper.saveDataURLAsBlob(item?.content, item?.name)">
+              (click)="fileHelper.saveDataURLAsBlob(item?.content, item?.name, item?.extension)">
               <clr-icon shape="download-cloud"></clr-icon> Télécharger le fichier
             </button>
           </div>
