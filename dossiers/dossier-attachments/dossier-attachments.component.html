@@ -13,7 +13,7 @@
     </div>
     <div class="card-block">
       <app-right-holder-dossier-files-view *ngIf="(state?.dossier?.rightHolderDossiers?.length > 0)"
-        [performingAction]="performingAction" [rightHolderDossiers]="state?.dossier?.rightHolderDossiers">
+        [performingAction]="state?.performingAction" [rightHolderDossiers]="state?.dossier?.rightHolderDossiers">
       </app-right-holder-dossier-files-view>
     </div>
   </div>
