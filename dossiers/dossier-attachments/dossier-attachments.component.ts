@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { map, filter } from 'rxjs/operators';
-import { DossierWithFilesConfigInterface } from '../state/models/dossier';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { map, filter, tap } from 'rxjs/operators';
+import { DossierWithFilesConfigInterface, DossierInterface, Dossier } from '../state/models/dossier';
 import { DossiersProvider } from '../state/providers/dossier';
 import { DrewlabsRessourceServerClient } from '../../../../domain/http/core/ressource-server-client';
 import { getDossierUsingID } from '../state/actions/dossier';
@@ -20,14 +20,25 @@ export class DossierAttachmentsComponent implements OnInit {
   }
   @Input() dossier: DossierWithFilesConfigInterface;
   state$ = this.provider.state$.pipe(
-    filter(state  => isDefined(state.currentDossier)),
+    filter(state => isDefined(state.currentDossier)),
     map(state => ({
       ...state,
-      dossier: dossierResponseTypeToApplicationTypeDossier(state?.currentDossier)
+      dossier: (state?.currentDossier instanceof Dossier) ?
+        dossierResponseTypeToApplicationTypeDossier(state?.currentDossier) as (DossierInterface & DossierWithFilesConfigInterface) :
+        state?.currentDossier
     })),
-    doLog('<DossierAttachmentsComponent> state: ')
+    doLog('<DossierAttachmentsComponent> state: '),
+    tap(
+      state => {
+        if (state.dossier) {
+          this.dossierChange.emit(state?.dossier);
+        }
+      }
+    ),
   );
   @Input() performingAction = false;
+
+  @Output() dossierChange = new EventEmitter<DossierInterface & DossierWithFilesConfigInterface>();
 
   constructor(
     private provider: DossiersProvider,
