@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { distinctUntilChanged, } from 'rxjs/operators';
+import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { FileHelperService, TypeUtilHelper } from 'src/app/lib/domain/helpers';
 import { ServerFileInterface } from 'src/app/lib/domain/helpers/file-helper.service';
 import { createStateful, createSubject } from 'src/app/lib/domain/rxjs/helpers';
@@ -35,7 +35,7 @@ export class DossierFilesPresenterComponent implements OnDestroy {
       });
     } else {
       if (!this._loadFromServer) {
-        this.getDossierFiles();
+        this.getDossierFiles().pipe(takeUntil(this._destroy$)).subscribe();
       }
       this._loadFromServer = true;
     }
@@ -53,14 +53,16 @@ export class DossierFilesPresenterComponent implements OnDestroy {
   get dossier(): DossierInterface {
     return this._dossier;
   }
+  @Input() performingAction = false;
+
   constructor(
     private dossiersProvider: DossiersProvider,
     public readonly fileHelper: FileHelperService,
     public readonly typeHelper: TypeUtilHelper
   ) { }
 
-  getDossierFiles(): void {
-    this.dossiersProvider.getDossierFiles(this.dossier).subscribe();
+  getDossierFiles() {
+    return this.dossiersProvider.getDossierFiles(this.dossier);
   }
 
   ngOnDestroy(): void { this._destroy$.next({}); }

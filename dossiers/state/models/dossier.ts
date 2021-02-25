@@ -88,6 +88,7 @@ export interface DossierInterface {
   registrantPhoneNumber: string;
   registrantEmail: string;
   isCompleted: boolean;
+  hasRightHolderProperty: boolean;
 }
 
 export interface DossierWithDetailsType extends DossierInterface {
@@ -117,6 +118,7 @@ export class Dossier implements DossierWithDetailsType {
   regimeId: number = undefined;
   registrantPhoneNumber: string = undefined;
   registrantEmail: string = undefined;
+  rightHolderDossiers: RightHolderDossier[] = undefined;
 
   dossierType: DossierType;
   dossierVoucher: DossierVoucher;
@@ -126,6 +128,10 @@ export class Dossier implements DossierWithDetailsType {
     return isDefined(this.details) && !isEmpty(this.details);
   }
 
+  get hasRightHolderProperty() {
+    return false;
+  }
+
   static builder = () => new GenericSerializaleSerializer(Dossier, new UndecoratedSerializer());
 
   static getJsonableProperties: () => { [prop: string]: { name: keyof Dossier, type: any } | keyof Dossier } = () => ({
@@ -133,6 +139,7 @@ export class Dossier implements DossierWithDetailsType {
     // Relationship definitions
     dossier_type: { name: 'dossierType', type: DossierType },
     dossier_voucher: { name: 'dossierVoucher', type: DossierVoucher },
+    right_holder_dossiers: { name: 'rightHolderDossiers', type: RightHolderDossier },
     details: 'details'
   })
 }
@@ -200,6 +207,14 @@ export class LiquidationDossier implements DossierWithFilesConfigInterface {
   totalDeathCertificateDocuments: number = undefined;
   totalMedicalCertificateDocuments: number = undefined;
   totalPassportPictureDocuments: number = undefined;
+  rightHolderDossiers: RightHolderDossier[] = undefined;
+  registrantPictureSourceFileId: number = undefined;
+  memberDeathCertificateSourceFileId: number = undefined;
+  medicalCertificateSourceFileId: number = undefined;
+
+  get hasRightHolderProperty() {
+    return false;
+  }
 
   static builder = () => new GenericSerializaleSerializer(LiquidationDossier, new UndecoratedSerializer());
 
@@ -233,7 +248,8 @@ export class LiquidationDossier implements DossierWithFilesConfigInterface {
     total_identification_documents: 'totalIdentificationDocuments',
     total_death_certificate_documents: 'totalDeathCertificateDocuments',
     total_medical_certificate_documents: 'totalMedicalCertificateDocuments',
-    total_passport_picture_documents: 'totalPassportPictureDocuments'
+    total_passport_picture_documents: 'totalPassportPictureDocuments',
+    right_holder_dossiers: { name: 'rightHolderDossiers', type: RightHolderDossier },
   })
 }
 
@@ -271,6 +287,11 @@ export class MemberContributionDeclarationDossier implements DossierWithFilesCon
   otherPhonenumber: string = undefined;
   totalPaymentDocuments: number = undefined;
   totalApplicationSheetDocuments: number = undefined;
+  paymentSourceFileID: number = undefined;
+
+  get hasRightHolderProperty() {
+    return false;
+  }
 
   static builder = () => new GenericSerializaleSerializer(MemberContributionDeclarationDossier, new UndecoratedSerializer());
 
@@ -293,7 +314,8 @@ export class MemberContributionDeclarationDossier implements DossierWithFilesCon
     addedFiles: 'addedFiles',
     other_phonenumber: 'otherPhonenumber',
     total_application_sheet_documents: 'totalApplicationSheetDocuments',
-    total_payment_documents: 'totalPaymentDocuments'
+    total_payment_documents: 'totalPaymentDocuments',
+    payment_source_file_id: 'paymentSourceFileID'
   })
 }
 
@@ -351,6 +373,11 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
   birthplace: number = undefined;
   sex: number = undefined;
   civility: number = undefined;
+  rightHolderDossiers: RightHolderDossier[] = undefined;
+
+  get hasRightHolderProperty() {
+    return true;
+  }
 
   static builder = () => new GenericSerializaleSerializer(MembershipDossier, new UndecoratedSerializer());
 
@@ -383,6 +410,7 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
     total_application_sheet_documents: 'totalApplicationSheetDocuments',
     total_identity_file_documents: 'totalIdentityFileDocuments',
     total_passport_picture_documents: 'totalPassportPictureDocuments',
+    right_holder_dossiers: { name: 'rightHolderDossiers', type: RightHolderDossier },
     // birthdate: 'birthdate',
     // birthplace: 'birthplace',
     // sex: 'sex',
@@ -433,6 +461,10 @@ export class GroupedMembershipDossier implements DossierWithFilesConfigInterface
   totalMemberDocuments: number = undefined;
   hasMembersIdFiles: number = undefined;
 
+  get hasRightHolderProperty() {
+    return false;
+  }
+
   static builder = () => new GenericSerializaleSerializer(GroupedMembershipDossier, new UndecoratedSerializer());
 
   static getJsonableProperties: () => {
@@ -457,8 +489,6 @@ export class GroupedMembershipDossier implements DossierWithFilesConfigInterface
     has_members_id_files: 'hasMembersIdFiles'
   })
 }
-
-
 
 export class GroupedContributionDeclarationDossier implements DossierWithFilesConfigInterface {
   id: string | number = undefined;
@@ -498,6 +528,11 @@ export class GroupedContributionDeclarationDossier implements DossierWithFilesCo
   totalApplicationSheetDocuments: number = undefined;
   dncExcelFileId: number = undefined;
   totalDncFileDocuments: number = undefined;
+  paymentSourceFileID: number = undefined;
+
+  get hasRightHolderProperty() {
+    return false;
+  }
 
   static builder = () => new GenericSerializaleSerializer(GroupedContributionDeclarationDossier, new UndecoratedSerializer());
 
@@ -525,5 +560,27 @@ export class GroupedContributionDeclarationDossier implements DossierWithFilesCo
     total_payment_documents: 'totalPaymentDocuments',
     dnc_excel_file_id: 'dncExcelFileId',
     total_dnc_file_documents: 'totalDncFileDocuments',
+    payment_source_file_id: 'paymentSourceFileID'
   })
+}
+export class RightHolderDossier {
+
+  dossierId: string = undefined;
+  fileId: number = undefined;
+  fileURL: string = undefined;
+  file: File = undefined;
+
+  static builder = () => new GenericSerializaleSerializer(RightHolderDossier, new UndecoratedSerializer());
+
+  static getJsonableProperties(): {
+    [prop: string]: { name: keyof RightHolderDossier, type: any } |
+    keyof RightHolderDossier
+  } {
+    return {
+      dossier_id: 'dossierId',
+      file_id: 'fileId',
+      file_url: 'fileURL',
+      file: { name: 'file', type: File },
+    };
+  }
 }
