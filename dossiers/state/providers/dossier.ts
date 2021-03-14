@@ -35,7 +35,9 @@ export class DossiersProvider {
 
   public constructor(
     private client: DrewlabsRessourceServerClient,
-    @Inject('DOSSIER_FILES_ENDOINT') private endpointURL: string) { }
+    @Inject('DOSSIER_FILES_ENDOINT') public readonly filesEndpoint: string,
+    @Inject('DOSSIER_ENDPOINT') public readonly dossierEndpointURL: string
+  ) { }
 
   get state$(): Observable<DossierState> {
     return this.store$.connect();
@@ -46,7 +48,7 @@ export class DossiersProvider {
   }
 
   getDossierFiles(dossier: DossierInterface) {
-    return this.client.get(this.endpointURL, {
+    return this.client.get(this.filesEndpoint, {
       params: {
         _query: JSON.stringify({
           where: [
@@ -72,5 +74,19 @@ export class DossiersProvider {
         return UIStateStatusCode.STATUS_OK;
       })
     );
+  }
+
+  getDossier(id: string | number, params = {}): Observable<Dossier|any> {
+    return this.client.getUsingID(this.dossierEndpointURL, id, { params })
+      .pipe(
+        map((state) => {
+          // tslint:disable-next-line: one-variable-per-declaration
+          const data = getResponseDataFromHttpResponse(state);
+          if (isDefined(data)) {
+            return Dossier.builder().fromSerialized(data);
+          }
+          return data;
+        })
+      )
   }
 }
