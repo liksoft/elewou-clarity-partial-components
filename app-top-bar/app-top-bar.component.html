@@ -1,8 +1,8 @@
 <clr-header class="header">
   <div class="branding">
-    <a class="nav-link" [routerLink]="dashboardRoute" rel="noopener" routerLinkActive="active">
+    <!-- <a class="nav-link" [routerLink]="dashboardRoute" rel="noopener" routerLinkActive="active">
       <span class="title app-logo"><img [src]="elewouLogo" alt="ELEWOU" width="100" height="auto" /></span>
-    </a>
+    </a> -->
     <span class="module_name title"> {{ moduleName }}</span>
   </div>
   <div class="header-nav hide-for-print">
@@ -12,19 +12,6 @@
     </ng-container>
   </div>
   <div class="header-actions hide-for-print">
-    <!-- <clr-dropdown>
-      <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
-        <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" />
-        {{ state?.username }}
-        <clr-icon shape="caret down"></clr-icon>
-      </button>
-      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-        <a [routerLink]="profileRoute" clrDropdownItem *ngIf="true">Mon Profil</a>
-        <a href="..." clrDropdownItem *ngIf="false">Preferences</a>
-        <a (click)="actionLogout($event)" clrDropdownItem>Se Déconnecter</a>
-      </clr-dropdown-menu>
-    </clr-dropdown> -->
-    <!-- Add modules loader -->
-    <app-app-modules [ressourcePath]='modulesBackendRoute'></app-app-modules>
+    <ng-content></ng-content>
   </div>
 </clr-header>

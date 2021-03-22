@@ -5,10 +5,9 @@
   <button type="button" [disabled]="refreshButtonDisabled" [class]="buttonClass" (click)="refreshEvent.emit({})">
     <clr-icon shape="refresh"></clr-icon> Actualiser
   </button>
-  <drewlabs-ressource-assignment *ngIf="showAssignmentButton" (assignmentCompletedSuccessfully)="assigned.emit({})"
-    [collectionID]="assignableEntity" [permission]="authorizations" [buttonDisabled]="assignmentButtonDisabled"
-    [selectedIds]="selectedIds" [triggerButtonClass]="buttonClass">
-  </drewlabs-ressource-assignment>
+  <!-- Other datagrid header components -->
+  <ng-content></ng-content>
+  <!-- Ends Other datagrid header components -->
   <clr-dropdown *ngIf="showExportDropdown">
     <button type="button" [disabled]="excelDropDownDisabled" [class]="buttonClass" clrDropdownTrigger>
       Exporter

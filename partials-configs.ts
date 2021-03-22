@@ -26,12 +26,6 @@ export const adminPath = adminModuleRoutes;
 // Route definitions for backend ressources
 export const backendRoutePaths = backendRoutes;
 
-// Ressources Datasource Injection Tokens
-// Admin Module
-export const USERS_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'UsersDatasource';
-// Department Data source provider key
-export const DEPARTMENT_PAGINATOR_DATASOURCE_INJECTION_TOKEN = 'DepartmentDataSource';
-
 
 // Fixed value of the currency used in the application
 export const APPLICATION_CURRENCY = 'XOF';

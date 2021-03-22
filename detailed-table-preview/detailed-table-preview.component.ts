@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { getJSObjectPropertyValue } from 'src/app/lib/domain/utils';
+import { Component, Input } from '@angular/core';
+import { getJSObjectPropertyValue } from 'src/app/lib/core/utils';
 
 @Component({
   selector: 'app-detailed-table-preview',

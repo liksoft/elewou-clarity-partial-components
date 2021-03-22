@@ -1,15 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
-import { AuthPathConfig, AuthService } from 'src/app/lib/domain/auth/core';
-import { Router } from '@angular/router';
-import { TranslationService } from 'src/app/lib/domain/translator';
-import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
-import { Collection } from 'src/app/lib/domain/collections';
-import { Dialog, isDefined } from 'src/app/lib/domain/utils';
-import { IAppUser } from '../../../domain/auth/contracts/v2';
-import { map } from 'rxjs/operators';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/core/routes';
+import { AbstractAlertableComponent } from 'src/app/lib/core/helpers/component-interfaces';
+import { AppUIStoreManager } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
+import { defaultPath, adminPath } from '../partials-configs';
+import { Collection } from 'src/app/lib/core/collections';
+import { isDefined } from 'src/app/lib/core/utils';
 
 @Component({
   selector: 'app-app-top-bar',
@@ -44,14 +39,8 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   @Input() public moduleName: string;
   @Input() public applicationName: string;
 
-  public modulesBackendRoute = backendRoutePaths.modules;
-
   constructor(
     public appUIStoreManager: AppUIStoreManager,
-    private auth: AuthService,
-    private translator: TranslationService,
-    private dialog: Dialog,
-    private router: Router
   ) {
     super(appUIStoreManager);
     this.navigationRoutes = new Collection();

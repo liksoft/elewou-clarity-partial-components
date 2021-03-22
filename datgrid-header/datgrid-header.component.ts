@@ -18,13 +18,8 @@ export class DatgridHeaderComponent {
   // Component input properties
   @Input() createButtonDisabled = false;
   @Input() refreshButtonDisabled = false;
-  @Input() assignmentButtonDisabled = false;
   @Input() excelDropDownDisabled = false;
   @Input() showExportDropdown = false;
-  @Input() showAssignmentButton = false;
-  @Input() authorizations: string|string[];
-  @Input() selectedIds: number[];
-  @Input() assignableEntity: string|number;
   @Input() buttonClass = 'btn btn-sm btn-secondary';
 
 }

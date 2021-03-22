@@ -1,5 +1,5 @@
 import * as lodash from 'lodash';
-import { DefaultStoreAction, StoreAction } from '../../../../../../domain/rxjs/state/rx-state';
+import { DefaultStoreAction, StoreAction } from '../../../../../../core/rxjs/state/rx-state';
 import { ModulesState, ModulesStoreActions } from '../actions/module';
 import { ModuleV2 } from '../models/module';
 

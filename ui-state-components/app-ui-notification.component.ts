@@ -1,13 +1,13 @@
 import { Component, Input, ChangeDetectionStrategy, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { map, tap, takeUntil } from 'rxjs/operators';
-import { UIStateStatusCode, uiStatusUsingHttpErrorResponse } from 'src/app/lib/domain/helpers';
-import { HttpRequestService } from 'src/app/lib/domain/http/core';
-import { createSubject } from 'src/app/lib/domain/rxjs/helpers';
-import { isDefined } from 'src/app/lib/domain/utils';
-import { ConnectionStatus, OnlineStateMonitoringService } from 'src/app/lib/domain/components/online-state-monitoring';
-import { createStateful } from 'src/app/lib/domain/rxjs/helpers/index';
+import { UIStateStatusCode, uiStatusUsingHttpErrorResponse } from 'src/app/lib/core/helpers';
+import { HttpRequestService } from 'src/app/lib/core/http/core';
+import { createSubject } from 'src/app/lib/core/rxjs/helpers';
+import { isDefined } from 'src/app/lib/core/utils';
+import { ConnectionStatus, OnlineStateMonitoringService } from 'src/app/lib/core/components/online-state-monitoring';
+import { createStateful } from 'src/app/lib/core/rxjs/helpers/index';
 import { combineLatest } from 'rxjs';
-import { UIState } from '../../../domain/helpers/app-ui-store-manager.service';
+import { UIState } from '../../../core/helpers/app-ui-store-manager.service';
 
 @Component({
   selector: 'app-ui-notification',

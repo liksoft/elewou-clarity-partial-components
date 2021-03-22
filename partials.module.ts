@@ -5,10 +5,8 @@ import { SharedModule } from '../shared.module';
 import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppModuleModule } from './app-modules/app-modules.module';
-import { DossiersModule } from './dossiers/dossiers.module';
 import { DatagridHeaderModule } from './datgrid-header/datagrid-header.module';
 import { DetailedTablePreviewComponent } from './detailed-table-preview/detailed-table-preview.component';
 
@@ -24,9 +22,7 @@ import { DetailedTablePreviewComponent } from './detailed-table-preview/detailed
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
-    RessourceRequestProcessingModule,
     AppModuleModule,
-    DossiersModule,
     DatagridHeaderModule,
     DetailedTablePreviewComponent
   ],
@@ -38,4 +34,6 @@ import { DetailedTablePreviewComponent } from './detailed-table-preview/detailed
   ],
   providers: []
 })
-export class PartialsModule { }
+export class PartialsModule {
+  
+}

@@ -4,10 +4,5 @@ export const backendRoutes = {
   roles: 'roles',
   authorizations: 'authorizations',
   users: 'users',
-  globalConfigurationsPath: 'ressources/application-configurations',
-  regimesPath: 'ressources/regimes',
-  branchesPath: 'ressources/branches',
-  subBranchesPath: 'ressources/sub-branches',
-  notificationTplsPath: 'ressources/notification-templates',
-  notificationsPath: 'ressources/notifications',
+  globalConfigurationsPath: 'ressources/application-configurations'
 };
