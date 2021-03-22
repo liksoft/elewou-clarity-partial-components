@@ -1,4 +1,4 @@
-<clr-header class="header header-5">
+<clr-header class="header">
   <div class="branding">
     <a class="nav-link" [routerLink]="dashboardRoute" rel="noopener" routerLinkActive="active">
       <span class="title app-logo"><img [src]="elewouLogo" alt="ELEWOU" width="100" height="auto" /></span>
@@ -11,8 +11,8 @@
         getRouteLinkFromMap(item.key)?.routeDescription }}</a>
     </ng-container>
   </div>
-  <div class="header-actions hide-for-print" *ngIf="state$ | async as state">
-    <clr-dropdown>
+  <div class="header-actions hide-for-print">
+    <!-- <clr-dropdown>
       <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
         <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" />
         {{ state?.username }}
@@ -23,7 +23,7 @@
         <a href="..." clrDropdownItem *ngIf="false">Preferences</a>
         <a (click)="actionLogout($event)" clrDropdownItem>Se Déconnecter</a>
       </clr-dropdown-menu>
-    </clr-dropdown>
+    </clr-dropdown> -->
     <!-- Add modules loader -->
     <app-app-modules [ressourcePath]='modulesBackendRoute'></app-app-modules>
   </div>

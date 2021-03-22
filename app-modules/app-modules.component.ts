@@ -1,10 +1,10 @@
-import { Component, Input, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { backendRoutePaths } from '../partials-configs';
 import { ModulesProvider } from './core/v2/providers/module';
-import { DrewlabsRessourceServerClient } from '../../../core/http/core/ressource-server-client';
+import { DrewlabsRessourceServerClient } from '../../../domain/http/core/ressource-server-client';
 import { getModulesAction } from './core/v2/actions/module';
-import { emptyObservable } from '../../../core/rxjs/helpers/index';
+import { emptyObservable } from '../../../domain/rxjs/helpers/index';
 
 @Component({
   selector: 'app-app-modules',
@@ -12,7 +12,7 @@ import { emptyObservable } from '../../../core/rxjs/helpers/index';
   styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppModulesComponent implements AfterViewInit {
+export class AppModulesComponent implements OnInit {
 
   // tslint:disable-next-line: variable-name
   @Input() ressourcePath: string;
@@ -31,7 +31,7 @@ export class AppModulesComponent implements AfterViewInit {
     private client: DrewlabsRessourceServerClient
   ) { }
 
-  async ngAfterViewInit() {
+  async ngOnInit() {
     getModulesAction(this.provider.store$)(this.client, this.ressourcePath || backendRoutePaths.modules);
   }
 

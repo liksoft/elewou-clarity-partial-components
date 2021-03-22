@@ -6,49 +6,36 @@ import { AppTopBarComponent } from './app-top-bar/app-top-bar.component';
 import { PageTitleComponent } from './page-title/page-title.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RessourceRequestProcessingModule } from './ressource-request-processing/ressource-request-processing.module';
-import { RessourceRequestProcessingService } from './ressource-request-processing/ressource-request-processing.service';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppModuleModule } from './app-modules/app-modules.module';
-import { DatgridHeaderComponent } from './datgrid-header/datgrid-header.component';
-import { ModuleDossierDepositsComponent } from './dossiers/module-dossier-deposits.component';
-import { DossierFilesPresenterComponent } from './dossiers/dossier-files-presenter/dossier-files-presenter.component';
+import { DossiersModule } from './dossiers/dossiers.module';
+import { DatagridHeaderModule } from './datgrid-header/datagrid-header.module';
+import { DetailedTablePreviewComponent } from './detailed-table-preview/detailed-table-preview.component';
 
 @NgModule({
   imports: [
     RouterModule,
     CommonModule,
     SharedModule,
-    RessourceRequestProcessingModule,
     ScrollingModule,
-    AppModuleModule],
+    AppModuleModule
+  ],
   exports: [
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
     RessourceRequestProcessingModule,
     AppModuleModule,
-    DatgridHeaderComponent,
-    ModuleDossierDepositsComponent,
-    DossierFilesPresenterComponent
+    DossiersModule,
+    DatagridHeaderModule,
+    DetailedTablePreviewComponent
   ],
   declarations: [
     AppTopBarComponent,
     PageTitleComponent,
     SidebarComponent,
-    DatgridHeaderComponent,
-    ModuleDossierDepositsComponent,
-    DossierFilesPresenterComponent
+    DetailedTablePreviewComponent
   ],
-  providers: [
-    RessourceRequestProcessingService,
-    {
-      provide: 'DOSSIER_FILES_ENDOINT',
-      useValue: 'dossier-files'
-    },
-    {
-      provide: 'DOSSIER_ENDPOINT',
-      useValue: 'dossiers'
-    }
-  ]
+  providers: []
 })
 export class PartialsModule { }

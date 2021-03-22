@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { createStore } from 'src/app/lib/core/rxjs/state/rx-state';
+import { createStore } from 'src/app/lib/domain/rxjs/state/rx-state';
 import { DossierTypeState } from '../actions/dossier-type';
 import { dossierTypeReducer } from '../reducers/dossier-type';
 

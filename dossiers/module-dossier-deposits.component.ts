@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ClrDatagrid, ClrDatagridStateInterface } from '@clr/angular';
 import { debounceTime, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { DrewlabsRessourceServerClient } from 'src/app/lib/core/http/core';
-import { mapPaginatorStateWith } from 'src/app/lib/core/pagination/helpers';
-import { createSubject, observableOf } from 'src/app/lib/core/rxjs/helpers';
-import { doLog } from 'src/app/lib/core/rxjs/operators';
-import { isDefined } from 'src/app/lib/core/utils';
+import { DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
+import { mapPaginatorStateWith } from 'src/app/lib/domain/pagination/helpers';
+import { createSubject, observableOf } from 'src/app/lib/domain/rxjs/helpers';
+import { doLog } from 'src/app/lib/domain/rxjs/operators';
+import { isDefined } from 'src/app/lib/domain/utils';
 import { onDossierAction, paginateDossiersAction } from './state/actions/dossier';
 import { dossierResponseTypeToApplicationTypeDossier } from './state/helpers';
-import { Dossier, DossierFileConfigInterface, DossierInterface } from './state/models/dossier';
+import { Dossier, DossierWithFilesConfigInterface, DossierInterface } from './state/models/dossier';
 import { DossiersProvider } from './state/providers/dossier';
 import * as _ from 'lodash';
 
@@ -44,7 +44,7 @@ export class ModuleDossierDepositsComponent implements OnInit {
           state.collections.data.map(value => {
             // return dossierResponseTypeToApplicationTypeDossier(value);
             return (value instanceof Dossier) ?
-              dossierResponseTypeToApplicationTypeDossier(value) as (DossierInterface & DossierFileConfigInterface) :
+              dossierResponseTypeToApplicationTypeDossier(value) as (DossierInterface & DossierWithFilesConfigInterface) :
               value;
           }) : []
       }

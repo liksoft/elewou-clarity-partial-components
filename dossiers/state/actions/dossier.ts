@@ -1,14 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isObject } from 'lodash';
 import { catchError, map } from 'rxjs/operators';
-import { DrewlabsHttpResponseStatusCode, DrewlabsRessourceServerClient } from 'src/app/lib/core/http/core';
-import { createAction, DefaultStoreAction, DrewlabsFluxStore, onErrorAction, StoreAction } from 'src/app/lib/core/rxjs/state/rx-state';
+import { DrewlabsHttpResponseStatusCode, DrewlabsRessourceServerClient } from 'src/app/lib/domain/http/core';
+import { createAction, DefaultStoreAction, DrewlabsFluxStore, onErrorAction, StoreAction } from 'src/app/lib/domain/rxjs/state/rx-state';
 import { Dossier } from '../models/dossier';
-import { getResponseDataFromHttpResponse } from 'src/app/lib/core/http/helpers';
-import { emptyObservable } from 'src/app/lib/core/rxjs/helpers';
-import { isArray, isDefined } from 'src/app/lib/core/utils';
-import { UIStateStatusCode } from 'src/app/lib/core/helpers';
-import { PaginationDataState } from 'src/app/lib/core/rxjs/types';
+import { getResponseDataFromHttpResponse } from 'src/app/lib/domain/http/helpers';
+import { emptyObservable } from 'src/app/lib/domain/rxjs/helpers';
+import { isArray, isDefined } from 'src/app/lib/domain/utils';
+import { UIStateStatusCode } from 'src/app/lib/domain/helpers';
+import { PaginationDataState } from 'src/app/lib/domain/rxjs/types';
 
 export enum DossierStoreActions {
   GET_ALL_VALUES = '[GET_ALL_DOSSIERS]',
@@ -16,7 +16,9 @@ export enum DossierStoreActions {
   CREATE_RESULT_ACTION = '[CREATE_DOSSIER_RESULT]',
   UPDATE_RESULT_ACTION = '[UPDATE_DOSSIER_RESULT]',
   DELETE_RESULT_ACTION = '[DELETE_DOSSIER_RESULT]',
-  NEW_VALUE_ACTION = '[NEW_DOSSIER]'
+  NEW_VALUE_ACTION = '[NEW_DOSSIER]',
+  CREATE_RIGHT_HOLDER_DOSSIERS_ACTION = '[CREATE_RIGHT_HOLDER_DOSSIERS]',
+  DELETE_RIGHT_HOLDER_DOSSIERS_ACTION = '[DELETE_RIGHT_HOLDER_DOSSIERS]'
 }
 
 export class DossierState {
@@ -184,3 +186,76 @@ export const onDossierAction = (
   store: DrewlabsFluxStore<DossierState, Partial<StoreAction>>) =>
   createAction(store, (payload: Dossier) =>
     ({ type: DossierStoreActions.NEW_VALUE_ACTION, payload }));
+
+    export const createDossierRightHolderDossiersAction = (store: DrewlabsFluxStore<Partial<DossierState>, Partial<StoreAction>>) =>
+    createAction(
+      store, (dossier: Dossier, client: DrewlabsRessourceServerClient, path: string, body: { [index: string]: any }, params: { [index: string]: any } = {}) => {
+        return {
+          type: DefaultStoreAction.ASYNC_UI_ACTION,
+          payload: client.create(
+            `${path}/${dossier?.id}`,
+            body,
+            params
+          ).pipe(
+            map(state => {
+              // tslint:disable-next-line: one-variable-per-declaration
+              const data = getResponseDataFromHttpResponse(state);
+              // Parse and return the loaded data
+              if (data && isArray(data)) {
+                return dossierUpdatedAction(store)(
+                  {
+                    updateResult: UIStateStatusCode.STATUS_OK,
+                    currentDossier: Dossier.builder().rebuild(dossier, { rightHolderDossiers: (dossier.rightHolderDossiers || []).concat(data) })
+                  });
+              }
+            }),
+            catchError(err => {
+              if (err instanceof HttpErrorResponse) {
+                const errorResponse = client.handleErrorResponse(err);
+                onErrorAction(store)(errorResponse);
+              } else {
+                onErrorAction(store)(err);
+              }
+              return emptyObservable();
+            })
+          )
+        };
+      });
+
+  export const deleteDossierRightHolderDossiersAction = (store: DrewlabsFluxStore<Partial<DossierState>, Partial<StoreAction>>) =>
+    createAction(
+      store, (dossier: Dossier, fileId: number, client: DrewlabsRessourceServerClient, path: string, params: { [index: string]: any } = {}) => {
+        return {
+          type: DefaultStoreAction.ASYNC_UI_ACTION,
+          payload: client.delete(
+            `${path}/${dossier?.id}/${fileId}`,
+            params
+          ).pipe(
+            map(state => {
+              // tslint:disable-next-line: one-variable-per-declaration
+              const data = getResponseDataFromHttpResponse(state);
+              // Parse and return the loaded data
+              if (data) {
+                return dossierUpdatedAction(store)(
+                  {
+                    createResult: UIStateStatusCode.STATUS_OK,
+                    currentDossier: Dossier.builder().rebuild(dossier, {
+                      rightHolderDossiers: (dossier.rightHolderDossiers || []).filter((item) => {
+                        return (item.dossierId !== dossier?.id) && (item?.fileId !== fileId);
+                      })
+                    })
+                  });
+              }
+            }),
+            catchError(err => {
+              if (err instanceof HttpErrorResponse) {
+                const errorResponse = client.handleErrorResponse(err);
+                onErrorAction(store)(errorResponse);
+              } else {
+                onErrorAction(store)(err);
+              }
+              return emptyObservable();
+            })
+          )
+        };
+      });
