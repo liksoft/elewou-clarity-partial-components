@@ -6,7 +6,7 @@
     <clr-icon shape="refresh"></clr-icon> Actualiser
   </button>
   <drewlabs-ressource-assignment *ngIf="showAssignmentButton" (assignmentCompletedSuccessfully)="assigned.emit({})"
-    [collectionID]="assignableEntity" [permission]="permissions" [buttonDisabled]="assignmentButtonDisabled"
+    [collectionID]="assignableEntity" [permission]="authorizations" [buttonDisabled]="assignmentButtonDisabled"
     [selectedIds]="selectedIds" [triggerButtonClass]="buttonClass">
   </drewlabs-ressource-assignment>
   <clr-dropdown *ngIf="showExportDropdown">

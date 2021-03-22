@@ -2,7 +2,7 @@ export const backendRoutes = {
   modules: 'ressources/modules',
   departmentPath: 'departments',
   roles: 'roles',
-  permissions: 'permissions',
+  authorizations: 'authorizations',
   users: 'users',
   globalConfigurationsPath: 'ressources/application-configurations'
 };

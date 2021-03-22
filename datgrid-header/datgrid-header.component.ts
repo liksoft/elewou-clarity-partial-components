@@ -22,7 +22,7 @@ export class DatgridHeaderComponent {
   @Input() excelDropDownDisabled = false;
   @Input() showExportDropdown = false;
   @Input() showAssignmentButton = false;
-  @Input() permissions: string|string[];
+  @Input() authorizations: string|string[];
   @Input() selectedIds: number[];
   @Input() assignableEntity: string|number;
   @Input() buttonClass = 'btn btn-sm btn-secondary';

@@ -1,6 +1,6 @@
 import { appAccessControlList } from './access-control-list';
 
-export const adminPermissions = [
+export const adminAuthorizations = [
   appAccessControlList.create_departments,
   appAccessControlList.update_departments,
   appAccessControlList.delete_departments,

@@ -40,6 +40,4 @@ export const imagesMimeExtensions = ['bmp', 'gif', 'ico', 'jpg', 'jpeg', 'png', 
 
 
 // Export authorizations
-export {
-  adminPermissions,
-} from './modules-authorizations';
+export { adminAuthorizations } from './modules-authorizations';
