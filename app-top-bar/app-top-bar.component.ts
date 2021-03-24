@@ -70,4 +70,14 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   public getRouteLinkFromMap(key: string): RouteLink {
     return this.navigationRoutes.get(key);
   }
+
+  async actionLogout(event: Event): Promise<void> {
+    event.preventDefault();
+    const translation = await this.translator.translate('promptLogout').toPromise();
+    if (this.dialog.confirm(translation)) {
+      this.appUIStoreManager.initializeUIStoreAction();
+      await this.auth.logout().toPromise();
+    }
+  }
+
 }
