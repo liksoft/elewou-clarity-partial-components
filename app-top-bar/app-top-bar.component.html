@@ -1,8 +1,8 @@
 <clr-header class="header">
   <div class="branding">
-    <!-- <a class="nav-link" [routerLink]="dashboardRoute" rel="noopener" routerLinkActive="active">
-      <span class="title app-logo"><img [src]="elewouLogo" alt="ELEWOU" width="100" height="auto" /></span>
-    </a> -->
+    <a class="nav-link" [routerLink]="dashboardRoute" rel="noopener" routerLinkActive="active">
+      <span class="title app-logo">{{ applicationName }}</span>
+    </a>
     <span class="module_name title"> {{ moduleName }}</span>
   </div>
   <div class="header-nav hide-for-print">
@@ -12,6 +12,5 @@
     </ng-container>
   </div>
   <div class="header-actions hide-for-print">
-    <ng-content></ng-content>
   </div>
 </clr-header>
