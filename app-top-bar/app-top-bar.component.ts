@@ -14,19 +14,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-app-top-bar',
   templateUrl: './app-top-bar.component.html',
-  styles: [
-    `
-      .title {
-        padding: 0 16px;
-      }
-      .header .branding, header .branding {
-        padding: 0 0 0 1rem;
-      }
-      .app-logo{
-        width: 20%;
-      }
-    `
-  ]
+  styles: []
 })
 export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
 
@@ -80,4 +68,15 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   public getRouteLinkFromMap(key: string): RouteLink {
     return this.navigationRoutes.get(key);
   }
+
+
+  async actionLogout(event: Event): Promise<void> {
+    event.preventDefault();
+    const translation = await this.translator.translate('promptLogout').toPromise();
+    if (this.dialog.confirm(translation)) {
+      this.appUIStoreManager.initializeUIStoreAction();
+      await this.auth.logout().toPromise();
+    }
+  }
+
 }

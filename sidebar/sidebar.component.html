@@ -1,4 +1,4 @@
-<div class="user-container" *ngIf="state$ | async as state">
+<!-- <div class="user-container" *ngIf="state$ | async as state">
   <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" />
   <clr-dropdown>
     <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
@@ -11,7 +11,7 @@
       <a (click)="actionLogout($event)" clrDropdownItem>Se Déconnecter</a>
     </clr-dropdown-menu>
   </clr-dropdown>
-</div>
+</div> -->
 <ng-container *ngIf="state$ | async as user">
   <ng-container *ngFor="let item of routesMap">
     <clr-vertical-nav-group routerLinkActive="active" *ngIf="typeHelper.isDefined(item?.children) && hasAuthorizations(user, getRouteLinkFromMap(item.key)?.routePermissions)">
