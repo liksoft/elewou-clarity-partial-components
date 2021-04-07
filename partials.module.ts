@@ -24,7 +24,7 @@ import { DetailedTablePreviewComponent } from './detailed-table-preview/detailed
     SidebarComponent,
     AppModuleModule,
     DatagridHeaderModule,
-    DetailedTablePreviewComponent
+    DetailedTablePreviewComponent,
   ],
   declarations: [
     AppTopBarComponent,

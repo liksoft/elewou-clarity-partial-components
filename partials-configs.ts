@@ -12,7 +12,7 @@ export const partialConfigs = {
       dashboardHomeRoute: 'dashboard/home',
       homeRoute: 'home',
     },
-    adminModuleRoutes
+    adminModuleRoutes,
   },
   acl: appAccessControlList,
   backendRoutesPaths: backendRoutes

@@ -1,4 +1,10 @@
 export const routeDefinitions = {
+
+  right_list: 'right_list',
+  right_store: 'right_store',
+  right_update: 'right_update',
+  right_delete: 'right_delete',
+  
   // Management routes
   managementsRoute: 'managements',
   // Account routes
