@@ -3,12 +3,12 @@ import {
   postRessource,
   deleteRessource,
   putRessource
-} from 'src/app/lib/domain/contracts/abstract-request-client';
-import { HttpRequestService, IResponseBody } from 'src/app/lib/domain/http/core';
-import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
-import { TranslationService } from 'src/app/lib/domain/translator/translator.service';
+} from 'src/app/lib/core/contracts/abstract-request-client';
+import { HttpRequestService, IResponseBody } from 'src/app/lib/core/http/core';
+import { ISerializableBuilder } from 'src/app/lib/core/built-value/contracts/serializers';
+import { TranslationService } from 'src/app/lib/core/translator/translator.service';
 import { RessourceAssignment } from './ressource-assignment';
-import { isDefined } from 'src/app/lib/domain/utils';
+import { isDefined } from 'src/app/lib/core/utils';
 
 @Injectable()
 export class RessourceRequestProcessingService {

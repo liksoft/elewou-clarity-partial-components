@@ -1,14 +1,14 @@
 import { ModuleV2 } from '../models/module';
-import { PaginationData } from '../../../../../../domain/pagination/types';
-import { GenericUndecoratedSerializaleSerializer } from '../../../../../../domain/built-value/core/js/serializer';
-import { createAction, DefaultStoreAction, DrewlabsFluxStore, onErrorAction, StoreAction } from '../../../../../../domain/rxjs/state/rx-state';
-import { DrewlabsRessourceServerClient } from '../../../../../../domain/http/core/ressource-server-client';
+import { PaginationData } from '../../../../../../core/pagination/types';
+import { GenericUndecoratedSerializaleSerializer } from '../../../../../../core/built-value/core/js/serializer';
+import { createAction, DefaultStoreAction, DrewlabsFluxStore, onErrorAction, StoreAction } from '../../../../../../core/rxjs/state/rx-state';
+import { DrewlabsRessourceServerClient } from '../../../../../../core/http/core/ressource-server-client';
 import { catchError, map } from 'rxjs/operators';
-import { isArray, isDefined, isObject } from '../../../../../../domain/utils';
-import { emptyObservable } from '../../../../../../domain/rxjs/helpers';
-import { getResponseDataFromHttpResponse } from '../../../../../../domain/http/helpers/http-response';
+import { isArray, isDefined, isObject } from '../../../../../../core/utils';
+import { emptyObservable } from '../../../../../../core/rxjs/helpers';
+import { getResponseDataFromHttpResponse } from '../../../../../../core/http/helpers/http-response';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Log } from '../../../../../../domain/utils/logger';
+import { Log } from '../../../../../../core/utils/logger';
 
 export interface ModulesState {
   performingAction: boolean;
