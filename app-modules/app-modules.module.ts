@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { HttpRequestService } from 'src/app/lib/domain/http/core';
-import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
-import { AbstractEntityProvider, DefaultEntityHandler } from 'src/app/lib/domain/entity';
+import { HttpRequestService } from 'src/app/lib/core/http/core';
+import { TypeUtilHelper } from 'src/app/lib/core/helpers/type-utils-helper';
+import { AbstractEntityProvider, DefaultEntityHandler } from 'src/app/lib/core/entity';
 import { Module } from './core/module';
-import { SessionStorage } from 'src/app/lib/domain/storage/core';
-import { GenericPaginatorDatasource } from 'src/app/lib/domain/helpers/paginator';
+import { SessionStorage } from 'src/app/lib/core/storage/core';
+import { GenericPaginatorDatasource } from 'src/app/lib/core/helpers/paginator';
 import { ClarityModule } from '@clr/angular';
 import { CommonModule } from '@angular/common';
 import { AppModulesComponent } from './app-modules.component';
-import { DeclarativeEntityProvider } from 'src/app/lib/domain/entity/declarative-entity-provider';
-import { ISerializableBuilder } from 'src/app/lib/domain/built-value/contracts/serializers';
+import { DeclarativeEntityProvider } from 'src/app/lib/core/entity/declarative-entity-provider';
+import { ISerializableBuilder } from 'src/app/lib/core/built-value/contracts/serializers';
 
 @NgModule({
   exports: [

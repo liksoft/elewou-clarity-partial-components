@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutesMap } from 'src/app/lib/domain/routes';
+import { RoutesMap } from 'src/app/lib/core/routes';
 import { defaultPath, comptabilitePath, cptaPermissions, partialConfigs } from '../partials-configs';
 
 @Component({

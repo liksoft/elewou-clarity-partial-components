@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AbstractAlertableComponent } from 'src/app/lib/domain/helpers/component-interfaces';
+import { AbstractAlertableComponent } from 'src/app/lib/core/helpers/component-interfaces';
 import { partialConfigs } from '../../partials-configs';
-import { AppUIStoreManager } from 'src/app/lib/domain/helpers/app-ui-store-manager.service';
-import { AuthService, AuthPathConfig } from 'src/app/lib/domain/auth/core';
-import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/domain/routes';
-import { TranslationService } from 'src/app/lib/domain/translator';
+import { AppUIStoreManager } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
+import { AuthService, AuthPathConfig } from 'src/app/lib/core/auth/core';
+import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/core/routes';
+import { TranslationService } from 'src/app/lib/core/translator';
 import { Router } from '@angular/router';
-import { TypeUtilHelper } from 'src/app/lib/domain/helpers/type-utils-helper';
-import { Collection } from 'src/app/lib/domain/collections';
-import { Dialog } from 'src/app/lib/domain/utils';
-import { User } from 'src/app/lib/domain/auth/contracts/v2';
+import { TypeUtilHelper } from 'src/app/lib/core/helpers/type-utils-helper';
+import { Collection } from 'src/app/lib/core/collections';
+import { Dialog } from 'src/app/lib/core/utils';
+import { User } from 'src/app/lib/core/auth/contracts/v2';
 
 @Component({
   selector: 'app-client-top-bar',
