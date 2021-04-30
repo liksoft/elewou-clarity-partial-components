@@ -7,12 +7,12 @@
     <span class="module_name title"> {{ moduleName }}</span>
   </div>
   <div class="header-nav hide-for-print">
-    <ng-container *ngFor="let item of routesMap">
+    <!-- <ng-container *ngFor="let item of routesMap">
       <a [routerLink]="getRouteLinkFromMap(item.key)?.routePath" routerLinkActive="active" class="nav-link nav-text">{{
         getRouteLinkFromMap(item.key)?.routeDescription }}</a>
-    </ng-container>
+    </ng-container> -->
   </div>
-  <div class="header-actions hide-for-print" *ngIf="state$ | async as state">
+  <!-- <div class="header-actions hide-for-print" *ngIf="state$ | async as state">
     <clr-dropdown>
       <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
         {{ state?.username }}
@@ -24,7 +24,5 @@
         <a (click)="actionLogout($event)" clrDropdownItem>Se Déconnecter</a>
       </clr-dropdown-menu>
     </clr-dropdown>
-    <!-- Add modules loader -->
-    <!-- <app-app-modules [ressourcePath]='modulesBackendRoute'></app-app-modules> -->
-  </div>
+  </div> -->
 </clr-header>
