@@ -22,12 +22,8 @@ export const routeDefinitions = {
   // Receipts 
   controlReceiptRoute: 'receipt/control',
   enrollReceiptRoute: 'receipt/enroll',
-
-  // Receipts 
-  controlReceiptRoute: 'receipt/control',
-  enrollReceiptRoute: 'receipt/enroll',
-
+  
   // Réglages de controles
-  userProfileRoute: 'settings/userprofile',
+  userProfileRoute: 'settings/userprofile', 
   userChangePassRoute: 'settings/changepassword', 
 };
