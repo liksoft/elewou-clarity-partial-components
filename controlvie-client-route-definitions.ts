@@ -8,7 +8,7 @@ export const routeDefinitions = {
   enrollUserFacialRoute: 'enroll/userFacial',
   enrollUserVoiceRoute: 'enroll/uservoice',
   enrollUserFingerPrintsRoute: 'enroll/userfingerprint',
-  enrollUserReceiptRoute: 'enroll/userreceipt',
+  enrollUserReceiptRoute: 'enroll/receipt',
 
   // Controle de Vie
   controlStartRoute: 'control/start', 
@@ -17,7 +17,11 @@ export const routeDefinitions = {
   controlUserFacialRoute: 'control/userFacial',
   controlUserVoiceRoute: 'control/uservoice',
   controlUserFingerPrintsRoute: 'control/userfingerprint', 
-  controlUserReceiptRoute: 'control/userreceipt',
+  controlUserReceiptRoute: 'control/receipt',
+
+  // Receipts 
+  controlReceiptRoute: 'receipt/control',
+  enrollReceiptRoute: 'receipt/enroll',
 
   // Réglages de controles
   userProfileRoute: 'settings/userprofile',
