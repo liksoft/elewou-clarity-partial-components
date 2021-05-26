@@ -1,6 +1,7 @@
 export const routeDefinitions = {
   // user
   userDashboard : 'home',
+  checkUserAuthRoute : 'checkauth',
   // Enrolement
   enrollDashboardRoute: 'enroll/dashboard',
   enrollDemographicRoute: 'enroll/demographic',
