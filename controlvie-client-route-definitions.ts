@@ -2,6 +2,7 @@ export const routeDefinitions = {
   // user
   userDashboard : 'home',
   checkUserAuthRoute : 'checkauth',
+  verfyDataRoute : 'checkauth/verify',
   // Enrolement
   enrollDashboardRoute: 'enroll/dashboard',
   enrollDemographicRoute: 'enroll/demographic',
