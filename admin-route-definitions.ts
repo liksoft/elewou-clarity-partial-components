@@ -30,5 +30,8 @@ export const routeDefinitions = {
   // Module management routes
   createDepartmentRoute: 'department',
   // Configurations
-  globalConfigurationsRoute: 'configurations-globales'
+  globalConfigurationsRoute: 'configurations-globales',
+
+  // Form Control options route
+  controlOptionsRoute: 'form-control-options',
 };
