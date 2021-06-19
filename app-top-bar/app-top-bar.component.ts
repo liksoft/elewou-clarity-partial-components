@@ -3,13 +3,12 @@ import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem }
 import { AuthPathConfig, AuthService } from 'src/app/lib/core/auth/core';
 import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/lib/core/translator';
-import { AbstractAlertableComponent } from 'src/app/lib/core/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
 import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
 import { Collection } from 'src/app/lib/core/collections';
 import { Dialog, isDefined } from 'src/app/lib/core/utils';
 import { IAppUser } from '../../../core/auth/contracts/v2';
 import { map } from 'rxjs/operators';
+import { AppUIStateProvider } from 'src/app/lib/core/ui-state';
 
 @Component({
   selector: 'app-app-top-bar',
@@ -28,7 +27,7 @@ import { map } from 'rxjs/operators';
     `
   ]
 })
-export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
+export class AppTopBarComponent implements OnInit {
 
   // public elewouLogo = '/assets/images/logo-elewou-main.png';
   public elewouLogo = '/assets/images/logo-elewou-main-dark.png';
@@ -56,13 +55,12 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   );
 
   constructor(
-    public appUIStoreManager: AppUIStoreManager,
+    public uiState: AppUIStateProvider,
     private auth: AuthService,
     private translator: TranslationService,
     private dialog: Dialog,
     private router: Router
   ) {
-    super(appUIStoreManager);
     this.navigationRoutes = new Collection();
   }
 
@@ -94,14 +92,14 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
     this.router.navigate([AuthPathConfig.LOGIN_PATH], {
       replaceUrl: true
     });
-    this.appUIStoreManager.completeUIStoreAction();
+    this.uiState.endAction();
   }
 
   async actionLogout(event: Event): Promise<void> {
     event.preventDefault();
     const translation = await this.translator.translate('promptLogout').toPromise();
     if (this.dialog.confirm(translation)) {
-      this.appUIStoreManager.initializeUIStoreAction();
+      this.uiState.startAction();
       await this.auth.logout().toPromise();
     }
   }
