@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { TranslationService } from 'src/app/lib/core/translator';
 import { Dialog } from 'src/app/lib/core/utils';
 import { Router } from '@angular/router';
-import { adminPath, backendRoutePaths, defaultPath } from '../partials-configs';
+import { defaultPath, commonRoutes } from '../partials-configs';
 import { AppUIStateProvider } from 'src/app/lib/core/ui-state';
 
 @Component({
@@ -24,16 +24,11 @@ export class SidebarComponent implements OnInit {
   public elewouIcon = 'https://scontent.flfw1-1.fna.fbcdn.net/v/t1.0-9/129900309_3678495065550810_1722521212220721187_n.jpg?_nc_cat=102&ccb=3&_nc_sid=730e14&_nc_ohc=Jhfz9EmsyaMAX8BGeyd&_nc_ht=scontent.flfw1-1.fna&oh=1dafd888c9388daa883f12ebd42ceeca&oe=604B2045';
 
   public dashboardRoute = `/${defaultPath}`;
-  public profileRoute = `/${defaultPath}/${adminPath.accountRoute}`;
+  public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
 
   @Input() public moduleName: string;
   @Input() public applicationName: string;
 
-  public modulesBackendRoute = backendRoutePaths.modules;
-
-  // state$ = this.auth.state$.pipe(
-  //   map(state => state.user)
-  // );
   state$ = this.auth.state$.pipe(
     map(state => state.user as IAppUser),
     map(state => ({

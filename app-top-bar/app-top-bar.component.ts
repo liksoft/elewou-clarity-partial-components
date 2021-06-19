@@ -3,7 +3,7 @@ import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem }
 import { AuthPathConfig, AuthService } from 'src/app/lib/core/auth/core';
 import { Router } from '@angular/router';
 import { TranslationService } from 'src/app/lib/core/translator';
-import { backendRoutePaths, defaultPath, adminPath } from '../partials-configs';
+import { defaultPath, commonRoutes } from '../partials-configs';
 import { Collection } from 'src/app/lib/core/collections';
 import { Dialog, isDefined } from 'src/app/lib/core/utils';
 import { IAppUser } from '../../../core/auth/contracts/v2';
@@ -36,14 +36,12 @@ export class AppTopBarComponent implements OnInit {
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
   public dashboardRoute = `/${defaultPath}`;
-  public profileRoute = `/${defaultPath}/${adminPath.accountRoute}`;
+  public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
 
   @Input() public routesMap: RoutesMap[];
   @Input() routeDescriptions: { [index: string]: string };
   @Input() public moduleName: string;
   @Input() public applicationName: string;
-
-  public modulesBackendRoute = backendRoutePaths.modules;
 
   state$ = this.auth.state$.pipe(
     map(state => state.user as IAppUser),
