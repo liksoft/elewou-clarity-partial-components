@@ -1,29 +1,24 @@
 <ng-container *ngIf="modules$ | async as modules">
   <clr-dropdown>
     <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
-      <clr-icon shape="applications" class="is-inverse"></clr-icon>
+      <clr-icon shape="grid-view" size="lg"></clr-icon>
     </button>
     <clr-dropdown-menu class="modules-menu" *clrIfOpen clrPosition="bottom-right">
-      <div class="overlay">
         <ng-container>
           <div class="modules-container">
-            <div class="modules-list">
-              <div class="clr-row">
-                <div class="clr-col-md-3 elewou-module" *ngFor="let item of modules">
-                  <div clrDropdownItem>
+            <ul class="modules-list">
+                <li class="elewou-module" *ngFor="let item of modules">
                     <a [href]="item?.url" target="_blank">
-                      <span class="item-logo">
-                        <img class="module-icon" src="{{ item.iconPath }}" width="32" height="32" />
-                      </span>
+                      <!-- <span class="item-logo">
+                        <img class="module-icon" src="{{ item.iconPath }}" width="16" height="16" />
+                      </span> -->
+                      <clr-icon shape="pop-out"></clr-icon>
                       <span class="item-name">{{ item.name }}</span>
                     </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </li>
+            </ul>
           </div>
         </ng-container>
-      </div>
     </clr-dropdown-menu>
   </clr-dropdown>
 </ng-container>
