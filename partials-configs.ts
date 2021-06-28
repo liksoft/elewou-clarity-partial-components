@@ -6,7 +6,7 @@ export const partialConfigs = {
   routes: {
     commonRoutes: {
       dashboardRoute: 'dashboard',
-      dashboardHomeRoute: 'dashboard/checkauth',
+      dashboardHomeRoute: 'dashboard/home',
       homeRoute: 'home',
       settings: 'settings'
     },

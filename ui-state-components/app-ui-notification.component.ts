@@ -119,16 +119,15 @@ export class AppUINotificationComponent implements OnDestroy {
   // TODO : Takes computing of the online status algorithm to another observable
   onlineState$ = combineLatest([this.onlineStateMonitoring.connectionStatus$, this._hideConnectionStateComponent$]).pipe(
     map(([value, hidden]) => {
-      if (isDefined(value)) {
-        if (value === ConnectionStatus.OFFLINE) {
-          return { wasOffline: true, online: false };
-        } else {
-          setTimeout(() => {
-            // Hide the connection state Ui component
-            this._hideConnectionStateComponent$.next(true);
-          }, 2000);
-          return { online: true, hidden };
-        }
+      value = value || ConnectionStatus.OFFLINE;
+      if (value === ConnectionStatus.OFFLINE) {
+        return { wasOffline: true, online: false };
+      } else {
+        setTimeout(() => {
+          // Hide the connection state Ui component
+          this._hideConnectionStateComponent$.next(true);
+        }, 2000);
+        return { online: true, hidden };
       }
     })
   );
