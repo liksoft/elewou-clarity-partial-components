@@ -1,10 +1,10 @@
-import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, OnInit, Inject } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { backendRoutePaths } from '../partials-configs';
 import { ModulesProvider } from './core/v2/providers/module';
 import { DrewlabsRessourceServerClient } from '../../../core/http/core/ressource-server-client';
 import { getModulesAction } from './core/v2/actions/module';
 import { emptyObservable } from '../../../core/rxjs/helpers/index';
+import { MODULES_API_SERVER_PATH } from './core/utils/tokens';
 
 @Component({
   selector: 'app-app-modules',
@@ -28,11 +28,14 @@ export class AppModulesComponent implements OnInit {
 
   constructor(
     private provider: ModulesProvider,
-    private client: DrewlabsRessourceServerClient
-  ) { }
+    private client: DrewlabsRessourceServerClient,
+    @Inject(MODULES_API_SERVER_PATH) private _path = null
+  ) {
+    this.ressourcePath = _path
+  }
 
   async ngOnInit() {
-    getModulesAction(this.provider.store$)(this.client, this.ressourcePath || backendRoutePaths.modules);
+    getModulesAction(this.provider.store$)(this.client, this.ressourcePath ?? 'modules');
   }
 
 }

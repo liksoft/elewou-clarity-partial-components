@@ -1,10 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouteLink, RoutesMap, builLinkFromRoutesMap, IRouteLinkCollectionItem } from 'src/app/lib/core/routes';
-import { AbstractAlertableComponent } from 'src/app/lib/core/helpers/component-interfaces';
-import { AppUIStoreManager } from 'src/app/lib/core/helpers/app-ui-store-manager.service';
-import { defaultPath, adminPath } from '../partials-configs';
+import { AuthPathConfig, AuthService } from 'src/app/lib/core/auth/core';
+import { Router } from '@angular/router';
+import { TranslationService } from 'src/app/lib/core/translator';
+import { defaultPath, commonRoutes } from '../partials-configs';
 import { Collection } from 'src/app/lib/core/collections';
-import { isDefined } from 'src/app/lib/core/utils';
+import { Dialog, isDefined } from 'src/app/lib/core/utils';
+import { IAppUser } from '../../../core/auth/contracts/v2';
+import { map } from 'rxjs/operators';
+import { AppUIStateProvider } from 'src/app/lib/core/ui-state';
 
 @Component({
   selector: 'app-app-top-bar',
@@ -23,7 +27,7 @@ import { isDefined } from 'src/app/lib/core/utils';
     `
   ]
 })
-export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
+export class AppTopBarComponent implements OnInit {
 
   // public elewouLogo = '/assets/images/logo-elewou-main.png';
   public elewouLogo = '/assets/images/logo-elewou-main-dark.png';
@@ -32,17 +36,29 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   public navigationRoutes: Collection<RouteLink>;
   public routesIndexes: string[];
   public dashboardRoute = `/${defaultPath}`;
-  public profileRoute = `/${defaultPath}/${adminPath.accountRoute}`;
+  public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
 
   @Input() public routesMap: RoutesMap[];
   @Input() routeDescriptions: { [index: string]: string };
   @Input() public moduleName: string;
   @Input() public applicationName: string;
 
+  state$ = this.auth.state$.pipe(
+    map(state => state.user as IAppUser),
+    map(state => ({
+      username: state.userDetails ?
+        (state.userDetails.firstname && state.userDetails.lastname ? `${state.userDetails.firstname}, ${state.userDetails.lastname}` :
+          (state.userDetails.email ? state.userDetails.email : state.username)) : state.username
+    }))
+  );
+
   constructor(
-    public appUIStoreManager: AppUIStoreManager,
+    public uiState: AppUIStateProvider,
+    private auth: AuthService,
+    private translator: TranslationService,
+    private dialog: Dialog,
+    private router: Router
   ) {
-    super(appUIStoreManager);
     this.navigationRoutes = new Collection();
   }
 
@@ -68,5 +84,21 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
    */
   public getRouteLinkFromMap(key: string): RouteLink {
     return this.navigationRoutes.get(key);
+  }
+
+  public redirectToLogin(): void {
+    this.router.navigate([AuthPathConfig.LOGIN_PATH], {
+      replaceUrl: true
+    });
+    this.uiState.endAction();
+  }
+
+  async actionLogout(event: Event): Promise<void> {
+    event.preventDefault();
+    const translation = await this.translator.translate('promptLogout').toPromise();
+    if (this.dialog.confirm(translation)) {
+      this.uiState.startAction();
+      await this.auth.logout().toPromise();
+    }
   }
 }

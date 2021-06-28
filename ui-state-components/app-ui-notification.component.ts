@@ -1,13 +1,13 @@
 import { Component, Input, ChangeDetectionStrategy, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { map, tap, takeUntil } from 'rxjs/operators';
-import { UIStateStatusCode, uiStatusUsingHttpErrorResponse } from 'src/app/lib/core/helpers';
 import { HttpRequestService } from 'src/app/lib/core/http/core';
 import { createSubject } from 'src/app/lib/core/rxjs/helpers';
 import { isDefined } from 'src/app/lib/core/utils';
 import { ConnectionStatus, OnlineStateMonitoringService } from 'src/app/lib/core/components/online-state-monitoring';
 import { createStateful } from 'src/app/lib/core/rxjs/helpers/index';
 import { combineLatest } from 'rxjs';
-import { UIState } from '../../../core/helpers/app-ui-store-manager.service';
+import { UIState, UIStateStatusCode } from 'src/app/lib/core/contracts/ui-state';
+import { uiStatusUsingHttpErrorResponse } from 'src/app/lib/core/ui-state';
 
 @Component({
   selector: 'app-ui-notification',
@@ -119,16 +119,15 @@ export class AppUINotificationComponent implements OnDestroy {
   // TODO : Takes computing of the online status algorithm to another observable
   onlineState$ = combineLatest([this.onlineStateMonitoring.connectionStatus$, this._hideConnectionStateComponent$]).pipe(
     map(([value, hidden]) => {
-      if (isDefined(value)) {
-        if (value === ConnectionStatus.OFFLINE) {
-          return { wasOffline: true, online: false };
-        } else {
-          setTimeout(() => {
-            // Hide the connection state Ui component
-            this._hideConnectionStateComponent$.next(true);
-          }, 2000);
-          return { online: true, hidden };
-        }
+      value = value || ConnectionStatus.OFFLINE;
+      if (value === ConnectionStatus.OFFLINE) {
+        return { wasOffline: true, online: false };
+      } else {
+        setTimeout(() => {
+          // Hide the connection state Ui component
+          this._hideConnectionStateComponent$.next(true);
+        }, 2000);
+        return { online: true, hidden };
       }
     })
   );
