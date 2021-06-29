@@ -1,1 +1,1 @@
-export { MODULES_API_SERVER_PATH } from './utils/tokens';
+export { MODULES_API_SERVER_PATH, MODULE_RESOURCE_PATH_TOKEN } from './utils/tokens';
