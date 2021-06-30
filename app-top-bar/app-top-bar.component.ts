@@ -34,21 +34,21 @@ export class AppTopBarComponent implements OnInit {
   public elewouIcon = '/assets/images/icon-elewou.png';
 
   public navigationRoutes: Collection<RouteLink>;
-  public routesIndexes: string[];
+  public routesIndexes!: string[];
   public dashboardRoute = `/${defaultPath}`;
   public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
 
-  @Input() public routesMap: RoutesMap[];
-  @Input() routeDescriptions: { [index: string]: string };
-  @Input() public moduleName: string;
-  @Input() public applicationName: string;
+  @Input() public routesMap!: RoutesMap[];
+  @Input() routeDescriptions!: { [index: string]: string };
+  @Input() public moduleName!: string;
+  @Input() public applicationName!: string;
 
   state$ = this.auth.state$.pipe(
     map(state => state.user as IAppUser),
     map(state => ({
-      username: state.userDetails ?
-        (state.userDetails.firstname && state.userDetails.lastname ? `${state.userDetails.firstname}, ${state.userDetails.lastname}` :
-          (state.userDetails.email ? state.userDetails.email : state.username)) : state.username
+      username: state?.userDetails ?
+        (state?.userDetails?.firstname && state?.userDetails?.lastname ? `${state?.userDetails?.firstname}, ${state?.userDetails?.lastname}` :
+          (state?.userDetails?.email ? state.userDetails.email : state?.username)) : state?.username
     }))
   );
 

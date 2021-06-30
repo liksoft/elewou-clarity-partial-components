@@ -108,7 +108,6 @@ export class AppUINotificationComponent implements OnDestroy {
   public get state$() {
     return this._state$.asObservable().pipe(
       map(state => ({...state, status: isBadRequest(state?.status) ? UIStateStatusCode.BAD_REQUEST : state?.status})),
-      doLog('UI Notification state: ')
     );
   }
 
