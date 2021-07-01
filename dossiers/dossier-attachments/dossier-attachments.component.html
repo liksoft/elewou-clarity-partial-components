@@ -1,6 +1,6 @@
 <ng-container *ngIf="state$ | async as state">
   <div class="card">
-    <div class="card-header">Fichier(s) joints</div>
+    <div class="card-header">Document(s) numérisés</div>
     <div class="card-block">
       <app-dossier-files-presenter *ngIf="state?.dossier" [dossier]="state?.dossier"
         [dossierFiles]="state?.dossier?.dossierFiles"></app-dossier-files-presenter>
