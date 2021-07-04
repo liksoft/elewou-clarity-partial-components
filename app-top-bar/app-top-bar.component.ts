@@ -15,26 +15,7 @@ import { map } from 'rxjs/operators';
   selector: 'app-app-top-bar',
   templateUrl: './app-top-bar.component.html',
   styles: [
-    `.branding {
-      background: #ffffff;
-      }
-      .title {
-        padding: 0 16px;
-        &.module_name{
-          background: #033258;
-          color: #ffbc48;
-          box-shadow: 4px 0px 6px -3px #000000bd;
-        }
-      }
-      .header .branding, header .branding {
-        padding: 0 0 0 1rem;
-      }
-      clr-header.header {
-        box-shadow: 2px 2px 12px -4px #999;
-      }
-      .app-logo{
-        width: 20%;
-      }
+    `
     `
   ]
 })
@@ -54,15 +35,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   @Input() public applicationName: string;
 
   public modulesBackendRoute = backendRoutePaths.modules;
-
-  state$ = this.auth.state$.pipe(
-    map(state => state.user as IAppUser),
-    map(state => ({
-      username: state.userDetails ?
-        (state.userDetails.firstname && state.userDetails.lastname ? `${state.userDetails.firstname}, ${state.userDetails.lastname}` :
-          (state.userDetails.email ? state.userDetails.email : state.username)) : state.username
-    }))
-  );
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
@@ -99,13 +71,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
     return this.navigationRoutes.get(key);
   }
 
-  public redirectToLogin(): void {
-    this.router.navigate([AuthPathConfig.LOGIN_PATH], {
-      replaceUrl: true
-    });
-    this.appUIStoreManager.completeUIStoreAction();
-  }
-
   async actionLogout(event: Event): Promise<void> {
     event.preventDefault();
     const translation = await this.translator.translate('promptLogout').toPromise();
@@ -114,4 +79,5 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
       await this.auth.logout().toPromise();
     }
   }
+
 }

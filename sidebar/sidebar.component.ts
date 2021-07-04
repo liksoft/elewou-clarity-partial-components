@@ -8,6 +8,9 @@ import { map } from 'rxjs/operators';
 import { createStateful } from '../../../domain/rxjs/helpers/creator-functions';
 import { combineLatest } from 'rxjs';
 import { ICollection } from 'src/app/lib/domain/contracts/collection-interface';
+import { TranslationService } from 'src/app/lib/domain/translator';
+import { Dialog } from 'src/app/lib/domain/utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -38,9 +41,13 @@ export class SidebarComponent implements OnInit {
     })),
   );
 
+
   constructor(
     public auth: AuthService,
-    public readonly typeHelper: TypeUtilHelper
+    public readonly typeHelper: TypeUtilHelper,
+    private translator: TranslationService,
+    private dialog: Dialog,
+    private router: Router
   ) {}
 
   ngOnInit(): void {

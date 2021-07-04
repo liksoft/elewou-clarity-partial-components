@@ -4,8 +4,6 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   // tslint:disable-next-line: component-selector
   selector: 'drewlabs-datgrid-header',
   templateUrl: './datgrid-header.component.html',
-  styles: [
-  ],
 })
 export class DatgridHeaderComponent {
 

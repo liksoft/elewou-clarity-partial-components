@@ -568,9 +568,6 @@ clr-date-container .clr-input-group {
   margin: 0;
 }
 
-.app-intro {
-  font-weight: 300;
-}
 .app-page-header .card .card-header h2 {
   margin: 0;
   font-weight: 600;
@@ -742,10 +739,10 @@ app-dynamic-inputs {
 
 /** edit page  **/
 .editor-header {
-  position: fixed;
-  width: calc(100% - 200px);
-  z-index: 2;
-  padding: 0rem 10px;
+  // position: fixed;
+  // width: calc(100% - 200px);
+  // z-index: 2;
+  // padding: 0rem 10px;
 
   .card-header {
     background: #eaeaea;
