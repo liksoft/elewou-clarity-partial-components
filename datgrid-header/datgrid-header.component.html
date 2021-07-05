@@ -1,6 +1,6 @@
 <div class="btn-group">
-  <button type="button" [disabled]="createButtonDisabled" class="btn btn-sm btn-primary" (click)="createEvent.emit({})">
-    <clr-icon shape="plus"></clr-icon> Ajouter
+  <button type="button" [disabled]="createButtonDisabled" class="btn btn-sm btn-outline" (click)="createEvent.emit({})">
+    <clr-icon shape="plus-circle"></clr-icon> Ajouter
   </button>
   <button type="button" [disabled]="refreshButtonDisabled" [class]="buttonClass" (click)="refreshEvent.emit({})">
     <clr-icon shape="refresh"></clr-icon> Actualiser

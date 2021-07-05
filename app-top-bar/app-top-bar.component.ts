@@ -14,7 +14,10 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-app-top-bar',
   templateUrl: './app-top-bar.component.html',
-  styles: []
+  styles: [
+    `
+    `
+  ]
 })
 export class AppTopBarComponent extends AbstractAlertableComponent implements OnInit {
 
@@ -32,15 +35,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
   @Input() public applicationName: string;
 
   public modulesBackendRoute = backendRoutePaths.modules;
-
-  state$ = this.auth.state$.pipe(
-    map(state => state.user as IAppUser),
-    map(state => ({
-      username: state.userDetails ?
-        (state.userDetails.firstname && state.userDetails.lastname ? `${state.userDetails.firstname}, ${state.userDetails.lastname}` :
-          (state.userDetails.email ? state.userDetails.email : state.username)) : state.username
-    }))
-  );
 
   constructor(
     public appUIStoreManager: AppUIStoreManager,
@@ -77,13 +71,6 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
     return this.navigationRoutes.get(key);
   }
 
-  public redirectToLogin(): void {
-    this.router.navigate([AuthPathConfig.LOGIN_PATH], {
-      replaceUrl: true
-    });
-    this.appUIStoreManager.completeUIStoreAction();
-  }
-
   async actionLogout(event: Event): Promise<void> {
     event.preventDefault();
     const translation = await this.translator.translate('promptLogout').toPromise();
@@ -92,4 +79,5 @@ export class AppTopBarComponent extends AbstractAlertableComponent implements On
       await this.auth.logout().toPromise();
     }
   }
+
 }

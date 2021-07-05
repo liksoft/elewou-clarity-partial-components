@@ -31,5 +31,6 @@ export const contributionRouteDefinitions = {
   // Rc Contributors account manage path
   rcContributorsAccountsRoute: 'home/rc-comptes-cotisants',
   rcContributionDeclarationBusinessDay: 'rcomp-journee-comptable',
-  rcContributionDeclarationDossiersPath: 'rcomp-contribution-declarations',
+  //
+  rcContributionDeclarationDossiersPath: 'rcomp-contribution-declaration-dossiers',
 };

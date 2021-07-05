@@ -1,8 +1,17 @@
-import { GenericSerializaleSerializer, UndecoratedSerializer } from 'src/app/lib/domain/built-value/core/js/serializer';
-import { isDefined } from 'src/app/lib/domain/utils/types/type-utils';
 import { DossierAddedFilesType, DossierRequiredFilesType } from '../types';
 import { DossierType } from './dossier-type';
 import { isEmpty } from 'lodash';
+import { GenericSerializaleSerializer, UndecoratedSerializer } from 'src/app/lib/domain/built-value/core/js/serializer';
+import { isDefined } from 'src/app/lib/domain/utils';
+
+export enum DossierStatus {
+  PROCESSING_DOSSIER = 10,
+  DOSSIER_PROCESSED_WITH_VALIDATED_STATUS = 11,
+  DOSSIER_PROCESSED_WITH_REJETED_STATUS = 12,
+  VALIDATED = 1,
+  REJECTED = 2,
+  PENDING = 0
+}
 
 export class File {
   id: number = undefined;
@@ -132,7 +141,13 @@ export class Dossier implements DossierWithDetailsType {
     return false;
   }
 
-  static builder = () => new GenericSerializaleSerializer(Dossier, new UndecoratedSerializer());
+  private static _builder = () => new GenericSerializaleSerializer(Dossier, new UndecoratedSerializer());
+  public static get builder() {
+    return Dossier._builder;
+  }
+  public static set builder(value) {
+    Dossier._builder = value;
+  }
 
   static getJsonableProperties: () => { [prop: string]: { name: keyof Dossier, type: any } | keyof Dossier } = () => ({
     ...commonProperties,
@@ -288,7 +303,6 @@ export class MemberContributionDeclarationDossier implements DossierWithFilesCon
   totalPaymentDocuments: number = undefined;
   totalApplicationSheetDocuments: number = undefined;
   paymentSourceFileID: number = undefined;
-
   get hasRightHolderProperty() {
     return false;
   }
@@ -374,6 +388,7 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
   sex: number = undefined;
   civility: number = undefined;
   rightHolderDossiers: RightHolderDossier[] = undefined;
+  dossierRegimeId: number = undefined;
 
   get hasRightHolderProperty() {
     return true;
@@ -421,6 +436,8 @@ export class MembershipDossier implements DossierWithFilesConfigInterface {
     identity_file_issue_at: 'identityFileIssueAt',
     passport_picture_source_file_id: 'passportPictureSourceFileId',
     identity_source_file_id: 'identitySourceFileId',
+    regime_id: 'regimeId',
+    'dossier_regime_id': 'dossierRegimeId'
   })
 }
 
@@ -489,6 +506,8 @@ export class GroupedMembershipDossier implements DossierWithFilesConfigInterface
     has_members_id_files: 'hasMembersIdFiles'
   })
 }
+
+
 
 export class GroupedContributionDeclarationDossier implements DossierWithFilesConfigInterface {
   id: string | number = undefined;
@@ -563,6 +582,8 @@ export class GroupedContributionDeclarationDossier implements DossierWithFilesCo
     payment_source_file_id: 'paymentSourceFileID'
   })
 }
+
+
 export class RightHolderDossier {
 
   dossierId: string = undefined;
