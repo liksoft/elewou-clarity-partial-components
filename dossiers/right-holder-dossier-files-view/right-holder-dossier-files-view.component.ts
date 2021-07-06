@@ -30,6 +30,7 @@ export class RightHolderDossierFilesViewComponent implements OnInit {
     }
   }
   @Input() performingAction =  false;
+  @Input() showTrashButton = false;
   @Output() addDossierRightHolderToTrash = new EventEmitter<{ file_id: number | string, endpointURL: string, curr: RightHolderDossier[]}>();
 
   _state$ = createStateful<Array<Partial<{

@@ -4,21 +4,62 @@
     <ng-container>
       <clr-accordion-panel *ngFor="let item of files">
         <clr-accordion-title>
-          <span class="attached-file-name">{{ item?.name }}</span><span class="attached-file-download"><button
-              class="btn btn-sm btn-primary" [disabled]="performingAction"
-              (click)="fileHelper.saveDataURLAsBlob(item?.content, item?.name, item?.extension)">
+          <span class="attached-file-name">{{ item?.name }}</span>
+          <span class="attached-file-download">
+            <button
+              class="btn btn-sm btn-primary"
+              [disabled]="performingAction"
+              (click)="
+                fileHelper.saveDataURLAsBlob(
+                  item?.content,
+                  item?.name,
+                  item?.extension
+                )
+              "
+            >
               <clr-icon shape="download-cloud"></clr-icon>
+            </button>
+            <button
+              *ngIf="showTrashButton"
+              class="btn btn-sm btn-danger"
+              (click)="onPutFileToTrash(item?.id)"
+            >
+              <clr-icon shape="trash"></clr-icon>
             </button>
           </span>
         </clr-accordion-title>
         <clr-accordion-content *clrIfExpanded>
-          <embed [class]="item?.isImageRessource ? 'var-width-embeded-ressource' : 'embeded-ressource'"
-            *ngIf="!item?.showldownload" [type]="item?.type" [src]="item?.content | safeRessourceContent">
-          <div class="button-container"
-            *ngIf="typeHelper.isDefined(item?.name) && typeHelper.isDefined(item?.content) && item?.showldownload">
-            <button class="btn btn-sm btn-outline-primary" [disabled]="performingAction"
-              (click)="fileHelper.saveDataURLAsBlob(item?.content, item?.name, item?.extension)">
-              <clr-icon shape="download-cloud"></clr-icon> Télécharger le fichier
+          <embed
+            [class]="
+              item?.isImageRessource
+                ? 'var-width-embeded-ressource'
+                : 'embeded-ressource'
+            "
+            *ngIf="!item?.showldownload"
+            [type]="item?.type"
+            [src]="item?.content | safeRessourceContent"
+          />
+          <div
+            class="button-container"
+            *ngIf="
+              typeHelper.isDefined(item?.name) &&
+              typeHelper.isDefined(item?.content) &&
+              item?.showldownload
+            "
+          >
+            <button
+              class="btn btn-sm btn-outline-primary"
+              [disabled]="performingAction"
+              (click)="
+                fileHelper.saveDataURLAsBlob(
+                  item?.content,
+                  item?.name,
+                  item?.extension
+                )
+              "
+            >
+              <clr-icon shape="download-cloud"></clr-icon>
+              Télécharger le fichier
             </button>
           </div>
         </clr-accordion-content>
