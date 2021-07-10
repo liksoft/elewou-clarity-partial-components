@@ -10,6 +10,7 @@ export const routeDefinitions = {
 
   // Gestion des droits et Beneficiaires
   rightsListRoute: 'rights/list',
+  excelRightsListRoute: 'excel_rights/list',
   recipientsRoute: 'rights/recipients',
   recipientsActiveRoute: 'rights/reciepients',
   recipientsInactiveRoute: 'rights/recipients/inactive',
@@ -18,6 +19,7 @@ export const routeDefinitions = {
   settingsRoute: 'settings',
   migrateDataRoute: 'settings/migrate-data', //Import & Export
   fingersRoute: 'settings/fingers', //Import & Export
+  addressRoute: 'settings/addresse', //Import & Export
   rightsTypeRoute: 'settings/rights', // Type of rights
   devicesRoute: 'settings/devices', //Liste des peripheriques de controle
   editionsRoute: 'settings/editions', // Editions de controle de vie
