@@ -29,6 +29,7 @@ import { AppUIStateProvider } from 'src/app/lib/core/ui-state';
 })
 export class AppTopBarComponent implements OnInit {
 
+
   // public elewouLogo = '/assets/images/logo-elewou-main.png';
   public elewouLogo = '/assets/images/logo-elewou-main-dark.png';
   public elewouIcon = '/assets/images/icon-elewou.png';
@@ -48,7 +49,8 @@ export class AppTopBarComponent implements OnInit {
     map(state => ({
       username: state?.userDetails ?
         (state?.userDetails?.firstname && state?.userDetails?.lastname ? `${state?.userDetails?.firstname}, ${state?.userDetails?.lastname}` :
-          (state?.userDetails?.email ? state.userDetails.email : state?.username)) : state?.username
+          (state?.userDetails?.email ? state.userDetails.email : state?.username)) : state?.username,
+      isGuess: !isDefined(state)
     }))
   );
 
