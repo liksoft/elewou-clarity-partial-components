@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, HostBinding } from "@angular/core";
 import {
   RouteLink,
   RoutesMap,
@@ -35,9 +35,17 @@ const hasAuthorizations = (user: Authorizable, authorizations: string[]) => {
 @Component({
   selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
-  styles: [],
+  styles: [
+    `
+    :host ::ng-deep .clr-vertical-nav {
+      min-height: 100%;
+      height: 100%;
+    }
+    `
+  ],
 })
 export class SidebarComponent implements OnInit {
+
   @Input() set routesMap(value: RoutesMap[]) {
     if (value) {
       this._routesMap$.next(value);
