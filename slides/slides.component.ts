@@ -1,10 +1,4 @@
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from "@angular/animations";
+import { animate, style, transition, trigger } from "@angular/animations";
 import { Component, OnInit, OnDestroy, Inject, Input } from "@angular/core";
 import { createSubject } from "src/app/lib/core/rxjs/helpers";
 import { createSlide } from "./helpers";
@@ -96,18 +90,6 @@ export class SlidesComponent implements OnInit, OnDestroy {
     //   .subscribe();
   }
 
-  // onPreviousClick() {
-  //   this.current === 0
-  //     ? this.setCurrent(this.slides.length - 1)
-  //     : this.setCurrent(this.current - 1);
-  // }
-
-  // onNextClick() {
-  //   return this.current === this.slides.length - 1
-  //     ? this.setCurrent(0)
-  //     : this.setCurrent(this.current + 1);
-  // }
-
   previous() {
     const previous = this.current - 1;
     this.slideLeft = true;
@@ -118,16 +100,6 @@ export class SlidesComponent implements OnInit, OnDestroy {
     const next = this.current + 1;
     this.slideLeft = false;
     this.current = next === this.slides.length ? 0 : next;
-  }
-
-  // setCurrent(param: number) {
-  //   this.current = param;
-  //   this.slideState = true;
-  //   // setTimeout(() => (this.slideState = false), 1000);
-  // }
-
-  onSwipeEvent(event: any) {
-    console.log(event);
   }
 
   ngOnDestroy() {

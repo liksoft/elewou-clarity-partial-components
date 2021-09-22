@@ -9,7 +9,7 @@ import {
 import { SlidesComponent } from "./slides.component";
 
 @NgModule({
-  imports: [HttpClientModule, CommonModule, ClarityModule],
+  imports: [HttpClientModule, CommonModule],
   declarations: [SlidesComponent],
   exports: [SlidesComponent],
 })
