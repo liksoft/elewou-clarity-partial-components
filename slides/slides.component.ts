@@ -1,5 +1,7 @@
 import { animate, style, transition, trigger } from "@angular/animations";
 import { Component, OnInit, OnDestroy, Inject, Input } from "@angular/core";
+import { interval } from "rxjs";
+import { takeUntil, tap } from "rxjs/operators";
 import { createSubject } from "src/app/lib/core/rxjs/helpers";
 import { createSlide } from "./helpers";
 import { Slide } from "./models/slide";
@@ -80,26 +82,31 @@ export class SlidesComponent implements OnInit, OnDestroy {
    * set slide loop
    */
   runLoop() {
-    // interval(this.timer)
-    //   .pipe(
-    //     takeUntil(this._destroy$),
-    //     doLog("Running loop"),
-    //     tap((_) => this.next()),
-    //     take(10)
-    //   )
-    //   .subscribe();
+    interval(this.timer)
+      .pipe(
+        takeUntil(this._destroy$),
+        tap((_) => this.next())
+      )
+      .subscribe();
   }
 
   previous() {
     const previous = this.current - 1;
     this.slideLeft = true;
     this.current = previous < 0 ? this.slides.length - 1 : previous;
+    this.restartLoop();
   }
 
   next() {
     const next = this.current + 1;
     this.slideLeft = false;
     this.current = next === this.slides.length ? 0 : next;
+    this.restartLoop();
+  }
+
+  restartLoop() {
+    this._destroy$.next();
+    this.runLoop();
   }
 
   ngOnDestroy() {
