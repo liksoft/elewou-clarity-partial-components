@@ -134,7 +134,6 @@ export class SidebarComponent implements OnInit {
     this.router.navigate([AuthPathConfig.LOGIN_PATH], {
       replaceUrl: true,
     });
-    this.uiState.endAction();
   }
 
   async actionLogout(event: Event): Promise<void> {
