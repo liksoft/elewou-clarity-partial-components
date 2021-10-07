@@ -28,6 +28,7 @@ export class SlideContentHttpLoader
     private client: HttpClient,
     @Inject(ASSETS_PATH) private _path: string
   ) {}
+
   async load(): Promise<boolean> {
     return await this.client
       .get(this._path)
