@@ -16,8 +16,8 @@ import { map } from "rxjs/operators";
 import { AppUIStateProvider } from "src/app/lib/core/ui-state";
 
 @Component({
-  selector: "app-app-top-bar",
-  templateUrl: "./app-top-bar.component.html",
+  selector: "app-top-bar",
+  templateUrl: "./topbar.component.html",
   styles: [
     `
       .title {

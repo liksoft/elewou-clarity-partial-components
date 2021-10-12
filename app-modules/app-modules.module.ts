@@ -18,4 +18,4 @@ import { HttpModule } from 'src/app/lib/core/http';
   ],
   providers: []
 })
-export class AppModuleModule { }
+export class AppModulesModule { }

@@ -55,7 +55,6 @@ export class SlidesComponent implements OnInit, OnDestroy {
   @Input() current: number = 0;
   // @Input() slideState = false;
   @Input() autostart: boolean = false;
-
   slideLeft: boolean = false;
 
   constructor(
