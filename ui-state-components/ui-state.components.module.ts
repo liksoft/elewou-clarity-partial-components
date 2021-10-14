@@ -11,7 +11,6 @@ import { AppUINotificationComponent } from "./alert/notification/notification.co
 import { PipesModule } from "../pipes";
 
 @NgModule({
-  providers: [],
   declarations: [
     OnlineStateMonitoringComponent,
     AppUINotificationComponent,

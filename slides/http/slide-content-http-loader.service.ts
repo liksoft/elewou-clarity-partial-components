@@ -33,7 +33,6 @@ export class SlideContentHttpLoader
     return await this.client
       .get(this._path)
       .pipe(
-        doLog('Loaded content: '),
         map((content) => {
           this._contents = content as SlidesContents;
           return true;

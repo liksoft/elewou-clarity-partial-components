@@ -1,6 +1,5 @@
 import { Inject, Injectable, OnDestroy, Optional } from "@angular/core";
 import { createStateful } from "src/app/lib/core/rxjs/helpers";
-import { Log } from "src/app/lib/core/utils";
 import { WINDOW } from "src/app/lib/core/utils/ng/common";
 
 /**
@@ -33,7 +32,6 @@ export class OnlineStateMonitoring implements OnDestroy {
       this._connectionStatus.next(ConnectionStatus.ONLINE);
     });
     this.window?.addEventListener(EventType.OFFLINE_EVENT, () => {
-      Log('Goes Offline');
       this._connectionStatus.next(ConnectionStatus.OFFLINE);
     });
   };
