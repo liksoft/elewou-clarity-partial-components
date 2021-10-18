@@ -9,7 +9,7 @@ import { catchError, map } from "rxjs/operators";
 import { ModulesProvider } from "./core/v2/providers/module";
 import { getModulesAction } from "./core/v2/actions/module";
 import { emptyObservable } from "../../../core/rxjs/helpers/index";
-import { MODULES_API_SERVER_PATH } from "./core/utils/tokens";
+import { MODULES_API_SERVER_PATH } from "./core/utils/types";
 import {
   HTTP_SERVER_RESOURCE_CLIENT,
   IResourcesServerClient,
