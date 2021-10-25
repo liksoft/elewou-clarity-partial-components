@@ -1,17 +1,16 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { mergeMap, filter } from 'rxjs/operators';
-import { AuthService } from 'src/app/lib/core/auth/core';
-import { observableOf } from 'src/app/lib/core/rxjs/helpers';
-import { isDefined } from 'src/app/lib/core/utils';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { mergeMap, filter, map } from "rxjs/operators";
+import { AuthService } from "src/app/lib/core/auth/core";
+import { doLog } from "src/app/lib/core/rxjs/operators";
 
 @Component({
-  selector: 'app-components-loading',
+  selector: "app-components-loading",
   template: `
     <div class="outer-div" *ngIf="showUIElements">
       <div class="centered-loader">
         <span class="spinner spinner-inline"> </span>
         <span [translate]="'apploaderText'"> </span> <br />
-        <span *ngIf="loadingCompleted$ | async ">Redirecting ...</span>
+        <span *ngIf="loadingCompleted$ | async">Redirecting ...</span>
       </div>
     </div>
   `,
@@ -21,8 +20,8 @@ import { isDefined } from 'src/app/lib/core/utils';
         margin: 25% auto;
         width: 25rem;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class AppComponentsLoadingComponent {
   // tslint:disable-next-line: no-inferrable-types
@@ -30,14 +29,12 @@ export class AppComponentsLoadingComponent {
   @Output() isAuthenticated: EventEmitter<boolean> = new EventEmitter();
 
   loadingCompleted$ = this.auth.state$.pipe(
-    filter(state => !state.authenticating && isDefined(state.isInitialState)),
-    mergeMap(state => {
-      this.isAuthenticated.emit(state.isLoggedIn);
-      return observableOf(true);
+    doLog('AppComponentsLoadingComponent Auth state: '),
+    map((state) => {
+      this.isAuthenticated.emit(!state.authenticating && state.isLoggedIn);
+      return true;
     })
   );
 
-  constructor(
-    private auth: AuthService
-  ) { }
+  constructor(private auth: AuthService) {}
 }
