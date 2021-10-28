@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter, Input } from "@angular/core";
 
+type OutputEventType = { [index: string]: any } | number | string;
+
 @Component({
   // tslint:disable-next-line: component-selector
   selector: "drewlabs-datgrid-header",
@@ -8,18 +10,10 @@ import { Component, Output, EventEmitter, Input } from "@angular/core";
 })
 export class DatgridHeaderComponent {
   // Component outputs properties
-  @Output() createEvent = new EventEmitter<
-    { [index: string]: any } | number | string
-  >();
-  @Output() refreshEvent = new EventEmitter<
-    { [index: string]: any } | number | string
-  >();
-  @Output() exportToExcelEvent = new EventEmitter<
-    { [index: string]: any } | number | string
-  >();
-  @Output() assigned = new EventEmitter<
-    { [index: string]: any } | number | string
-  >();
+  @Output() createEvent = new EventEmitter<OutputEventType>();
+  @Output() refreshEvent = new EventEmitter<OutputEventType>();
+  @Output() exportToExcelEvent = new EventEmitter<OutputEventType>();
+  @Output() assigned = new EventEmitter<OutputEventType>();
 
   // Component input properties
   @Input() createButtonDisabled = false;
@@ -27,4 +21,7 @@ export class DatgridHeaderComponent {
   @Input() excelDropDownDisabled = false;
   @Input() showExportDropdown = false;
   @Input() buttonClass = "btn btn-sm btn-secondary";
+
+  @Input() showCreate = true;
+  @Input() showRefresh = true;
 }

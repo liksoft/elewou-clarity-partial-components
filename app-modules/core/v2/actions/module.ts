@@ -84,7 +84,7 @@ export const modulesDataAction = (
     };
   });
 
-export const poaginateModuleAction = (
+export const paginateModuleAction = (
   store: DrewlabsFluxStore<ModulesState, Partial<StoreAction>>
 ) =>
   createAction(

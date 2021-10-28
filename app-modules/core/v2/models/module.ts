@@ -22,7 +22,7 @@ export class ModuleV2 {
   }
 }
 
-export const moduleFormViewModelBindings = (): { [index: string]: any } => {
+export const ModuleFormViewModelBindings = (): { [index: string]: any } => {
   return {
     name: 'name',
     description: 'description',
