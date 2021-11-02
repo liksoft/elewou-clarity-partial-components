@@ -15,9 +15,8 @@ import {
   UIStateStatusCode,
 } from "src/app/lib/core/contracts/ui-state";
 import { uiStatusUsingHttpErrorResponse } from "src/app/lib/core/ui-state";
-import { HTTP_CLIENT } from "src/app/lib/core/http/contracts";
 import { ErrorHandler } from "src/app/lib/core/http/contracts/error-handler";
-import { isServerBadRequest } from "src/app/lib/core/http";
+import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
 import { doLog } from "src/app/lib/core/rxjs/operators";
 
 @Component({
