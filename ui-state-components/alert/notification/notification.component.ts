@@ -195,7 +195,6 @@ export class AppUINotificationComponent implements OnDestroy {
   private _destroy$ = createSubject();
 
   onClrAlertClosedChanged(value: boolean): void {
-    Log("Value", value);
     if (value) {
       this._state$.next({
         message: "",
