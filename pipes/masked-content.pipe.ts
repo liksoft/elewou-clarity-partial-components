@@ -11,7 +11,7 @@ export class MaskedContentPipe implements PipeTransform {
    * @param value
    * @param length
    */
-  transform(value: string, length: number = 5): string {
+  transform(value?: string, length: number = 5): string {
     return value ? `*******${value?.substr(-length)}` : "*******";
   }
 }

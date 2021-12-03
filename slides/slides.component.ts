@@ -50,7 +50,7 @@ import {
 })
 export class SlidesComponent implements OnInit, OnDestroy {
   private _destroy$ = createSubject();
-  @Input() private timer = 1000;
+  @Input() timer = 1000;
   @Input() slides: Slide[] = [];
   @Input() current: number = 0;
   // @Input() slideState = false;

@@ -9,7 +9,7 @@ import {
 } from "@angular/core";
 import { map, startWith, takeUntil, tap } from "rxjs/operators";
 import { createSubject } from "src/app/lib/core/rxjs/helpers";
-import { isDefined, Log } from "src/app/lib/core/utils";
+import { isDefined } from "src/app/lib/core/utils";
 import {
   UIState,
   UIStateStatusCode,
@@ -57,7 +57,7 @@ import { doLog } from "src/app/lib/core/rxjs/operators";
               <span
                 class="alert-text"
                 [innerHTML]="
-                  (state?.message ? state?.message : 'invalidRequestParams')
+                  state.message ?? 'invalidRequestParams'
                     | translate
                     | safeWebContent
                 "

@@ -9,12 +9,14 @@ import {
 import { AppComponentsLoadingComponent } from "./loader/app-component-loader.component";
 import { AppUINotificationComponent } from "./alert/notification/notification.component";
 import { PipesModule } from "../pipes";
+import { NotificationAlertComponent } from "./alert/notification/notification-container";
 
 @NgModule({
   declarations: [
     OnlineStateMonitoringComponent,
     AppUINotificationComponent,
     AppComponentsLoadingComponent,
+    NotificationAlertComponent,
   ],
   imports: [CommonModule, ClarityModule, TranslateModule, PipesModule],
   exports: [
