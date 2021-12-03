@@ -16,7 +16,7 @@
   <clr-alert
     [clrAlertType]="'success'"
     [clrAlertAppLevel]="true"
-    *ngIf="vm?.online && !vm?.hidden"
+    *ngIf="vm?.online && vm?.stateChanged && !vm?.hidden"
   >
     <clr-alert-item>
       <span class="alert-text">
