@@ -1,9 +1,9 @@
-  <div class="lik-hostspot iterate-animation {{ classes }}">
+  <div class="lik-hostspot delay-animation {{ classes }}">
     <span class="icon">
-      <clr-icon shape="help-info" size="32"></clr-icon>
+      <clr-icon [attr.shape]="shape" size="32"></clr-icon>
     </span>
     <span class="message">
-      {{ message }}
+      <ng-content></ng-content>
     </span>
     <!-- <span class="close-icon">
       <clr-icon shape="window-close"></clr-icon>

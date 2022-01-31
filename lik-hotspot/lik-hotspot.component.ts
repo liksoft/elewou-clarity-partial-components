@@ -10,7 +10,8 @@ export class LikHotspotComponent implements OnInit {
 
   constructor() { }
   @Input() public message = "This is a message";
-  @Input() public classes = "relative-top slide-up iterate-animation";
+  @Input() public classes = "relative-top";
+  @Input() public shape = 'help-info';
 
   ngOnInit(): void {
   }
