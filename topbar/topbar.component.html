@@ -3,10 +3,13 @@
     <span class="module_name title">{{ moduleName }}</span>
     <span class="module_name title">{{ companyName }}</span>
   </div>
-  <div class="header-actions hide-for-print" *ngIf="state$ | async as state">
-    <div class="user-state" *ngIf="!state?.isGuess">
-      <span class="top-hint">Connecté en tant que : </span>
-      <span class="user-name connected"><clr-icon shape="circle" solid></clr-icon> {{ state?.username }}</span>
+  <div class="header-actions hide-for-print">
+    <div class="user-state" *ngIf="!isGuest">
+      <span class="top-hint">Connecté en tant que :</span>
+      <span class="user-name connected">
+        <clr-icon shape="circle" solid></clr-icon>
+        {{ user?.username }}
+      </span>
     </div>
     <div class="user-actions">
       <a (click)="actionLogout($event)" class="btn lik-btn primary-btn">

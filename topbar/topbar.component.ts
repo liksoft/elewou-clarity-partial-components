@@ -11,9 +11,12 @@ import { TranslationService } from "src/app/lib/core/translator";
 import { defaultPath, commonRoutes } from "../partials-configs";
 import { Collection } from "src/app/lib/core/collections";
 import { Dialog, isDefined } from "src/app/lib/core/utils";
-import { IAppUser } from "../../../core/auth/contracts/v2";
-import { map } from "rxjs/operators";
 import { AppUIStateProvider } from "src/app/lib/core/ui-state";
+
+interface TopBarUserDetails {
+  username: string;
+  email: string;
+}
 
 @Component({
   selector: "app-top-bar",
@@ -34,7 +37,6 @@ import { AppUIStateProvider } from "src/app/lib/core/ui-state";
   ],
 })
 export class AppTopBarComponent implements OnInit {
-  // public elewouLogo = '/assets/images/logo-elewou-main.png';
   public elewouLogo = "/assets/images/logo-elewou-main-dark.png";
   public elewouIcon = "/assets/images/icon-elewou.png";
 
@@ -48,20 +50,8 @@ export class AppTopBarComponent implements OnInit {
   @Input() public moduleName!: string;
   @Input() public applicationName!: string;
   @Input() public companyName!: string;
-
-  state$ = this.auth.state$.pipe(
-    map((state) => state.user as IAppUser),
-    map((state) => ({
-      username: state?.userDetails
-        ? state?.userDetails?.firstname && state?.userDetails?.lastname
-          ? `${state?.userDetails?.firstname}, ${state?.userDetails?.lastname}`
-          : state?.userDetails?.email
-          ? state.userDetails.email
-          : state?.username
-        : state?.username,
-      isGuess: !isDefined(state),
-    }))
-  );
+  @Input() public user!: TopBarUserDetails;
+  @Input() isGuest: boolean = false;
 
   constructor(
     public uiState: AppUIStateProvider,
