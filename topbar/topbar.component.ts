@@ -1,17 +1,15 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import {
   RouteLink,
   RoutesMap,
   routeMapToLink,
   RouteLinkCollectionItemInterface,
 } from "src/app/lib/core/routes";
-import { AuthPathConfig, AuthService } from "src/app/lib/core/auth/core";
-import { Router } from "@angular/router";
 import { TranslationService } from "src/app/lib/core/translator";
 import { defaultPath, commonRoutes } from "../partials-configs";
 import { Collection } from "src/app/lib/core/collections";
-import { Dialog, isDefined } from "src/app/lib/core/utils";
 import { AppUIStateProvider } from "src/app/lib/core/ui-state";
+import { combineLatest, map } from "rxjs";
 
 interface TopBarUserDetails {
   username: string;
@@ -37,31 +35,32 @@ interface TopBarUserDetails {
   ],
 })
 export class AppTopBarComponent implements OnInit {
-  public elewouLogo = "/assets/images/logo-elewou-main-dark.png";
-  public elewouIcon = "/assets/images/icon-elewou.png";
-
-  public navigationRoutes: Collection<RouteLink>;
+  public navigationRoutes = new Collection<RouteLink>();
   public routesIndexes!: string[];
   public dashboardRoute = `/${defaultPath}`;
   public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
 
   @Input() public routesMap!: RoutesMap[];
-  @Input() routeDescriptions!: { [index: string]: string };
+  @Input() public routeDescriptions!: { [index: string]: string };
   @Input() public moduleName!: string;
   @Input() public applicationName!: string;
   @Input() public companyName!: string;
   @Input() public user!: TopBarUserDetails;
-  @Input() isGuest: boolean = false;
+  @Input() public isGuest: boolean = false;
+  @Input() public performingAction = false;
+
+  @Output() logoutEvent = new EventEmitter<string>();
+
+  state$ = combineLatest([this.translator.translate("promptLogout")]).pipe(
+    map(([translation]) => ({
+      logoutMessage: translation,
+    }))
+  );
 
   constructor(
     public uiState: AppUIStateProvider,
-    private auth: AuthService,
-    private translator: TranslationService,
-    private dialog: Dialog,
-    private router: Router
-  ) {
-    this.navigationRoutes = new Collection();
-  }
+    private translator: TranslationService
+  ) {}
 
   ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
@@ -72,14 +71,6 @@ export class AppTopBarComponent implements OnInit {
   }
 
   /**
-   * @description Checks if a given value is null or undefined
-   * @param value [[value]]
-   */
-  public isDefined(value: any): boolean {
-    return isDefined(value);
-  }
-
-  /**
    * @description Get [[RouteLink]] instance from the collection of RouteLink
    * @param key [[string]]
    */
@@ -87,21 +78,8 @@ export class AppTopBarComponent implements OnInit {
     return this.navigationRoutes.get(key);
   }
 
-  public redirectToLogin(): void {
-    this.router.navigate([AuthPathConfig.LOGIN_PATH], {
-      replaceUrl: true,
-    });
-    // this.uiState.endAction();
-  }
-
-  async actionLogout(event: Event): Promise<void> {
+  async actionLogout(event: Event, message: string) {
     event.preventDefault();
-    const translation = await this.translator
-      .translate("promptLogout")
-      .toPromise();
-    if (this.dialog.confirm(translation)) {
-      this.uiState.startAction();
-      await this.auth.logout().toPromise();
-    }
+    this.logoutEvent.emit(message);
   }
 }

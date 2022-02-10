@@ -10,10 +10,14 @@
         {{ user?.username }}
       </span>
     </div>
-    <div class="user-actions">
-      <a (click)="actionLogout($event)" class="btn lik-btn primary-btn">
+    <div class="user-actions" *ngIf="state$ | async as vm">
+      <button
+        [disabled]="performingAction"
+        (click)="actionLogout($event, vm?.logoutMessage)"
+        class="btn lik-btn primary-btn"
+      >
         <clr-icon shape="logout"></clr-icon>
-      </a>
+      </button>
     </div>
   </div>
 </clr-header>
