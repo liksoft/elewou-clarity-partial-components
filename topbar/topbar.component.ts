@@ -9,7 +9,8 @@ import { TranslationService } from "src/app/lib/core/translator";
 import { defaultPath, commonRoutes } from "../partials-configs";
 import { Collection } from "src/app/lib/core/collections";
 import { AppUIStateProvider } from "src/app/lib/core/ui-state";
-import { combineLatest, map } from "rxjs";
+import { combineLatest } from "rxjs";
+import { map } from "rxjs/operators";
 
 interface TopBarUserDetails {
   username: string;
