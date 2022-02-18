@@ -8,16 +8,17 @@ import {
   Inject,
 } from "@angular/core";
 import { map, startWith, takeUntil, tap } from "rxjs/operators";
-import { createSubject } from "src/app/lib/core/rxjs/helpers";
-import { isDefined } from "src/app/lib/core/utils";
 import {
+  uiStatusUsingHttpErrorResponse,
   UIState,
   UIStateStatusCode,
-} from "src/app/lib/core/contracts/ui-state";
-import { uiStatusUsingHttpErrorResponse } from "src/app/lib/core/ui-state";
-import { ErrorHandler } from "src/app/lib/core/http/contracts/error-handler";
-import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
-import { doLog } from "src/app/lib/core/rxjs/operators";
+} from "src/app/lib/core/ui-state";
+import {
+  isServerBadRequest,
+  HTTP_CLIENT,
+  ErrorHandler,
+} from "src/app/lib/core/http";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "app-ui-notification",
@@ -153,7 +154,7 @@ import { doLog } from "src/app/lib/core/rxjs/operators";
 })
 export class AppUINotificationComponent implements OnDestroy {
   @Input() uiStateResultCode = UIStateStatusCode;
-  private _state$ = createSubject<
+  private _state$ = new Subject<
     Partial<{
       message: string;
       status: number;
@@ -166,7 +167,10 @@ export class AppUINotificationComponent implements OnDestroy {
       message: state.uiMessage,
       status: state.status,
       hasError: state.hasError,
-      hidden: state.performingAction || !isDefined(state.status),
+      hidden:
+        state.performingAction ||
+        typeof state.status === "undefined" ||
+        state.status === null,
     });
   }
 
@@ -182,8 +186,7 @@ export class AppUINotificationComponent implements OnDestroy {
       status: isServerBadRequest(state.status || UIStateStatusCode.OK)
         ? UIStateStatusCode.BAD
         : state?.status,
-    })),
-    doLog("Application UI state: ")
+    }))
   );
 
   @Output() endActionEvent = new EventEmitter<{
@@ -192,7 +195,7 @@ export class AppUINotificationComponent implements OnDestroy {
   }>();
 
   // tslint:disable-next-line: variable-name
-  private _destroy$ = createSubject();
+  private _destroy$ = new Subject<void>();
 
   onClrAlertClosedChanged(value: boolean): void {
     if (value) {
@@ -219,5 +222,5 @@ export class AppUINotificationComponent implements OnDestroy {
       .subscribe();
   }
 
-  ngOnDestroy = () => this._destroy$.next({});
+  ngOnDestroy = () => this._destroy$.next();
 }

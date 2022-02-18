@@ -1,5 +1,5 @@
 import { Inject, Injectable, OnDestroy, Optional } from "@angular/core";
-import { createStateful } from "src/app/lib/core/rxjs/helpers";
+import { BehaviorSubject } from "rxjs";
 import { WINDOW } from "src/app/lib/core/utils/ng/common";
 
 /**
@@ -11,7 +11,6 @@ export enum ConnectionStatus {
 }
 
 enum EventType {
-
   ONLINE_EVENT = "online",
   OFFLINE_EVENT = "offline",
 }
@@ -20,9 +19,8 @@ enum EventType {
   providedIn: "root",
 })
 export class OnlineStateMonitoring implements OnDestroy {
-
   // tslint:disable-next-line: variable-name
-  private _connectionStatus = createStateful(ConnectionStatus.ONLINE);
+  private _connectionStatus = new BehaviorSubject(ConnectionStatus.ONLINE);
   connectionStatus$ = this._connectionStatus.asObservable();
 
   constructor(@Inject(WINDOW) @Optional() private window?: Window) {}

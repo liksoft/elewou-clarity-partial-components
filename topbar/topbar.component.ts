@@ -4,13 +4,13 @@ import {
   RoutesMap,
   routeMapToLink,
   RouteLinkCollectionItemInterface,
-} from "src/app/lib/core/routes";
-import { TranslationService } from "src/app/lib/core/translator";
+} from "../routes";
 import { defaultPath, commonRoutes } from "../partials-configs";
 import { Collection } from "src/app/lib/core/collections";
 import { AppUIStateProvider } from "src/app/lib/core/ui-state";
 import { combineLatest } from "rxjs";
 import { map } from "rxjs/operators";
+import { TranslateService } from "@ngx-translate/core";
 
 interface TopBarUserDetails {
   username: string;
@@ -52,7 +52,7 @@ export class AppTopBarComponent implements OnInit {
 
   @Output() logoutEvent = new EventEmitter<string>();
 
-  state$ = combineLatest([this.translator.translate("promptLogout")]).pipe(
+  state$ = combineLatest([this.translator.get("promptLogout")]).pipe(
     map(([translation]) => ({
       logoutMessage: translation,
     }))
@@ -60,7 +60,7 @@ export class AppTopBarComponent implements OnInit {
 
   constructor(
     public uiState: AppUIStateProvider,
-    private translator: TranslationService
+    private translator: TranslateService
   ) {}
 
   ngOnInit(): void {

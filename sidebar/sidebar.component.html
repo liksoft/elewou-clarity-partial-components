@@ -6,7 +6,7 @@
   <ng-container *ngIf="state$ | async as vm">
     <ng-container *ngFor="let key of vm?.routeLinks?.keys()">
       <ng-container
-        *ngIf="typeHelper.isDefined(vm?.routeLinks?.get(key)?.children)"
+        *ngIf="(vm?.routeLinks?.get(key)?.children ?? []).length !== 0"
       >
         <clr-vertical-nav-group routerLinkActive="active">
           <clr-icon
@@ -36,7 +36,7 @@
         </clr-vertical-nav-group>
       </ng-container>
       <ng-container
-        *ngIf="!typeHelper.isDefined(vm?.routeLinks?.get(key)?.children)"
+        *ngIf="(vm?.routeLinks?.get(key)?.children ?? []).length === 0"
       >
         <a
           clrVerticalNavLink
