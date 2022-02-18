@@ -31,8 +31,6 @@ export interface RouteLinkCollectionItemInterface {
 
 /**
  * @description Global function for building navigation links based on routes map collections
- * @param map [[RoutesMap[]]]
- * @param translations [[any]]
  */
 export const routeMapToLink = (map: RoutesMap[], translations: any) =>
   typeof map === "undefined" || map === null || (map ?? []).length === 0

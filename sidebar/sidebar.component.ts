@@ -5,7 +5,6 @@ import {
   routeMapToLink,
   RouteLinkCollectionItemInterface,
 } from "../routes";
-import { Collection } from "src/app/lib/core/collections";
 import { map } from "rxjs/operators";
 import { defaultPath, commonRoutes } from "../partials-configs";
 import { BehaviorSubject } from "rxjs";
@@ -42,16 +41,19 @@ export class SidebarComponent {
       // Construct the route mapping here
       const routeMaps = routeMaps_;
       const routesIndexes = routeMaps.map((route) => route.key);
-      const routeLinks = new Collection<RouteLink>();
+      const links = new Map<string, RouteLink>();
       routeMapToLink(routeMaps, this.routeDescriptions).forEach(
-        (item: RouteLinkCollectionItemInterface) =>
-          routeLinks.add(item.key, item.value)
+        (item: RouteLinkCollectionItemInterface) => {
+          if (!links.has(item.key)) {
+            links.set(item.key, item.value);
+          }
+        }
       );
-      return { routeMaps, routeLinks, routesIndexes };
+      return { routeMaps, links, routesIndexes };
     }),
     map((state) => ({
       routeMaps: state?.routeMaps,
-      routeLinks: state?.routeLinks,
+      routeLinks: state?.links,
       routesIndexes: state?.routesIndexes,
     }))
   );

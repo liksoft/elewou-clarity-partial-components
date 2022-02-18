@@ -6,7 +6,6 @@ import {
   RouteLinkCollectionItemInterface,
 } from "../routes";
 import { defaultPath, commonRoutes } from "../partials-configs";
-import { Collection } from "src/app/lib/core/collections";
 import { combineLatest } from "rxjs";
 import { map } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
@@ -35,13 +34,13 @@ interface TopBarUserDetails {
   ],
 })
 export class AppTopBarComponent implements OnInit {
-
   // Navigation Routes
-  public links = new Collection<RouteLink>();
+  public links = new Map<string, RouteLink>();
   public routesIndexes!: string[];
   public dashboardRoute = `/${defaultPath}`;
   public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
 
+  // Component inputs
   @Input() public routesMap!: RoutesMap[];
   @Input() public routeDescriptions!: { [index: string]: string };
   @Input() public moduleName!: string;
@@ -64,8 +63,11 @@ export class AppTopBarComponent implements OnInit {
   ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
     routeMapToLink(this.routesMap, this.routeDescriptions).forEach(
-      (item: RouteLinkCollectionItemInterface) =>
-        this.links.add(item.key, item.value)
+      (item: RouteLinkCollectionItemInterface) => {
+        if (!this.links.has(item.key)) {
+          this.links.set(item.key, item.value);
+        }
+      }
     );
   }
 
@@ -73,7 +75,7 @@ export class AppTopBarComponent implements OnInit {
    * @description Get [[RouteLink]] instance from the collection of RouteLink
    * @param key [[string]]
    */
-  public getRouteLinkFromMap(key: string): RouteLink {
+  public getRouteLinkFromMap(key: string): RouteLink | undefined {
     return this.links.get(key);
   }
 
