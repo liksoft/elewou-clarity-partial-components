@@ -7,9 +7,7 @@ import {
 } from "../routes";
 import { Collection } from "src/app/lib/core/collections";
 import { map } from "rxjs/operators";
-import { Router } from "@angular/router";
 import { defaultPath, commonRoutes } from "../partials-configs";
-import { AppUIStateProvider } from "src/app/lib/core/ui-state";
 import { BehaviorSubject } from "rxjs";
 @Component({
   selector: "app-sidebar",
@@ -57,8 +55,6 @@ export class SidebarComponent {
       routesIndexes: state?.routesIndexes,
     }))
   );
-
-  constructor(public uiState: AppUIStateProvider, private router: Router) {}
 
   isFirstRoute(routes: RoutesMap[], item: RoutesMap): boolean {
     return routes.indexOf(item) === 0;

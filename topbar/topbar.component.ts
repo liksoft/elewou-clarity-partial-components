@@ -7,7 +7,6 @@ import {
 } from "../routes";
 import { defaultPath, commonRoutes } from "../partials-configs";
 import { Collection } from "src/app/lib/core/collections";
-import { AppUIStateProvider } from "src/app/lib/core/ui-state";
 import { combineLatest } from "rxjs";
 import { map } from "rxjs/operators";
 import { TranslateService } from "@ngx-translate/core";
@@ -36,7 +35,9 @@ interface TopBarUserDetails {
   ],
 })
 export class AppTopBarComponent implements OnInit {
-  public navigationRoutes = new Collection<RouteLink>();
+
+  // Navigation Routes
+  public links = new Collection<RouteLink>();
   public routesIndexes!: string[];
   public dashboardRoute = `/${defaultPath}`;
   public profileRoute = `/${defaultPath}/${commonRoutes.settings}`;
@@ -58,16 +59,13 @@ export class AppTopBarComponent implements OnInit {
     }))
   );
 
-  constructor(
-    public uiState: AppUIStateProvider,
-    private translator: TranslateService
-  ) {}
+  constructor(private translator: TranslateService) {}
 
   ngOnInit(): void {
     this.routesIndexes = this.routesMap.map((route) => route.key);
     routeMapToLink(this.routesMap, this.routeDescriptions).forEach(
       (item: RouteLinkCollectionItemInterface) =>
-        this.navigationRoutes.add(item.key, item.value)
+        this.links.add(item.key, item.value)
     );
   }
 
@@ -76,7 +74,7 @@ export class AppTopBarComponent implements OnInit {
    * @param key [[string]]
    */
   public getRouteLinkFromMap(key: string): RouteLink {
-    return this.navigationRoutes.get(key);
+    return this.links.get(key);
   }
 
   async actionLogout(event: Event, message: string) {
