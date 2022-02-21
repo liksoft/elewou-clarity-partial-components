@@ -19,7 +19,7 @@ import { getJSObjectPropertyValue } from 'src/app/lib/core/utils';
 export class DetailedTablePreviewComponent {
 
   mappings: string[] = [];
-  private _headers: { [prop: string]: string };
+  private _headers!: { [prop: string]: string };
   @Input() set headers(value: { [prop: string]: string }) {
     this.mappings  =  Object.keys(value);
     this._headers = value;
@@ -27,7 +27,7 @@ export class DetailedTablePreviewComponent {
   get headers() {
     return this._headers;
   }
-  @Input() value: { [prop: string]: any };
+  @Input() value!: { [prop: string]: any };
 
   @Input() datefields: string[]  =  [];
 
