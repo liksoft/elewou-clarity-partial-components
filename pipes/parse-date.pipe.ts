@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { GetTimeAgo, JSDate, ParseMonth } from "@iazlabs/js-datetime";
+import { JSDate, MonthProvider, TimeAgo } from "src/app/lib/core/utils";
 
 @Pipe({
   name: "parseDate",
@@ -36,7 +36,7 @@ export class TimeAgoPipe implements PipeTransform {
     return typeof value === "undefined" || value === null
       ? ""
       : JSDate.isDate(value)
-      ? GetTimeAgo()(JSDate.create(value), locale ?? "fr-FR")
+      ? (new TimeAgo).format(JSDate.create(value), locale ?? "fr-FR")
       : value;
   }
 }
@@ -48,6 +48,6 @@ export class ParseMonthPipe implements PipeTransform {
   transform(value: any): any {
     return typeof value === "undefined" || value === null
       ? ""
-      : ParseMonth(value);
+      : MonthProvider.parseMonth(value);
   }
 }

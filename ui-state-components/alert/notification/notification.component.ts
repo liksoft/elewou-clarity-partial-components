@@ -56,7 +56,7 @@ enum StatusCode {
               <span
                 class="alert-text"
                 [innerHTML]="
-                  state.message ?? 'invalidRequestParams'
+                  state.message || 'invalidRequestParams'
                     | translate
                     | safeWebContent
                 "
