@@ -1,56 +1,40 @@
-<clr-vertical-nav
-  [clrVerticalNavCollapsible]="true"
-  class="nav-trigger--bottom"
-  [clr-nav-level]="1"
->
-  <ng-container *ngIf="state$ | async as vm">
-    <ng-container *ngFor="let key of vm?.routeLinks?.keys()">
-      <ng-container
-        *ngIf="(vm?.routeLinks?.get(key)?.children || []).length !== 0"
-      >
-        <clr-vertical-nav-group routerLinkActive="active">
-          <clr-icon
-            *ngIf="vm?.routeLinks?.get(key)?.routeIcon"
-            [attr.shape]="vm?.routeLinks?.get(key)?.routeIcon"
-            clrVerticalNavIcon
-          ></clr-icon>
-          {{ vm?.routeLinks?.get(key)?.routeDescription | uppercase }}
-          <clr-vertical-nav-group-children>
-            <ng-container
-              *ngFor="let child of vm?.routeLinks?.get(key)?.children"
-            >
-              <a
-                clrVerticalNavLink
-                [routerLink]="child?.routePath"
-                routerLinkActive="active"
-              >
-                <clr-icon
-                  *ngIf="child?.routeIcon"
-                  [attr.shape]="child?.routeIcon"
-                  clrVerticalNavIcon
-                ></clr-icon>
-                {{ child.routeDescription | uppercase }}
-              </a>
-            </ng-container>
-          </clr-vertical-nav-group-children>
-        </clr-vertical-nav-group>
-      </ng-container>
-      <ng-container
-        *ngIf="(vm?.routeLinks?.get(key)?.children || []).length === 0"
-      >
-        <a
-          clrVerticalNavLink
-          routerLinkActive="active"
-          [routerLink]="vm?.routeLinks?.get(key)?.routePath"
-        >
-          <clr-icon
-            *ngIf="vm?.routeLinks?.get(key)?.routeIcon"
-            [attr.shape]="vm?.routeLinks?.get(key)?.routeIcon"
-            clrVerticalNavIcon
-          ></clr-icon>
-          {{ vm?.routeLinks?.get(key)?.routeDescription | uppercase }}
-        </a>
-      </ng-container>
+<div class="user-container" *ngIf="state$ | async as state">
+  <!-- <img [src]="elewouIcon" alt="User Profile" width="32" height="auto" /> -->
+  <clr-dropdown>
+    <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
+      {{ state?.username }}
+      <clr-icon shape="caret down"></clr-icon>
+    </button>
+    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+      <a [routerLink]="profileRoute" clrDropdownItem *ngIf="true">Mon Profil</a>
+      <a href="..." clrDropdownItem *ngIf="false">Preferences</a>
+      <a (click)="actionLogout($event)" clrDropdownItem>Se Déconnecter</a>
+    </clr-dropdown-menu>
+  </clr-dropdown>
+</div>
+<ng-container *ngIf="state$ | async as user">
+  <ng-container *ngFor="let item of routesMap">
+    <clr-vertical-nav-group routerLinkActive="active" *ngIf="typeHelper.isDefined(item?.children) && hasAuthorizations(user, getRouteLinkFromMap(item.key)?.authorizations)">
+      <clr-icon *ngIf="getRouteLinkFromMap(item.key)?.routeIcon" [attr.shape]="getRouteLinkFromMap(item.key)?.routeIcon"
+        clrVerticalNavIcon></clr-icon>
+      {{ getRouteLinkFromMap(item.key)?.routeDescription }}
+      <clr-vertical-nav-group-children>
+        <ng-container *ngFor="let child of getRouteLinkFromMap(item?.key)?.children">
+          <a clrVerticalNavLink [routerLink]="child?.routePath" routerLinkActive="active"
+            *ngIf="hasAuthorizations(user, child.authorizations)">
+            <clr-icon *ngIf="child?.routeIcon" [attr.shape]="child?.routeIcon" clrVerticalNavIcon></clr-icon>
+            {{ child.routeDescription }}
+          </a>
+        </ng-container>
+      </clr-vertical-nav-group-children>
+    </clr-vertical-nav-group>
+    <ng-container *ngIf="!typeHelper.isDefined(item?.children)">
+      <a clrVerticalNavLink routerLinkActive="active" [routerLink]="getRouteLinkFromMap(item.key)?.routePath"
+        *ngIf="hasAuthorizations(user, getRouteLinkFromMap(item.key)?.authorizations)">
+        <clr-icon *ngIf="getRouteLinkFromMap(item.key)?.routeIcon"
+          [attr.shape]="getRouteLinkFromMap(item.key)?.routeIcon" clrVerticalNavIcon></clr-icon>
+        {{ getRouteLinkFromMap(item.key)?.routeDescription }}
+      </a>
     </ng-container>
   </ng-container>
-</clr-vertical-nav>
+</ng-container>
