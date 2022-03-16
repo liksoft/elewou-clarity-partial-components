@@ -51,14 +51,14 @@ export class SidebarComponent {
       );
       return { routeMaps, links, routesIndexes };
     }),
-    map((state) => ({
-      routeMaps: state?.routeMaps,
-      routeLinks: state?.links,
-      routesIndexes: state?.routesIndexes,
-    }))
+    map((state) => state?.links ?? new Map())
   );
 
   isFirstRoute(routes: RoutesMap[], item: RoutesMap): boolean {
     return routes.indexOf(item) === 0;
+  }
+
+  iteratorToArray(values: Iterable<string>) {
+    return Array.from(values);
   }
 }
