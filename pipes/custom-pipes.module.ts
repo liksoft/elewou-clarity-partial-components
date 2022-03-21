@@ -1,9 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormatAmountPipe, ParseInt, PositiveNumber } from './numbers-formats.pipe';
-import { ParseDatePipe, TimeAgoPipe, ParseMonthPipe, DateTimePipe } from './parse-date.pipe';
-import { SafeWebContentPipe, SafeRessourceContentPipe, CheckScriptsPipe } from './safe-web-content.pipe';
-import { MaskedContentPipe } from './masked-content.pipe';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import {
+  FormatAmountPipe,
+  ParseInt,
+  PositiveNumber,
+} from "./numbers-formats.pipe";
+import {
+  ParseDatePipe,
+  TimeAgoPipe,
+  ParseMonthPipe,
+  DateTimePipe,
+} from "./parse-date.pipe";
+import {
+  SafeWebContentPipe,
+  SafeRessourceContentPipe,
+  CheckScriptsPipe,
+} from "./safe-web-content.pipe";
+import { MaskedContentPipe } from "./masked-content.pipe";
 
 @NgModule({
   imports: [CommonModule],
@@ -18,7 +31,7 @@ import { MaskedContentPipe } from './masked-content.pipe';
     CheckScriptsPipe,
     DateTimePipe,
     ParseInt,
-    MaskedContentPipe
+    MaskedContentPipe,
   ],
   exports: [
     FormatAmountPipe,
@@ -31,7 +44,7 @@ import { MaskedContentPipe } from './masked-content.pipe';
     CheckScriptsPipe,
     DateTimePipe,
     ParseInt,
-    MaskedContentPipe
-  ]
+    MaskedContentPipe,
+  ],
 })
 export class PipesModule {}
