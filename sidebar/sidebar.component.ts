@@ -38,7 +38,6 @@ export class SidebarComponent {
 
   state$ = this._routesMap$.asObservable().pipe(
     map((routeMaps_) => {
-      // Construct the route mapping here
       const routeMaps = routeMaps_;
       const routesIndexes = routeMaps.map((route) => route.key);
       const links = new Map<string, RouteLink>();
