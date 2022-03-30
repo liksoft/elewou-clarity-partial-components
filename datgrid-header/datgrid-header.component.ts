@@ -20,7 +20,7 @@ export class DatgridHeaderComponent {
   @Input() refreshButtonDisabled = false;
   @Input() excelDropDownDisabled = false;
   @Input() showExportDropdown = false;
-  @Input() buttonClass = "btn btn-sm btn-secondary";
+  @Input() buttonClass = "btn btn-sm btn-primary";
 
   @Input() showCreate = true;
   @Input() showRefresh = true;
