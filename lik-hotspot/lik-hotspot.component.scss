@@ -1,0 +1,37 @@
+.lik-hostpot__content {
+  position: relative;
+}
+
+// @media (max-width: 768px) {
+//   .lik-hostpot__content .lik-hostpot__info_button.show {
+//     left: -24px;
+//     top: -42px;
+//   }
+// }
+
+.lik-hostpot__content .lik-hostpot__info_button {
+  position: absolute;
+  background: #ff7300;
+  padding: 10px;
+  border-radius: 50%;
+
+}
+
+.lik-hostpot__content .lik-hostpot__info_button.show {
+  left: -32px;
+  top: -42px;
+}
+
+.lik-hostpot__content .lik-hostpot__info_button.hidden {
+  right: 0px;
+  bottom: 0px;
+}
+
+.lik-hostspot.show {
+  background: #4b4b4b !important;
+}
+
+.lik-hostspot.hidden {
+  background: transparent !important;
+  box-shadow: none;
+}
