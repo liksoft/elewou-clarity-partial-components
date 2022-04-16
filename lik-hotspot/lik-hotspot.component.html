@@ -1,8 +1,8 @@
 <div
   [ngClass]="
     hidden
-      ? 'hidden lik-hostspot delay-animation ' + classes
-      : 'show lik-hostspot delay-animation ' + classes
+      ? 'hidden lik-hostspot delay-animation' + classes
+      : 'show lik-hostspot delay-animation' + classes
   "
 >
   <div class="lik-hostpot__content">
@@ -11,7 +11,12 @@
       class="lik-hostpot__info_button"
       (click)="onToggleHostpot($event)"
     >
-      <clr-icon [attr.shape]="shape" size="32"></clr-icon>
+      <ng-container *ngIf="hidden">
+        <clr-icon [attr.shape]="shape" size="32"></clr-icon>
+      </ng-container>
+      <ng-container *ngIf="!hidden">
+        <clr-icon [attr.shape]="close" size="32"></clr-icon>
+      </ng-container>
     </span>
     <span class="message" [hidden]="hidden">
       <ng-content></ng-content>
