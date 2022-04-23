@@ -1,11 +1,25 @@
-  <div class="lik-hostspot delay-animation {{ classes }}">
-    <span class="icon">
-      <clr-icon [attr.shape]="shape" size="32"></clr-icon>
+<div cdkDrag [ngClass]="
+    hidden
+      ? 'hidden lik-hostspot delay-animation' + classes
+      : 'show lik-hostspot delay-animation' + classes
+  "
+>
+<div class="lik-hostpot__content">
+    <span
+      [class]="hidden ? 'hidden' : 'show'"
+      class="lik-hostpot__info_button slide-right"
+      (click)="onToggleHostpot($event)"
+    >
+      <ng-container *ngIf="hidden">
+        <clr-icon [attr.shape]="shape" size="32"></clr-icon>
+      </ng-container>
+      <ng-container *ngIf="!hidden">
+        <clr-icon [attr.shape]="close" size="32"></clr-icon>
+      </ng-container>
     </span>
-    <span class="message">
+    <span class="message" [hidden]="hidden">
+      <span class="hint">Cliquez sur pour fermer</span>
       <ng-content></ng-content>
     </span>
-    <!-- <span class="close-icon">
-      <clr-icon shape="window-close"></clr-icon>
-    </span> -->
   </div>
+</div>

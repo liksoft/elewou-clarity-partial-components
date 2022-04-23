@@ -182,8 +182,7 @@ export class AppUINotificationComponent implements OnDestroy {
       status: isServerBadRequest(state.status || UIStateStatusCode.OK)
         ? UIStateStatusCode.BAD
         : state?.status,
-    })),
-    doLog("Application UI state: ")
+    }))
   );
 
   @Output() endActionEvent = new EventEmitter<{

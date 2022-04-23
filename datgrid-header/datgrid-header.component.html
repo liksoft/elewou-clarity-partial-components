@@ -7,7 +7,7 @@
     *ngIf="showCreate"
     type="button"
     [disabled]="createButtonDisabled"
-    class="btn btn-sm btn-outline"
+    [class]="buttonClass"
     (click)="createEvent.emit()"
   >
     <clr-icon shape="plus-circle"></clr-icon>
