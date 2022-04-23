@@ -2,6 +2,18 @@
   position: relative;
 }
 
+.lik-hostspot{
+  span.hint {
+    position: absolute;
+    top: -35px;
+    left: -5px;
+    background: #ff7200;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 1px 12px;
+  }
+}
 // @media (max-width: 768px) {
 //   .lik-hostpot__content .lik-hostpot__info_button.show {
 //     left: -24px;
@@ -35,3 +47,4 @@
   background: transparent !important;
   box-shadow: none;
 }
+

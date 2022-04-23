@@ -1,14 +1,13 @@
-<div
-  [ngClass]="
+<div cdkDrag [ngClass]="
     hidden
       ? 'hidden lik-hostspot delay-animation' + classes
       : 'show lik-hostspot delay-animation' + classes
   "
 >
-  <div class="lik-hostpot__content">
+<div class="lik-hostpot__content">
     <span
       [class]="hidden ? 'hidden' : 'show'"
-      class="lik-hostpot__info_button"
+      class="lik-hostpot__info_button slide-right"
       (click)="onToggleHostpot($event)"
     >
       <ng-container *ngIf="hidden">
@@ -19,6 +18,7 @@
       </ng-container>
     </span>
     <span class="message" [hidden]="hidden">
+      <span class="hint">Cliquez sur pour fermer</span>
       <ng-content></ng-content>
     </span>
   </div>
