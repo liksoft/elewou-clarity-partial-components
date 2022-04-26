@@ -18,7 +18,7 @@
       </ng-container>
     </span>
     <span class="message" [hidden]="hidden">
-      <span class="hint">Cliquez sur pour fermer</span>
+      <span (click)="onToggleHostpot($event)" class="hint">Fermer</span>
       <ng-content></ng-content>
     </span>
   </div>

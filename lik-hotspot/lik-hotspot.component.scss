@@ -29,6 +29,11 @@
   border-radius: 50%;
 }
 
+.lik-hostpot__content .lik-hostpot__info_button,
+.lik-hostpot__content .message {
+  cursor: pointer;
+}
+
 .lik-hostpot__content .lik-hostpot__info_button.show {
   left: -32px;
   top: -42px;
