@@ -1,6 +1,6 @@
-import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
-import { map, startWith } from "rxjs/operators";
-import { Subject } from "rxjs";
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { map, startWith } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 type PropsType = {
   message: string;
@@ -19,7 +19,7 @@ enum StatusCode {
 }
 
 @Component({
-  selector: "app-ui-notification",
+  selector: 'app-ui-notification',
   template: `
     <ng-container *ngIf="state$ | async as state">
       <drewlabs-action-notification-container *ngIf="!state.hidden">
@@ -33,9 +33,7 @@ enum StatusCode {
               <span
                 class="alert-text"
                 [innerHTML]="
-                  state?.message || 'serverRequestFailed'
-                    | translate
-                    | safeWebContent
+                  state?.message || 'serverRequestFailed' | translate | safeHtml
                 "
               ></span>
               <div class="alert-actions">
@@ -56,9 +54,7 @@ enum StatusCode {
               <span
                 class="alert-text"
                 [innerHTML]="
-                  state.message ?? 'invalidRequestParams'
-                    | translate
-                    | safeWebContent
+                  state.message ?? 'invalidRequestParams' | translate | safeHtml
                 "
               ></span>
               <div class="alert-actions">
@@ -160,7 +156,7 @@ export class AppUINotificationComponent {
   // Component Properties
   state$ = this._state$.asObservable().pipe(
     startWith({
-      message: "",
+      message: '',
       status: undefined,
       hasError: false,
       hidden: true,
@@ -177,7 +173,7 @@ export class AppUINotificationComponent {
   onClrAlertClosedChanged(value: boolean): void {
     if (value) {
       this._state$.next({
-        message: "",
+        message: '',
         status: StatusCode.OK,
         hasError: false,
         hidden: true,
