@@ -17,7 +17,6 @@ import {
 import { uiStatusUsingHttpErrorResponse } from "src/app/lib/core/ui-state";
 import { ErrorHandler } from "src/app/lib/core/http/contracts/error-handler";
 import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
-import { doLog } from "src/app/lib/core/rxjs/operators";
 
 @Component({
   selector: "app-ui-notification",

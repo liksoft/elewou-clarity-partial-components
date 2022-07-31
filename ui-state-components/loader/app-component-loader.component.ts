@@ -1,10 +1,9 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { mergeMap, filter, map } from "rxjs/operators";
-import { AuthService } from "src/app/lib/core/auth/core";
-import { doLog } from "src/app/lib/core/rxjs/operators";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { AuthService } from 'src/app/lib/core/auth/core';
 
 @Component({
-  selector: "app-components-loading",
+  selector: 'app-components-loading',
   template: `
     <div class="outer-div" *ngIf="showUIElements">
       <div class="centered-loader">
@@ -29,7 +28,6 @@ export class AppComponentsLoadingComponent {
   @Output() isAuthenticated: EventEmitter<boolean> = new EventEmitter();
 
   loadingCompleted$ = this.auth.state$.pipe(
-    doLog('AppComponentsLoadingComponent Auth state: '),
     map((state) => {
       this.isAuthenticated.emit(!state.authenticating && state.isLoggedIn);
       return true;
