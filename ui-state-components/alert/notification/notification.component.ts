@@ -6,20 +6,17 @@ import {
   Output,
   EventEmitter,
   Inject,
-} from "@angular/core";
-import { map, startWith, takeUntil, tap } from "rxjs/operators";
-import { createSubject } from "src/app/lib/core/rxjs/helpers";
-import { isDefined } from "src/app/lib/core/utils";
-import {
-  UIState,
-  UIStateStatusCode,
-} from "src/app/lib/core/contracts/ui-state";
-import { uiStatusUsingHttpErrorResponse } from "src/app/lib/core/ui-state";
-import { ErrorHandler } from "src/app/lib/core/http/contracts/error-handler";
-import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
+} from '@angular/core';
+import { map, startWith, takeUntil, tap } from 'rxjs/operators';
+import { createSubject } from 'src/app/lib/core/rxjs/helpers';
+import { isDefined } from 'src/app/lib/core/utils';
+import { UIState, UIStateStatusCode } from 'src/app/lib/core/ui-state';
+import { uiStatusUsingHttpErrorResponse } from 'src/app/lib/core/ui-state';
+import { ErrorHandler } from 'src/app/lib/core/http/contracts/error-handler';
+import { isServerBadRequest, HTTP_CLIENT } from 'src/app/lib/core/http';
 
 @Component({
-  selector: "app-ui-notification",
+  selector: 'app-ui-notification',
   template: `
     <ng-container *ngIf="state$ | async as state">
       <drewlabs-action-notification-container *ngIf="!state.hidden">
@@ -48,7 +45,7 @@ import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
           </clr-alert>
           <!-- Case bad request input authentication -->
           <clr-alert
-            *ngSwitchCase="uiStateResultCode.BAD_REQUEST"
+            *ngSwitchCase="uiStateResultCode.BAD"
             [clrAlertType]="'warning'"
             [clrAlertClosable]="false"
           >
@@ -78,7 +75,7 @@ import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
             <clr-alert-item>
               <span
                 class="alert-text"
-                [innerHTML]="'login.authenticationFailed' | translate"
+                [innerHTML]="'auth.unauthenticated' | translate"
               ></span>
               <div class="alert-actions">
                 <clr-icon
@@ -88,6 +85,27 @@ import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
               </div>
             </clr-alert-item>
           </clr-alert>
+
+          <!-- AUTHORIZATION -->
+          <clr-alert
+            *ngSwitchCase="uiStateResultCode.UNAUTHORIZED"
+            [clrAlertType]="'warning'"
+            [clrAlertClosable]="false"
+          >
+            <clr-alert-item>
+              <span
+                class="alert-text"
+                [innerHTML]="'auth.unauthorized' | translate"
+              ></span>
+              <div class="alert-actions">
+                <clr-icon
+                  shape="times"
+                  (click)="onClrAlertClosedChanged(true)"
+                ></clr-icon>
+              </div>
+            </clr-alert-item>
+          </clr-alert>
+          <!--\ AUTHORIZATION -->
           <!-- Case successful login -->
           <clr-alert
             *ngSwitchCase="uiStateResultCode.AUTHENTICATED"
@@ -97,7 +115,7 @@ import { isServerBadRequest, HTTP_CLIENT } from "src/app/lib/core/http";
             <clr-alert-item>
               <span
                 class="alert-text"
-                [innerHTML]="'login.successful' | translate"
+                [innerHTML]="'auth.authenticated' | translate"
               ></span>
               <div class="alert-actions">
                 <clr-icon
@@ -162,7 +180,7 @@ export class AppUINotificationComponent implements OnDestroy {
   >();
   @Input() set uiState(state: UIState) {
     this._state$.next({
-      message: state.uiMessage,
+      message: state.uiMessage === '' ? undefined : state.uiMessage,
       status: state.status,
       hasError: state.hasError,
       hidden: state.performingAction || !isDefined(state.status),
@@ -171,7 +189,7 @@ export class AppUINotificationComponent implements OnDestroy {
 
   public state$ = this._state$.asObservable().pipe(
     startWith({
-      message: "",
+      message: '',
       status: undefined,
       hasError: false,
       hidden: true,
@@ -195,7 +213,7 @@ export class AppUINotificationComponent implements OnDestroy {
   onClrAlertClosedChanged(value: boolean): void {
     if (value) {
       this._state$.next({
-        message: "",
+        message: '',
         status: UIStateStatusCode.OK,
         hasError: false,
         hidden: true,
@@ -210,7 +228,7 @@ export class AppUINotificationComponent implements OnDestroy {
         tap((state) => {
           this.endActionEvent.emit({
             status: uiStatusUsingHttpErrorResponse(state),
-            message: "",
+            message: '',
           });
         })
       )
