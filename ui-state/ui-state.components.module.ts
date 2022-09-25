@@ -1,35 +1,19 @@
-import { CommonModule } from "@angular/common";
-import { ModuleWithProviders, NgModule } from "@angular/core";
-import { ClarityModule } from "@clr/angular";
-import { TranslateModule } from "@ngx-translate/core";
-import {
-  OnlineStateMonitoring,
-  OnlineStateMonitoringComponent,
-} from "./alert/online-state";
-import { AppComponentsLoadingComponent } from "./loader/app-component-loader.component";
-import { AppUINotificationComponent } from "./alert/notification/notification.component";
-import { PipesModule } from "../pipes";
-import { NotificationAlertComponent } from "./alert/notification/notification-container";
+import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { AlertModule } from './alert/notification/notification.module';
+import { NetworkStateModule } from './alert/online-state';
+import { AppComponentsLoadingComponent } from './loader/app-component-loader.component';
 
 @NgModule({
-  declarations: [
-    OnlineStateMonitoringComponent,
-    AppUINotificationComponent,
-    AppComponentsLoadingComponent,
-    NotificationAlertComponent,
-  ],
-  imports: [CommonModule, ClarityModule, TranslateModule, PipesModule],
-  exports: [
-    OnlineStateMonitoringComponent,
-    AppUINotificationComponent,
-    AppComponentsLoadingComponent,
-  ],
+  declarations: [AppComponentsLoadingComponent],
+  imports: [CommonModule],
+  exports: [AppComponentsLoadingComponent, AlertModule, NetworkStateModule],
 })
 export class UIStateComponentsModule {
   static forRoot(): ModuleWithProviders<UIStateComponentsModule> {
     return {
       ngModule: UIStateComponentsModule,
-      providers: [OnlineStateMonitoring],
+      providers: [],
     };
   }
 }
