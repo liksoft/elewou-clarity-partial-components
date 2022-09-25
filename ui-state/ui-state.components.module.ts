@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { AlertModule } from './alert/notification/notification.module';
-import { NetworkStateModule } from './alert/online-state';
+import { NetworkStateModule } from './alert/network-state';
 import { AppComponentsLoadingComponent } from './loader/app-component-loader.component';
 
 @NgModule({

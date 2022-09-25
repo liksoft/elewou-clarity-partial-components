@@ -1,21 +1,27 @@
-import { Component, OnInit, Input } from "@angular/core";
-import {
-  ConnectionStatus,
-  OnlineStateMonitoring,
-} from "./online-state-monitoring.service";
-import { first, map, tap } from "rxjs/operators";
-import { BehaviorSubject, combineLatest, interval } from "rxjs";
+import { Component, OnInit, Input } from '@angular/core';
+import { NetworkStatus, NetworkState } from './network-state.service';
+import { first, map, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, interval } from 'rxjs';
+
+const defaultMessages = {
+  offline:
+    'Vous semblez être déconnecté. Tentative de reconnection en cours...',
+  online: 'Votre connection est rétablie',
+};
+
+type PropsType = {
+  offline: string;
+  online: string;
+};
 
 @Component({
-  selector: "app-online-state-monitoring",
-  templateUrl: "./online-state-monitoring.component.html",
+  selector: 'azjs-network-state',
+  templateUrl: './network-state.component.html',
   styles: [],
 })
-export class OnlineStateMonitoringComponent implements OnInit {
+export class NetworkStateComponent implements OnInit {
   // #region Inputs
-  @Input() offlineText: string =
-    "Vous semblez être déconnecté. Tentative de reconnection en cours...";
-  @Input() onlineText: string = "Votre connection est rétablie...";
+  @Input() messages: PropsType = defaultMessages;
   // #endregion
   _showAlertView$ = new BehaviorSubject(false);
   showAlertView$ = this._showAlertView$.asObservable();
@@ -26,8 +32,8 @@ export class OnlineStateMonitoringComponent implements OnInit {
     this.showAlertView$,
   ]).pipe(
     map(([value, hidden]) => {
-      value = value || ConnectionStatus.OFFLINE;
-      if (value === ConnectionStatus.OFFLINE) {
+      value = value || NetworkStatus.OFFLINE;
+      if (value === NetworkStatus.OFFLINE) {
         return {
           stateChanged: true,
           online: false,
@@ -48,7 +54,7 @@ export class OnlineStateMonitoringComponent implements OnInit {
     })
   );
 
-  constructor(private provider: OnlineStateMonitoring) {}
+  constructor(private provider: NetworkState) {}
 
   ngOnInit(): void {
     this.provider.registerToConnectionStates();
