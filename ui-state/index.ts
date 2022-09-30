@@ -1,5 +1,11 @@
-export { ConnectionStatus, OnlineStateMonitoring } from './alert/online-state';
+export {
+  NetworkState,
+  NetworkStateModule,
+  NetworkStatus,
+} from './alert/network-state';
+
 export { UIStateComponentsModule } from './ui-state.components.module';
+
 export {
   UIState,
   UIStateModule,

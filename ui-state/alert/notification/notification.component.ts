@@ -11,10 +11,11 @@ type PropsType = {
 
 enum StatusCode {
   UNAUTHORIZED = 401,
-  AUTHENTICATED = 202 || 200,
+  AUTHENTICATED = 202,
   UNAUTHENTICATED = 403,
-  BAD = 422 || 400,
-  OK = 200 || 201,
+  BAD = 400,
+  OK = 200,
+  CREATED = 201,
   ERROR = 500,
 }
 
@@ -23,18 +24,12 @@ enum StatusCode {
   template: `
     <ng-container *ngIf="state$ | async as state">
       <drewlabs-action-notification-container *ngIf="!state.hidden">
-        <ng-container [ngSwitch]="state.status">
-          <clr-alert
-            *ngSwitchCase="uiStateResultCode.ERROR"
-            [clrAlertType]="'danger'"
-            [clrAlertClosable]="false"
-          >
+        <ng-container *ngIf="getAlertProps(state) as props">
+          <clr-alert [clrAlertType]="props.type" [clrAlertClosable]="false">
             <clr-alert-item>
               <span
                 class="alert-text"
-                [innerHTML]="
-                  state?.message || 'serverRequestFailed' | translate | safeHtml
-                "
+                [innerHTML]="props.message ?? '' | translate | trustHtml"
               ></span>
               <div class="alert-actions">
                 <clr-icon
@@ -44,97 +39,6 @@ enum StatusCode {
               </div>
             </clr-alert-item>
           </clr-alert>
-          <!-- Case bad request input authentication -->
-          <clr-alert
-            *ngSwitchCase="uiStateResultCode.BAD"
-            [clrAlertType]="'warning'"
-            [clrAlertClosable]="false"
-          >
-            <clr-alert-item>
-              <span
-                class="alert-text"
-                [innerHTML]="
-                  state.message ?? 'invalidRequestParams' | translate | safeHtml
-                "
-              ></span>
-              <div class="alert-actions">
-                <clr-icon
-                  shape="times"
-                  (click)="onClrAlertClosedChanged(true)"
-                ></clr-icon>
-              </div>
-            </clr-alert-item>
-          </clr-alert>
-          <!-- Case invalid credentials -->
-          <clr-alert
-            *ngSwitchCase="uiStateResultCode.UNAUTHENTICATED"
-            [clrAlertType]="'warning'"
-            [clrAlertClosable]="false"
-          >
-            <clr-alert-item>
-              <span
-                class="alert-text"
-                [innerHTML]="'login.authenticationFailed' | translate"
-              ></span>
-              <div class="alert-actions">
-                <clr-icon
-                  shape="times"
-                  (click)="onClrAlertClosedChanged(true)"
-                ></clr-icon>
-              </div>
-            </clr-alert-item>
-          </clr-alert>
-          <!-- Case successful login -->
-          <clr-alert
-            *ngSwitchCase="uiStateResultCode.AUTHENTICATED"
-            [clrAlertType]="'success'"
-            [clrAlertClosable]="false"
-          >
-            <clr-alert-item>
-              <span
-                class="alert-text"
-                [innerHTML]="'login.successful' | translate"
-              ></span>
-              <div class="alert-actions">
-                <clr-icon
-                  shape="times"
-                  (click)="onClrAlertClosedChanged(true)"
-                ></clr-icon>
-              </div>
-            </clr-alert-item>
-          </clr-alert>
-
-          <clr-alert
-            *ngSwitchCase="uiStateResultCode.OK"
-            [clrAlertType]="'success'"
-            [clrAlertClosable]="false"
-          >
-            <clr-alert-item>
-              <span class="alert-text" [innerHTML]="state?.message"></span>
-              <div class="alert-actions">
-                <clr-icon
-                  shape="times"
-                  (click)="onClrAlertClosedChanged(true)"
-                ></clr-icon>
-              </div>
-            </clr-alert-item>
-          </clr-alert>
-          <clr-alert
-            *ngSwitchCase="uiStateResultCode.OK"
-            [clrAlertType]="'success'"
-            [clrAlertClosable]="false"
-          >
-            <clr-alert-item>
-              <span class="alert-text" [innerHTML]="state?.message"></span>
-              <div class="alert-actions">
-                <clr-icon
-                  shape="times"
-                  (click)="onClrAlertClosedChanged(true)"
-                ></clr-icon>
-              </div>
-            </clr-alert-item>
-          </clr-alert>
-          <!-- -->
         </ng-container>
       </drewlabs-action-notification-container>
     </ng-container>
@@ -163,12 +67,62 @@ export class AppUINotificationComponent {
     }),
     map((state) => ({
       ...state,
-      status:
-        500 === (state.status || StatusCode.OK)
-          ? StatusCode.BAD
-          : state?.status,
+      // status:
+      //   500 === (state.status ?? StatusCode.OK)
+      //     ? StatusCode.BAD
+      //     : state?.status,
     }))
   );
+
+  getAlertProps(state: Partial<PropsType>) {
+    const status: number = Number(state.status);
+
+    if (status === Number(StatusCode.BAD)) {
+      return {
+        type: 'warning',
+        message: state.message ?? 'invalidRequestParams',
+      };
+    }
+
+    if (status === Number(StatusCode.ERROR)) {
+      return {
+        type: 'danger',
+        message: state.message ?? 'serverRequestFailed',
+      };
+    }
+
+    if (status === Number(StatusCode.UNAUTHORIZED)) {
+      return {
+        type: 'warning',
+        message: 'auth.unauthorized',
+      };
+    }
+
+    if (status === Number(StatusCode.UNAUTHENTICATED)) {
+      return {
+        type: 'warning',
+        message: 'login.authenticationFailed',
+      };
+    }
+
+    if (status === Number(StatusCode.AUTHENTICATED)) {
+      return {
+        type: 'success',
+        message: 'login.successful',
+      };
+    }
+
+    if (
+      status === Number(StatusCode.OK) ||
+      status === Number(StatusCode.CREATED)
+    ) {
+      return {
+        type: 'success',
+        message: state.message,
+      };
+    }
+    return undefined;
+  }
 
   onClrAlertClosedChanged(value: boolean): void {
     if (value) {
