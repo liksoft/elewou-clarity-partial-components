@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable, InjectionToken } from "@angular/core";
 import { isString } from "lodash";
 import { map } from "rxjs/operators";
-import { doLog } from "src/app/lib/core/rxjs/operators";
 import {
   SlideContentBuilder,
   SlideContentDataLoader,

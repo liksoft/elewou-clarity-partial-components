@@ -2,7 +2,8 @@
   position: relative;
 }
 
-.lik-hostspot{
+.lik-hostspot {
+  cursor: grab;
   span.hint {
     position: absolute;
     top: -35px;
@@ -26,7 +27,11 @@
   background: #ff7300;
   padding: 10px;
   border-radius: 50%;
+}
 
+.lik-hostpot__content .lik-hostpot__info_button,
+.lik-hostpot__content .message {
+  cursor: pointer;
 }
 
 .lik-hostpot__content .lik-hostpot__info_button.show {
@@ -47,4 +52,3 @@
   background: transparent !important;
   box-shadow: none;
 }
-

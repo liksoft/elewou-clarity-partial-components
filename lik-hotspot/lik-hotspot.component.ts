@@ -12,12 +12,12 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LikHotspotComponent implements OnInit {
-  @Input() public message = 'This is a message';
-  @Input() public classes = 'relative-top';
+  @Input() public message = '';
+  @Input() public classes = '';
   @Input() public shape = 'help-info';
   @Input() public close = 'times';
 
-  @Input() hidden = false;
+  @Input() hidden = true;
 
   ngOnInit(): void {}
 
