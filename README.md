@@ -3,7 +3,6 @@
 This submodule is composed of LIKSOFT reusable components build arround Clarity Design framework [https://clarity.design].
 Most component are build to be configurable using javascript prototype based object, to be flexible for most use case.
 
-
 ## Usage guide
 
 ### Smart Grid Component
@@ -12,7 +11,7 @@ Smart grid component is an angular component, using clarity datagrid component u
 
 Basically the implementation comes with a module that wrap required component and directives for the module to work. In your root application module, or any child module add this to your imports:
 
-```
+```ts
 // app.module.ts
 
 import { ClrSmartGridModule } from "./path/to/your/partials/module/clr-smart-grid";
@@ -255,12 +254,3 @@ Part of the datagrid such as action bar, action button, expandable row space, de
   </azlabs-clr-smart-grid>
 </div>
 ```
-
-
-
-
-
-
-
-
-

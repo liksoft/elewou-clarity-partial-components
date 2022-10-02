@@ -52,7 +52,6 @@ export class SlidesComponent implements OnInit, OnDestroy {
   @Input() timer = 1000;
   @Input() slides: Slide[] = [];
   @Input() current: number = 0;
-  // @Input() slideState = false;
   @Input() autostart: boolean = false;
   slideLeft: boolean = false;
 

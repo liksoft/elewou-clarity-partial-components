@@ -27,7 +27,7 @@ export const BROWSER_WINDOW = new InjectionToken<Window>(
 /**
  * @description Enumerated values specifying the connection status of the current application navigator
  */
-export enum ConnectionStatus {
+export enum NetworkStatus {
   OFFLINE = 0,
   ONLINE = 1,
 }
@@ -40,23 +40,23 @@ enum EventType {
 @Injectable({
   providedIn: "root",
 })
-export class OnlineStateMonitoring implements OnDestroy {
+export class NetworkState implements OnDestroy {
   // tslint:disable-next-line: variable-name
-  private _connectionStatus = new BehaviorSubject(ConnectionStatus.ONLINE);
+  private _connectionStatus = new BehaviorSubject(NetworkStatus.ONLINE);
   connectionStatus$ = this._connectionStatus.asObservable();
 
   constructor(@Inject(BROWSER_WINDOW) @Optional() private window?: Window) {}
 
   registerToConnectionStates = () => {
     this.window?.addEventListener(EventType.ONLINE_EVENT, () => {
-      this._connectionStatus.next(ConnectionStatus.ONLINE);
+      this._connectionStatus.next(NetworkStatus.ONLINE);
     });
     this.window?.addEventListener(EventType.OFFLINE_EVENT, () => {
-      this._connectionStatus.next(ConnectionStatus.OFFLINE);
+      this._connectionStatus.next(NetworkStatus.OFFLINE);
     });
   };
 
-  setState = (state: ConnectionStatus) => {
+  setState = (state: NetworkStatus) => {
     this._connectionStatus.next(state);
   };
 

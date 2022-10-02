@@ -1,13 +1,10 @@
-import { fromPairs } from 'lodash';
-
 export {
-  ConnectionStatus,
-  OnlineStateMonitoring as OnlineStateMonitoringService
-} from './alert/online-state';
+  NetworkState,
+  NetworkStateModule,
+  NetworkStatus,
+} from './alert/network-state';
 
-export {
-  UIStateComponentsModule
-} from './ui-state.components.module';
+export { UIStateComponentsModule } from './ui-state.components.module';
 
 export {
   UIState,
@@ -15,5 +12,4 @@ export {
   UIStateProvider,
   UIStateStatusCode,
   UI_STATE_PROVIDER,
-
 } from './core/index';

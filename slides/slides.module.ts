@@ -1,7 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from "@angular/core";
-import { ClarityModule } from "@clr/angular";
 import {
   SlideContentDataLoader,
   SLIDE_CONTENT_HANDLER,

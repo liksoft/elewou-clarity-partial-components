@@ -8,7 +8,7 @@ export class ParseDatePipe implements PipeTransform {
   transform(value: any, args?: any): any {
     return typeof value === 'undefined' || value === null
       ? ''
-      : JSDate.isDate(value)
+      : JSDate.isValid(value)
       ? JSDate.format(value, args ? args : 'DD/MM/YYYY')
       : value;
   }
@@ -21,7 +21,7 @@ export class DateTimePipe implements PipeTransform {
   transform(value: any, args?: any): any {
     return typeof value === 'undefined' || value === null
       ? ''
-      : JSDate.isDate(value)
+      : JSDate.isValid(value)
       ? JSDate.format(value, args ? args : 'lll')
       : value;
   }
@@ -35,7 +35,7 @@ export class TimeAgoPipe implements PipeTransform {
   transform(value: any, locale: string = 'fr-FR'): string {
     return typeof value === 'undefined' || value === null
       ? ''
-      : JSDate.isDate(value)
+      : JSDate.isValid(value)
       ? GetTimeAgo()(JSDate.create(value), locale ?? 'fr-FR')
       : value;
   }

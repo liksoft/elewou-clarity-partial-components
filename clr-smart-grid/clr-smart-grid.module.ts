@@ -16,7 +16,6 @@ import {
   MaskedContentPipe,
   ParseDatePipe,
   ParseMonthPipe,
-  PipesModule,
   SafeRessourceContentPipe,
   SafeWebContentPipe,
   TimeAgoPipe,
@@ -27,7 +26,7 @@ import { ColumnDataPipe } from './pipes/colum-data.pipe';
 
 @NgModule({
   declarations: [ClrSmartGridComponent, ColumnDataPipe, ClrGridSelectDirective],
-  imports: [CommonModule, ClarityModule, PipesModule],
+  imports: [CommonModule, ClarityModule],
   exports: [ClrSmartGridComponent],
   providers: [
     UpperCasePipe,
