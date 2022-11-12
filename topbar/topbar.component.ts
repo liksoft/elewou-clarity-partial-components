@@ -49,7 +49,6 @@ export class AppTopBarComponent implements OnInit {
   @Input() public user!: TopBarUserDetails;
   @Input() public isGuest: boolean = false;
   @Input() public performingAction = false;
-
   @Output() logoutEvent = new EventEmitter<string>();
 
   state$ = combineLatest([this.translator.get("promptLogout")]).pipe(
