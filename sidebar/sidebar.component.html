@@ -36,6 +36,7 @@
           clrVerticalNavLink
           routerLinkActive="active"
           [routerLink]="vm.get(key)?.routePath"
+          class="{{ vm.get(key)?.routeDescription | lowercase }}"
         >
           <clr-icon
             *ngIf="vm.get(key)?.routeIcon"
