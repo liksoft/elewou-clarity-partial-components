@@ -33,6 +33,7 @@ export class SidebarComponent {
 
   @Input() public moduleName!: string;
   @Input() public applicationName!: string;
+  @Input() public collapsed: boolean = false;
 
   private _routesMap$ = new BehaviorSubject<RoutesMap[]>([]);
 
