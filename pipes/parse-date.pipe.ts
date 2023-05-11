@@ -6,11 +6,10 @@ import { GetTimeAgo, JSDate, ParseMonth } from "@azlabsjs/js-datetime";
 })
 export class ParseDatePipe implements PipeTransform {
   transform(value: any, args?: any): any {
-    return typeof value === "undefined" || value === null
-      ? ""
-      : JSDate.isDate(value)
-      ? JSDate.format(value, args ? args : "DD/MM/YYYY")
-      : value;
+    if (JSDate.isDate(new Date(value))) {
+      return JSDate.format(value, args ? args : "lll");
+    }
+    return "";
   }
 }
 
@@ -22,8 +21,8 @@ export class DateTimePipe implements PipeTransform {
     return typeof value === "undefined" || value === null
       ? ""
       : JSDate.isDate(value)
-      ? JSDate.format(value, args ? args : "lll")
-      : value;
+        ? JSDate.format(value, args ? args : "lll")
+        : value;
   }
 }
 
@@ -36,8 +35,8 @@ export class TimeAgoPipe implements PipeTransform {
     return typeof value === "undefined" || value === null
       ? ""
       : JSDate.isDate(value)
-      ? GetTimeAgo()(JSDate.create(value), locale ?? "fr-FR")
-      : value;
+        ? GetTimeAgo()(JSDate.create(value), locale ?? "fr-FR")
+        : value;
   }
 }
 
