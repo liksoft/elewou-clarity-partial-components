@@ -5,13 +5,19 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class FormatAmountPipe implements PipeTransform {
   transform(value: any, locale: string = "fr-FR", currency?: string): any {
+    if (value === undefined || value === null || value === "") {
+      return "";
+    }
     return Intl.NumberFormat(locale, { currency }).format(value);
   }
 }
 
 @Pipe({ name: "positiveNumber" })
 export class PositiveNumber implements PipeTransform {
-  transform(value: number): number {
+  transform(value?: any): number | undefined {
+    if (undefined == value) {
+      return value;
+    }
     return Math.abs(value);
   }
 }
