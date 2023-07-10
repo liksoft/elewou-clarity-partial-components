@@ -11,8 +11,8 @@ export class FormatAmountPipe implements PipeTransform {
 
 @Pipe({ name: "positiveNumber" })
 export class PositiveNumber implements PipeTransform {
-  transform(value: number): number {
-    return Math.abs(value);
+  transform(value?: number): number {
+    return Math.abs(value ?? 0);
   }
 }
 
